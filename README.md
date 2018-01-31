@@ -1,4 +1,4 @@
-# COP290-Assignment
+# PackagED
 
 This repository holds the documentation and code for the assignment in the Course COP290 (Design Practices). The aim is to develop a software package for Engineering Drawing.
 
