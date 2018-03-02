@@ -2,11 +2,10 @@
 
 class Projection2D {
 public:
-    OrthoProjection front;
-    OrthoProjection top;
+    OrthoProjection frontview;
+    OrthoProjection topview;
     int create3D();
 private:
     Point determinePoint(Point, Point);
     Edge * determineEdges(Point, Point[], Point[]);
 };
-

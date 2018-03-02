@@ -6,11 +6,23 @@ public:
     Edge edges[];
     Face faces[];
     int project3D(double[4]);
+    Object3D rotateObject(double, double, double);
+    Object3D translate(double, double, double);
 private:
     bool checkHiddenVertice(Point,double[4]);
     bool checkHiddenEdge(Edge,double[4]);
     bool rayCasting(Point,Face);
 };
+
+Object3D rotateObject(double aboutx, double abouty, double aboutz) {
+    // Returns a new 3D Object with the rotated coordinates, obtained by rotating the current object
+    // by the angles "aboutz" about the Z-axis, by "aboutx" about the X-axis and by "abouty" about the Y-axis
+}
+
+Object3D translate(double x, double y, double z) {
+    // This function returns a new Object3D instance, which is obtained by translating the current object
+    // by the distances, specified in the parameters
+}
 
 int Object3D::project3D(double projectionPlane[4]) {
     // General Function to project the current 3D object onto the projection plane passed as parameter "projectionPlane"
