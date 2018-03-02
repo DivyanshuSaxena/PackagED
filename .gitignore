@@ -31,6 +31,6 @@
 *.out
 *.app
 
-doc/latex/*
+latex/
 doc/Doxyfile
-CDBProject/*
+CDBProject/
