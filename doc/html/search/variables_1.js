@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['edges',['edges',['../class_wireframe.html#a9ee60c1a225ed3e092db433aabb8fdc1',1,'Wireframe::edges()'],['../class_object3_d.html#ad93f210748663a4d0aaa89287dee3dae',1,'Object3D::edges()']]]
+  ['faces',['faces',['../class_object3_d.html#a4cc7f57059a990a8573a7644a4d3ab2a',1,'Object3D']]],
+  ['frontview',['frontview',['../class_projection2_d.html#a1eb4d010190b1bd62bf0f9c4e4afc88a',1,'Projection2D']]]
 ];

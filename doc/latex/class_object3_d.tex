@@ -1,67 +1,68 @@
-\section{Object3D Class Reference}
+\hypertarget{class_object3_d}{}\section{Object3D Class Reference}
 \label{class_object3_d}\index{Object3D@{Object3D}}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \textbf{ project3D} (double[4])
+int \hyperlink{class_object3_d_a17e177a936a71e0a5599ce7ca76bae78}{project3D} (double\mbox{[}4\mbox{]})
 \item 
-\textbf{ Object3D} \textbf{ rotate\+Object} (double, double, double)
+\hyperlink{class_object3_d}{Object3D} \hyperlink{class_object3_d_a476b3de610cb30be0b050b4701ba4701}{rotate\+Object} (double, double, double)
 \item 
-\textbf{ Object3D} \textbf{ translate} (double, double, double)
+\hyperlink{class_object3_d}{Object3D} \hyperlink{class_object3_d_afb299c53794e9f4fb708efbde24c9a21}{translate} (double, double, double)
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\textbf{ Point} \textbf{ vertices} [$\,$]
+\hyperlink{class_point}{Point} \hyperlink{class_object3_d_a23cc82ea4ef0af8e0e22871bdbdba6c6}{vertices} \mbox{[}$\,$\mbox{]}
 \item 
-\textbf{ Edge} \textbf{ edges} [$\,$]
+\hyperlink{class_edge}{Edge} \hyperlink{class_object3_d_ad93f210748663a4d0aaa89287dee3dae}{edges} \mbox{[}$\,$\mbox{]}
 \item 
-\textbf{ Face} \textbf{ faces} [$\,$]
+\hyperlink{class_face}{Face} \hyperlink{class_object3_d_a4cc7f57059a990a8573a7644a4d3ab2a}{faces} \mbox{[}$\,$\mbox{]}
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+This class provides an abstraction for a real world 3D object and incorporates the functions for the same. The class incorporates functions for operating upon the object 
+
 \subsection{Member Function Documentation}
-\mbox{\label{class_object3_d_a17e177a936a71e0a5599ce7ca76bae78}} 
 \index{Object3D@{Object3D}!project3D@{project3D}}
 \index{project3D@{project3D}!Object3D@{Object3D}}
-\subsubsection{project3\+D()}
-{\footnotesize\ttfamily int Object3\+D\+::project3D (\begin{DoxyParamCaption}\item[{double}]{projection\+Plane[4] }\end{DoxyParamCaption})}
-
-General Function to project the current 3D object onto the projection plane passed as parameter \char`\"{}projection\+Plane\char`\"{}\mbox{\label{class_object3_d_a476b3de610cb30be0b050b4701ba4701}} 
-\index{Object3D@{Object3D}!rotate\+Object@{rotate\+Object}}
+\subsubsection[{\texorpdfstring{project3\+D(double[4])}{project3D(double[4])}}]{\setlength{\rightskip}{0pt plus 5cm}int Object3\+D\+::project3D (
+\begin{DoxyParamCaption}
+\item[{double}]{projection\+Plane\mbox{[}4\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{class_object3_d_a17e177a936a71e0a5599ce7ca76bae78}{}\label{class_object3_d_a17e177a936a71e0a5599ce7ca76bae78}
+General Function to project the current 3D object onto the projection plane passed as parameter \char`\"{}projection\+Plane\char`\"{}\index{Object3D@{Object3D}!rotate\+Object@{rotate\+Object}}
 \index{rotate\+Object@{rotate\+Object}!Object3D@{Object3D}}
-\subsubsection{rotate\+Object()}
-{\footnotesize\ttfamily \textbf{ Object3D} Object3\+D\+::rotate\+Object (\begin{DoxyParamCaption}\item[{double}]{,  }\item[{double}]{,  }\item[{double}]{ }\end{DoxyParamCaption})}
-
-\mbox{\label{class_object3_d_afb299c53794e9f4fb708efbde24c9a21}} 
-\index{Object3D@{Object3D}!translate@{translate}}
+\subsubsection[{\texorpdfstring{rotate\+Object(double, double, double)}{rotateObject(double, double, double)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Object3D} Object3\+D\+::rotate\+Object (
+\begin{DoxyParamCaption}
+\item[{double}]{aboutx, }
+\item[{double}]{abouty, }
+\item[{double}]{aboutz}
+\end{DoxyParamCaption}
+)}\hypertarget{class_object3_d_a476b3de610cb30be0b050b4701ba4701}{}\label{class_object3_d_a476b3de610cb30be0b050b4701ba4701}
+Returns a new 3D Object with the rotated coordinates, obtained by rotating the current object by the angles \char`\"{}aboutz\char`\"{} about the Z-\/axis, by \char`\"{}aboutx\char`\"{} about the X-\/axis and by \char`\"{}abouty\char`\"{} about the Y-\/axis\index{Object3D@{Object3D}!translate@{translate}}
 \index{translate@{translate}!Object3D@{Object3D}}
-\subsubsection{translate()}
-{\footnotesize\ttfamily \textbf{ Object3D} Object3\+D\+::translate (\begin{DoxyParamCaption}\item[{double}]{,  }\item[{double}]{,  }\item[{double}]{ }\end{DoxyParamCaption})}
-
-
+\subsubsection[{\texorpdfstring{translate(double, double, double)}{translate(double, double, double)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Object3D} Object3\+D\+::translate (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double}]{y, }
+\item[{double}]{z}
+\end{DoxyParamCaption}
+)}\hypertarget{class_object3_d_afb299c53794e9f4fb708efbde24c9a21}{}\label{class_object3_d_afb299c53794e9f4fb708efbde24c9a21}
+This function returns a new \hyperlink{class_object3_d}{Object3D} instance, which is obtained by translating the current object by the distances, specified in the parameters
 
 \subsection{Member Data Documentation}
-\mbox{\label{class_object3_d_ad93f210748663a4d0aaa89287dee3dae}} 
 \index{Object3D@{Object3D}!edges@{edges}}
 \index{edges@{edges}!Object3D@{Object3D}}
-\subsubsection{edges}
-{\footnotesize\ttfamily \textbf{ Edge} Object3\+D\+::edges[$\,$]}
-
-\mbox{\label{class_object3_d_a4cc7f57059a990a8573a7644a4d3ab2a}} 
+\subsubsection[{\texorpdfstring{edges}{edges}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Edge} Object3\+D\+::edges\mbox{[}$\,$\mbox{]}}\hypertarget{class_object3_d_ad93f210748663a4d0aaa89287dee3dae}{}\label{class_object3_d_ad93f210748663a4d0aaa89287dee3dae}
 \index{Object3D@{Object3D}!faces@{faces}}
 \index{faces@{faces}!Object3D@{Object3D}}
-\subsubsection{faces}
-{\footnotesize\ttfamily \textbf{ Face} Object3\+D\+::faces[$\,$]}
-
-\mbox{\label{class_object3_d_a23cc82ea4ef0af8e0e22871bdbdba6c6}} 
+\subsubsection[{\texorpdfstring{faces}{faces}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Face} Object3\+D\+::faces\mbox{[}$\,$\mbox{]}}\hypertarget{class_object3_d_a4cc7f57059a990a8573a7644a4d3ab2a}{}\label{class_object3_d_a4cc7f57059a990a8573a7644a4d3ab2a}
 \index{Object3D@{Object3D}!vertices@{vertices}}
 \index{vertices@{vertices}!Object3D@{Object3D}}
-\subsubsection{vertices}
-{\footnotesize\ttfamily \textbf{ Point} Object3\+D\+::vertices[$\,$]}
-
+\subsubsection[{\texorpdfstring{vertices}{vertices}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point} Object3\+D\+::vertices\mbox{[}$\,$\mbox{]}}\hypertarget{class_object3_d_a23cc82ea4ef0af8e0e22871bdbdba6c6}{}\label{class_object3_d_a23cc82ea4ef0af8e0e22871bdbdba6c6}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-G\+:/compu/\+C\+O\+P290/\+Packag\+E\+D/src/\textbf{ Object3\+D.\+cpp}\end{DoxyCompactItemize}
+Packag\+E\+D/src/\hyperlink{_object3_d_8cpp}{Object3\+D.\+cpp}\end{DoxyCompactItemize}

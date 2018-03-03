@@ -1,9 +1,9 @@
 #include "Classes.h"
 
+///
+/// This class holds the 2D orthographic projections of a 3D object.
+///
 class Projection2D {
-    ///
-    /// This class holds the 2D orthographic projections of a 3D object.
-    ///
 public:
     OrthoProjection frontview;
     OrthoProjection topview;

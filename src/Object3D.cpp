@@ -1,4 +1,7 @@
 #include "Classes.h"
+///
+/// This class provides an abstraction for a real world 3D object and incorporates the functions for the same. The class incorporates functions for operating upon the object
+///
 
 class Object3D {
 public:

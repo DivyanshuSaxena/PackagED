@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['possibleneighbours',['possibleNeighbours',['../class_ortho_projection.html#aa0634b80a904634451f03a11db28c33d',1,'OrthoProjection::possibleNeighbours(Point)'],['../class_ortho_projection.html#a1b7f34c49143fea8354756f3271caf01',1,'OrthoProjection::possibleNeighbours(Point)']]],
-  ['project3d',['project3D',['../class_object3_d.html#a17e177a936a71e0a5599ce7ca76bae78',1,'Object3D']]],
-  ['projectpoint',['projectPoint',['../class_point.html#a209c076529495ad94cf65b8a71d29913',1,'Point::projectPoint(double[])'],['../class_point.html#a209c076529495ad94cf65b8a71d29913',1,'Point::projectPoint(double[])']]]
+  ['relativeposition',['relativePosition',['../class_point.html#a700201e1da138be7e3225b9d2bff50e9',1,'Point']]],
+  ['rotateobject',['rotateObject',['../class_object3_d.html#a476b3de610cb30be0b050b4701ba4701',1,'Object3D']]]
 ];

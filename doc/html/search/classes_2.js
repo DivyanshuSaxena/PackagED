@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['face',['Face',['../class_face.html',1,'']]]
+  ['object3d',['Object3D',['../class_object3_d.html',1,'']]],
+  ['orthoprojection',['OrthoProjection',['../class_ortho_projection.html',1,'']]]
 ];
