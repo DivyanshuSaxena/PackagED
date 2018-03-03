@@ -23,6 +23,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">PackagED
    </div>
+   <div id="projectbrief">A software package for enabling engineering drawing operations</div>
   </td>
  </tr>
  </tbody>
@@ -70,25 +71,27 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_classes_8h_source.html">Classes.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="include_2_classes_8h_source.html">Classes.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa0634b80a904634451f03a11db28c33d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ortho_projection.html#aa0634b80a904634451f03a11db28c33d">possibleNeighbours</a> (<a class="el" href="class_point.html">Point</a>)</td></tr>
 <tr class="separator:aa0634b80a904634451f03a11db28c33d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b7f34c49143fea8354756f3271caf01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ortho_projection.html#a1b7f34c49143fea8354756f3271caf01">possibleNeighbours</a> (<a class="el" href="class_point.html">Point</a>)</td></tr>
+<tr class="separator:a1b7f34c49143fea8354756f3271caf01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a66b7e72014671cf35f4c6728b7baeec6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ortho_projection.html#a66b7e72014671cf35f4c6728b7baeec6">vertices</a> []</td></tr>
-<tr class="separator:a66b7e72014671cf35f4c6728b7baeec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8903896a5a8facc50585ea50584617a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">Edge</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ortho_projection.html#a8903896a5a8facc50585ea50584617a1">visibleEdges</a> []</td></tr>
-<tr class="separator:a8903896a5a8facc50585ea50584617a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5ebfefeb5cbc7ba0373697161ce27da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">Edge</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ortho_projection.html#af5ebfefeb5cbc7ba0373697161ce27da">hiddenEdges</a> []</td></tr>
-<tr class="separator:af5ebfefeb5cbc7ba0373697161ce27da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a1dc617707e6ba081a0da2afae79045"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ortho_projection.html#a6a1dc617707e6ba081a0da2afae79045">vertices</a> []</td></tr>
+<tr class="separator:a6a1dc617707e6ba081a0da2afae79045"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29bee27443a63b0c78aee098465b60f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">Edge</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ortho_projection.html#a29bee27443a63b0c78aee098465b60f8">visibleEdges</a> []</td></tr>
+<tr class="separator:a29bee27443a63b0c78aee098465b60f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a986646bfb5af2f2b2546c176ab5b0ef2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">Edge</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ortho_projection.html#a986646bfb5af2f2b2546c176ab5b0ef2">hiddenEdges</a> []</td></tr>
+<tr class="separator:a986646bfb5af2f2b2546c176ab5b0ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa0634b80a904634451f03a11db28c33d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0634b80a904634451f03a11db28c33d">&#9670;&nbsp;</a></span>possibleNeighbours()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0634b80a904634451f03a11db28c33d">&#9670;&nbsp;</a></span>possibleNeighbours() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -102,46 +105,66 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Function that returns a list of possible neighbors of the point passed in parameter, from the current orthographic projection</p>
+
+</div>
+</div>
+<a id="a1b7f34c49143fea8354756f3271caf01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b7f34c49143fea8354756f3271caf01">&#9670;&nbsp;</a></span>possibleNeighbours() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a>* OrthoProjection::possibleNeighbours </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_point.html">Point</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="af5ebfefeb5cbc7ba0373697161ce27da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5ebfefeb5cbc7ba0373697161ce27da">&#9670;&nbsp;</a></span>hiddenEdges</h2>
+<a id="a986646bfb5af2f2b2546c176ab5b0ef2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a986646bfb5af2f2b2546c176ab5b0ef2">&#9670;&nbsp;</a></span>hiddenEdges</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_edge.html">Edge</a> OrthoProjection::hiddenEdges[]</td>
+          <td class="memname"><a class="el" href="class_edge.html">Edge</a> OrthoProjection::hiddenEdges</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a66b7e72014671cf35f4c6728b7baeec6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66b7e72014671cf35f4c6728b7baeec6">&#9670;&nbsp;</a></span>vertices</h2>
+<a id="a6a1dc617707e6ba081a0da2afae79045"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a1dc617707e6ba081a0da2afae79045">&#9670;&nbsp;</a></span>vertices</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_point.html">Point</a> OrthoProjection::vertices[]</td>
+          <td class="memname"><a class="el" href="class_point.html">Point</a> OrthoProjection::vertices</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>This class provides an abstraction for the 2D projection of a 3D object on a plane. </p>
 
 </div>
 </div>
-<a id="a8903896a5a8facc50585ea50584617a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8903896a5a8facc50585ea50584617a1">&#9670;&nbsp;</a></span>visibleEdges</h2>
+<a id="a29bee27443a63b0c78aee098465b60f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29bee27443a63b0c78aee098465b60f8">&#9670;&nbsp;</a></span>visibleEdges</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_edge.html">Edge</a> OrthoProjection::visibleEdges[]</td>
+          <td class="memname"><a class="el" href="class_edge.html">Edge</a> OrthoProjection::visibleEdges</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -149,8 +172,8 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/<a class="el" href="_classes_8h_source.html">Classes.h</a></li>
-<li>src/<a class="el" href="_ortho_projection_8cpp.html">OrthoProjection.cpp</a></li>
+<li>G:/compu/COP290/PackagED/include/<a class="el" href="include_2_classes_8h_source.html">Classes.h</a></li>
+<li>G:/compu/COP290/PackagED/src/<a class="el" href="_ortho_projection_8cpp.html">OrthoProjection.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

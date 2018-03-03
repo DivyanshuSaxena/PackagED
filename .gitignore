@@ -32,6 +32,4 @@
 *.app
 
 check.cpp
-latex/
-doc/Doxyfile
 CDBProject/

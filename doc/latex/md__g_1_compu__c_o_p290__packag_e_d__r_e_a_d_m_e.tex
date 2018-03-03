@@ -1,0 +1,30 @@
+This repository holds the documentation and code for the assignment in the Course C\+O\+P290 (Design Practices). The aim is to develop a software package for Engineering Drawing.
+
+The package is supposed to have the following functionalities\+:
+\begin{DoxyEnumerate}
+\item We should be able to interactively input or read from a file either i) an isometric drawing and a 3D object model or ii) projections on to any cross section.
+\item Given the 3D model description we should be able to generate projections on to any cross section or cutting plane.
+\item Given two or more projections we should be able to interactively recover the 3D description and produce an isometric drawing from any view direction.
+\end{DoxyEnumerate}
+
+The package structure for the software package is as follows\+: ~\newline
+Packag\+ED $\vert$ ~\newline
+ $\vert$-\/$>$ bin ~\newline
+ $\vert$-\/$>$ build ~\newline
+ $\vert$-\/$>$ doc ~\newline
+ $\vert$-\/$>$ include ~\newline
+ $\vert$-\/$>$ lib ~\newline
+ $\vert$-\/$>$ src ~\newline
+ $\vert$-\/$>$ test ~\newline
+
+
+Following is a description of the above-\/mentioned directories\+:
+\begin{DoxyEnumerate}
+\item {\bfseries bin} -\/ All the object files, obtained after build shall be kept in this folder.
+\item {\bfseries build} -\/ All executables are supposed to be kept in this folder.
+\item {\bfseries doc} -\/ All doxygen generated html pages and other documentations relating to the project are supposed to be kept in this folder.
+\item {\bfseries include} -\/ All header files to be included in the project are kept in this folder.
+\item {\bfseries lib} -\/ This folder contains all external libraries required for the software.
+\item {\bfseries src} -\/ This folder is supposed to contain all source files (.cpp) written in C++ are to be kept here.
+\item {\bfseries test} -\/ This folder shall be host to all test files written for debugging and testing the software package (yet to be updated). 
+\end{DoxyEnumerate}
