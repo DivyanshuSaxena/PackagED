@@ -91,14 +91,55 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Main.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;Classes.h&quot;</code><br />
+<div class="textblock"><code>#include &lt;GL/glut.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="_classes_8h_source.html">Classes.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a5c38baf978c399ae8cc04df06da85c43"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_object3_d.html">Object3D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_main_8cpp.html#a5c38baf978c399ae8cc04df06da85c43">createObject</a> ()</td></tr>
+<tr class="separator:a5c38baf978c399ae8cc04df06da85c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b0b9e643edcb552ad38f8b687036659"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ortho_projection.html">OrthoProjection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_main_8cpp.html#a8b0b9e643edcb552ad38f8b687036659">createProjection</a> ()</td></tr>
+<tr class="separator:a8b0b9e643edcb552ad38f8b687036659"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0739e255d0ab5aaabeaea59a2e57f64"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_main_8cpp.html#ad0739e255d0ab5aaabeaea59a2e57f64">renderObject</a> (<a class="el" href="class_wireframe.html">Wireframe</a>)</td></tr>
+<tr class="separator:ad0739e255d0ab5aaabeaea59a2e57f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9dfa01f76820fc1c4908c305ccb7903"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_main_8cpp.html#af9dfa01f76820fc1c4908c305ccb7903">renderProjection</a> (<a class="el" href="class_ortho_projection.html">OrthoProjection</a>)</td></tr>
+<tr class="separator:af9dfa01f76820fc1c4908c305ccb7903"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a5c38baf978c399ae8cc04df06da85c43"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_object3_d.html">Object3D</a> createObject </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function shall make use of the gtk library, to interactively take input from the user and returns the 3D object created from the user input</p>
+
+</div>
+</div>
+<a class="anchor" id="a8b0b9e643edcb552ad38f8b687036659"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_ortho_projection.html">OrthoProjection</a> createProjection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function shall make use of the gtk library, to interactively take input from the user, to form a 2D projection and returns the Projection created from the user input</p>
+
+</div>
+</div>
 <a class="anchor" id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -112,6 +153,40 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The main function shall be responsible for calling various other functions and instantiating the classes for using their functions</p>
+
+</div>
+</div>
+<a class="anchor" id="ad0739e255d0ab5aaabeaea59a2e57f64"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int renderObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_wireframe.html">Wireframe</a>&#160;</td>
+          <td class="paramname"><em>frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function shall make use of opengl library to render the object, from the <a class="el" href="class_wireframe.html">Wireframe</a> instance passed in parameter.</p>
+
+</div>
+</div>
+<a class="anchor" id="af9dfa01f76820fc1c4908c305ccb7903"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int renderProjection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_ortho_projection.html">OrthoProjection</a>&#160;</td>
+          <td class="paramname"><em>projection</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function shall make use of opengl library to render the object, from the <a class="el" href="class_ortho_projection.html">OrthoProjection</a> instance passed in parameter.</p>
 
 </div>
 </div>
