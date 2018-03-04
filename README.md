@@ -32,6 +32,16 @@ Following is a description of the above-mentioned directories:
    6. **src** - This folder is supposed to contain all source files (.cpp) written in C++ are to be kept here.
    7. **test** - This folder shall be host to all test files written for debugging and testing the software package (yet to be updated).   
 
+## Dependencies
+
+The project makes use of the OpenGL(GLUT) and GTKmm libraries for C++.
+Hence these packages are needed to be installed before running the software package.
+Use the following command:
+```
+sudo apt-get install freeglut3 freeglut3-dev mesa-common-dev libgtkmm-3.0-dev
+```
+The above command installs the requisite packages. Now the software package can be built and used.
+
 ## Usage
 
 Enter the project directory and run the following command
@@ -42,3 +52,7 @@ Then cd into the build folder and run the following
 ```
 ./main
 ```
+
+## Documentation
+
+The documentation for the current software package is available in the form of webpages. The index.html in doc/html lists the main page. Thereafter, the pages are linked together.

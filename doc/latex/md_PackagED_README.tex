@@ -1,11 +1,15 @@
 This repository holds the documentation and code for the assignment in the Course C\+O\+P290 (Design Practices). The aim is to develop a software package for Engineering Drawing.
 
+\subsection*{Aim}
+
 The package is supposed to have the following functionalities\+:
 \begin{DoxyEnumerate}
 \item We should be able to interactively input or read from a file either i) an isometric drawing and a 3D object model or ii) projections on to any cross section.
 \item Given the 3D model description we should be able to generate projections on to any cross section or cutting plane.
 \item Given two or more projections we should be able to interactively recover the 3D description and produce an isometric drawing from any view direction.
 \end{DoxyEnumerate}
+
+\subsection*{Structure}
 
 The package structure for the software package is as follows\+: Packag\+ED $\vert$ $\vert$-\/$>$ bin $\vert$-\/$>$ build $\vert$-\/$>$ doc $\vert$-\/$>$ include $\vert$-\/$>$ lib $\vert$-\/$>$ src $\vert$-\/$>$ test
 
@@ -17,5 +21,17 @@ Following is a description of the above-\/mentioned directories\+:
 \item {\bfseries include} -\/ All header files to be included in the project are kept in this folder.
 \item {\bfseries lib} -\/ This folder contains all external libraries required for the software.
 \item {\bfseries src} -\/ This folder is supposed to contain all source files (.cpp) written in C++ are to be kept here.
-\item {\bfseries test} -\/ This folder shall be host to all test files written for debugging and testing the software package (yet to be updated). 
+\item {\bfseries test} -\/ This folder shall be host to all test files written for debugging and testing the software package (yet to be updated).
 \end{DoxyEnumerate}
+
+\subsection*{Usage}
+
+Enter the project directory and run the following command 
+\begin{DoxyCode}
+1 make
+\end{DoxyCode}
+ Then cd into the build folder and run the following 
+\begin{DoxyCode}
+1 ./main
+\end{DoxyCode}
+ 

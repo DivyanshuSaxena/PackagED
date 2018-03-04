@@ -1,19 +1,56 @@
 \hypertarget{_main_8cpp}{}\section{Packag\+E\+D/src/\+Main.cpp File Reference}
 \label{_main_8cpp}\index{Packag\+E\+D/src/\+Main.\+cpp@{Packag\+E\+D/src/\+Main.\+cpp}}
+{\ttfamily \#include $<$G\+L/glut.\+h$>$}\\*
 {\ttfamily \#include \char`\"{}Classes.\+h\char`\"{}}\\*
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_object3_d}{Object3D} \hyperlink{_main_8cpp_a5c38baf978c399ae8cc04df06da85c43}{create\+Object} ()
+\item 
+\hyperlink{class_ortho_projection}{Ortho\+Projection} \hyperlink{_main_8cpp_a8b0b9e643edcb552ad38f8b687036659}{create\+Projection} ()
+\item 
+int \hyperlink{_main_8cpp_ad0739e255d0ab5aaabeaea59a2e57f64}{render\+Object} (\hyperlink{class_wireframe}{Wireframe})
+\item 
+int \hyperlink{_main_8cpp_af9dfa01f76820fc1c4908c305ccb7903}{render\+Projection} (\hyperlink{class_ortho_projection}{Ortho\+Projection})
 \item 
 int \hyperlink{_main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
 \end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
-\index{Main.\+cpp@{Main.\+cpp}!main@{main}}
+\index{Main.\+cpp@{Main.\+cpp}!create\+Object@{create\+Object}}
+\index{create\+Object@{create\+Object}!Main.\+cpp@{Main.\+cpp}}
+\subsubsection[{\texorpdfstring{create\+Object()}{createObject()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Object3D} create\+Object (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{_main_8cpp_a5c38baf978c399ae8cc04df06da85c43}{}\label{_main_8cpp_a5c38baf978c399ae8cc04df06da85c43}
+This function shall make use of the gtk library, to interactively take input from the user and returns the 3D object created from the user input\index{Main.\+cpp@{Main.\+cpp}!create\+Projection@{create\+Projection}}
+\index{create\+Projection@{create\+Projection}!Main.\+cpp@{Main.\+cpp}}
+\subsubsection[{\texorpdfstring{create\+Projection()}{createProjection()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ortho\+Projection} create\+Projection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{_main_8cpp_a8b0b9e643edcb552ad38f8b687036659}{}\label{_main_8cpp_a8b0b9e643edcb552ad38f8b687036659}
+This function shall make use of the gtk library, to interactively take input from the user, to form a 2D projection and returns the Projection created from the user input\index{Main.\+cpp@{Main.\+cpp}!main@{main}}
 \index{main@{main}!Main.\+cpp@{Main.\+cpp}}
 \subsubsection[{\texorpdfstring{main()}{main()}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{_main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{}\label{_main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
-The main function shall be responsible for calling various other functions and instantiating the classes for using their functions
+The main function shall be responsible for calling various other functions and instantiating the classes for using their functions\index{Main.\+cpp@{Main.\+cpp}!render\+Object@{render\+Object}}
+\index{render\+Object@{render\+Object}!Main.\+cpp@{Main.\+cpp}}
+\subsubsection[{\texorpdfstring{render\+Object(\+Wireframe)}{renderObject(Wireframe)}}]{\setlength{\rightskip}{0pt plus 5cm}int render\+Object (
+\begin{DoxyParamCaption}
+\item[{{\bf Wireframe}}]{frame}
+\end{DoxyParamCaption}
+)}\hypertarget{_main_8cpp_ad0739e255d0ab5aaabeaea59a2e57f64}{}\label{_main_8cpp_ad0739e255d0ab5aaabeaea59a2e57f64}
+This function shall make use of opengl library to render the object, from the \hyperlink{class_wireframe}{Wireframe} instance passed in parameter.\index{Main.\+cpp@{Main.\+cpp}!render\+Projection@{render\+Projection}}
+\index{render\+Projection@{render\+Projection}!Main.\+cpp@{Main.\+cpp}}
+\subsubsection[{\texorpdfstring{render\+Projection(\+Ortho\+Projection)}{renderProjection(OrthoProjection)}}]{\setlength{\rightskip}{0pt plus 5cm}int render\+Projection (
+\begin{DoxyParamCaption}
+\item[{{\bf Ortho\+Projection}}]{projection}
+\end{DoxyParamCaption}
+)}\hypertarget{_main_8cpp_af9dfa01f76820fc1c4908c305ccb7903}{}\label{_main_8cpp_af9dfa01f76820fc1c4908c305ccb7903}
+This function shall make use of opengl library to render the object, from the \hyperlink{class_ortho_projection}{Ortho\+Projection} instance passed in parameter.
