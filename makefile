@@ -22,10 +22,17 @@ ESS = ./bin/Point.o ./bin/Main.o
 _BUILDS = point object3d projection2d ortho main
 BUILDS = $(patsubst %,$(BDIR)/%,$(_BUILDS))
 
+MKDIR = mkdir -p
+
+OUT_DIR = bin build
+
 $(ODIR)/%.o: $(SDIR)/%.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-all: $(BUILDS)
+all: directories $(BUILDS)
+
+directories: 
+	$(MKDIR) $(OUT_DIR)
 
 $(BDIR)/point: $(ESS)
 		$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
