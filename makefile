@@ -1,6 +1,8 @@
 IDIR =./include
 CC=g++
 CFLAGS=-I$(IDIR)
+GLFLAGS= -lglut -lGL -lGLU
+GTK= `pkg-config gtkmm-3.0 --cflags --libs`
 
 ODIR =./bin
 LDIR =./lib
@@ -38,4 +40,4 @@ $(BDIR)/ortho: $(ESS) ./bin/OrthoProjection.o
 		$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 $(BDIR)/main: $(OBJ)
-		$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+		$(CC) -o $@ $^ $(CFLAGS) $(GLFLAGS) $(LIBS) 

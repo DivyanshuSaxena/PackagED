@@ -1,3 +1,4 @@
+#include <GL/glut.h>
 #include "Classes.h"
 
 Object3D createObject();
