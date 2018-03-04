@@ -34,6 +34,23 @@ public:
     Point * possibleNeighbours(Point);
 };
 
+///
+/// This class provides an abstraction for a real world 3D object and incorporates the functions for the same. The class incorporates functions for operating upon the object
+///
+class Object3D {
+public:
+    Point vertices[];
+    Edge edges[];
+    Face faces[];
+    int project3D(double[4]);
+    Object3D rotateObject(double, double, double);
+    Object3D translate(double, double, double);
+private:
+    bool checkHiddenVertice(Point,double[4]);
+    bool checkHiddenEdge(Edge,double[4]);
+    bool rayCasting(Point,Face);
+};
+
 class Wireframe {
 public:
     Point vertices[];
