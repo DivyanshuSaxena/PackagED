@@ -26,8 +26,10 @@ MKDIR = mkdir -p
 
 OUT_DIR = bin build
 
+GTKFLAG = `pkg-config gtkmm-3.0 --cflags --libs`
+
 $(ODIR)/%.o: $(SDIR)/%.cpp $(DEPS)
-	$(CC) -c -o $@ $< $(CFLAGS)
+	$(CC) -c -o $@ $< $(CFLAGS) $(GTKFLAG)
 
 all: directories $(BUILDS)
 
@@ -47,4 +49,4 @@ $(BDIR)/ortho: $(ESS) ./bin/OrthoProjection.o
 		$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 $(BDIR)/main: $(OBJ)
-		$(CC) -o $@ $^ $(CFLAGS) $(GLFLAGS) $(LIBS) 
+		$(CC) -o $@ $^ $(CFLAGS) $(GTKFLAG) $(GLFLAGS) $(LIBS) 

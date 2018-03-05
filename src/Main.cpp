@@ -1,4 +1,5 @@
 #include <GL/glut.h>
+#include <gtkmm.h>
 #include "Classes.h"
 
 Object3D createObject();
