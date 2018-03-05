@@ -1,5 +1,15 @@
 \hypertarget{class_projection2_d}{}\section{Projection2D Class Reference}
 \label{class_projection2_d}\index{Projection2D@{Projection2D}}
+
+
+Collaboration diagram for Projection2D\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_projection2_d__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -11,6 +21,13 @@ int \hyperlink{class_projection2_d_a02e2cbca6d928a05400597693cbb6a08}{create3D} 
 \hyperlink{class_ortho_projection}{Ortho\+Projection} \hyperlink{class_projection2_d_a1eb4d010190b1bd62bf0f9c4e4afc88a}{frontview}
 \item 
 \hyperlink{class_ortho_projection}{Ortho\+Projection} \hyperlink{class_projection2_d_a90079954379a766f60ba01ad393327ab}{topview}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_point}{Point} \hyperlink{class_projection2_d_a0185949b0711aa0a43bd2f66da9aaee7}{determine\+Point} (\hyperlink{class_point}{Point}, \hyperlink{class_point}{Point})
+\item 
+\hyperlink{class_edge}{Edge} $\ast$ \hyperlink{class_projection2_d_a99c89f3a7125ea17ba260e6356c2307c}{determine\+Edges} (\hyperlink{class_point}{Point}, \hyperlink{class_point}{Point}\mbox{[}$\,$\mbox{]}, \hyperlink{class_point}{Point}\mbox{[}$\,$\mbox{]})
 \end{DoxyCompactItemize}
 
 
@@ -25,7 +42,24 @@ This class holds the 2D orthographic projections of a 3D object.
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{class_projection2_d_a02e2cbca6d928a05400597693cbb6a08}{}\label{class_projection2_d_a02e2cbca6d928a05400597693cbb6a08}
-
+\index{Projection2D@{Projection2D}!determine\+Edges@{determine\+Edges}}
+\index{determine\+Edges@{determine\+Edges}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{determine\+Edges(\+Point, Point[], Point[])}{determineEdges(Point, Point[], Point[])}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Edge} $\ast$ Projection2\+D\+::determine\+Edges (
+\begin{DoxyParamCaption}
+\item[{{\bf Point}}]{vertex, }
+\item[{{\bf Point}}]{top\+Neighbours\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf Point}}]{front\+Neighbours\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a99c89f3a7125ea17ba260e6356c2307c}{}\label{class_projection2_d_a99c89f3a7125ea17ba260e6356c2307c}
+This function determines the edges containing the \hyperlink{class_point}{Point} vertex as one of the endpoints By interpreting its neighbours from the top view and front view\index{Projection2D@{Projection2D}!determine\+Point@{determine\+Point}}
+\index{determine\+Point@{determine\+Point}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{determine\+Point(\+Point, Point)}{determinePoint(Point, Point)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point} Projection2\+D\+::determine\+Point (
+\begin{DoxyParamCaption}
+\item[{{\bf Point}}]{pfront, }
+\item[{{\bf Point}}]{ptop}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a0185949b0711aa0a43bd2f66da9aaee7}{}\label{class_projection2_d_a0185949b0711aa0a43bd2f66da9aaee7}
+This function extends the points from the top view and front view to give the 3D projection of the \hyperlink{class_point}{Point}
 
 \subsection{Member Data Documentation}
 \index{Projection2D@{Projection2D}!frontview@{frontview}}

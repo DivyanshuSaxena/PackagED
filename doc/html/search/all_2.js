@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['face',['Face',['../class_face.html',1,'']]],
-  ['faces',['faces',['../class_object3_d.html#a4cc7f57059a990a8573a7644a4d3ab2a',1,'Object3D']]],
-  ['frontview',['frontview',['../class_projection2_d.html#a1eb4d010190b1bd62bf0f9c4e4afc88a',1,'Projection2D']]]
+  ['edge',['Edge',['../class_edge.html',1,'']]],
+  ['edges',['edges',['../class_object3_d.html#ad93f210748663a4d0aaa89287dee3dae',1,'Object3D::edges()'],['../class_wireframe.html#a909822e1ff36d03b8b86052b7008bc98',1,'Wireframe::edges()']]]
 ];

@@ -4,6 +4,16 @@
 
 {\ttfamily \#include $<$Classes.\+h$>$}
 
+
+
+Collaboration diagram for Object3D\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{class_object3_d__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -22,20 +32,53 @@ int \hyperlink{class_object3_d_a17e177a936a71e0a5599ce7ca76bae78}{project3D} (do
 \item 
 \hyperlink{class_face}{Face} \hyperlink{class_object3_d_a4cc7f57059a990a8573a7644a4d3ab2a}{faces} \mbox{[}$\,$\mbox{]}
 \end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_object3_d_a15cac865480b725a7c0c68e53dc9cae9}{check\+Hidden\+Vertice} (\hyperlink{class_point}{Point}, double\mbox{[}4\mbox{]})
+\item 
+bool \hyperlink{class_object3_d_ab3451dd667e1b121c8c204f390a05967}{check\+Hidden\+Edge} (\hyperlink{class_edge}{Edge}, double\mbox{[}4\mbox{]})
+\item 
+bool \hyperlink{class_object3_d_ad16d6c03084f03254058a628db58b07e}{ray\+Casting} (\hyperlink{class_point}{Point}, \hyperlink{class_face}{Face})
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 This class provides an abstraction for a real world 3D object and incorporates the functions for the same. The class incorporates functions for operating upon the object 
 
 \subsection{Member Function Documentation}
-\index{Object3D@{Object3D}!project3D@{project3D}}
+\index{Object3D@{Object3D}!check\+Hidden\+Edge@{check\+Hidden\+Edge}}
+\index{check\+Hidden\+Edge@{check\+Hidden\+Edge}!Object3D@{Object3D}}
+\subsubsection[{\texorpdfstring{check\+Hidden\+Edge(\+Edge, double[4])}{checkHiddenEdge(Edge, double[4])}}]{\setlength{\rightskip}{0pt plus 5cm}bool Object3\+D\+::check\+Hidden\+Edge (
+\begin{DoxyParamCaption}
+\item[{{\bf Edge}}]{edge, }
+\item[{double}]{plane\mbox{[}4\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_object3_d_ab3451dd667e1b121c8c204f390a05967}{}\label{class_object3_d_ab3451dd667e1b121c8c204f390a05967}
+Function to evaluate if the \hyperlink{class_edge}{Edge} \char`\"{}edge\char`\"{}, passed as parameter is hidden by the plane or not\index{Object3D@{Object3D}!check\+Hidden\+Vertice@{check\+Hidden\+Vertice}}
+\index{check\+Hidden\+Vertice@{check\+Hidden\+Vertice}!Object3D@{Object3D}}
+\subsubsection[{\texorpdfstring{check\+Hidden\+Vertice(\+Point, double[4])}{checkHiddenVertice(Point, double[4])}}]{\setlength{\rightskip}{0pt plus 5cm}bool Object3\+D\+::check\+Hidden\+Vertice (
+\begin{DoxyParamCaption}
+\item[{{\bf Point}}]{vertex, }
+\item[{double}]{plane\mbox{[}4\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_object3_d_a15cac865480b725a7c0c68e53dc9cae9}{}\label{class_object3_d_a15cac865480b725a7c0c68e53dc9cae9}
+Function to check if the \hyperlink{class_point}{Point} passed as parameter \char`\"{}vertex\char`\"{} is hidden by the passed \char`\"{}plane\char`\"{}\index{Object3D@{Object3D}!project3D@{project3D}}
 \index{project3D@{project3D}!Object3D@{Object3D}}
 \subsubsection[{\texorpdfstring{project3\+D(double[4])}{project3D(double[4])}}]{\setlength{\rightskip}{0pt plus 5cm}int Object3\+D\+::project3D (
 \begin{DoxyParamCaption}
 \item[{double}]{projection\+Plane\mbox{[}4\mbox{]}}
 \end{DoxyParamCaption}
 )}\hypertarget{class_object3_d_a17e177a936a71e0a5599ce7ca76bae78}{}\label{class_object3_d_a17e177a936a71e0a5599ce7ca76bae78}
-General Function to project the current 3D object onto the projection plane passed as parameter \char`\"{}projection\+Plane\char`\"{}\index{Object3D@{Object3D}!rotate\+Object@{rotate\+Object}}
+General Function to project the current 3D object onto the projection plane passed as parameter \char`\"{}projection\+Plane\char`\"{}\index{Object3D@{Object3D}!ray\+Casting@{ray\+Casting}}
+\index{ray\+Casting@{ray\+Casting}!Object3D@{Object3D}}
+\subsubsection[{\texorpdfstring{ray\+Casting(\+Point, Face)}{rayCasting(Point, Face)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Object3\+D\+::ray\+Casting (
+\begin{DoxyParamCaption}
+\item[{{\bf Point}}]{point, }
+\item[{{\bf Face}}]{polygon}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_object3_d_ad16d6c03084f03254058a628db58b07e}{}\label{class_object3_d_ad16d6c03084f03254058a628db58b07e}
+Function that returns if the \hyperlink{class_point}{Point} \char`\"{}point\char`\"{} lies within the polygon formed by the \hyperlink{class_face}{Face} \char`\"{}polygon\char`\"{}, passed as parameter.\index{Object3D@{Object3D}!rotate\+Object@{rotate\+Object}}
 \index{rotate\+Object@{rotate\+Object}!Object3D@{Object3D}}
 \subsubsection[{\texorpdfstring{rotate\+Object(double, double, double)}{rotateObject(double, double, double)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Object3D} Object3\+D\+::rotate\+Object (
 \begin{DoxyParamCaption}
