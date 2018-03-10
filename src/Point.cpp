@@ -1,5 +1,6 @@
 #include<iostream>
 using namespace std;
+#include <Eigen/Dense>
 #include "Classes.h"
 
 Point Point::projectPoint(double projectionPlane[]) {

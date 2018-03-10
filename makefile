@@ -1,6 +1,7 @@
 IDIR =./include
+INDIR =./lib
 CC=g++
-CFLAGS=-I$(IDIR)
+CFLAGS=-I$(IDIR) -I$(INDIR)
 GLFLAGS= -lglut -lGL -lGLU
 GTK= `pkg-config gtkmm-3.0 --cflags --libs`
 
