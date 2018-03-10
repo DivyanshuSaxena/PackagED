@@ -45,7 +45,7 @@ public:
     int project3D(double[4]);
     Object3D rotateObject(double, double, double);
     Object3D translate(double, double, double);
-private:
+//private:
     bool checkHiddenVertice(Point,double[4]);
     bool checkHiddenEdge(Edge,double[4]);
     bool rayCasting(Point,Face);
