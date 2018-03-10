@@ -22,7 +22,10 @@ int main() {
     trythis.z = 3.2;
     double thisarr [4] ={5,2,3,4};
     Point newpoint = trythis.projectPoint(thisarr);
-    cout << newpoint.x << " " << newpoint.y << " " << newpoint.z;
+    cout << newpoint.x << " " << newpoint.y << " " << newpoint.z << endl;
+    Object3D obj;
+    obj.vertices.push_back(trythis);
+    obj.project3D(thisarr);
 }
 
 Object3D createObject() {

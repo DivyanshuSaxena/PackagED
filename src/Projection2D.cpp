@@ -10,7 +10,7 @@ public:
     int create3D();
 private:
     Point determinePoint(Point, Point);
-    Edge * determineEdges(Point, Point[], Point[]);
+    vector<Edge> determineEdges(Point, Point[], Point[]);
 };
 
 Point Projection2D::determinePoint(Point pfront, Point ptop) {
@@ -19,7 +19,7 @@ Point Projection2D::determinePoint(Point pfront, Point ptop) {
     ///
 }
 
-Edge * Projection2D::determineEdges(Point vertex, Point topNeighbours[], Point frontNeighbours[]) {
+vector<Edge> Projection2D::determineEdges(Point vertex, Point topNeighbours[], Point frontNeighbours[]) {
     ///
     /// This function determines the edges containing the Point vertex as one of the endpoints
     /// By interpreting its neighbours from the top view and front view

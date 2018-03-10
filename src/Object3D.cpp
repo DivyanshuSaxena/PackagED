@@ -1,4 +1,5 @@
 #include "Classes.h"
+#include <Eigen/Dense>
 
 Object3D Object3D::rotateObject(double aboutx, double abouty, double aboutz) {
     ///
@@ -16,6 +17,13 @@ int Object3D::project3D(double projectionPlane[4]) {
     ///
     /// General Function to project the current 3D object onto the projection plane passed as parameter "projectionPlane"
     ///
+    vector<Point> projectedVertices;
+    for (auto i = 0; i < this->vertices.size(); ++i)
+    {
+        projectedVertices.push_back(this->vertices[i].projectPoint(projectionPlane));
+    }
+    cout << projectedVertices[0].x;
+    return 0;
 }
 
 bool Object3D::rayCasting(Point point, Face polygon) {

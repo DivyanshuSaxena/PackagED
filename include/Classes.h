@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 ///
 /// This class is an abstraction of a real-world 3D point.
 ///
@@ -13,7 +17,7 @@ public:
 ///
 class Edge {
 public:
-    Point p1,p2;
+    int p1,p2;
 };
 
 ///
@@ -21,7 +25,7 @@ public:
 ///
 class Face {
 public:
-    Point vertices[];
+    vector<int> vertices;
 };
 
 ///
@@ -29,9 +33,9 @@ public:
 ///
 class OrthoProjection {
 public:
-    Point vertices[];
-    Edge visibleEdges[], hiddenEdges[];
-    Point * possibleNeighbours(Point);
+    vector<Point> vertices;
+    vector<Edge> visibleEdges, hiddenEdges;
+    vector<Point> possibleNeighbours(Point);
 };
 
 ///
@@ -39,10 +43,10 @@ public:
 ///
 class Object3D {
 public:
-    Point vertices[];
-    Edge edges[];
-    Face faces[];
-    int project3D(double[4]);
+    vector<Point> vertices;
+    vector<Edge> edges;
+    vector<Face> faces;
+    int project3D(double[]);
     Object3D rotateObject(double, double, double);
     Object3D translate(double, double, double);
 private:
@@ -53,6 +57,6 @@ private:
 
 class Wireframe {
 public:
-    Point vertices[];
-    Edge edges[];
+    vector<Point> vertices;
+    vector<Edge> edges;
 };

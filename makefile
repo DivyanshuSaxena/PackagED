@@ -37,16 +37,16 @@ all: directories $(BUILDS)
 directories: 
 	$(MKDIR) $(OUT_DIR)
 
-$(BDIR)/point: $(ESS)
+$(BDIR)/point: $(OBJ)
 		$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
-$(BDIR)/object3d: $(ESS) ./bin/Object3D.o ./bin/OrthoProjection.o
+$(BDIR)/object3d: $(OBJ) ./bin/Object3D.o ./bin/OrthoProjection.o
 		$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
-$(BDIR)/projection2d: $(ESS) ./bin/Projection2D.o ./bin/OrthoProjection.o
+$(BDIR)/projection2d: $(OBJ) ./bin/Projection2D.o ./bin/OrthoProjection.o
 		$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
-$(BDIR)/ortho: $(ESS) ./bin/OrthoProjection.o
+$(BDIR)/ortho: $(OBJ) ./bin/OrthoProjection.o
 		$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 $(BDIR)/main: $(OBJ)
