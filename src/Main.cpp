@@ -8,8 +8,8 @@ int renderObject(Wireframe);
 int renderProjection(OrthoProjection);
 
 int main() {
-    ///
-    /// The main function shall be responsible for calling various other functions and instantiating the classes for using their functions
+    /// 
+    /// The main function shall be responsible for calling various other functions and instantiating the classes for using their functions cop
     ///
 }
 
