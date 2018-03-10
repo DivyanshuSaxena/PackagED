@@ -27,6 +27,6 @@ double Point::relativePosition(double plane[]) {
 	double b = plane[1];
 	double c = plane[2];
 	double d = plane[3];
-	double t = ((a*x+b*y+c*z)/(a*a+b*b+c*c));
+	double t = ((a*x+b*y+c*z-d)/(a*a+b*b+c*c));
 	return t;
 }
