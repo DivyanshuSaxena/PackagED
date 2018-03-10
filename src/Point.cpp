@@ -23,4 +23,10 @@ double Point::relativePosition(double plane[]) {
     ///
     /// Function to calculate the relative position of the current calling object w.r.t the passed parameter "plane"
     ///
+    double a = plane[0];
+	double b = plane[1];
+	double c = plane[2];
+	double d = plane[3];
+	double t = ((a*x+b*y+c*z)/(a*a+b*b+c*c));
+	return t;
 }
