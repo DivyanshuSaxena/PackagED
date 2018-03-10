@@ -16,12 +16,13 @@ int main() {
     /// 
     /// The main function shall be responsible for calling various other functions and instantiating the classes for using their functions cop290
     ///
-	  MatrixXd m(2,2);
-	  m(0,0) = 3;
-	  m(1,0) = 2.5;
-	  m(0,1) = -1;
-	  m(1,1) = m(1,0) + m(0,1);
-	  std::cout << m << std::endl;
+    Point trythis;
+    trythis.x = 1.3;
+    trythis.y = 2.3;
+    trythis.z = 3.2;
+    double thisarr [4] ={5,2,3,4};
+    Point newpoint = trythis.projectPoint(thisarr);
+    cout << newpoint.x << " " << newpoint.y << " " << newpoint.z;
 }
 
 Object3D createObject() {
