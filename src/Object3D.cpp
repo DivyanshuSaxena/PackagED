@@ -40,7 +40,7 @@ OrthoProjection Object3D::project3D(double projectionPlane[4]) {
             {
                 v.push_back(projectedVertices[this->faces[j].vertices[k]]);
             }
-            if(checkHiddenVertice(projectedVertices[i],v))
+            if(checkHiddenVertice(projectedVertices[i],v,projectionPlane))
             {
                 flag = 1;
                 break;
@@ -81,7 +81,7 @@ OrthoProjection Object3D::project3D(double projectionPlane[4]) {
                 {
                     v.push_back(projectedVertices[this->faces[j].vertices[k]]);
                 }
-                if(checkHiddenEdge(this->edges[i],v))
+                if(checkHiddenEdge(this->edges[i],v,projectionPlane))
                 {
                     flag = 1;
                     break;
@@ -117,13 +117,23 @@ bool Object3D::rayCasting(Point point, vector<Point> polygon) {
     return true;
 }
 
-bool Object3D::checkHiddenVertice(Point vertex, vector<Point> face) {
+bool Object3D::checkHiddenVertice(Point vertex, vector<Point> face, double plane[4]) {
     ///
     /// Function to check if the Point passed as parameter "vertex" is hidden by the passed "plane"
     ///
+    bool retValue = false;
+    if(rayCasting(vertex,face))
+    {
+        Point projectedVertex = vertex.projectPoint(plane);
+        if(vertex.relativePosition(plane)*projectedVertex.relativePosition(plane) >= 0)
+            retValue = false;
+        else
+            retValue = true;
+    }
+    return retValue;
 }
 
-bool Object3D::checkHiddenEdge(Edge edge, vector<Point> face) {
+bool Object3D::checkHiddenEdge(Edge edge, vector<Point> face, double plane[4]) {
     ///
     /// Function to evaluate if the Edge "edge", passed as parameter is hidden by the plane or not
     ///
