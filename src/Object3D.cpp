@@ -13,6 +13,10 @@ Object3D Object3D::translate(double x, double y, double z) {
     ///
 }
 
+bool isEqual(Point p, Point p0) {
+    return (p.x==p0.x && p.y==p0.y && p.z==p0.z);
+}
+
 OrthoProjection Object3D::project3D(double projectionPlane[4]) {
     ///
     /// General Function to project the current 3D object onto the projection plane passed as parameter "projectionPlane"
@@ -56,8 +60,8 @@ OrthoProjection Object3D::project3D(double projectionPlane[4]) {
        and the remaining part is added in the edges vector of the Object3D object */
     for (auto i = 0; i < this->edges.size(); i++)
     {
-        if(isHidden[edges[i].p1] && isHidden[edges[i].p2])
-            isHiddenEdge.push_back(true);
+        auto it = find_if(this->vertices.begin(), this->vertices.end(), 
+                            [](const Point & p) -> bool {return (p.x==edges[i].p1.x && p.y==edges[i].p1.y && p.z==edges[i].p1.z)})
         else
         {
             for (auto j = 0; j < this->faces.size(); j++)

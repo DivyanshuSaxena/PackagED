@@ -17,7 +17,7 @@ public:
 ///
 class Edge {
 public:
-    int p1,p2;
+    Point p1,p2;
 };
 
 ///
