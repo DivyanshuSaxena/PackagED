@@ -41,8 +41,8 @@ int main() {
     square.push_back(v4);
     Point pointofconsideration;
     pointofconsideration.setCoordinates(0.5,0.5,0);
-    cout<< "kuch chal"<<endl;
-    cout<< obj.rayCasting(pointofconsideration,square)<<endl;
+    // cout<< "kuch chal"<<endl;
+    // cout<< obj.rayCasting(pointofconsideration,square)<<endl;
     Point p1,p2,p3,p4;
     //string str = "hi";
     p1.setCoordinatesAndLabel(1,1,0,"a");

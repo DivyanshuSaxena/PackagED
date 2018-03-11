@@ -31,7 +31,7 @@ PlaneProjection Object3D::project3D(double projectionPlane[4]) {
     for (int i = 0; i < len; i++) {
         int flag = 0;
         for (auto j = 0; j < this->faces.size(); i++) {
-            if(checkHiddenVertice(vertices[i],faces[j],projectionPlane))
+            if(checkHiddenVertice(vertices[i],faces[j],projectionPlane,0))
             {
                 flag = 1;
                 break;
@@ -62,7 +62,7 @@ PlaneProjection Object3D::project3D(double projectionPlane[4]) {
         else {
             int flag = 0;   
             for (int j = 0; j < this->faces.size(); j++) {
-                if(checkHiddenEdge(this->edges[i],faces[j],projectionPlane,0,i))
+                if(checkHiddenEdge(this->edges[i],faces[j],projectionPlane,i))
                 {
                     flag = 1;
                     break;
@@ -89,8 +89,9 @@ PlaneProjection Object3D::project3D(double projectionPlane[4]) {
     return projection;
 }
 
-int countIntersections(Vector3d avertice,Vector3d bvertice,Vector3d dvertice,Vector3d evertice,,Vector3d linevector){
+int countIntersections(Vector3d avertice,Vector3d bvertice,Vector3d dvertice,Vector3d evertice,Vector3d linevector){
     int retValue = 0;
+    Vector3d zerovector(0,0,0);
     Vector3d abvector = bvertice - avertice;
     Vector3d acvector = linevector;
     Vector3d advector = dvertice - avertice;
@@ -117,9 +118,11 @@ int countIntersections(Vector3d avertice,Vector3d bvertice,Vector3d dvertice,Vec
     return retValue;
 }
 
-Vertex3d intersectLines(Vertex3d a,Vertex3d b,Vertex3d c) {
-    Vertex3d retVal;
-    retVal = a + (c-a).dot(b-a)*(b-a);
+Vector3d intersectLines(Point a,Point b,Vector3d c) {
+    Vector3d retVal;
+    Vector3d av(a.x,a.y,a.z);
+    Vector3d bv(b.x,b.y,b.z);
+    retVal = av + ((c-av).dot(bv-av))*(bv-av);
     return retVal;
 }
 
@@ -239,13 +242,14 @@ bool Object3D::checkHiddenEdge(Edge edge, Face face, double plane[4], int index)
     if(rayCasting(projectp1,faceProject)) {
         if(checkHiddenVertice(edge.p1,face,plane,1)) {
             // Evaluate the point of intersection of edge with the polygon faceProject
-            Vertex3d avertice(edge.p1.x,edge.p1.y,edge.p1.z);
-            Vertex3d linevector(edge.p2.x-edge.p1.x,edge.p2.y-edge.p1.y,edge.p2.z-edge.p1.z);
-            vector<Vector3d> intersections,polygon;
+            Vector3d avertice(edge.p1.x,edge.p1.y,edge.p1.z);
+            Vector3d linevector(edge.p2.x-edge.p1.x,edge.p2.y-edge.p1.y,edge.p2.z-edge.p1.z);
+            vector<Vector3d> intersections;
+            vector<Point> polygon;
             for(int i = 0; i < face.vertices.size(); i++) {
                 polygon.push_back(this->projectedVertices[face.vertices[i]]);
             }
-            int i=0;
+            int i=0, numverticesinpolygon=polygon.size();
             for(auto it= polygon.begin();it!=polygon.end();it++){
                 Point thisone = *it;
                 Point nextone,prevone;
@@ -271,7 +275,7 @@ bool Object3D::checkHiddenEdge(Edge edge, Face face, double plane[4], int index)
                     intersections.push_back(bvertice);
                 }else if(ci==1){
                     // Intersects (bvertice,dvertice) in the middle somewhere  
-                    Vertex3d intersection = intersectionLines(edge.p1,edge.p2,bvertice);
+                    Vector3d intersection = intersectLines(edge.p1,edge.p2,bvertice);
                     intersections.push_back(intersection);
                 }
                 i++;
@@ -286,9 +290,9 @@ bool Object3D::checkHiddenEdge(Edge edge, Face face, double plane[4], int index)
             }
             // The vector closestIntersection holds the closest point of intersection, from p1
             Edge segment;
-            segment.p1.setcoordinates(closestIntersection.x(),closestIntersection.y(),closestIntersection.z());
-            segment.p2.setcoordinates(edge.p2.x,edge.p2.y,edge.p2.z); 
-            edge.p2.setcoordinates(closestIntersection.x(),closestIntersection.y(),closestIntersection.z());
+            segment.p1.setCoordinates(closestIntersection.x(),closestIntersection.y(),closestIntersection.z());
+            segment.p2.setCoordinates(edge.p2.x,edge.p2.y,edge.p2.z); 
+            edge.p2.setCoordinates(closestIntersection.x(),closestIntersection.y(),closestIntersection.z());
             this->edges.insert(this->edges.begin(),index+1,segment);
             retValue = false;
         }else{
