@@ -1,8 +1,10 @@
 #include <iostream>
+#include <vector>
 #include <GL/glut.h>
 #include <gtkmm.h>
 #include <Eigen/Dense>
 #include "Classes.h"
+
 
 using namespace std;
 using Eigen::MatrixXd;
@@ -26,6 +28,42 @@ int main() {
     Object3D obj;
     obj.vertices.push_back(trythis);
     obj.project3D(thisarr);
+    //lets define square
+    Point v1,v2,v3,v4;
+    v1.setCoordinates(1,1,0);
+    v2.setCoordinates(-1,1,0);
+    v3.setCoordinates(-1,-1,0);
+    v4.setCoordinates(1,-1,0); 
+    vector<Point> square;
+    square.push_back(v1);
+    square.push_back(v2);
+    square.push_back(v3);
+    square.push_back(v4);
+    Point pointofconsideration;
+    pointofconsideration.setCoordinates(0.5,0.5,0);
+    cout<< "kuch chal"<<endl;
+    cout<< obj.rayCasting(pointofconsideration,square)<<endl;
+    Point p1,p2,p3,p4;
+    //string str = "hi";
+    p1.setCoordinatesAndLabel(1,1,0,"a");
+    p2.setCoordinatesAndLabel(1,1,0,"e");
+    p3.setCoordinatesAndLabel(1,0,1,"e");
+    p4.setCoordinatesAndLabel(1,0,2,"a");
+    ClusteredPoint c1,c2;
+    c1.points.push_back(p1);
+    c1.points.push_back(p2);
+    c2.points.push_back(p3);
+    c2.points.push_back(p4);
+    Projection2D projectionproject;
+   // OrthoProjection topviewm, frontviewm;
+    projectionproject.topview.vertices.push_back(c1);
+    projectionproject.frontview.vertices.push_back(c2);
+    vector<Point> allpoints = projectionproject.determineAllPoints();
+    for(int i=0;i<allpoints.size();i++){
+        Point thispoint = allpoints[i];
+        cout<< "thispoint is "<< thispoint.x<<" "<<thispoint.y<<" "<<thispoint.z<<" label is "<< thispoint.label <<endl;
+    }
+
 }
 
 Object3D createObject() {

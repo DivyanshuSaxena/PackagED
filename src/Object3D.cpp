@@ -145,10 +145,12 @@ bool Object3D::rayCasting(Point point, vector<Point> polygon) {
     Vector3d secondvector = thirdone-secondone;
     Vector3d perpendicular = firstvector.cross(secondvector);
     Vector3d linevector = perpendicular.cross(icap);
+
     double checkzero = linevector.dot(linevector);
     if(checkzero==0){
         linevector = perpendicular.cross(jcap);
     }
+    // Vector3d linevector(1,1,0);
     int i=0;
     for(auto it= polygon.begin();it!=polygon.end();it++){
         Point thisone = *it;
@@ -180,6 +182,7 @@ bool Object3D::rayCasting(Point point, vector<Point> polygon) {
         }
         i++;
     }
+    cout<< "numintersections is "<< numintersections<<endl;
     if(numintersections%2==1){
         return true;
     }else{
