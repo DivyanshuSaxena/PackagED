@@ -29,7 +29,16 @@ public:
 };
 
 ///
-/// This class provides an abstraction for the 2D projection of a 3D object on a plane.
+/// This class provides an abstraction for the 2D projection of a 3D object on a plane, that is calculated by the algorithm
+///
+class PlaneProjection {
+public:
+    vector<Point> vertices;
+    vector<Edge> visibleEdges, hiddenEdges;
+};
+
+///
+/// This class provides an abstraction for the 2D projection of a 3D object on a plane, that is supposed to be entered by user.
 ///
 class OrthoProjection {
 public:
@@ -46,12 +55,13 @@ public:
     vector<Point> vertices;
     vector<Edge> edges;
     vector<Face> faces;
-    OrthoProjection project3D(double[]);
+    PlaneProjection project3D(double[]);
     Object3D rotateObject(double, double, double);
     Object3D translate(double, double, double);
 private:
-    bool checkHiddenVertice(Point,vector<Point>,double[]);
-    bool checkHiddenEdge(Edge,vector<Point>,double[]);
+    vector<Point> projectedVertices;
+    bool checkHiddenVertice(Point,Face,double[],int);
+    bool checkHiddenEdge(Edge,Face,double[],int);
     bool rayCasting(Point,vector<Point>);
 };
 
