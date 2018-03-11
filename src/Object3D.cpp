@@ -121,6 +121,8 @@ bool Object3D::rayCasting(Point point, vector<Point> polygon) {
     avertice << point.x, point.y, point.z;
     int numintersections = 0;
     Vector3d zerovector(0,0,0);
+    // cout << "zero vector is "<<endl;
+    // cout << zerovector <<endl;
     Vector3d icap(1,0,0);
     //icap << 1,0,0;
     Vector3d jcap(0,1,0);
@@ -134,11 +136,15 @@ bool Object3D::rayCasting(Point point, vector<Point> polygon) {
     Vector3d firstvector = secondone-startone;
     Vector3d secondvector = thirdone-secondone;
     Vector3d perpendicular = firstvector.cross(secondvector);
+    //cout << "perpendicular is "<<endl;
+    // cout << perpendicular << endl;
     Vector3d linevector = perpendicular.cross(icap);
     double checkzero = linevector.dot(linevector);
     if(checkzero==0){
         linevector = perpendicular.cross(jcap);
     }
+    // cout <<"linevector is" <<endl;
+    // cout<< linevector<<endl;
     int i=0;
     for(auto it= polygon.begin();it!=polygon.end();it++){
         Point thisone = *it;
@@ -161,10 +167,13 @@ bool Object3D::rayCasting(Point point, vector<Point> polygon) {
         Vector3d t3 = abvector.cross(advector);
         double t4 = t1.dot(t2);
         double t5 = t1.dot(t3);
+        double t6 = t2.dot(t3);
         if(t1==zerovector && t2==zerovector){
             numintersections = numintersections +2;
         }else if(t1==zerovector || t2==zerovector){
-            if(t5>=0){
+            if(t5>0){
+                numintersections = numintersections+1;
+            }else if(t5==0 && t6<0){
                 numintersections = numintersections+1;
             }
         }else{
@@ -172,11 +181,14 @@ bool Object3D::rayCasting(Point point, vector<Point> polygon) {
                 numintersections = numintersections +1;
             }
         }
+        //cout<< "numintersectionsinpolygon is "<<numintersections<< "i is "<<i<< "t4 and t5 are "<< t4<< " "<< t5<<endl;
         i++;
     }
     if(numintersections%2==1){
+        cout<<"inside hai"<<endl;
         return true;
     }else{
+        cout<< "outside hai"<<endl;
         return false;
     }
 }

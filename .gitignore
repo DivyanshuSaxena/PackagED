@@ -35,3 +35,4 @@ check.cpp
 CDBProject/
 src/Classes.h
 build/
+run.sh

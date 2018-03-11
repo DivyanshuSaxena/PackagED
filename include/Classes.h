@@ -8,8 +8,10 @@ using namespace std;
 class Point {
 public:
     double x,y,z;
+    void setCoordinates(double,double,double);
     Point projectPoint(double[]);
     double relativePosition(double[]);
+
 };
 
 ///
@@ -49,7 +51,7 @@ public:
     OrthoProjection project3D(double[]);
     Object3D rotateObject(double, double, double);
     Object3D translate(double, double, double);
-private:
+//private:
     bool checkHiddenVertice(Point,vector<Point>,double[]);
     bool checkHiddenEdge(Edge,vector<Point>,double[]);
     bool rayCasting(Point,vector<Point>);

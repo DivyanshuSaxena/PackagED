@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <GL/glut.h>
 #include <gtkmm.h>
 #include <Eigen/Dense>
@@ -26,6 +27,21 @@ int main() {
     Object3D obj;
     obj.vertices.push_back(trythis);
     obj.project3D(thisarr);
+    //lets define square
+    Point v1,v2,v3,v4;
+    v1.setCoordinates(1,1,0);
+    v2.setCoordinates(-1,1,0);
+    v3.setCoordinates(-1,-1,0);
+    v4.setCoordinates(1,-1,0); 
+    vector<Point> square;
+    square.push_back(v1);
+    square.push_back(v2);
+    square.push_back(v3);
+    square.push_back(v4);
+    Point pointofconsideration;
+    pointofconsideration.setCoordinates(0.5,0.5,0);
+    cout<< "kuch chal"<<endl;
+    cout<< obj.rayCasting(pointofconsideration,square)<<endl;
 }
 
 Object3D createObject() {
