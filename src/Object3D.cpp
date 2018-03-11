@@ -13,10 +13,6 @@ Object3D Object3D::translate(double x, double y, double z) {
     ///
 }
 
-bool isEqual(Point p, Point p0) {
-    return (p.x==p0.x && p.y==p0.y && p.z==p0.z);
-}
-
 OrthoProjection Object3D::project3D(double projectionPlane[4]) {
     ///
     /// General Function to project the current 3D object onto the projection plane passed as parameter "projectionPlane"
@@ -32,12 +28,12 @@ OrthoProjection Object3D::project3D(double projectionPlane[4]) {
     }
     cout << projectedVertices[0].x;
     // Now, we check if any of the vertices is hidden or not
-    for (auto i = 0; i < len; i++)
+    for (int i = 0; i < len; i++)
     {
         int flag = 0;
         for (auto j = 0; j < this->faces.size(); i++)
         {
-            int faceVerlen = this->faces[j].vertices.size()
+            int faceVerlen = this->faces[j].vertices.size();
             vector<Point> v(faceVerlen);
             // Calculation of the vector, consisting of the projected points of the face 
             for(auto k = 0; k < faceVerlen; k++)
@@ -60,20 +56,31 @@ OrthoProjection Object3D::project3D(double projectionPlane[4]) {
        and the remaining part is added in the edges vector of the Object3D object */
     for (auto i = 0; i < this->edges.size(); i++)
     {
-        auto it = find_if(this->vertices.begin(), this->vertices.end(), 
-                            [](const Point & p) -> bool {return (p.x==edges[i].p1.x && p.y==edges[i].p1.y && p.z==edges[i].p1.z)})
+        Point p1 = edges[i].p1;
+        Point p2 = edges[i].p2;
+        auto it1 = find_if(this->vertices.begin(), this->vertices.end(), 
+            [p1](Point p) -> bool {return (p.x==p1.x && p.y==p1.y && p.z==p1.z);});
+        auto it2 = find_if(this->vertices.begin(), this->vertices.end(), 
+            [p2](Point p) -> bool {return (p.x==p2.x && p.y==p2.y && p.z==p2.z);});
+        int index1,index2;
+        if(it1 != vertices.end())
+            index1 = distance(vertices.begin(),it1);
+        if(it2 != vertices.end())
+            index2 = distance(vertices.begin(),it2);
+        if(isHidden[index1] && isHidden[index2])
+            isHiddenEdge.push_back(true);
         else
         {
-            for (auto j = 0; j < this->faces.size(); j++)
+            int flag = 0;   
+            for (int j = 0; j < this->faces.size(); j++)
             {
-                int faceVerlen = this->faces[j].vertices.size()
+                int faceVerlen = this->faces[j].vertices.size();
                 vector<Point> v(faceVerlen);
                 // Calculation of the vector, consisting of the projected points of the face 
                 for (auto k = 0; k < faceVerlen; k++)
                 {
                     v.push_back(projectedVertices[this->faces[j].vertices[k]]);
                 }
-                int flag = 0;
                 if(checkHiddenEdge(this->edges[i],v))
                 {
                     flag = 1;
@@ -107,8 +114,6 @@ bool Object3D::rayCasting(Point point, vector<Point> polygon) {
     ///
     /// Function that returns if the Point "point" lies within the polygon formed by the Face "polygon", passed as parameter.
     ///
-    int numverticesinpolygon = sizeof(polygon.vertices)/sizeof(* (polygon.vertices));
-    cout<< "num is "<< numverticesinpolygon;
     return true;
 }
 
