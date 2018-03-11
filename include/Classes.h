@@ -46,13 +46,13 @@ public:
     vector<Point> vertices;
     vector<Edge> edges;
     vector<Face> faces;
-    int project3D(double[]);
+    OrthoProjection project3D(double[]);
     Object3D rotateObject(double, double, double);
     Object3D translate(double, double, double);
 private:
-    bool checkHiddenVertice(Point,double[4]);
-    bool checkHiddenEdge(Edge,double[4]);
-    bool rayCasting(Point,Face);
+    bool checkHiddenVertice(Point,vector<Point>);
+    bool checkHiddenEdge(Edge,vector<Point>);
+    bool rayCasting(Point,vector<Point>);
 };
 
 class Wireframe {
