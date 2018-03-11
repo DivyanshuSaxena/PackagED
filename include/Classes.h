@@ -1,6 +1,8 @@
 ///
 /// This class is an abstraction of a real-world 3D point.
 ///
+#include<iostream>
+using namespace std;
 class Point {
 public:
     double x,y,z;
@@ -20,8 +22,12 @@ public:
 /// This class is the abstraction to represent the faces of a 3D object.
 ///
 class Face {
+
 public:
-    Point vertices[];
+    void setface(Point pointarr[]){
+        vertices= pointarr;
+    };
+    Point * vertices;
 };
 
 ///
@@ -45,10 +51,16 @@ public:
     int project3D(double[4]);
     Object3D rotateObject(double, double, double);
     Object3D translate(double, double, double);
-//private:
     bool checkHiddenVertice(Point,double[4]);
     bool checkHiddenEdge(Edge,double[4]);
-    bool rayCasting(Point,Face);
+    bool rayCasting(Point point,Face polygon){
+        cout << "yo"<<polygon.vertices[0].x << endl;
+        int numverticesinpolygon = sizeof(polygon.vertices)/sizeof(Point);
+    cout<< "num is "<< numverticesinpolygon<<endl;
+    cout<<"first is "<<sizeof(polygon.vertices)<<endl;
+    cout << "second is "<<sizeof(** polygon.vertices)<<endl;
+    return true;
+    };
 };
 
 class Wireframe {

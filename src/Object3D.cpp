@@ -1,4 +1,6 @@
 #include "Classes.h"
+#include<iostream>
+using namespace std;
 
 Object3D Object3D::rotateObject(double aboutx, double abouty, double aboutz) {
     ///
@@ -18,14 +20,14 @@ int Object3D::project3D(double projectionPlane[4]) {
     ///
 }
 
-bool Object3D::rayCasting(Point point, Face polygon) {
-    ///
-    /// Function that returns if the Point "point" lies within the polygon formed by the Face "polygon", passed as parameter.
-    ///
-    int numverticesinpolygon = sizeof(polygon.vertices)/sizeof(* (polygon.vertices));
-    cout<< "num is "<< numverticesinpolygon;
-    return true;
-}
+// bool Object3D::rayCasting(Point point, Face polygon) {
+//     ///
+//     /// Function that returns if the Point "point" lies within the polygon formed by the Face "polygon", passed as parameter.
+//     ///
+//     int numverticesinpolygon = sizeof(polygon.vertices)/sizeof(* (polygon.vertices));
+//     cout<< "num is "<< numverticesinpolygon;
+//     return true;
+// }
 
 bool Object3D::checkHiddenVertice(Point vertex, double plane[4]) {
     ///

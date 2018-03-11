@@ -23,11 +23,13 @@ int main() {
     double thisarr [4] ={5,2,3,4};
     Point newpoint = trythis.projectPoint(thisarr);
     cout << newpoint.x << " " << newpoint.y << " " << newpoint.z << "\n";
+    cout << trythis.relativePosition(thisarr);
     Object3D threedobj;
     Face testface;
 
-    Point v [1] = {trythis};
-    * testface.vertices = (new  Point);
+    Point v [2] = {trythis,trythis};
+     testface.setface(v);
+     cout<< "done";
     threedobj.rayCasting(trythis,testface);
 }
 
