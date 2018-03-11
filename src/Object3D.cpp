@@ -1,5 +1,6 @@
 #include "Classes.h"
 #include <Eigen/Dense>
+using namespace Eigen;
 
 Object3D Object3D::rotateObject(double aboutx, double abouty, double aboutz) {
     ///
@@ -127,7 +128,7 @@ bool Object3D::rayCasting(Point point, vector<Point> polygon) {
     Vector3d startone;
     startone << polygon[0].x, polygon[0].y, polygon[0].z;
     Vector3d secondone;
-    secondone < polygon[1].x, polygon[1].y, polygon[1].z;
+    secondone << polygon[1].x, polygon[1].y, polygon[1].z;
     Vector3d thirdone;
     thirdone << polygon[2].x, polygon[2].y, polygon[2].z;
     Vector3d firstvector = secondone-startone;
@@ -138,13 +139,14 @@ bool Object3D::rayCasting(Point point, vector<Point> polygon) {
     if(checkzero==0){
         linevector = perpendicular.cross(jcap);
     }
-
-    for(auto it= polygon.begin(),int i=0;it!=polygon.end();it++,i++){
+    int i=0;
+    for(auto it= polygon.begin();it!=polygon.end();it++){
         Point thisone = *it;
+        Point nextone;
         if(i==numverticesinpolygon-1){
-            Point nextone = polygon.front();
+            nextone = polygon.front();
         }else{
-            Point nextone = *(it+1);
+            nextone = *(it+1);
         }
         //Point nextone = *(it + 1);
         Vector3d bvertice;
@@ -170,6 +172,7 @@ bool Object3D::rayCasting(Point point, vector<Point> polygon) {
                 numintersections = numintersections +1;
             }
         }
+        i++;
     }
     if(numintersections%2==1){
         return true;
