@@ -50,8 +50,8 @@ public:
     Object3D rotateObject(double, double, double);
     Object3D translate(double, double, double);
 private:
-    bool checkHiddenVertice(Point,vector<Point>);
-    bool checkHiddenEdge(Edge,vector<Point>);
+    bool checkHiddenVertice(Point,vector<Point>,double[]);
+    bool checkHiddenEdge(Edge,vector<Point>,double[]);
     bool rayCasting(Point,vector<Point>);
 };
 
