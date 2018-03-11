@@ -107,9 +107,69 @@ bool Object3D::rayCasting(Point point, vector<Point> polygon) {
     ///
     /// Function that returns if the Point "point" lies within the polygon formed by the Face "polygon", passed as parameter.
     ///
-    int numverticesinpolygon = sizeof(polygon.vertices)/sizeof(* (polygon.vertices));
-    cout<< "num is "<< numverticesinpolygon;
-    return true;
+    int numverticesinpolygon = polygon.size();
+    cout<< "num of points in polygon is "<< numverticesinpolygon<<endl;
+    Vector3d avertice;
+    avertice << point.x, point.y, point.z;
+    int numintersections = 0;
+    Vector3d zerovector(0,0,0);
+    Vector3d icap(1,0,0);
+    //icap << 1,0,0;
+    Vector3d jcap(0,1,0);
+    //jcap << 0,1,0;
+    Vector3d startone;
+    startone << polygon[0].x, polygon[0].y, polygon[0].z;
+    Vector3d secondone;
+    secondone < polygon[1].x, polygon[1].y, polygon[1].z;
+    Vector3d thirdone;
+    thirdone << polygon[2].x, polygon[2].y, polygon[2].z;
+    Vector3d firstvector = secondone-startone;
+    Vector3d secondvector = thirdone-secondone;
+    Vector3d perpendicular = firstvector.cross(secondvector);
+    Vector3d linevector = perpendicular.cross(icap);
+    double checkzero = linevector.dot(linevector);
+    if(checkzero==0){
+        linevector = perpendicular.cross(jcap);
+    }
+
+    for(auto it= polygon.begin(),int i=0;it!=polygon.end();it++,i++){
+        Point thisone = *it;
+        if(i==numverticesinpolygon-1){
+            Point nextone = polygon.front();
+        }else{
+            Point nextone = *(it+1);
+        }
+        //Point nextone = *(it + 1);
+        Vector3d bvertice;
+        bvertice << thisone.x, thisone.y, thisone.z;
+        Vector3d dvertice;
+        dvertice << nextone.x,nextone.y, nextone.z;
+        Vector3d abvector = bvertice - avertice;
+        Vector3d acvector = linevector;
+        Vector3d advector = dvertice - avertice;
+        Vector3d t1 = abvector.cross(acvector);
+        Vector3d t2 = advector.cross(acvector);
+        Vector3d t3 = abvector.cross(advector);
+        double t4 = t1.dot(t2);
+        double t5 = t1.dot(t3);
+        if(t1==zerovector && t2==zerovector){
+            numintersections = numintersections +2;
+        }else if(t1==zerovector || t2==zerovector){
+            if(t5>=0){
+                numintersections = numintersections+1;
+            }
+        }else{
+            if((t4<=0) && (t5>=0)){
+                numintersections = numintersections +1;
+            }
+        }
+    }
+    if(numintersections%2==1){
+        return true;
+    }else{
+        return false;
+    }
+    
 }
 
 bool Object3D::checkHiddenVertice(Point vertex, vector<Point> face) {
