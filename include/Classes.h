@@ -16,11 +16,15 @@ public:
     double relativePosition(double[]);
 
 };
+
+///
+/// This class represents a cluster of points in their increasing distance 
+/// from the viewer, in case of the projection
+///
 class ClusteredPoint{
 public:
     vector<Point> points;
 };
-
 
 ///
 /// This class is an abstraction of the edge of a 3D object. It consists of two endpoints (of the type Point).
@@ -30,6 +34,9 @@ public:
     Point p1,p2;
 };
 
+///
+/// This class is an abstraction of the edge of a 2D Projection. It consists of two endpoints (of the type ClusteredPoint).
+///
 class Edge2D {
 public:
     ClusteredPoint cp1, cp2;
@@ -45,14 +52,17 @@ public:
 };
 
 ///
-/// This class provides an abstraction for the 2D projection of a 3D object on a plane.
+/// This class provides an abstraction for the 2D projection of a 3D object on a plane, that is calculated by the algorithm
 ///
 class PlaneProjection {
 public:
     vector<Point> vertices;
-    vector<Edge> hiddenEdges,visibleEdges;
+    vector<Edge> visibleEdges, hiddenEdges;
 };
 
+///
+/// This class provides an abstraction for the 2D projection of a 3D object on a plane, that is supposed to be entered by user.
+///
 class OrthoProjection {
 public:
     vector<ClusteredPoint> vertices;
@@ -71,9 +81,10 @@ public:
     PlaneProjection project3D(double[]);
     Object3D rotateObject(double, double, double);
     Object3D translate(double, double, double);
-//private:
-    bool checkHiddenVertice(Point,vector<Point>,double[]);
-    bool checkHiddenEdge(Edge,vector<Point>,double[]);
+private:
+    vector<Point> projectedVertices;
+    bool checkHiddenVertice(Point,Face,double[],int);
+    bool checkHiddenEdge(Edge,Face,double[],int);
     bool rayCasting(Point,vector<Point>);
 };
 
