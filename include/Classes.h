@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string.h>
 using namespace std;
 
 ///
@@ -8,11 +9,18 @@ using namespace std;
 class Point {
 public:
     double x,y,z;
+    string label;
     void setCoordinates(double,double,double);
+    void setCoordinatesAndLabel(double,double,double,string);
     Point projectPoint(double[]);
     double relativePosition(double[]);
 
 };
+class ClusteredPoint{
+public:
+    vector<Point> points;
+};
+
 
 ///
 /// This class is an abstraction of the edge of a 3D object. It consists of two endpoints (of the type Point).
@@ -21,6 +29,12 @@ class Edge {
 public:
     Point p1,p2;
 };
+
+class Edge2D {
+public:
+    ClusteredPoint cp1, cp2;
+};
+
 
 ///
 /// This class is the abstraction to represent the faces of a 3D object.
@@ -33,10 +47,16 @@ public:
 ///
 /// This class provides an abstraction for the 2D projection of a 3D object on a plane.
 ///
-class OrthoProjection {
+class PlaneProjection {
 public:
     vector<Point> vertices;
-    vector<Edge> visibleEdges, hiddenEdges;
+    vector<Edge> hiddenEdges,visibleEdges;
+};
+
+class OrthoProjection {
+public:
+    vector<ClusteredPoint> vertices;
+    vector<Edge2D> edges;
     vector<Point> possibleNeighbours(Point);
 };
 
@@ -48,7 +68,7 @@ public:
     vector<Point> vertices;
     vector<Edge> edges;
     vector<Face> faces;
-    OrthoProjection project3D(double[]);
+    PlaneProjection project3D(double[]);
     Object3D rotateObject(double, double, double);
     Object3D translate(double, double, double);
 //private:
@@ -61,4 +81,21 @@ class Wireframe {
 public:
     vector<Point> vertices;
     vector<Edge> edges;
+};
+
+///
+/// This class holds the 2D orthographic projections of a 3D object.
+/// The orthographic views given by the user must be on the standard planes of reference. We
+//describe our model, assuming that: 1. Top view is taken on x-y plane 
+// 2. Front view must be taken on x-z plane
+///
+class Projection2D {
+public:
+    OrthoProjection frontview;
+    OrthoProjection topview;
+    Wireframe create3D();
+//private:
+    Point determinePoint(Point, Point);
+    vector<Point> determineAllPoints();
+    vector<Edge> determineEdges(Point, Point[], Point[]);
 };

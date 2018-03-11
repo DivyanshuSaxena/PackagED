@@ -14,7 +14,7 @@ Object3D Object3D::translate(double x, double y, double z) {
     ///
 }
 
-OrthoProjection Object3D::project3D(double projectionPlane[4]) {
+PlaneProjection Object3D::project3D(double projectionPlane[4]) {
     ///
     /// General Function to project the current 3D object onto the projection plane passed as parameter "projectionPlane"
     ///
@@ -96,7 +96,7 @@ OrthoProjection Object3D::project3D(double projectionPlane[4]) {
     }
     // The vectors isHidden and isHiddenEdge store whether or not a point/edge is hidden.
     // This can be used to generate an OrthoProjection object that can be returned from this function.
-    OrthoProjection projection;
+    PlaneProjection projection;
     for (auto i = 0; i < projectedVertices.size(); i++)
     {
         projection.vertices.push_back(projectedVertices[i]);
@@ -121,12 +121,8 @@ bool Object3D::rayCasting(Point point, vector<Point> polygon) {
     avertice << point.x, point.y, point.z;
     int numintersections = 0;
     Vector3d zerovector(0,0,0);
-    // cout << "zero vector is "<<endl;
-    // cout << zerovector <<endl;
     Vector3d icap(1,0,0);
-    //icap << 1,0,0;
     Vector3d jcap(0,1,0);
-    //jcap << 0,1,0;
     Vector3d startone;
     startone << polygon[0].x, polygon[0].y, polygon[0].z;
     Vector3d secondone;
@@ -136,22 +132,25 @@ bool Object3D::rayCasting(Point point, vector<Point> polygon) {
     Vector3d firstvector = secondone-startone;
     Vector3d secondvector = thirdone-secondone;
     Vector3d perpendicular = firstvector.cross(secondvector);
-    //cout << "perpendicular is "<<endl;
-    // cout << perpendicular << endl;
     Vector3d linevector = perpendicular.cross(icap);
+
     double checkzero = linevector.dot(linevector);
     if(checkzero==0){
         linevector = perpendicular.cross(jcap);
     }
-    // cout <<"linevector is" <<endl;
-    // cout<< linevector<<endl;
+    // Vector3d linevector(1,1,0);
     int i=0;
     for(auto it= polygon.begin();it!=polygon.end();it++){
         Point thisone = *it;
-        Point nextone;
+        Point nextone,prevone;
         if(i==numverticesinpolygon-1){
+            prevone = *(it-1);
             nextone = polygon.front();
+        }else if(i==0){
+            prevone = polygon.back();
+            nextone = *(it+1);
         }else{
+            prevone = *(it-1);
             nextone = *(it+1);
         }
         //Point nextone = *(it + 1);
@@ -159,36 +158,37 @@ bool Object3D::rayCasting(Point point, vector<Point> polygon) {
         bvertice << thisone.x, thisone.y, thisone.z;
         Vector3d dvertice;
         dvertice << nextone.x,nextone.y, nextone.z;
+        Vector3d evertice;
+        evertice << prevone.x, prevone.y, prevone.z;
         Vector3d abvector = bvertice - avertice;
         Vector3d acvector = linevector;
         Vector3d advector = dvertice - avertice;
+        Vector3d aevector = evertice - avertice;
         Vector3d t1 = abvector.cross(acvector);
         Vector3d t2 = advector.cross(acvector);
         Vector3d t3 = abvector.cross(advector);
+        Vector3d t6 = aevector.cross(acvector);
         double t4 = t1.dot(t2);
         double t5 = t1.dot(t3);
-        double t6 = t2.dot(t3);
-        if(t1==zerovector && t2==zerovector){
-            numintersections = numintersections +2;
-        }else if(t1==zerovector || t2==zerovector){
-            if(t5>0){
-                numintersections = numintersections+1;
-            }else if(t5==0 && t6<0){
-                numintersections = numintersections+1;
-            }
-        }else{
-            if((t4<=0) && (t5>=0)){
-                numintersections = numintersections +1;
-            }
+        double t7 = t6.dot(t2);
+        double abdotac = abvector.dot(acvector);
+        if(t1==zerovector || t2==zerovector){
+            // Do Nothing
+        }else if((t4<=0) && (t5>=0)){
+            numintersections = numintersections +1;
         }
-        //cout<< "numintersectionsinpolygon is "<<numintersections<< "i is "<<i<< "t4 and t5 are "<< t4<< " "<< t5<<endl;
+        if(t1==zerovector && abdotac>0){
+            if(t7<=0)
+                numintersections = numintersections + 1;
+            else
+                numintersections = numintersections + 2;
+        }
         i++;
     }
+    cout<< "numintersections is "<< numintersections<<endl;
     if(numintersections%2==1){
-        cout<<"inside hai"<<endl;
         return true;
     }else{
-        cout<< "outside hai"<<endl;
         return false;
     }
 }
