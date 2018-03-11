@@ -36,3 +36,5 @@ CDBProject/
 src/Classes.h
 build/
 run.sh
+.vscode/
+src/Main.cpp
