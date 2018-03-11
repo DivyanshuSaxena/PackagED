@@ -80,16 +80,10 @@ public:
     PlaneProjection project3D(double[]);
     Object3D rotateObject(double, double, double);
     Object3D translate(double, double, double);
-<<<<<<< HEAD
 private:
     vector<Point> projectedVertices;
     bool checkHiddenVertice(Point,Face,double[],int);
     bool checkHiddenEdge(Edge,Face,double[],int);
-=======
-//private:
-    bool checkHiddenVertice(Point,vector<Point>,double[]);
-    bool checkHiddenEdge(Edge,vector<Point>,double[]);
->>>>>>> c5a7f7b1c2f25579968fdbc031a5624d5f854bab
     bool rayCasting(Point,vector<Point>);
 };
 
