@@ -18,52 +18,55 @@ int main() {
     /// 
     /// The main function shall be responsible for calling various other functions and instantiating the classes for using their functions cop290
     ///
-    Point trythis;
-    trythis.x = 1.3;
-    trythis.y = 2.3;
-    trythis.z = 3.2;
-    double thisarr [4] ={5,2,3,4};
-    Point newpoint = trythis.projectPoint(thisarr);
-    cout << newpoint.x << " " << newpoint.y << " " << newpoint.z << endl;
     Object3D obj;
-    obj.vertices.push_back(trythis);
-    obj.project3D(thisarr);
-    //lets define square
-    Point v1,v2,v3,v4;
-    v1.setCoordinates(1,1,0);
-    v2.setCoordinates(-1,1,0);
-    v3.setCoordinates(-1,-1,0);
-    v4.setCoordinates(1,-1,0); 
-    vector<Point> square;
-    square.push_back(v1);
-    square.push_back(v2);
-    square.push_back(v3);
-    square.push_back(v4);
-    Point pointofconsideration;
-    pointofconsideration.setCoordinates(0.5,0.5,0);
-    // cout<< "kuch chal"<<endl;
-    // cout<< obj.rayCasting(pointofconsideration,square)<<endl;
-    Point p1,p2,p3,p4;
-    //string str = "hi";
-    p1.setCoordinatesAndLabel(1,1,0,"a");
-    p2.setCoordinatesAndLabel(1,1,0,"e");
-    p3.setCoordinatesAndLabel(1,0,1,"e");
-    p4.setCoordinatesAndLabel(1,0,2,"a");
-    ClusteredPoint c1,c2;
-    c1.points.push_back(p1);
-    c1.points.push_back(p2);
-    c2.points.push_back(p3);
-    c2.points.push_back(p4);
-    Projection2D projectionproject;
-   // OrthoProjection topviewm, frontviewm;
-    projectionproject.topview.vertices.push_back(c1);
-    projectionproject.frontview.vertices.push_back(c2);
-    vector<Point> allpoints = projectionproject.determineAllPoints();
-    for(int i=0;i<allpoints.size();i++){
-        Point thispoint = allpoints[i];
-        cout<< "thispoint is "<< thispoint.x<<" "<<thispoint.y<<" "<<thispoint.z<<" label is "<< thispoint.label <<endl;
-    }
-
+    Point v1,v2,v3,v4,v5;
+    v1.setCoordinates(2,2,0);
+    v2.setCoordinates(2,1,0);
+    v3.setCoordinates(1,1,0);
+    v4.setCoordinates(2,1,1); 
+    v5.setCoordinates(1,1,1);
+    obj.vertices.push_back(v1);
+    obj.vertices.push_back(v2);
+    obj.vertices.push_back(v3);
+    obj.vertices.push_back(v4);
+    obj.vertices.push_back(v5);
+    Edge e1,e2,e3,e4,e5,e6,e7,e8;
+    e1.p1 = v1; e1.p2 = v2; e2.p1 = v1; e2.p2 = v3;
+    e3.p1 = v1; e3.p2 = v4; e4.p1 = v1; e4.p2 = v5;
+    e5.p1 = v2; e5.p2 = v4; e6.p1 = v2; e6.p2 = v3;
+    e7.p1 = v4; e7.p2 = v5; e8.p1 = v3; e8.p2 = v5;
+    obj.edges.push_back(e1);
+    obj.edges.push_back(e2);
+    obj.edges.push_back(e3);
+    obj.edges.push_back(e4);
+    obj.edges.push_back(e5);
+    obj.edges.push_back(e6);
+    obj.edges.push_back(e7);
+    obj.edges.push_back(e8);
+    Face f1,f2,f3,f4,f5;
+    f1.vertices.push_back(0);
+    f1.vertices.push_back(1);
+    f1.vertices.push_back(2);
+    f2.vertices.push_back(0);
+    f2.vertices.push_back(1);
+    f2.vertices.push_back(3);
+    f3.vertices.push_back(0);
+    f3.vertices.push_back(3);
+    f3.vertices.push_back(4);
+    f4.vertices.push_back(0);
+    f4.vertices.push_back(2);
+    f4.vertices.push_back(4);
+    f5.vertices.push_back(1);
+    f5.vertices.push_back(2);
+    f5.vertices.push_back(3);
+    f5.vertices.push_back(4);
+    obj.faces.push_back(f1);
+    obj.faces.push_back(f2);
+    obj.faces.push_back(f3);
+    obj.faces.push_back(f4);
+    obj.faces.push_back(f5);
+    PlaneProjection p = obj.project3D(thisarr);
+    cout << "Projection: " << p << endl;
 }
 
 Object3D createObject() {
