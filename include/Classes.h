@@ -68,6 +68,7 @@ public:
     vector<ClusteredPoint> vertices;
     vector<Edge2D> edges;
     vector<Point> possibleNeighbours(Point);
+    vector<Point> sameclusterpoints(Point);
 };
 
 ///
@@ -81,7 +82,7 @@ public:
     PlaneProjection project3D(double[]);
     Object3D rotateObject(double, double, double);
     Object3D translate(double, double, double);
-private:
+//private:
     vector<Point> projectedVertices;
     bool checkHiddenVertice(Point,Face,double[],int);
     bool checkHiddenEdge(Edge,Face,double[],int);
@@ -108,5 +109,6 @@ public:
 //private:
     Point determinePoint(Point, Point);
     vector<Point> determineAllPoints();
-    vector<Edge> determineEdges(Point, Point[], Point[]);
+    //vector<Edge> determineEdges(Point, Point[], Point[]);
+    vector<Edge> determinePossibleEdges(Point, vector<Point> *,vector<Point> *,vector<Point> *);
 };

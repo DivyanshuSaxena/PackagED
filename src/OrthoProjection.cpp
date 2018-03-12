@@ -56,4 +56,23 @@ vector<Point> OrthoProjection::possibleNeighbours(Point point) {
     }
     return answer;
 }
+vector<Point> OrthoProjection::sameclusterpoints(Point point){
+    vector<Point> answer;
+    auto samecluster = find_if(vertices.begin(),vertices.end(),[point](ClusteredPoint p)->bool{
+        if(find_if(p.points.begin(),p.points.end(),[point](Point thispoint)->bool{
+            return(thispoint.label==point.label);            
+        })!= p.points.end()){
+            return true;
+        }else{
+            return false;
+        }
+    });
+    cout<<"dekho bhai "<<endl;
+    for(auto it= samecluster->points.begin();it!=samecluster->points.end();it++){
+        if(it->label != point.label){
+            cout <<"vertice wala" <<endl;
+            answer.push_back((* it));
+        }
+    } 
+}
 
