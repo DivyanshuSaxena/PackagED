@@ -14,7 +14,10 @@ public:
     void setCoordinatesAndLabel(double,double,double,string);
     Point projectPoint(double[]);
     double relativePosition(double[]);
-
+    friend std::ostream& operator<< (std::ostream &out, const Point &point) {
+        out << "Point(" << point.x << ", " << point.y << ", " << point.z << ")";    
+        return out;
+    }
 };
 
 ///
@@ -32,6 +35,10 @@ public:
 class Edge {
 public:
     Point p1,p2;
+    friend std::ostream& operator<< (std::ostream &out, const Edge &edge) {
+        out << "Edge(" << edge.p1 << ", " << edge.p2 << ")";    
+        return out;
+    }
 };
 
 ///
@@ -49,6 +56,11 @@ public:
 class Face {
 public:
     vector<int> vertices;
+    friend std::ostream& operator<< (std::ostream &out, const Face &face) {
+        for(int i = 0; i < face.vertices.size(); i++)
+            out << face.vertices[i] << ", ";    
+        return out;
+    }
 };
 
 ///
@@ -58,6 +70,21 @@ class PlaneProjection {
 public:
     vector<Point> vertices;
     vector<Edge> visibleEdges, hiddenEdges;
+    friend std::ostream& operator<< (std::ostream &out, const PlaneProjection &plane) {
+        out << "Vertices: ";
+        for(int i = 0; i < plane.vertices.size(); i++) {
+            out << plane.vertices[i] << ", ";
+        }
+        out << endl << "Visible Edges: ";
+        for(int i = 0; i < plane.visibleEdges.size(); i++) {
+            out << plane.visibleEdges[i] << ", ";
+        }
+        out << endl << "Hidden Edges: ";
+        for(int i = 0; i < plane.hiddenEdges.size(); i++) {
+            out << plane.hiddenEdges[i] << ", ";
+        }
+        return out;
+    }
 };
 
 ///

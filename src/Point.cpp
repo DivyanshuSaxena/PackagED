@@ -8,11 +8,12 @@ void Point::setCoordinates(double t1, double t2, double t3){
 	y=t2;
 	z=t3;
 }
+
 void Point::setCoordinatesAndLabel(double t1,double t2,double t3,string s){
 	x=t1;
 	y=t2;
 	z=t3;
-	label= s;
+	label = s;
 	//cout<< "label is this "	<< label <<endl;
 } 
 
