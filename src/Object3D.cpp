@@ -237,6 +237,7 @@ bool Object3D::checkHiddenVertice(Point vertex, Face face, double plane[4], int 
                 retValue = true;
         }
     }
+    //cout<<"retvalue is lund "<< retValue<<endl;
     return retValue;
 }
 
