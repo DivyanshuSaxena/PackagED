@@ -51,4 +51,5 @@ vector<Edge> Projection2D::determineEdges(Point vertex, Point topNeighbours[], P
     /// This function determines the edges containing the Point vertex as one of the endpoints
     /// By interpreting its neighbours from the top view and front view
     ///
+    
 }

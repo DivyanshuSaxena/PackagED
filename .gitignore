@@ -38,3 +38,4 @@ src/Main.cpp
 build/
 run.sh
 .vscode/
+src/Main.cpp
