@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <GL/glut.h>
-// #include <gtkmm.h>
+#include <gtkmm.h>
 #include <Eigen/Dense>
 #include "Classes.h"
 
