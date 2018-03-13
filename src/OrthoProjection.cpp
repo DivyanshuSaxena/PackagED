@@ -75,4 +75,33 @@ vector<Point> OrthoProjection::sameclusterpoints(Point point){
         }
     } 
 }
+bool OrthoProjection::isConnected(string s1,string s2){
+    auto edge2ditr = find_if(edges.begin(),edges.end(),[s1,s2](Edge2D thisedge)->bool{
+        auto p1pointitr = find_if(thisedge.cp1.points.begin(),thisedge.cp1.points.end(),[s1,s2](Point p)->bool{
+            return(p.label==s1 || p.label==s2);
+        });
+        if(p1pointitr!=thisedge.cp1.points.end()){
+            auto p2pointitr =find_if(thisedge.cp2.points.begin(),thisedge.cp2.points.end(),[s1,s2,p1pointitr](Point p)->bool{
+                if(p.label==s1 || p.label==s2){
+                    if(p.label==p1pointitr->label){
+                        cout << "major error encountered: same point present in both edges "<<endl;
+                    }
+                }
+                return(p.label==s1 || p.label==s2);
+            });
+            if(p2pointitr!=thisedge.cp2.points.end()){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    });
+    if(edge2ditr!=edges.end()){
+        return true;
+    }else{
+        return false;
+    }
+}
 
