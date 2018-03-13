@@ -17,7 +17,7 @@ public:
     double relativePosition(double[]);
     int adjacencyIndex;
     friend std::ostream& operator<< (std::ostream &out, const Point &point) {
-        out << "Point(" << point.x << ", " << point.y << ", " << point.z << ")";    
+        out << "Point(" << point.x << ", " << point.y << ", " << point.z <<  ") "<<point.label << " index is "<<point.adjacencyIndex;    
         return out;
     }
     bool checkcollinear(Point *, Point *);

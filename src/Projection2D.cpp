@@ -6,6 +6,10 @@ using namespace Eigen;
 
 Wireframe Projection2D::create3D(){
     allpoints = determineAllPoints();
+    cout << "allpoints detected and their number are "<< allpoints.size()<<endl;
+    for(int i=0;i<allpoints.size();i++){
+        cout << allpoints[i] << endl;
+    }
     determineIntersectedEdges();
     executeCorollary1();
     chkif3edgesanddefthem();
@@ -17,6 +21,8 @@ Wireframe Projection2D::create3D(){
         chkif3edgesanddefthem();
 
     }
+    Wireframe answer;
+    return answer;
 
 }
 
@@ -28,16 +34,24 @@ vector<Point> Projection2D::determineAllPoints(){
     for(auto it=(frontview.vertices.begin());it!=frontview.vertices.end();it++){
         for(auto nestit=(it->points.begin());nestit!=it->points.end();nestit++){
             string thislabel = nestit->label;
+            cout << "iteration on front label "<<thislabel<<endl;
             for(auto itfind=topview.vertices.begin();itfind!=topview.vertices.end();itfind++){
                 bool found = false;
                 for(auto nestitfind=itfind->points.begin();nestitfind!= itfind->points.end();nestitfind++){
                     string findlabel = nestitfind->label;
+                    cout << "   corresponding iteration on top label " << findlabel <<endl;
                     if(thislabel==findlabel){
+                        cout << "   aloha found the same label"<<endl;
                         found=true;
                         Point determinedpoint = determinePoint(*nestit, *nestitfind);
-                        answer.push_back(determinedpoint);
+                        //cout << "   determined point is "<< determinedpoint << endl;
                         int sizeanswer = answer.size();
-                        determinedpoint.adjacencyIndex=sizeanswer-1;
+                        determinedpoint.adjacencyIndex=sizeanswer;
+                        answer.push_back(determinedpoint);
+                        sizeanswer = answer.size();
+                        determinedpoint = answer[sizeanswer-1];
+                        
+                        cout << "   determined point is "<< determinedpoint << endl;
                         indextopointmap.insert(make_pair(sizeanswer-1,&determinedpoint));
                         labeltopointmap.insert(make_pair(determinedpoint.label,&determinedpoint));
                         //knownpoints.push_back(&determinedpoint);
