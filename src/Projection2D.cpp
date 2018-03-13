@@ -9,7 +9,10 @@ Wireframe Projection2D::create3D(){
     executeCorollary1();
     chkif3edgesanddefthem();
     while(numofpossibleedge()!=0){
+        //function below checks if for a point a possible and definite point are collinear and removes the possible point
+        bool ifcollinearpossanddef = chkcollinearpossanddef();
         
+
     }
     // vector<Edge> doublecalculatedpossibleedges;
     // // doublecalculatedpossibleedges has all the edges calculated twice
@@ -77,7 +80,7 @@ vector<Point> Projection2D::determineAllPoints(){
                         answer.push_back(determinedpoint);
                         int sizeanswer = answer.size();
                         determinedpoint.adjacencyIndex=sizeanswer-1;
-                        pointtoindexmap.insert(make_pair(&determinedpoint,sizeanswer-1));
+                        indextopointmap.insert(make_pair(sizeanswer-1,&determinedpoint));
                         labeltopointmap.insert(make_pair(determinedpoint.label,&determinedpoint));
                         //knownpoints.push_back(&determinedpoint);
                         break;
@@ -215,4 +218,38 @@ int Projection2D::numofpossibleedge(){
         num1 = num1 + count(adjacencyMatrix[i].begin(),adjacencyMatrix[i].end(),1);
     }
     return num1;
+}
+bool Projection2D::chkcollinearpossanddef(){
+    int numpoints = allpoints.size();
+    bool ret =false;
+    for(int i=0;i<numpoints;i++){
+        Point * thispoint = & (allpoints[i]);
+        vector<int> thisvec = adjacencyMatrix[i];
+        int numposs = count(thisvec.begin(),thisvec.end(),1);
+        int numdef = count(thisvec.begin(),thisvec.end(),2);
+        if(numposs>0 && numdef>0){
+            vector<int> defindexvec;
+            for(int j=0;j<numpoints;j++){
+                if(thisvec[j]==2){
+                    defindexvec.push_back(j);
+                }
+            }
+            for(int j=0;j<numpoints;numpoints++){
+                if(thisvec[j]==1){
+                    Point * posspoint = (indextopointmap[j]);
+                    for(auto defindexvecitr = defindexvec.begin();defindexvecitr!=defindexvec.end();defindexvecitr++){
+                        Point * defpoint = indextopointmap[(* defindexvecitr)];
+                        bool iscollinear = thispoint->checkcollinear(posspoint, defpoint);
+                        if(iscollinear){
+                            adjacencyMatrix[i][j] =0;
+                            adjacencyMatrix[j][i] = 0;
+                            ret = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return ret;
 }

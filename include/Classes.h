@@ -20,6 +20,7 @@ public:
         out << "Point(" << point.x << ", " << point.y << ", " << point.z << ")";    
         return out;
     }
+    bool checkcollinear(Point *, Point *);
 };
 
 ///
@@ -139,7 +140,7 @@ public:
     //vector<Point * > knownpoints;
     vector<Point> allpoints;
     vector<vector<int> > adjacencyMatrix;
-    map<Point *, int> pointtoindexmap;
+    map<int, Point*> indextopointmap;
     map<string, Point *> labeltopointmap;
     Wireframe create3D();
     void chkif3edgesanddefthem();
@@ -152,4 +153,5 @@ public:
     //vector<Edge> determineEdges(Point, Point[], Point[]);
     vector<Edge> determinePossibleEdges(Point, vector<Point> *,vector<Point> *);
     int numofpossibleedge();
+    bool chkcollinearpossanddef();
 };
