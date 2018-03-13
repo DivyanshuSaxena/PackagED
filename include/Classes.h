@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string.h>
+#include <map>
 using namespace std;
 
 ///
@@ -14,6 +15,7 @@ public:
     void setCoordinatesAndLabel(double,double,double,string);
     Point projectPoint(double[]);
     double relativePosition(double[]);
+    int adjacencyIndex;
     friend std::ostream& operator<< (std::ostream &out, const Point &point) {
         out << "Point(" << point.x << ", " << point.y << ", " << point.z << ")";    
         return out;
@@ -96,6 +98,7 @@ public:
     vector<Edge2D> edges;
     vector<Point> possibleNeighbours(Point);
     vector<Point> sameclusterpoints(Point);
+    bool isConnected(string, string);
 };
 
 ///
@@ -132,10 +135,21 @@ class Projection2D {
 public:
     OrthoProjection frontview;
     OrthoProjection topview;
+    OrthoProjection sideview;
+    //vector<Point * > knownpoints;
+    vector<Point> allpoints;
+    vector<vector<int> > adjacencyMatrix;
+    map<Point *, int> pointtoindexmap;
+    map<string, Point *> labeltopointmap;
     Wireframe create3D();
+    void chkif3edgesanddefthem();
 //private:
+    void determineIntersectedEdges();
+    void executeCorollary1onebyone(OrthoProjection *,OrthoProjection *);
+    void executeCorollary1();
     Point determinePoint(Point, Point);
     vector<Point> determineAllPoints();
     //vector<Edge> determineEdges(Point, Point[], Point[]);
-    vector<Edge> determinePossibleEdges(Point, vector<Point> *,vector<Point> *,vector<Point> *);
+    vector<Edge> determinePossibleEdges(Point, vector<Point> *,vector<Point> *);
+    int numofpossibleedge();
 };
