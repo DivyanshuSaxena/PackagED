@@ -100,6 +100,7 @@ public:
     vector<Point> possibleNeighbours(Point);
     vector<Point> sameclusterpoints(Point);
     bool isConnected(string, string);
+    
 };
 
 ///
@@ -154,4 +155,5 @@ public:
     vector<Edge> determinePossibleEdges(Point, vector<Point> *,vector<Point> *);
     int numofpossibleedge();
     bool chkcollinearpossanddef();
+    bool chkcollinearpossandposs();
 };

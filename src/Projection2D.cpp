@@ -11,7 +11,8 @@ Wireframe Projection2D::create3D(){
     while(numofpossibleedge()!=0){
         //function below checks if for a point a possible and definite point are collinear and removes the possible point
         bool ifcollinearpossanddef = chkcollinearpossanddef();
-        
+        bool ifcollinearpossandposs = chkcollinearpossandposs();
+
 
     }
     // vector<Edge> doublecalculatedpossibleedges;
@@ -245,6 +246,45 @@ bool Projection2D::chkcollinearpossanddef(){
                             adjacencyMatrix[j][i] = 0;
                             ret = true;
                             break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return ret;
+}
+bool Projection2D::chkcollinearpossandposs(){
+    int numpoints = allpoints.size();
+    bool ret =false;
+    for(int i=0;i<numpoints;i++){
+        Point * thispoint = & (allpoints[i]);
+        vector<int> thisvec = adjacencyMatrix[i];
+        int numposs = count(thisvec.begin(),thisvec.end(),1);
+        int numdef = count(thisvec.begin(),thisvec.end(),2);
+        if(numposs>=2){
+            for(int j=0;j<numpoints;j++){
+                if(adjacencyMatrix[i][j]==1){
+                    for(int k=0;k<numpoints;k++){
+                        if(adjacencyMatrix[i][k]==1){
+                            if(indextopointmap[i]->checkcollinear(indextopointmap[j],indextopointmap[k])){
+                                Point * jpointptr = indextopointmap[j];
+                                Point * kpointptr = indextopointmap[k];
+                                vector<Point> topcluster = topview.sameclusterpoints(*thispoint);
+                                auto jiterator = find_if(topcluster.begin(),topcluster.end(),[jpointptr](Point p)->bool{
+                                    return(jpointptr->label==p.label);
+                                });
+                                if(jiterator!=topcluster.end()){
+                                    auto kiterator = find_if(topcluster.begin(),topcluster.end(),[kpointptr](Point p)->bool{
+                                        return(kpointptr->label==p.label);
+                                    });
+                                    if(kiterator!=topcluster.end()){
+                                        if(topcluster.begin()->label==thispoint->label || topcluster.end()->label==thispoint->label){
+                                            Vector3d a1 = 
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
