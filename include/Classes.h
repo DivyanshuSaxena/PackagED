@@ -156,4 +156,5 @@ public:
     int numofpossibleedge();
     bool chkcollinearpossanddef();
     bool chkcollinearpossandposs();
+    bool chkposshasdefinother();
 };
