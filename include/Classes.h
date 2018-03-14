@@ -1,9 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <string.h>
+#include <gtkmm.h>
 #include <map>
 using namespace std;
 
+class PointWindow;
+class ClusteredPointWindow;
+class EdgeWindow;
+class ClusteredEdgeWindow;
 ///
 /// This class is an abstraction of a real-world 3D point.
 ///
@@ -99,6 +104,8 @@ public:
     vector<Edge2D> edges;
     vector<Point> possibleNeighbours(Point);
     vector<Point> sameclusterpoints(Point);
+    ClusteredPointWindow cpinput;
+    ClusteredEdgeWindow ceinput;
     bool isConnected(string, string);
 };
 
@@ -113,7 +120,10 @@ public:
     PlaneProjection project3D(double[]);
     Object3D rotateObject(double, double, double);
     Object3D translate(double, double, double);
-//private:
+    PointWindow pinput;
+    EdgeWindow einput;
+    FaceWindow finput;
+private:
     vector<Point> projectedVertices;
     bool checkHiddenVertice(Point,Face,double[],int);
     bool checkHiddenEdge(Edge,Face,double[],int);
@@ -129,8 +139,8 @@ public:
 ///
 /// This class holds the 2D orthographic projections of a 3D object.
 /// The orthographic views given by the user must be on the standard planes of reference. We
-//describe our model, assuming that: 1. Top view is taken on x-y plane 
-// 2. Front view must be taken on x-z plane
+/// describe our model, assuming that: 1. Top view is taken on x-y plane 
+/// 2. Front view must be taken on x-z plane
 ///
 class Projection2D {
 public:
@@ -155,3 +165,8 @@ public:
     int numofpossibleedge();
     bool chkcollinearpossanddef();
 };
+
+Object3D createObject();
+OrthoProjection createProjection();
+int renderObject(Wireframe);
+int renderProjection(OrthoProjection);

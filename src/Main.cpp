@@ -1,24 +1,19 @@
 #include <iostream>
 #include <vector>
 #include <GL/glut.h>
-#include <gtkmm.h>
 #include <Eigen/Dense>
-#include "Classes.h"
-
+#include "gui.h"
 
 using namespace std;
 using Eigen::MatrixXd;
 
-Object3D createObject();
-OrthoProjection createProjection();
-int renderObject(Wireframe);
-int renderProjection(OrthoProjection);
+int runApplication(int,char*,Mainwindow);
 
-int main() {
+int main(int argc, char *argv[]) {
     /// 
     /// The main function shall be responsible for calling various other functions and instantiating the classes for using their functions cop290
     ///
-    double thisarr [4] ={0,1,0,0};
+    double thisarr [4] = {0,1,0,0};
     Object3D obj;
     Point v1,v2,v3,v4,v5;
     v1.setCoordinates(2,2,0);
@@ -68,12 +63,29 @@ int main() {
     obj.faces.push_back(f5);
     PlaneProjection p = obj.project3D(thisarr);
     cout << "Projection: " << p << endl;
+    MainWindow window;
+    runApplication(argc, argv, window);
 }
 
-Object3D createObject() {
+int runApplication(int argc, char *argv[], MainWindow main) {
+    auto app = Gtk::Application::create(argc, argv,
+      "org.gtkmm.examples");
+
+    return app->run(main);
+}
+
+Object3D createObject(int argc, char *argv[]) {
     ///
     /// This function shall make use of the gtk library, to interactively take input from the user and returns the 3D object created from the user input
     ///
+    Object3D obj;
+    MainWindow window;
+    runApplication(argc, argv, window);
+    int pred = window.predicate;
+    while(pred==0){
+        pred = window.predicate;
+        if(pred==)
+    }
 }
 
 OrthoProjection createProjection() {

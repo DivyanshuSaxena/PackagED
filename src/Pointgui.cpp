@@ -1,45 +1,18 @@
 #include "gui.h"
 
-MainWindow::MainWindow()
-: m_button_1("Project 3D Object on a Plane"),
-  m_button_2("Construct Wireframe Orthographic Views")
-{
-  set_title("PackagED");
-  set_border_width(12);
-
-  add(m_grid);
-
-  m_grid.add(m_button_1);
-  m_grid.attach_next_to(m_button_2, m_button_1, Gtk::POS_BOTTOM, 1, 1);
-  // m_grid.attach_next_to(m_button_quit, m_button_2, Gtk::POS_BOTTOM, 1, 1);
-
-  m_button_1.signal_clicked().connect(
-    sigc::bind<Glib::ustring>( sigc::mem_fun(*this,
-      &MainWindow::on_button_numbered), "1") );
-  m_button_2.signal_clicked().connect(
-    sigc::bind<Glib::ustring>( sigc::mem_fun(*this,
-      &MainWindow::on_button_numbered), "2") );
-
-  show_all_children();
-}
-
-void MainWindow::on_button_numbered(const Glib::ustring& data) 
-{
-  std::cout << data << " was pressed" << std::endl;
-  if(data==std::string("1")){
-    prwindow = new PointWindow;
-    prwindow->show();
-  }else{
-    std::cout << "Under Construction";
-  }
-}
-
-PointWindow::PointWindow()
+PointWindow::PointWindow(MainWindow* main)
 : m_submit("All Points Done"),
   m_add_point("Add more Points"),
-  m_label("Add more labels to this Point")
+  m_label("Add more labels to this Point"),
+  parent(main)
 {
-  set_title("PackagED");
+  int pred = main->predicate;
+  if(pred==1)
+    set_title("3D Object");
+  else if(pred==2)
+    set_title("Top View");
+  else
+    set_title("Front View");
   set_border_width(12);
 
   add(m_grid);
@@ -83,6 +56,21 @@ void PointWindow::on_button_submit()
 {
   std::cout << "Entered text: " << m_entry_x.get_text() << m_entry_y.get_text() 
     << m_entry_z.get_text() << m_entry_label.get_text() << std::endl;
+  if(parent->predicate==1){
+    Point p;
+    p.setCoordinatesAndLabel(stod(m_entry_x.get_text()),stod(m_entry_y.get_text()),
+                              stod(m_entry_z.get_text()),std::string(m_entry_label.get_text()));
+    parent->projectPoints.push_back(p);    
+  }else{
+    Point point;
+    point.setCoordinatesAndLabel(stod(m_entry_x.get_text()),stod(m_entry_y.get_text()),
+                              stod(m_entry_z.get_text()),std::string(m_entry_label.get_text()));
+    cp->points.push_back(point);
+    ClusteredPoint newcp;
+    for(int i = 0; i < cp->points.size(); i++)
+      newcp.points.push_back(cp->points[i]);
+    parent->constructPoints.push_back(newcp);
+  }
   this->hide();
 }
 
@@ -90,6 +78,23 @@ void PointWindow::on_button_addpoint()
 {
   std::cout << "Entered text: " << m_entry_x.get_text() << m_entry_y.get_text() 
     << m_entry_z.get_text() << m_entry_label.get_text() << std::endl;
+  if(parent->predicate==1)
+  {
+    Point p;
+    p.setCoordinatesAndLabel(stod(m_entry_x.get_text()),stod(m_entry_y.get_text()),
+                              stod(m_entry_z.get_text()),std::string(m_entry_label.get_text()));
+    parent->projectPoints.push_back(p);
+  }else{
+    Point point;
+    point.setCoordinatesAndLabel(stod(m_entry_x.get_text()),stod(m_entry_y.get_text()),
+                              stod(m_entry_z.get_text()),std::string(m_entry_label.get_text()));
+    cp->points.push_back(point);
+    ClusteredPoint newcp;
+    for(int i = 0; i < cp->points.size(); i++)
+      newcp.points.push_back(cp->points[i]);
+    parent->constructPoints.push_back(newcp);
+    cp = new ClusteredPoint;
+  }
   this->m_entry_x.set_text("x");
   this->m_entry_y.set_text("y");
   this->m_entry_z.set_text("z");
@@ -99,29 +104,13 @@ void PointWindow::on_button_addpoint()
 void PointWindow::on_button_addlabel()
 {
   std::cout << "Entered text: " <<  m_entry_label.get_text() << std::endl;
+  Point point;
+  point.setCoordinatesAndLabel(stod(m_entry_x.get_text()),stod(m_entry_y.get_text()),
+                            stod(m_entry_z.get_text()),std::string(m_entry_label.get_text()));
+  cp->points.push_back(point);
   this->m_entry_label.set_text("label");
 }
 
 PointWindow::~PointWindow()
 {
-}
-
-MainWindow::~MainWindow()
-{
-}
-
-ConstructWindow::~ConstructWindow()
-{
-}
-
-int main(int argc, char *argv[])
-{
-  auto app =
-    Gtk::Application::create(argc, argv,
-      "org.gtkmm.examples");
-
-  MainWindow window;
-  // window.set_default_size(600, 400);
-
-  return app->run(window);
 }
