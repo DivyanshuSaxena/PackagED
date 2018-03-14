@@ -4,6 +4,8 @@ MainWindow::MainWindow()
 : m_button_1("Project 3D Object on a Plane"),
   m_button_2("Construct Wireframe Orthographic Views")
 {
+  this->obj = obj;
+  cout<<"MainWindow opened";
   set_title("PackagED");
   set_border_width(12);
 
@@ -31,16 +33,9 @@ void MainWindow::on_button_numbered(const Glib::ustring& data)
     this->obj = createObject();
   }else{
     this->predicate = 2;
-    OrthoProjection front,top,side;
-    front = createProjection(1);
-    top = createProjection(2);
-    side = createProjection(3);
-    this->proj.frontview = front;
-    this->proj.topview = top;
-    this->proj.sideview = side;
+    // OrthoProjection front,top,side;
+    proj.frontview = createProjection(1);
+    proj.topview = createProjection(2);
+    proj.sideview = createProjection(3);
   }
-}
-
-MainWindow::~MainWindow()
-{
 }

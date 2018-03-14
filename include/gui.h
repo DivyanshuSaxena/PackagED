@@ -10,7 +10,6 @@ class MainWindow : public Gtk::Window
 {
 public:
   MainWindow();
-  virtual ~MainWindow();
   int predicate;
   Object3D obj;
   Projection2D proj;
@@ -27,7 +26,6 @@ class PointWindow : public Gtk::Window
 {
 public:
   PointWindow();
-  virtual ~PointWindow();
   Object3D obj;
 
 private:

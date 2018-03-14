@@ -5,10 +5,6 @@
 #include <map>
 using namespace std;
 
-class PointWindow;
-class ClusteredPointWindow;
-class EdgeWindow;
-class ClusteredEdgeWindow;
 ///
 /// This class is an abstraction of a real-world 3D point.
 ///

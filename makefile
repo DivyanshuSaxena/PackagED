@@ -32,7 +32,7 @@ GSRC = $(patsubst %,$(SDIR)/%,$(_GSRC))
 
 ESS = ./bin/Point.o ./bin/Main.o
 
-_BUILDS = point object3d projection2d ortho main pointgui maingui
+_BUILDS = main
 BUILDS = $(patsubst %,$(BDIR)/%,$(_BUILDS))
 
 MKDIR = mkdir -p
@@ -49,24 +49,6 @@ all: directories $(BUILDS)
 directories: 
 	$(MKDIR) $(OUT_DIR)
 
-$(BDIR)/point: $(OBJ)
-		$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
-
-$(BDIR)/object3d: $(OBJ) ./bin/Object3D.o ./bin/OrthoProjection.o
-		$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
-
-$(BDIR)/projection2d: $(OBJ) ./bin/Projection2D.o ./bin/OrthoProjection.o
-		$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
-
-$(BDIR)/ortho: $(OBJ) ./bin/OrthoProjection.o
-		$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
-
 $(BDIR)/main: $(OBJ)
 		$(CC) -o $@ $^ $(CFLAGS) $(GLFLAGS) $(LIBS) $(GTKFLAG) 
 
-$(BDIR)/pointgui: $(OBJ)
-		$(CC) -o $@ $^ $(CFLAGS) $(GLFLAGS) $(LIBS) $(GTKFLAG)
-
-$(BDIR)/maingui: $(OBJ)
-		$(CC) -o $@ $^ $(GLFLAGS) $(CFLAGS) $(LIBS) $(GTKFLAG) 
-		

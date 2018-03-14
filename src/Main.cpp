@@ -7,13 +7,22 @@
 using namespace std;
 using Eigen::MatrixXd;
 
-int runApplication(int,char*,MainWindow*);
+int runApplication(int,char**,MainWindow);
 
 int main(int argc, char *argv[]) {
     /// 
     /// The main function shall be responsible for calling various other functions and instantiating the classes for using their functions cop290
     ///
-    double thisarr [4] = {0,1,0,0};
+    MainWindow main;
+    cout << "calling run application" << endl;
+    auto app = Gtk::Application::create(argc, argv,
+      "org.gtkmm.examples");
+
+    return app->run(main);
+}
+
+int check3D() {
+        double thisarr [4] = {0,1,0,0};
     Object3D obj;
     Point v1,v2,v3,v4,v5;
     v1.setCoordinates(2,2,0);
@@ -63,10 +72,9 @@ int main(int argc, char *argv[]) {
     obj.faces.push_back(f5);
     PlaneProjection p = obj.project3D(thisarr);
     cout << "Projection: " << p << endl;
-    auto app = Gtk::Application::create(argc, argv,
-      "org.gtkmm.examples");
-    MainWindow main;
-    return app->run(main);
+}
+
+int check2D() {
     Point etop, atop, btop, ctop, dtop, afront,dfront, bfront,cfront, efront, eside, dside, cside, aside, bside;
     etop.setCoordinatesAndLabel(1.5,1.5,0,"e");
     atop.setCoordinatesAndLabel(1,1,0,"a");
@@ -152,14 +160,14 @@ int main(int argc, char *argv[]) {
     myproj.topview =topview;
     //cout <<atop<<endl;
     myproj.create3D();
-
 }
 
-int runApplication(int argc, char *argv[], MainWindow* main) {
+int runApplication(int argc, char *argv[], MainWindow main) {
+    cout << "Going to run application";
     auto app = Gtk::Application::create(argc, argv,
       "org.gtkmm.examples");
 
-    return app->run(*main);
+    return app->run(main);
 }
 
 Object3D createObject() {

@@ -51,7 +51,7 @@ void PointWindow::on_button_submit()
   Point p;
   p.setCoordinatesAndLabel(stod(m_entry_x.get_text()),stod(m_entry_y.get_text()),
                             stod(m_entry_z.get_text()),std::string(m_entry_label.get_text()));
-  this->obj.vertices.push_back(p);    
+  obj.vertices.push_back(p);    
   // if(parent->predicate==1){
     
   // }else{ 
@@ -74,7 +74,7 @@ void PointWindow::on_button_addpoint()
   Point p;
   p.setCoordinatesAndLabel(stod(m_entry_x.get_text()),stod(m_entry_y.get_text()),
                             stod(m_entry_z.get_text()),std::string(m_entry_label.get_text()));
-  this->obj.vertices.push_back(p);
+  obj.vertices.push_back(p);
   // if(parent->predicate==1)
   // {
     
@@ -104,7 +104,3 @@ void PointWindow::on_button_addpoint()
 //   cp->points.push_back(point);
 //   this->m_entry_label.set_text("label");
 // }
-
-PointWindow::~PointWindow()
-{
-}
