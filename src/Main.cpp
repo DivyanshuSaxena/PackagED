@@ -7,7 +7,7 @@
 using namespace std;
 using Eigen::MatrixXd;
 
-int runApplication(int,char*,Mainwindow);
+int runApplication(int,char*,MainWindow*);
 
 int main(int argc, char *argv[]) {
     /// 
@@ -63,8 +63,10 @@ int main(int argc, char *argv[]) {
     obj.faces.push_back(f5);
     PlaneProjection p = obj.project3D(thisarr);
     cout << "Projection: " << p << endl;
-    MainWindow window;
-    runApplication(argc, argv, window);
+    auto app = Gtk::Application::create(argc, argv,
+      "org.gtkmm.examples");
+    MainWindow main;
+    return app->run(main);
     Point etop, atop, btop, ctop, dtop, afront,dfront, bfront,cfront, efront, eside, dside, cside, aside, bside;
     etop.setCoordinatesAndLabel(1.5,1.5,0,"e");
     atop.setCoordinatesAndLabel(1,1,0,"a");
@@ -153,28 +155,22 @@ int main(int argc, char *argv[]) {
 
 }
 
-int runApplication(int argc, char *argv[], MainWindow main) {
+int runApplication(int argc, char *argv[], MainWindow* main) {
     auto app = Gtk::Application::create(argc, argv,
       "org.gtkmm.examples");
 
-    return app->run(main);
+    return app->run(*main);
 }
 
-Object3D createObject(int argc, char *argv[]) {
+Object3D createObject() {
     ///
     /// This function shall make use of the gtk library, to interactively take input from the user and returns the 3D object created from the user input
     ///
-    Object3D obj;
-    MainWindow window;
-    runApplication(argc, argv, window);
-    int pred = window.predicate;
-    while(pred==0){
-        pred = window.predicate;
-        if(pred==)
-    }
+    PointWindow pinput;
+    pinput.show();
 }
 
-OrthoProjection createProjection() {
+OrthoProjection createProjection(int type) {
     ///
     /// This function shall make use of the gtk library, to interactively take input from the user, to form a 2D projection and returns the Projection created from the user input
     ///

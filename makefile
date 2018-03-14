@@ -39,7 +39,7 @@ MKDIR = mkdir -p
 
 OUT_DIR = bin build
 
-GTKFLAG = `pkg-config gtkmm-3.0 --cflags --libs`
+GTKFLAG = `pkg-config --cflags --libs gtkmm-3.0`
 
 $(ODIR)/%.o: $(SDIR)/%.cpp $(GDEPS)
 	$(CC) -c -o $@ $< $(CFLAGS) $(GTKFLAG)
@@ -62,11 +62,11 @@ $(BDIR)/ortho: $(OBJ) ./bin/OrthoProjection.o
 		$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 $(BDIR)/main: $(OBJ)
-		$(CC) -o $@ $^ $(CFLAGS) $(GTKFLAG) $(GLFLAGS) $(LIBS) 
+		$(CC) -o $@ $^ $(CFLAGS) $(GLFLAGS) $(LIBS) $(GTKFLAG) 
 
 $(BDIR)/pointgui: $(OBJ)
-		$(CC) -o $@ $^ $(CFLAGS) $(GTKFLAG) $(GLFLAGS) $(LIBS) 
+		$(CC) -o $@ $^ $(CFLAGS) $(GLFLAGS) $(LIBS) $(GTKFLAG)
 
 $(BDIR)/maingui: $(OBJ)
-		$(CC) -o $@ $^ $(GTKFLAG) $(GLFLAGS) $(CFLAGS) $(LIBS) 
+		$(CC) -o $@ $^ $(GLFLAGS) $(CFLAGS) $(LIBS) $(GTKFLAG) 
 		

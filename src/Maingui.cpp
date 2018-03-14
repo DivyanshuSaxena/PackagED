@@ -31,7 +31,7 @@ void MainWindow::on_button_numbered(const Glib::ustring& data)
     this->obj = createObject();
   }else{
     this->predicate = 2;
-    Orthoprojection front,top,side;
+    OrthoProjection front,top,side;
     front = createProjection(1);
     top = createProjection(2);
     side = createProjection(3);

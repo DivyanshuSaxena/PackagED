@@ -104,8 +104,6 @@ public:
     vector<Edge2D> edges;
     vector<Point> possibleNeighbours(Point);
     vector<Point> sameclusterpoints(Point);
-    ClusteredPointWindow cpinput;
-    ClusteredEdgeWindow ceinput;
     bool isConnected(string, string);
     
 };
@@ -121,9 +119,6 @@ public:
     PlaneProjection project3D(double[]);
     Object3D rotateObject(double, double, double);
     Object3D translate(double, double, double);
-    PointWindow pinput;
-    EdgeWindow einput;
-    FaceWindow finput;
 private:
     vector<Point> projectedVertices;
     bool checkHiddenVertice(Point,Face,double[],int);
@@ -170,6 +165,6 @@ public:
 };
 
 Object3D createObject();
-OrthoProjection createProjection();
+OrthoProjection createProjection(int);
 int renderObject(Wireframe);
 int renderProjection(OrthoProjection);

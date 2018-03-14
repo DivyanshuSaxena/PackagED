@@ -26,20 +26,21 @@ private:
 class PointWindow : public Gtk::Window
 {
 public:
-  PointWindow(MainWindow*);
+  PointWindow();
   virtual ~PointWindow();
+  Object3D obj;
 
 private:
   // Signal handlers:
   void on_button_submit();
   void on_button_addpoint();
-  void on_button_addlabel();
+  // void on_button_addlabel();
 
   // Child widgets:
   Gtk::Grid m_grid;
   Gtk::Entry m_entry_x, m_entry_y, m_entry_z, m_entry_label;
-  Gtk::Button m_submit, m_add_point, m_label;
-  std::vector<std::string> labels;
+  Gtk::Button m_submit, m_add_point;
+  // std::vector<std::string> labels;
 };
 
 #endif /* GTKMM_PROJWINDOW_H */
