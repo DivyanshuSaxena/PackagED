@@ -1,65 +1,29 @@
 #include "Classes.h"
+#include <Eigen/Dense>
 #include <algorithm>
 using namespace std;
-
+using namespace Eigen;
 
 Wireframe Projection2D::create3D(){
     allpoints = determineAllPoints();
+    cout << "allpoints detected and their number are "<< allpoints.size()<<endl;
+    for(int i=0;i<allpoints.size();i++){
+        cout << allpoints[i] << endl;
+    }
     determineIntersectedEdges();
     executeCorollary1();
     chkif3edgesanddefthem();
     while(numofpossibleedge()!=0){
         //function below checks if for a point a possible and definite point are collinear and removes the possible point
         bool ifcollinearpossanddef = chkcollinearpossanddef();
-        
+        bool ifcollinearpossandposs = chkcollinearpossandposs();
+        bool ifposshasdefinother = chkposshasdefinother();
+        chkif3edgesanddefthem();
 
     }
-    // vector<Edge> doublecalculatedpossibleedges;
-    // // doublecalculatedpossibleedges has all the edges calculated twice
-    // vector<vector<Edge> > correspondingpossibleedges;
-    // vector<vector<Point> > correspondingtopviewneighbours;
-    // vector<vector<Point> > correspondingfronviewneighbours;
-    // vector<Edge> definiteedges;
-    // for(auto allpointitr = allpoints.begin();allpointitr!=allpoints.begin();allpointitr++){
-    //     vector<Point> topviewpossibleneighbours = topview.possibleNeighbours(*(allpointitr));
-    //     vector<Point> frontviewpossibleneighbours = frontview.possibleNeighbours(*(allpointitr));
-    //     vector<Edge> possibleedges = determinePossibleEdges(*(allpointitr),&(topviewpossibleneighbours),&(frontviewpossibleneighbours),&(allpoints));
-    //     for(auto possibleedgesitr = possibleedges.begin();possibleedgesitr!=possibleedges.end();possibleedgesitr++){
-    //         doublecalculatedpossibleedges.push_back(* possibleedgesitr);
-    //     }
-    //     correspondingpossibleedges.push_back(possibleedges);
-    //     correspondingtopviewneighbours.push_back(topviewpossibleneighbours);
-    //     correspondingfronviewneighbours.push_back(frontviewpossibleneighbours);
-    //     //same cluster from top and corresponding in front
-    //     Point thispoint = * allpointitr;
-    //     vector<Point> sametopcluster = topview.sameclusterpoints(* (allpointitr));
-    //     for(auto sametopclusteritr = sametopcluster.begin();sametopclusteritr!=sametopcluster.end();sametopclusteritr++){
-    //         auto corresfrontpointptr = find_if(frontviewpossibleneighbours.begin(),frontviewpossibleneighbours.end(),[sametopclusteritr](Point p)->bool{
-    //             return(sametopclusteritr->label==p.label);
-    //         });
-    //         if(corresfrontpointptr!= frontviewpossibleneighbours.end()){
-    //             Edge definitepoint;
-    //             definitepoint.p1 = *allpointitr;
-    //             definitepoint.p2 = determinePoint(*sametopclusteritr,*corresfrontpointptr);
-    //             definiteedges.push_back(definitepoint);
-    //         }
-    //     }
-    //     //same cluster from front and corresponding in top
-    //     thispoint = * allpointitr;
-    //     vector<Point> samefrontcluster = frontview.sameclusterpoints(* (allpointitr));
-    //     for(auto samefrontclusteritr = samefrontcluster.begin();samefrontclusteritr!=samefrontcluster.end();samefrontclusteritr++){
-    //         auto correstoppointptr = find_if(topviewpossibleneighbours.begin(),topviewpossibleneighbours.end(),[samefrontclusteritr](Point p)->bool{
-    //             return(samefrontclusteritr->label==p.label);
-    //         });
-    //         if(correstoppointptr!= topviewpossibleneighbours.end()){
-    //             Edge definitepoint;
-    //             definitepoint.p1 = *allpointitr;
-    //             definitepoint.p2 = determinePoint(*samefrontclusteritr,*correstoppointptr);
-    //             definiteedges.push_back(definitepoint);
-    //         }
-    //     }
-        //corollary 1 complete
-        
+    Wireframe answer;
+    return answer;
+
 }
 
 //  kl   //doublecalculaedpossibleedges has all the edges calculated twice now
@@ -70,16 +34,24 @@ vector<Point> Projection2D::determineAllPoints(){
     for(auto it=(frontview.vertices.begin());it!=frontview.vertices.end();it++){
         for(auto nestit=(it->points.begin());nestit!=it->points.end();nestit++){
             string thislabel = nestit->label;
+            cout << "iteration on front label "<<thislabel<<endl;
             for(auto itfind=topview.vertices.begin();itfind!=topview.vertices.end();itfind++){
                 bool found = false;
                 for(auto nestitfind=itfind->points.begin();nestitfind!= itfind->points.end();nestitfind++){
                     string findlabel = nestitfind->label;
+                    cout << "   corresponding iteration on top label " << findlabel <<endl;
                     if(thislabel==findlabel){
+                        cout << "   aloha found the same label"<<endl;
                         found=true;
                         Point determinedpoint = determinePoint(*nestit, *nestitfind);
-                        answer.push_back(determinedpoint);
+                        //cout << "   determined point is "<< determinedpoint << endl;
                         int sizeanswer = answer.size();
-                        determinedpoint.adjacencyIndex=sizeanswer-1;
+                        determinedpoint.adjacencyIndex=sizeanswer;
+                        answer.push_back(determinedpoint);
+                        sizeanswer = answer.size();
+                        determinedpoint = answer[sizeanswer-1];
+                        
+                        cout << "   determined point is "<< determinedpoint << endl;
                         indextopointmap.insert(make_pair(sizeanswer-1,&determinedpoint));
                         labeltopointmap.insert(make_pair(determinedpoint.label,&determinedpoint));
                         //knownpoints.push_back(&determinedpoint);
@@ -248,6 +220,105 @@ bool Projection2D::chkcollinearpossanddef(){
                         }
                     }
                 }
+            }
+        }
+    }
+    return ret;
+}
+bool Projection2D::chkcollinearpossandposs(){
+    int numpoints = allpoints.size();
+    bool ret =false;
+    for(int i=0;i<numpoints;i++){
+        Point * thispoint = & (allpoints[i]);
+        vector<int> thisvec = adjacencyMatrix[i];
+        int numposs = count(thisvec.begin(),thisvec.end(),1);
+        int numdef = count(thisvec.begin(),thisvec.end(),2);
+        if(numposs>=2){
+            for(int j=0;j<numpoints;j++){
+                if(adjacencyMatrix[i][j]==1){
+                    for(int k=j+1;k<numpoints;k++){
+                        if(adjacencyMatrix[i][k]==1){
+                            if(thispoint->checkcollinear(indextopointmap[j],indextopointmap[k])){
+                                Point * jpointptr = indextopointmap[j];
+                                Point * kpointptr = indextopointmap[k];
+                                for(int it=0;it<3;it++){
+                                    vector<Point> topcluster;
+                                    if(it==0){
+                                        topcluster =topview.sameclusterpoints(*thispoint);
+                                    }else if(it==1){
+                                        topcluster = frontview.sameclusterpoints(*thispoint);
+                                    }else{
+                                        topcluster = sideview.sameclusterpoints(*thispoint);
+                                    }
+                                    auto jiterator = find_if(topcluster.begin(),topcluster.end(),[jpointptr](Point p)->bool{
+                                        return(jpointptr->label==p.label);
+                                    });
+                                    if(jiterator!=topcluster.end()){
+                                        auto kiterator = find_if(topcluster.begin(),topcluster.end(),[kpointptr](Point p)->bool{
+                                            return(kpointptr->label==p.label);
+                                        });
+                                        if(kiterator!=topcluster.end()){
+                                            if(topcluster.begin()->label==thispoint->label || topcluster.end()->label==thispoint->label){
+                                                Vector3d a1(thispoint->x,thispoint->y,thispoint->z);
+                                                Vector3d a2(jpointptr->x,jpointptr->y,jpointptr->z);
+                                                Vector3d a3(kpointptr->x,kpointptr->y,kpointptr->z);
+                                                double dis1 = (a2-a1).norm();
+                                                double dis2 = (a3-a1).norm();
+                                                if(dis1<dis2){
+                                                    adjacencyMatrix[i][j]=2;
+                                                    adjacencyMatrix[j][i]=2;
+                                                    adjacencyMatrix[i][k]=0;
+                                                    adjacencyMatrix[k][i]=0;
+                                                }else{
+                                                    adjacencyMatrix[i][j]=0;
+                                                    adjacencyMatrix[j][i]=0;
+                                                    adjacencyMatrix[i][k]=2;
+                                                    adjacencyMatrix[k][i]=2;
+                                                }
+                                                ret = true;
+                                            }
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return ret;
+}
+bool Projection2D::chkposshasdefinother(){
+    int numpoints = allpoints.size();
+    bool ret =false;
+    for(int i=0;i<numpoints;i++){
+        Point * thispoint = & (allpoints[i]);
+        //vector<int> thisvec = adjacencyMatrix[i];
+        vector<int> posspointsvec,defpointsvec;
+        for(int j=0;j<numpoints;j++){
+            if(adjacencyMatrix[i][j]==1){
+                posspointsvec.push_back(j);
+            }else if(adjacencyMatrix[i][j]==2){
+                defpointsvec.push_back(j);
+            }
+        }
+        if(defpointsvec.size()<2){
+            continue;
+        }
+        for(int j=0;j<posspointsvec.size();j++){
+            int thisposspointindex = posspointsvec[j];
+            int numberofintersections = 0;
+            for(int k=0;k<defpointsvec.size();k++){
+                if(adjacencyMatrix[thisposspointindex][defpointsvec[k]]==2){
+                    numberofintersections++;
+                }
+            }
+            if(numberofintersections>=2){
+                adjacencyMatrix[i][thisposspointindex]=0;
+                adjacencyMatrix[thisposspointindex][i]=0;
+                ret =true;
             }
         }
     }

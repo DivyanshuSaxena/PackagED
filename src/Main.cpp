@@ -65,6 +65,92 @@ int main(int argc, char *argv[]) {
     cout << "Projection: " << p << endl;
     MainWindow window;
     runApplication(argc, argv, window);
+    Point etop, atop, btop, ctop, dtop, afront,dfront, bfront,cfront, efront, eside, dside, cside, aside, bside;
+    etop.setCoordinatesAndLabel(1.5,1.5,0,"e");
+    atop.setCoordinatesAndLabel(1,1,0,"a");
+    btop.setCoordinatesAndLabel(2,1,0,"b");
+    ctop.setCoordinatesAndLabel(2,2,0,"c");
+    dtop.setCoordinatesAndLabel(1,2,0,"d");
+    efront.setCoordinatesAndLabel(1.5,0,2,"e");
+    afront.setCoordinatesAndLabel(1,0,1,"a");
+    bfront.setCoordinatesAndLabel(2,0,1,"b");
+    cfront.setCoordinatesAndLabel(2,0,1,"c");
+    dfront.setCoordinatesAndLabel(1,0,1,"d");
+    eside.setCoordinatesAndLabel(0,1.5,2,"e");
+    aside.setCoordinatesAndLabel(0,1,1,"a");
+    bside.setCoordinatesAndLabel(0,1,1,"b");
+    cside.setCoordinatesAndLabel(0,2,1,"c");
+    dside.setCoordinatesAndLabel(0,2,1,"d");
+    ClusteredPoint atopcl,btopcl, etopcl, dtopcl, ctopcl, efrontcl, adfrontcl,bcfrontcl,esidecl, dcsidecl, absidecl;
+    atopcl.points.push_back(atop);
+    btopcl.points.push_back(btop);
+    dtopcl.points.push_back(dtop);
+    etopcl.points.push_back(etop);
+    ctopcl.points.push_back(ctop);
+    efrontcl.points.push_back(efront);
+    adfrontcl.points.push_back(afront);
+    adfrontcl.points.push_back(dfront);
+    bcfrontcl.points.push_back(bfront);
+    bcfrontcl.points.push_back(cfront);
+    esidecl.points.push_back(eside);
+    dcsidecl.points.push_back(dside);
+    dcsidecl.points.push_back(cside);
+    absidecl.points.push_back(aside);
+    absidecl.points.push_back(bside);
+    OrthoProjection topview, frontview,sideview;
+    ClusteredPoint topspoints[] = {atopcl,btopcl,dtopcl,etopcl,ctopcl};
+    for(int i=0;i<5;i++){
+        topview.vertices.push_back(topspoints[i]);
+    }
+    //ClusteredPoint temp =topview.vertices[2];
+    //cout << topview.vertices[2].points[0].label << endl;
+    ClusteredPoint frontspoints[] ={efrontcl,adfrontcl,bcfrontcl};
+    for(int i=0;i<3;i++){
+        frontview.vertices.push_back(frontspoints[i]);
+    }
+    ClusteredPoint sidespoints[] = {esidecl,dcsidecl,absidecl};
+    for(int i=0;i<3;i++){
+        sideview.vertices.push_back(sidespoints[i]);
+    }
+    Edge2D abtope,bctope,cdtope,adtope,aetope,betope,cetope,detope,actope,bdtope;
+    abtope.cp1 = atopcl; abtope.cp2 = btopcl;
+    bctope.cp1 = btopcl; bctope.cp2 = ctopcl;
+    cdtope.cp1 = ctopcl; cdtope.cp2 = dtopcl;
+    adtope.cp1 = atopcl; adtope.cp2 = dtopcl;
+    aetope.cp1 = atopcl; aetope.cp2 = etopcl;
+    betope.cp1 = btopcl; betope.cp2 = etopcl;
+    cetope.cp1 = ctopcl; cetope.cp2 = etopcl;
+    detope.cp1 = dtopcl; detope.cp2 = etopcl;
+    actope.cp1 = atopcl; actope.cp2 = ctopcl;
+    bdtope.cp1 = btopcl; bdtope.cp2 = dtopcl;
+    Edge2D topsedges[] ={abtope,bctope,cdtope,adtope,aetope,betope,cetope,detope,actope,bdtope};
+    //cout << sizeof(topsedges)/sizeof(Edge2D);
+    for(int i=0;i<10;i++){
+        topview.edges.push_back(topsedges[i]);
+    }
+    Edge2D ebcfronte, adbcfronte,eadfronte;
+    ebcfronte.cp1=efrontcl; ebcfronte.cp2=bcfrontcl;
+    adbcfronte.cp1=adfrontcl; adbcfronte.cp2=bcfrontcl;
+    eadfronte.cp1=efrontcl; eadfronte.cp2=adfrontcl;
+    Edge2D frontsedges[] = {ebcfronte, adbcfronte,eadfronte};
+    for(int i=0;i<3;i++){
+        frontview.edges.push_back(frontsedges[i]);
+    }
+    Edge2D eabsidee, dcabsidee, edcsidee;
+    eabsidee.cp1=esidecl; eabsidee.cp2=absidecl;
+    dcabsidee.cp1=dcsidecl; dcabsidee.cp2=absidecl;
+    edcsidee.cp1=esidecl; edcsidee.cp2=dcsidecl;
+    Edge2D sidesedges[] ={eabsidee, dcabsidee, edcsidee};
+    for(int i=0;i<3;i++){
+        sideview.edges.push_back(sidesedges[i]);
+    }
+    Projection2D myproj;
+    myproj.frontview=frontview;
+    myproj.sideview=sideview;
+    myproj.topview =topview;
+    //cout <<atop<<endl;
+    myproj.create3D();
+
 }
 
 int runApplication(int argc, char *argv[], MainWindow main) {
