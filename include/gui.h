@@ -14,21 +14,29 @@ public:
   ProjectionWindow();
   virtual ~ProjectionWindow();
   Object3D* obj;
+  double plane[4];
 
 private:
   // Signal handlers:
   void on_button_submit();
   void on_button_addpoint();
+  void on_button_addedge();
+  void on_button_addface();
+  void on_button_created();
+
+  // Signals
+  bool pointsDone, create, init;
 
   // Child widgets:
   Gtk::Box m_Box;
-  Gtk::Frame m_point_frame, m_edge_frame, m_face_frame;
-  Gtk::Grid m_point_grid, m_edge_grid;
+  Gtk::Frame m_point_frame, m_edge_frame, m_face_frame, m_plane_frame;
+  Gtk::Grid m_point_grid, m_edge_grid, m_face_grid, m_plane_grid;
   Gtk::Entry m_entry_x, m_entry_y, m_entry_z, m_entry_label;
+  Gtk::Entry m_entry_a, m_entry_b, m_entry_c, m_entry_d;
   Gtk::Entry m_edge_p1, m_edge_p2;
   Gtk::Button m_submit, m_add_point;
-  Gtk::Button m_edge_submit, m_add_edge;
-  vector<vector<Gtk::CheckButton> > m_check_array;
+  Gtk::Button m_add_edge, m_add_face, m_create;
+  Gtk::CheckButton** m_face_point;
 };
 
 class ConstructWindow : public Gtk::Window
