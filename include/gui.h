@@ -11,8 +11,8 @@ class MainWindow : public Gtk::Window
 public:
   MainWindow();
   int predicate;
-  Object3D obj;
-  Projection2D proj;
+  Object3D* obj;
+  Projection2D* proj;
 private:
   // Signal handlers:
   void on_button_numbered(const Glib::ustring& data);
@@ -26,7 +26,7 @@ class PointWindow : public Gtk::Window
 {
 public:
   PointWindow();
-  Object3D obj;
+  Object3D* obj;
 
 private:
   // Signal handlers:

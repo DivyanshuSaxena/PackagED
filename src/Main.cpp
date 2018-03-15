@@ -7,8 +7,6 @@
 using namespace std;
 using Eigen::MatrixXd;
 
-int runApplication(int,char**,MainWindow);
-
 int main(int argc, char *argv[]) {
     /// 
     /// The main function shall be responsible for calling various other functions and instantiating the classes for using their functions cop290
@@ -162,15 +160,7 @@ int check2D() {
     myproj.create3D();
 }
 
-int runApplication(int argc, char *argv[], MainWindow main) {
-    cout << "Going to run application";
-    auto app = Gtk::Application::create(argc, argv,
-      "org.gtkmm.examples");
-
-    return app->run(main);
-}
-
-Object3D createObject() {
+Object3D* createObject() {
     ///
     /// This function shall make use of the gtk library, to interactively take input from the user and returns the 3D object created from the user input
     ///

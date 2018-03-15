@@ -34,8 +34,9 @@ void MainWindow::on_button_numbered(const Glib::ustring& data)
   }else{
     this->predicate = 2;
     // OrthoProjection front,top,side;
-    proj.frontview = createProjection(1);
-    proj.topview = createProjection(2);
-    proj.sideview = createProjection(3);
+    proj = new Projection2D;
+    proj->frontview = createProjection(1);
+    proj->topview = createProjection(2);
+    proj->sideview = createProjection(3);
   }
 }

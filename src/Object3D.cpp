@@ -1,5 +1,4 @@
 #include "Classes.h"
-#include <stdlib.h>
 #include <Eigen/Dense>
 using namespace Eigen;
 
@@ -368,22 +367,3 @@ bool Object3D::checkHiddenEdge(Edge edge, Face face, double plane[4], int index)
     //     cout << edge << " is not hidden by the face formed by: " << face << endl; -------Remove
     return retValue;
 }
-
-
-// Code to check if both the points in a edge are hidden or not.
-//
-// // cout << "Edges size: " << this->edges.size() << endl;
-// Point p1 = edges[i].p1;
-// Point p2 = edges[i].p2;
-// auto it1 = find_if(this->vertices.begin(), this->vertices.end(), 
-//     [p1](Point p) -> bool {return (p.x==p1.x && p.y==p1.y && p.z==p1.z);});
-// auto it2 = find_if(this->vertices.begin(), this->vertices.end(), 
-//     [p2](Point p) -> bool {return (p.x==p2.x && p.y==p2.y && p.z==p2.z);});
-// int index1,index2;
-// if(it1 != vertices.end())
-//     index1 = distance(vertices.begin(),it1);
-// if(it2 != vertices.end())
-//     index2 = distance(vertices.begin(),it2);
-// if(isHidden[index1] && isHidden[index2])
-//     isHiddenEdge.push_back(true);
-// else {

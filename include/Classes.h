@@ -160,7 +160,7 @@ public:
     bool chkposshasdefinother();
 };
 
-Object3D createObject();
+Object3D* createObject();
 OrthoProjection createProjection(int);
 int renderObject(Wireframe);
 int renderProjection(OrthoProjection);
