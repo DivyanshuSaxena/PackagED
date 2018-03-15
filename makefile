@@ -35,7 +35,7 @@ MKDIR = mkdir -p
 OUT_DIR = bin/gui bin/source build
 
 $(ODIR)/%.o: $(SDIR)/%.cpp $(DEPS)
-	$(CC) -c -o $@ $< $(CFLAGS)
+	$(CC) -c -o $@ $< $(CFLAGS) $(GTKFLAG)
 
 $(OGDIR)/%.o: $(SDIR)/%.cpp $(GDEPS)
 	$(CC) -c -o $@ $< $(CFLAGS) $(GTKFLAG)

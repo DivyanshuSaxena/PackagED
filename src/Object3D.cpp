@@ -23,7 +23,7 @@ PlaneProjection Object3D::project3D(double projectionPlane[4]) {
     vector<bool> isHidden;
     vector<int> isHiddenEdge;
     // Iteration to find all the projected vertices
-    for (auto i = 0; i < len; i++) {
+    for (int i = 0; i < len; i++) {
         this->projectedVertices.push_back(this->vertices[i].projectPoint(projectionPlane));
     }
     // Now, we check if any of the vertices is hidden or not
@@ -31,7 +31,7 @@ PlaneProjection Object3D::project3D(double projectionPlane[4]) {
         // cout << vertices[i].x << vertices[i].y << vertices[i].z << endl; -------Remove
         int flag = 0;
         // cout << this->faces.size(); -------Remove
-        for (auto j = 0; j < 5; j++) {
+        for (int j = 0; j < 5; j++) {
             // cout << "Yo"; ---------Remove
             if(checkHiddenVertice(vertices[i],faces[j],projectionPlane,0))
             {
