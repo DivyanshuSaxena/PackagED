@@ -170,7 +170,7 @@ Object3D* createObject() {
     /// This function shall make use of the gtk library, to interactively take input from the user and returns the 3D object created from the user input
     ///
     cout << "In createObject" << endl; // ----------Remove
-    PointWindow* pinput = new PointWindow;
+    ProjectionWindow* pinput = new ProjectionWindow;
     pinput->show();
     return pinput->obj;
 }

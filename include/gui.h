@@ -8,23 +8,27 @@
 #include "Classes.h"
 using namespace std;
 
-class PointWindow : public Gtk::Window
+class ProjectionWindow : public Gtk::Window
 {
 public:
-  PointWindow();
-  virtual ~PointWindow();
+  ProjectionWindow();
+  virtual ~ProjectionWindow();
   Object3D* obj;
 
 private:
   // Signal handlers:
   void on_button_submit();
   void on_button_addpoint();
-  void on_button_addlabel();
 
   // Child widgets:
-  Gtk::Grid m_grid;
+  Gtk::Box m_Box;
+  Gtk::Frame m_point_frame, m_edge_frame, m_face_frame;
+  Gtk::Grid m_point_grid, m_edge_grid;
   Gtk::Entry m_entry_x, m_entry_y, m_entry_z, m_entry_label;
+  Gtk::Entry m_edge_p1, m_edge_p2;
   Gtk::Button m_submit, m_add_point;
+  Gtk::Button m_edge_submit, m_add_edge;
+  vector<vector<Gtk::CheckButton> > m_check_array;
 };
 
 class ConstructWindow : public Gtk::Window
@@ -58,7 +62,7 @@ private:
   // Child widgets:
   Gtk::Grid m_grid;
   Gtk::Button m_button_1, m_button_2;
-  // PointWindow* prwindow;
+  // ProjectionWindow* prwindow;
   // ConstructWindow* crwindow;
 };
 

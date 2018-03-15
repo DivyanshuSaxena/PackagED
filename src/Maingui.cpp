@@ -27,7 +27,7 @@ void MainWindow::on_button_numbered(const Glib::ustring& data)
 {
   std::cout << data << " was pressed" << std::endl;
   if(data==std::string("1")){
-    // prwindow = new PointWindow;
+    // prwindow = new ProjectionWindow;
     // prwindow->show();
     obj = createObject();
   }else{
