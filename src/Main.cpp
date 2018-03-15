@@ -2,6 +2,7 @@
 #include <vector>
 #include <GL/glut.h>
 #include <Eigen/Dense>
+#include <gtkmm.h>
 #include "gui.h"
 
 using namespace std;
@@ -11,12 +12,16 @@ int main(int argc, char *argv[]) {
     /// 
     /// The main function shall be responsible for calling various other functions and instantiating the classes for using their functions cop290
     ///
-    MainWindow main;
-    cout << "calling run application" << endl;
-    auto app = Gtk::Application::create(argc, argv,
-      "org.gtkmm.examples");
+    cout << "Hi" << endl;
+        
+    auto app =
+        Gtk::Application::create(argc, argv,
+        "org.gtkmm.examples");
 
-    return app->run(main);
+    MainWindow window;
+    // window.set_default_size(600, 400);
+
+    return app->run(window);
 }
 
 int check3D() {
@@ -164,8 +169,10 @@ Object3D* createObject() {
     ///
     /// This function shall make use of the gtk library, to interactively take input from the user and returns the 3D object created from the user input
     ///
-    PointWindow pinput;
-    pinput.show();
+    cout << "In createObject" << endl; // ----------Remove
+    PointWindow* pinput = new PointWindow;
+    pinput->show();
+    return pinput->obj;
 }
 
 OrthoProjection createProjection(int type) {
