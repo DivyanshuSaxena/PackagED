@@ -7,12 +7,14 @@
 
 using namespace std;
 using Eigen::MatrixXd;
+int check2D();
 
 int main(int argc, char *argv[]) {
     /// 
     /// The main function shall be responsible for calling various other functions and instantiating the classes for using their functions cop290
     ///
     cout << "Hi" << endl;
+    check2D();
         
     auto app =
         Gtk::Application::create(argc, argv,
@@ -163,6 +165,7 @@ int check2D() {
     myproj.topview =topview;
     //cout <<atop<<endl;
     myproj.create3D();
+    return 0;
 }
 
 Object3D* createObject() {
