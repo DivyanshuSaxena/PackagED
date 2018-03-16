@@ -125,6 +125,7 @@ class Wireframe {
 public:
     vector<Point> vertices;
     vector<Edge> edges;
+    vector<vector<int> > adjacencyMatrix;
 };
 
 ///
@@ -141,20 +142,22 @@ public:
     //vector<Point * > knownpoints;
     vector<Point> allpoints;
     vector<vector<int> > adjacencyMatrix;
-    map<int, Point*> indextopointmap;
+    map<int, Point *> indextopointmap;
     map<string, Point *> labeltopointmap;
+
     Wireframe create3D();
     void chkif3edgesanddefthem();
 //private:
     void determineIntersectedEdges();
-    void executeCorollary1onebyone(OrthoProjection *,OrthoProjection *);
+    void executeCorollary1onebyone(OrthoProjection *,OrthoProjection *, OrthoProjection *);
     void executeCorollary1();
     Point determinePoint(Point, Point);
     vector<Point> determineAllPoints();
     //vector<Edge> determineEdges(Point, Point[], Point[]);
-    vector<Edge> determinePossibleEdges(Point, vector<Point> *,vector<Point> *);
+    pair <vector<Edge>, vector<vector<int> > > determinePossibleEdges(Point, vector<Point> *,vector<Point> *);
     int numofpossibleedge();
     bool chkcollinearpossanddef();
     bool chkcollinearpossandposs();
     bool chkposshasdefinother();
+    void printmatrix(vector<vector<int> >);
 };
