@@ -44,15 +44,28 @@ class ConstructWindow : public Gtk::Window
 public:
   ConstructWindow();
   virtual ~ConstructWindow();
+  Projection2D* proj;
+  OrthoProjection* front,top,side;
+  ClusteredPoint* cp;
 
 private:
   // Signal handlers:
   // void on_button_quit();
-  void on_button_numbered(const Glib::ustring& data);
+  void on_button_submit();
+  void on_button_addpoint();
+  void on_button_addlabel();
+  void on_button_addedge();
+  void on_button_created();
+
+  int projection;
 
   // Child widgets:
-  Gtk::Grid m_grid;
-  Gtk::Button m_button_1, m_button_2;
+  Gtk::Box m_Box;
+  Gtk::Grid m_point_grid, m_edge_grid;
+  Gtk::Entry m_entry_x, m_entry_y, m_entry_z, m_entry_label;
+  Gtk::Entry m_edge_p1, m_edge_p2;
+  Gtk::Button m_submit, m_add_point, m_add_label;
+  Gtk::Button m_add_edge, m_create;
 };
 
 class MainWindow : public Gtk::Window
