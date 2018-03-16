@@ -39,3 +39,4 @@ run.sh
 .vscode/
 gtkmm/gui
 gtkmm/.vscode/
+temp/
