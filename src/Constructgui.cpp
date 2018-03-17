@@ -212,6 +212,7 @@ void ConstructWindow::on_button_created()
     proj->frontview = *(this->front);
     proj->topview = *(this->top);
     proj->sideview = *(this->side);
+    createProjection(proj);
   }
 }
 

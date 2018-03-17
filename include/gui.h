@@ -15,6 +15,7 @@ public:
   virtual ~ProjectionWindow();
   Object3D* obj;
   double plane[4];
+  bool create;
 
 private:
   // Signal handlers:
@@ -25,7 +26,7 @@ private:
   void on_button_created();
 
   // Signals
-  bool pointsDone, create, init;
+  bool pointsDone, init;
 
   // Child widgets:
   Gtk::Box m_Box;

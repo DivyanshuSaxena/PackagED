@@ -18,7 +18,7 @@ public:
     double relativePosition(double[]);
     int adjacencyIndex;
     friend std::ostream& operator<< (std::ostream &out, const Point &point) {
-        out << "Point(" << point.x << ", " << point.y << ", " << point.z <<  ") "<<point.label << " index is "<<point.adjacencyIndex;    
+        out << "Point(" << point.x << ", " << point.y << ", " << point.z <<  ")";    
         return out;
     }
     bool checkcollinear(Point *, Point *);
@@ -115,6 +115,23 @@ public:
     PlaneProjection project3D(double[]);
     Object3D rotateObject(double, double, double);
     Object3D translate(double, double, double);
+    friend std::ostream& operator<< (std::ostream &out, const Object3D &obj) {
+        out << "Vertices: ";
+        for(int i = 0; i < obj.vertices.size(); i++) {
+            out << obj.vertices[i] << ", ";
+        }
+        out << endl << "Edges: ";
+        for(int i = 0; i < obj.edges.size(); i++) {
+            out << obj.edges[i] << ", ";
+        }
+        out << endl << "Faces: ";
+        for(int i = 0; i < obj.faces.size(); i++) {
+            out << obj.faces[i] << ", ";
+        }
+        out << endl;
+        return out;
+    }
+
 private:
     vector<Point> projectedVertices;
     bool checkHiddenVertice(Point,Face,double[],int);
@@ -147,13 +164,12 @@ public:
 
     Wireframe create3D();
     void chkif3edgesanddefthem();
-//private:
+private:
     void determineIntersectedEdges();
     void executeCorollary1onebyone(OrthoProjection *,OrthoProjection *, OrthoProjection *);
     void executeCorollary1();
     Point determinePoint(Point, Point);
     vector<Point> determineAllPoints();
-    //vector<Edge> determineEdges(Point, Point[], Point[]);
     pair <vector<Edge>, vector<vector<int> > > determinePossibleEdges(Point, vector<Point> *,vector<Point> *);
     int numofpossibleedge();
     bool chkcollinearpossanddef();
@@ -162,7 +178,7 @@ public:
     void printmatrix(vector<vector<int> >);
 };
 
-int createObject();
-int createProjection();
+int createObject(Object3D*,double[4]);
+int createProjection(Projection2D*);
 int renderObject(Wireframe);
 int renderProjection(OrthoProjection);

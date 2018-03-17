@@ -10,26 +10,21 @@ using Eigen::MatrixXd;
 int check2D();
 int check3D();
 
-Object3D* object;
-Projection2D* projection;
-
 int main(int argc, char *argv[]) {
     /// 
     /// The main function shall be responsible for calling various other functions and instantiating the classes for using their functions cop290
     ///
-    cout << "Hi" << endl;
-    check2D();
         
+    // ---------To Be Used Later---------
     auto app =
         Gtk::Application::create(argc, argv,
         "org.gtkmm.examples");
     MainWindow window;
-    // window.set_default_size(600, 400);
     return app->run(window);
 }
 
 int check3D() {
-        double thisarr [4] = {0,1,0,0};
+    double thisarr [4] = {0,1,0,0};
     Object3D obj;
     Point v1,v2,v3,v4,v5;
     v1.setCoordinates(2,2,0);
@@ -77,8 +72,9 @@ int check3D() {
     obj.faces.push_back(f3);
     obj.faces.push_back(f4);
     obj.faces.push_back(f5);
-    PlaneProjection p = obj.project3D(thisarr);
-    cout << "Projection: " << p << endl;
+    // PlaneProjection p = obj.project3D(thisarr);
+    // cout << "Projection: " << p << endl;
+    return 0;
 }
 
 int check2D() {
@@ -170,24 +166,20 @@ int check2D() {
     return 0;
 }
 
-int createObject() {
+int createObject(Object3D* object, double plane[4]) {
     ///
     /// This function shall make use of the gtk library, to interactively take input from the user and returns the 3D object created from the user input
     ///
     cout << "In createObject" << endl; // ----------Remove
-    ProjectionWindow* pinput = new ProjectionWindow;
-    pinput->show();
-    object = pinput->obj;
+    cout << "Input Object:" << endl << *object;
+    // PlaneProjection res = (*object).project3D(plane);
 }
 
-int createProjection() {
+int createProjection(Projection2D* projection) {
     ///
     /// This function shall make use of the gtk library, to interactively take input from the user, to form a 2D projection and returns the Projection created from the user input
     ///
     cout << "In createObject" << endl; // ----------Remove
-    ConstructWindow* cinput = new ConstructWindow;
-    cinput->show();
-    projection = cinput->proj;
 }
 int renderObject(Wireframe frame) {
     ///

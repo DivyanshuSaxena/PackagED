@@ -18,6 +18,7 @@ PlaneProjection Object3D::project3D(double projectionPlane[4]) {
     ///
     /// General Function to project the current 3D object onto the projection plane passed as parameter "projectionPlane"
     ///
+    cout << "In project3D" << endl;
     int len = this->vertices.size();
     // vector<Point> projectedVertices(len); --------Remove
     vector<bool> isHidden;

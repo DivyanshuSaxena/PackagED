@@ -199,6 +199,7 @@ void ProjectionWindow::on_button_created()
   plane[2] = atof(m_entry_c.get_text().c_str());
   plane[3] = atof(m_entry_d.get_text().c_str());
   this->create = true;
+  createObject(this->obj,plane);
 }
 
 // void ProjectionWindow::on_button_addlabel()
