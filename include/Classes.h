@@ -140,7 +140,6 @@ public:
     OrthoProjection frontview;
     OrthoProjection topview;
     OrthoProjection sideview;
-    //vector<Point * > knownpoints;
     vector<Point> allpoints;
     vector<vector<int> > adjacencyMatrix;
     map<int, Point *> indextopointmap;
@@ -163,7 +162,7 @@ public:
     void printmatrix(vector<vector<int> >);
 };
 
-Object3D* createObject();
-OrthoProjection createProjection(int);
+int createObject();
+int createProjection();
 int renderObject(Wireframe);
 int renderProjection(OrthoProjection);

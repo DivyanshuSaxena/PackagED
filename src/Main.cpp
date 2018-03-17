@@ -8,6 +8,10 @@
 using namespace std;
 using Eigen::MatrixXd;
 int check2D();
+int check3D();
+
+Object3D* object;
+Projection2D* projection;
 
 int main(int argc, char *argv[]) {
     /// 
@@ -166,20 +170,24 @@ int check2D() {
     return 0;
 }
 
-Object3D* createObject() {
+int createObject() {
     ///
     /// This function shall make use of the gtk library, to interactively take input from the user and returns the 3D object created from the user input
     ///
     cout << "In createObject" << endl; // ----------Remove
     ProjectionWindow* pinput = new ProjectionWindow;
     pinput->show();
-    return pinput->obj;
+    object = pinput->obj;
 }
 
-OrthoProjection createProjection(int type) {
+int createProjection() {
     ///
     /// This function shall make use of the gtk library, to interactively take input from the user, to form a 2D projection and returns the Projection created from the user input
     ///
+    cout << "In createObject" << endl; // ----------Remove
+    ConstructWindow* cinput = new ConstructWindow;
+    cinput->show();
+    projection = cinput->proj;
 }
 int renderObject(Wireframe frame) {
     ///

@@ -45,9 +45,7 @@ public:
   ConstructWindow();
   virtual ~ConstructWindow();
   Projection2D* proj;
-  OrthoProjection* front,top,side;
-  ClusteredPoint* cp;
-
+  
 private:
   // Signal handlers:
   // void on_button_quit();
@@ -57,10 +55,13 @@ private:
   void on_button_addedge();
   void on_button_created();
 
-  int projection;
+  int projection, create;
+  OrthoProjection* front, * top, * side;
+  ClusteredPoint* cp;
 
   // Child widgets:
   Gtk::Box m_Box;
+  Gtk::Frame m_point_frame, m_edge_frame;
   Gtk::Grid m_point_grid, m_edge_grid;
   Gtk::Entry m_entry_x, m_entry_y, m_entry_z, m_entry_label;
   Gtk::Entry m_edge_p1, m_edge_p2;
@@ -73,8 +74,8 @@ class MainWindow : public Gtk::Window
 public:
   MainWindow();
   virtual ~MainWindow();
-  Object3D* obj;
-  Projection2D* proj;
+  // Object3D* obj;
+  // Projection2D* proj;
 
 private:
   // Signal handlers:
@@ -83,8 +84,6 @@ private:
   // Child widgets:
   Gtk::Grid m_grid;
   Gtk::Button m_button_1, m_button_2;
-  // ProjectionWindow* prwindow;
-  // ConstructWindow* crwindow;
 };
 
 #endif /* GTKMM_PROJWINDOW_H */

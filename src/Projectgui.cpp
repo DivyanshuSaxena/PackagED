@@ -9,8 +9,8 @@ ProjectionWindow::ProjectionWindow()
   m_plane_frame("Projection Plane"),
   m_submit("All Points Done"),
   m_add_point("Add More Points"),
-  m_add_edge("Add More Edges"),
-  m_add_face("Add Another Face"),
+  m_add_edge("Add Edge"),
+  m_add_face("Add Face"),
   m_create("Create Projection")
 {
   obj = new Object3D;
@@ -164,6 +164,8 @@ void ProjectionWindow::on_button_addedge()
     edge.p2 = *it2;
     obj->edges.push_back(edge);
   }
+  m_edge_p1.set_text("Label of First Point");
+  m_edge_p2.set_text("Label of Second Point");
 }
 
 void ProjectionWindow::on_button_addface()
