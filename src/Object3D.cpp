@@ -66,6 +66,9 @@ PlaneProjection Object3D::project3D(double projectionPlane[4]) {
     // The vectors isHidden and isHiddenEdge store whether or not a point/edge is hidden.
     // This can be used to generate an OrthoProjection object that can be returned from this function.
     PlaneProjection projection;
+    for(int i = 0; i < 4; i++) {
+        projection->normal[i] = projectionPlane[i];
+    }
     for (auto i = 0; i < projectedVertices.size(); i++) {
         projection.vertices.push_back(projectedVertices[i]);
     }

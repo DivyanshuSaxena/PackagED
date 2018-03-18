@@ -74,6 +74,8 @@ class PlaneProjection {
 public:
     vector<Point> vertices;
     vector<Edge> visibleEdges, hiddenEdges;
+    double normal[4];
+    int rotatePlane();
     friend std::ostream& operator<< (std::ostream &out, const PlaneProjection &plane) {
         out << "Vertices: ";
         for(int i = 0; i < plane.vertices.size(); i++) {
@@ -178,7 +180,7 @@ private:
     void printmatrix(vector<vector<int> >);
 };
 
-int createObject(Object3D*,double[4]);
+PlaneProjection* createObject(Object3D*,double[4]);
 int createProjection(Projection2D*);
 int renderObject(Wireframe);
 int renderProjection(OrthoProjection);

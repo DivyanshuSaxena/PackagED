@@ -166,13 +166,15 @@ int check2D() {
     return 0;
 }
 
-int createObject(Object3D* object, double plane[4]) {
+PlaneProjection* createObject(Object3D* object, double plane[4]) {
     ///
     /// This function shall make use of the gtk library, to interactively take input from the user and returns the 3D object created from the user input
     ///
     cout << "In createObject" << endl; // ----------Remove
     cout << "Input Object:" << endl << *object;
-    // PlaneProjection res = (*object).project3D(plane);
+    PlaneProjection res = (*object).project3D(plane);
+    res.rotatePlane();
+    return *res;
 }
 
 int createProjection(Projection2D* projection) {

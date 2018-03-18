@@ -14,6 +14,7 @@ public:
   ProjectionWindow();
   virtual ~ProjectionWindow();
   Object3D* obj;
+  PlaneProjection* render;
   double plane[4];
   bool create;
 
@@ -24,6 +25,7 @@ private:
   void on_button_addedge();
   void on_button_addface();
   void on_button_created();
+  void on_draw();
 
   // Signals
   bool pointsDone, init;

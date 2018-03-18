@@ -199,14 +199,14 @@ void ProjectionWindow::on_button_created()
   plane[2] = atof(m_entry_c.get_text().c_str());
   plane[3] = atof(m_entry_d.get_text().c_str());
   this->create = true;
-  createObject(this->obj,plane);
+  this->render = createObject(this->obj,plane);
+  this->on_draw();
 }
 
-// void ProjectionWindow::on_button_addlabel()
-// {
-//   std::cout << "Entered text: " <<  m_entry_label.get_text() << std::endl;
-//   this->m_entry_label.set_text("label");
-// }
+void ProjectionWindow::on_draw()
+{
+  
+}
 
 ProjectionWindow::~ProjectionWindow()
 {
