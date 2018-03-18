@@ -22,7 +22,7 @@ GDEPS = $(patsubst %,$(IDIR)/%,$(_GDEPS))
 _OBJ = Point.o Object3D.o Projection2D.o OrthoProjection.o PlaneProjection.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
-_GOBJ = Main.o Maingui.o Projectgui.o Constructgui.o
+_GOBJ = Main.o Maingui.o Projectgui.o Constructgui.o OutputArea.o
 GOBJ = $(patsubst %,$(OGDIR)/%,$(_GOBJ))
 
 ESS = ./bin/Point.o ./bin/Main.o

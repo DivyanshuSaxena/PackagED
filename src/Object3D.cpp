@@ -14,15 +14,17 @@ Object3D Object3D::translate(double x, double y, double z) {
     ///
 }
 
-PlaneProjection Object3D::project3D(double projectionPlane[4]) {
+PlaneProjection* Object3D::project3D(double projectionPlane[4]) {
     ///
     /// General Function to project the current 3D object onto the projection plane passed as parameter "projectionPlane"
     ///
     cout << "In project3D" << endl;
-    int len = this->vertices.size();
+    // int len = this->vertices.size();
+    cout << "Check"; // --------Remove
     // vector<Point> projectedVertices(len); --------Remove
     vector<bool> isHidden;
     vector<int> isHiddenEdge;
+    int len = vertices.size();    
     // Iteration to find all the projected vertices
     for (int i = 0; i < len; i++) {
         this->projectedVertices.push_back(this->vertices[i].projectPoint(projectionPlane));
@@ -65,22 +67,20 @@ PlaneProjection Object3D::project3D(double projectionPlane[4]) {
     cout << "Edges Done" << endl; // ----------Remove
     // The vectors isHidden and isHiddenEdge store whether or not a point/edge is hidden.
     // This can be used to generate an OrthoProjection object that can be returned from this function.
-    PlaneProjection projection;
-    for(int i = 0; i < 4; i++) {
-        projection->normal[i] = projectionPlane[i];
-    }
+    PlaneProjection* projection = new PlaneProjection;
     for (auto i = 0; i < projectedVertices.size(); i++) {
-        projection.vertices.push_back(projectedVertices[i]);
+        projection->vertices.push_back(projectedVertices[i]);
     }
     for (auto i = 0; i < this->edges.size(); i++) {
         Edge edge;
         edge.p1 = this->edges[i].p1.projectPoint(projectionPlane);
         edge.p2 = this->edges[i].p2.projectPoint(projectionPlane);
         if(isHiddenEdge[i])
-            projection.hiddenEdges.push_back(edge);
+            projection->hiddenEdges.push_back(edge);
         else
-            projection.visibleEdges.push_back(edge);
+            projection->visibleEdges.push_back(edge);
     }
+    cout << "project3D done" << endl;
     return projection;
 }
 

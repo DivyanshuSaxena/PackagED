@@ -16,11 +16,12 @@ int main(int argc, char *argv[]) {
     ///
         
     // ---------To Be Used Later---------
-    auto app =
-        Gtk::Application::create(argc, argv,
-        "org.gtkmm.examples");
-    MainWindow window;
-    return app->run(window);
+    check3D();  
+    // auto app =
+    //     Gtk::Application::create(argc, argv,
+    //     "org.gtkmm.examples");
+    // MainWindow window;
+    // return app->run(window);
 }
 
 int check3D() {
@@ -72,8 +73,8 @@ int check3D() {
     obj.faces.push_back(f3);
     obj.faces.push_back(f4);
     obj.faces.push_back(f5);
-    // PlaneProjection p = obj.project3D(thisarr);
-    // cout << "Projection: " << p << endl;
+    PlaneProjection* p = obj.project3D(thisarr);
+    cout << "Projection: " << *p << endl;
     return 0;
 }
 
@@ -171,10 +172,11 @@ PlaneProjection* createObject(Object3D* object, double plane[4]) {
     /// This function shall make use of the gtk library, to interactively take input from the user and returns the 3D object created from the user input
     ///
     cout << "In createObject" << endl; // ----------Remove
-    cout << "Input Object:" << endl << *object;
-    PlaneProjection res = (*object).project3D(plane);
-    res.rotatePlane();
-    return *res;
+    // cout << "Input Object:" << endl << object;
+    PlaneProjection* res = object->project3D(plane);
+    cout << "Object Returned";
+    res->rotatePlane();
+    return res;
 }
 
 int createProjection(Projection2D* projection) {

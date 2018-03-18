@@ -114,7 +114,7 @@ public:
     vector<Point> vertices;
     vector<Edge> edges;
     vector<Face> faces;
-    PlaneProjection project3D(double[]);
+    PlaneProjection* project3D(double[]);
     Object3D rotateObject(double, double, double);
     Object3D translate(double, double, double);
     friend std::ostream& operator<< (std::ostream &out, const Object3D &obj) {

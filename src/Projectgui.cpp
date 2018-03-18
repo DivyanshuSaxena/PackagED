@@ -1,6 +1,5 @@
 #include "gui.h"
 
-
 ProjectionWindow::ProjectionWindow()
 : m_Box(Gtk::ORIENTATION_VERTICAL),
   m_point_frame("Points"),
@@ -199,13 +198,13 @@ void ProjectionWindow::on_button_created()
   plane[2] = atof(m_entry_c.get_text().c_str());
   plane[3] = atof(m_entry_d.get_text().c_str());
   this->create = true;
-  this->render = createObject(this->obj,plane);
-  this->on_draw();
-}
-
-void ProjectionWindow::on_draw()
-{
-  
+  createObject(obj,plane);
+  PlaneProjection output;
+  Gtk::Window window;
+  OutputArea area(output);
+  window.add(area);
+  area.show();
+  window.show();
 }
 
 ProjectionWindow::~ProjectionWindow()

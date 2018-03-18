@@ -8,13 +8,24 @@
 #include "Classes.h"
 using namespace std;
 
+class OutputArea : public Gtk::DrawingArea
+{
+public:
+  OutputArea(PlaneProjection&);
+  virtual ~OutputArea();
+  PlaneProjection* render;
+
+protected:
+  //Override default signal handler:
+  bool on_draw(const Cairo::RefPtr<Cairo::Context>& cr) override;
+};
+
 class ProjectionWindow : public Gtk::Window
 {
 public:
   ProjectionWindow();
   virtual ~ProjectionWindow();
   Object3D* obj;
-  PlaneProjection* render;
   double plane[4];
   bool create;
 
@@ -25,8 +36,7 @@ private:
   void on_button_addedge();
   void on_button_addface();
   void on_button_created();
-  void on_draw();
-
+  
   // Signals
   bool pointsDone, init;
 
@@ -77,8 +87,6 @@ class MainWindow : public Gtk::Window
 public:
   MainWindow();
   virtual ~MainWindow();
-  // Object3D* obj;
-  // Projection2D* proj;
 
 private:
   // Signal handlers:
