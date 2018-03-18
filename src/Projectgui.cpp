@@ -187,8 +187,8 @@ void ProjectionWindow::on_button_addface()
       }
       m_face_point[i]->set_active(false);
     }
+    obj->faces.push_back(face); 
   }
-  obj->faces.push_back(face);
 }
 
 void ProjectionWindow::on_button_created()

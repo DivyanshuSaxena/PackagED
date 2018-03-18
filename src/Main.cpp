@@ -17,11 +17,11 @@ int main(int argc, char *argv[]) {
         
     // ---------To Be Used Later---------
     check3D();  
-    // auto app =
-    //     Gtk::Application::create(argc, argv,
-    //     "org.gtkmm.examples");
-    // MainWindow window;
-    // return app->run(window);
+    auto app =
+        Gtk::Application::create(argc, argv,
+        "org.gtkmm.examples");
+    MainWindow window;
+    return app->run(window);
 }
 
 int check3D() {
@@ -172,9 +172,20 @@ PlaneProjection* createObject(Object3D* object, double plane[4]) {
     /// This function shall make use of the gtk library, to interactively take input from the user and returns the 3D object created from the user input
     ///
     cout << "In createObject" << endl; // ----------Remove
-    // cout << "Input Object:" << endl << object;
-    PlaneProjection* res = object->project3D(plane);
-    cout << "Object Returned";
+    Object3D temp_obj;
+    for(int i = 0; i < object->vertices.size(); i++)
+        temp_obj.vertices.push_back(object->vertices[i]);
+    for(int i = 0; i < object->edges.size(); i++)
+        temp_obj.edges.push_back(object->edges[i]);
+    for(int i = 0; i < object->faces.size(); i++)
+        temp_obj.faces.push_back(object->faces[i]);
+    cout << "Input Object:" << endl << temp_obj;
+    for(int i = 0; i < 4; i++)
+        cout << plane[i];
+    PlaneProjection* res = new PlaneProjection;
+    res = temp_obj.project3D(plane);
+    cout << "Object Returned: " << endl;
+    cout << *res << endl;
     res->rotatePlane();
     return res;
 }
@@ -185,6 +196,7 @@ int createProjection(Projection2D* projection) {
     ///
     cout << "In createObject" << endl; // ----------Remove
 }
+
 int renderObject(Wireframe frame) {
     ///
     /// This function shall make use of opengl library to render the object, from the Wireframe instance passed in parameter.
