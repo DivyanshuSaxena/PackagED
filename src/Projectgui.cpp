@@ -198,13 +198,12 @@ void ProjectionWindow::on_button_created()
   plane[2] = atof(m_entry_c.get_text().c_str());
   plane[3] = atof(m_entry_d.get_text().c_str());
   this->create = true;
-  createObject(obj,plane);
-  PlaneProjection output;
-  Gtk::Window window;
-  OutputArea area(output);
-  window.add(area);
+  PlaneProjection* output = new PlaneProjection;
+  output = createObject(obj,plane);
+  cout << "Object Returned" << endl;
+  OutputArea area;
   area.show();
-  window.show();
+  m_Box.add(area);
 }
 
 ProjectionWindow::~ProjectionWindow()

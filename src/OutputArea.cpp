@@ -1,24 +1,26 @@
 #include "gui.h"
 #include <cairomm/context.h>
 
-OutputArea::OutputArea(PlaneProjection &output)
+OutputArea::OutputArea()
 {
-  for (auto i = 0; i < output.vertices.size(); i++) {
-      render->vertices.push_back(output.vertices[i]);
-  }
-  for (auto i = 0; i < output.visibleEdges.size(); i++) {
-    Edge edge;
-    edge.p1 = output.visibleEdges[i].p1;
-    edge.p2 = output.visibleEdges[i].p2;
-    render->visibleEdges.push_back(edge);
-  }
-  for (auto i = 0; i < output.hiddenEdges.size(); i++) {
-    Edge edge;
-    edge.p1 = output.hiddenEdges[i].p1;
-    edge.p2 = output.hiddenEdges[i].p2;
-    render->hiddenEdges.push_back(edge);
-  }
-  cout << "Constructor call" << endl; // -------Remove
+  // render = new PlaneProjection;
+  // cout << "In constructor" << endl;
+  // for (auto i = 0; i < output->vertices.size(); i++) {
+  //     render->vertices.push_back(output->vertices[i]);
+  // }
+  // for (auto i = 0; i < output->visibleEdges.size(); i++) {
+  //   Edge edge;
+  //   edge.p1 = output->visibleEdges[i].p1;
+  //   edge.p2 = output->visibleEdges[i].p2;
+  //   render->visibleEdges.push_back(edge);
+  // }
+  // for (auto i = 0; i < output->hiddenEdges.size(); i++) {
+  //   Edge edge;
+  //   edge.p1 = output->hiddenEdges[i].p1;
+  //   edge.p2 = output->hiddenEdges[i].p2;
+  //   render->hiddenEdges.push_back(edge);
+  // }
+  // cout << "Constructor call" << endl; // -------Remove
 }
 
 OutputArea::~OutputArea()
@@ -27,6 +29,7 @@ OutputArea::~OutputArea()
 
 bool OutputArea::on_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 {
+  cout << "In ondraw" << endl;
   Gtk::Allocation allocation = get_allocation();
   const int width = allocation.get_width();
   const int height = allocation.get_height();

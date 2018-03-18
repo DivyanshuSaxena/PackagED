@@ -11,7 +11,7 @@ using namespace std;
 class OutputArea : public Gtk::DrawingArea
 {
 public:
-  OutputArea(PlaneProjection&);
+  OutputArea();
   virtual ~OutputArea();
   PlaneProjection* render;
 

@@ -18,17 +18,12 @@ PlaneProjection* Object3D::project3D(double projectionPlane[4]) {
     ///
     /// General Function to project the current 3D object onto the projection plane passed as parameter "projectionPlane"
     ///
-    // cout << "ok";
-    // cout << "ok";
-    // cout << "ok";
-    // cout << "In project3D" << endl;
-    // int len = this->vertices.size();
     // cout << "Check"<<endl; // --------Remove
     // vector<Point> projectedVertices(len); --------Remove
     vector<bool> isHidden;
     vector<int> isHiddenEdge;
     int len = vertices.size();    
-    cout << "vertices size is " << len<< endl;
+    cout << "vertices size is " << len << endl;
     // Iteration to find all the projected vertices
     for (int i = 0; i < len; i++) {
         cout << vertices[i].projectPoint(projectionPlane) <<endl;
@@ -41,7 +36,7 @@ PlaneProjection* Object3D::project3D(double projectionPlane[4]) {
         int flag = 0;
         // cout << this->faces.size(); -------Remove
         for (int j = 0; j < 5; j++) {
-            cout << "Yo";// ---------Remove
+            // cout << "Yo";// ---------Remove
             if(checkHiddenVertice(vertices[i],faces[j],projectionPlane,0))
             {
                 flag = 1;

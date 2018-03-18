@@ -162,7 +162,6 @@ int check2D() {
     myproj.frontview=frontview;
     myproj.sideview=sideview;
     myproj.topview =topview;
-    //cout <<atop<<endl;
     myproj.create3D();
     return 0;
 }
@@ -186,7 +185,9 @@ PlaneProjection* createObject(Object3D* object, double plane[4]) {
     res = temp_obj.project3D(plane);
     cout << "Object Returned: " << endl;
     cout << *res << endl;
-    res->rotatePlane();
+    // res->rotatePlane();
+    // cout << "Plane Rotated:" << endl;
+    // cout << *res << endl;
     return res;
 }
 
