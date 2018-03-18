@@ -6,6 +6,7 @@ ProjectionWindow::ProjectionWindow()
   m_edge_frame("Edges"),
   m_face_frame("Faces"),
   m_plane_frame("Projection Plane"),
+  m_draw_frame("Rendered Object"),
   m_submit("All Points Done"),
   m_add_point("Add More Points"),
   m_add_edge("Add Edge"),
@@ -100,6 +101,14 @@ ProjectionWindow::ProjectionWindow()
   m_plane_grid.attach_next_to(m_entry_c, m_entry_b, Gtk::POS_RIGHT, 1, 1);
   m_plane_grid.attach_next_to(m_entry_d, m_entry_c, Gtk::POS_RIGHT, 1, 1);
   m_plane_grid.attach_next_to(m_create, m_entry_b, Gtk::POS_BOTTOM, 2, 1);
+
+  // Add Drawing Area
+  m_Box.pack_start(m_draw_frame, Gtk::PACK_EXPAND_WIDGET, 10);
+  m_area.set_size_request(200,200);
+  m_draw_frame.add(m_area);
+  // m_area.show_now();
+  m_area.signal_draw().connect(
+sigc::mem_fun(*this, &ProjectionWindow::on_custom_draw));
 
   // Signal Handlers
   m_submit.signal_clicked().connect(sigc::mem_fun(*this,
@@ -201,9 +210,36 @@ void ProjectionWindow::on_button_created()
   PlaneProjection* output = new PlaneProjection;
   output = createObject(obj,plane);
   cout << "Object Returned" << endl;
-  OutputArea area;
-  area.show();
-  m_Box.add(area);
+  // OutputArea area;
+  m_area.queue_draw();
+  // m_Box.add(area);
+}
+
+bool ProjectionWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)
+{
+  int width = m_area.get_allocated_width();  
+  int height = m_area.get_allocated_height();  
+  std::cout << "In oncdraw" << std::endl;
+  std::cout << width << " " << height << std::endl;
+  // coordinates for the center of the window
+  int xc, yc;
+  xc = width / 2;
+  yc = height / 2;
+
+  if(this->create)
+    cr->set_line_width(5.0);
+  else
+    cr->set_line_width(15.0);
+  // draw red lines out from the center of the window
+  cr->set_source_rgb(0.8, 0.0, 0.0);
+  cr->move_to(0, 0);
+  cr->line_to(xc, yc);
+  cr->line_to(0, height);
+  cr->move_to(xc, yc);
+  cr->line_to(width, yc);
+  cr->stroke();
+
+  return true;
 }
 
 ProjectionWindow::~ProjectionWindow()
