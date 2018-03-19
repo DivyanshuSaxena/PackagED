@@ -26,6 +26,7 @@ public:
   ProjectionWindow();
   virtual ~ProjectionWindow();
   Object3D* obj;
+  PlaneProjection* output;
   double plane[4];
   bool create;
 

@@ -207,7 +207,7 @@ void ProjectionWindow::on_button_created()
   plane[2] = atof(m_entry_c.get_text().c_str());
   plane[3] = atof(m_entry_d.get_text().c_str());
   this->create = true;
-  PlaneProjection* output = new PlaneProjection;
+  output = new PlaneProjection;
   output = createObject(obj,plane);
   cout << "Object Returned" << endl;
   // OutputArea area;
@@ -227,18 +227,35 @@ bool ProjectionWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)
   yc = height / 2;
 
   if(this->create)
-    cr->set_line_width(5.0);
+    cr->set_line_width(2.0);
   else
     cr->set_line_width(15.0);
   // draw red lines out from the center of the window
-  cr->set_source_rgb(0.8, 0.0, 0.0);
-  cr->move_to(0, 0);
-  cr->line_to(xc, yc);
-  cr->line_to(0, height);
-  cr->move_to(xc, yc);
-  cr->line_to(width, yc);
-  cr->stroke();
-
+  cr->set_source_rgb(0.0, 0.0, 0.0);
+  
+  if(this->create) {
+    std::vector<double> vec;
+    vec.push_back(10.0);
+    vec.push_back(5.0);
+    cr->set_dash(vec,0);
+    for(int i = 0; i < output->hiddenEdges.size(); i++) {
+      cr->move_to((output->hiddenEdges[i].p1.x)*100 + xc, (output->hiddenEdges[i].p1.z)*100 + yc);
+      cr->line_to((output->hiddenEdges[i].p2.x)*100 + xc, (output->hiddenEdges[i].p2.z)*100 + yc);
+    }
+    cr->stroke();
+    cr->restore();
+    for(int i = 0; i < output->visibleEdges.size(); i++) {
+      cr->move_to((output->visibleEdges[i].p1.x)*100 + xc, (output->visibleEdges[i].p1.z)*100 + yc);
+      cr->line_to((output->visibleEdges[i].p2.x)*100 + xc, (output->visibleEdges[i].p2.z)*100 + yc);
+    }
+    cr->stroke();
+  } else {
+    cr->move_to(xc-25,yc-25);
+    cr->line_to(xc-25,yc+25);
+    cr->move_to(xc+25,yc-25);
+    cr->line_to(xc+25,yc+25);
+    cr->stroke();
+  }
   return true;
 }
 
