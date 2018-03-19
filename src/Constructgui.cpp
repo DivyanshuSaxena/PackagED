@@ -1,5 +1,7 @@
 #include "gui.h"
+#include <Eigen/Dense>
 
+using namespace Eigen;
 
 ConstructWindow::ConstructWindow()
 : m_Box(Gtk::ORIENTATION_VERTICAL),
@@ -247,18 +249,55 @@ void ConstructWindow::on_button_created()
     proj->frontview = *(this->front);
     proj->topview = *(this->top);
     proj->sideview = *(this->side);
-    createProjection(proj);
+    object = createProjection(proj);
+    m_area.queue_draw();
   }
 }
 
 bool ConstructWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 {
+  int width = m_area.get_allocated_width();  
+  int height = m_area.get_allocated_height();  
+  // std::cout << "In oncdraw" << std::endl;
+  // std::cout << width << " " << height << std::endl;
+  // coordinates for the center of the window
+  int xc, yc;
+  xc = width / 2;
+  yc = height / 2;
 
+  Wireframe* obj;
+  obj = object->projectFrame();
+
+  if(this->create)
+    cr->set_line_width(2.0);
+  else
+    cr->set_line_width(15.0);
+  cr->set_source_rgb(0.0, 0.0, 0.0);
+
+  if(this->create) {
+    Vector3d p1(obj->edges[0].p1.x,obj->edges[0].p1.y,obj->edges[0].p1.z);
+    Vector3d p2(obj->edges[0].p2.x,obj->edges[0].p2.y,obj->edges[0].p2.z);
+    double dist = (p1-p2).norm();
+    double factor = (width/dist)/5;  
+    for(int i = 0; i < obj->edges.size(); i++) {
+      cr->move_to((obj->edges[i].p1.x)*factor + xc, (obj->edges[i].p1.y)*factor + yc);
+      cr->line_to((obj->edges[i].p2.x)*factor + xc, (obj->edges[i].p2.y)*factor + yc);
+    }
+    cr->stroke();
+  } else {
+    cr->move_to(xc-25,yc-25);
+    cr->line_to(xc-25,yc+25);
+    cr->move_to(xc+25,yc-25);
+    cr->line_to(xc+25,yc+25);
+    cr->stroke();
+  }
+  return true;
 }
 
 void ConstructWindow::on_button_rotate(int type)
 {
-  
+  object->rotateFrame(type);
+  m_area.queue_draw();
 }
 
 ConstructWindow::~ConstructWindow()

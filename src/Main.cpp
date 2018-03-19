@@ -17,13 +17,11 @@ int main(int argc, char *argv[]) {
     /// The main function shall be responsible for calling various other functions and instantiating the classes for using their functions cop290
     ///
         
-    // ---------To Be Used Later---------
-    check2Dfile();  
-    // auto app =
-    //     Gtk::Application::create(argc, argv,
-    //     "org.gtkmm.examples");
-    // MainWindow window;
-    // return app->run(window);
+    auto app =
+        Gtk::Application::create(argc, argv,
+        "org.gtkmm.examples");
+    MainWindow window;
+    return app->run(window);
 }
 
 int check3D() {
@@ -169,6 +167,7 @@ int check2D() {
     myproj.create3D();
     return 0;
 }
+
 int check2Dfile(){
     // ofstream inFile;
     cout <<"start" <<endl;
@@ -439,11 +438,25 @@ PlaneProjection* createObject(Object3D* object, double plane[4]) {
     return res;
 }
 
-int createProjection(Projection2D* projection) {
+Wireframe* createProjection(Projection2D* projection) {
     ///
     /// This function shall make use of the gtk library, to interactively take input from the user, to form a 2D projection and returns the Projection created from the user input
     ///
-    cout << "In createObject" << endl; // ----------Remove
+    cout << "In createProjection" << endl; // ----------Remove
+    Wireframe newFrame;
+    newFrame = projection->create3D();
+    Wireframe* retFrame;
+    retFrame = new Wireframe;
+    for(int i = 0; i < newFrame.vertices.size(); i++) {
+        retFrame->vertices.push_back(newFrame.vertices[i]);
+    }
+    for(int i = 0; i < newFrame.edges.size(); i++) {
+        Edge edge;
+        edge.p1.setCoordinates(newFrame.edges[i].p1.x,newFrame.edges[i].p1.y,newFrame.edges[i].p1.z);
+        edge.p2.setCoordinates(newFrame.edges[i].p2.x,newFrame.edges[i].p2.y,newFrame.edges[i].p2.z);        
+        retFrame->edges.push_back(edge);
+    }
+    return retFrame;
 }
 
 int renderObject(Wireframe frame) {

@@ -148,6 +148,8 @@ public:
     vector<Point> vertices;
     vector<Edge> edges;
     vector<vector<int> > adjacencyMatrix;
+    Wireframe* projectFrame();
+    int rotateFrame(int);
 };
 
 ///
@@ -183,6 +185,6 @@ private:
 };
 
 PlaneProjection* createObject(Object3D*,double[4]);
-int createProjection(Projection2D*);
+Wireframe* createProjection(Projection2D*);
 int renderObject(Wireframe);
 int renderProjection(OrthoProjection);
