@@ -5,11 +5,16 @@ ConstructWindow::ConstructWindow()
 : m_Box(Gtk::ORIENTATION_VERTICAL),
   m_point_frame("Points"),
   m_edge_frame("Edges"),
+  m_draw_frame("Rendered Object"),
   m_submit("All Points Done"),
   m_add_point("Add More Points"),
   m_add_label("Add Label to this Point"),
   m_add_edge("Add Edge"),
-  m_create("Front View Done")
+  m_create("Front View Done"),
+  m_top_rotate("Rotate Top"),
+  m_bottom_rotate("Rotate Bottom"),
+  m_left_rotate("Rotate Left"),
+  m_right_rotate("Rotate Right")
 {
   front = new OrthoProjection;
   top = new OrthoProjection;
@@ -72,6 +77,21 @@ ConstructWindow::ConstructWindow()
 
   // Create Button
   m_Box.pack_start(m_create, Gtk::PACK_EXPAND_WIDGET, 10);
+
+  m_Box.pack_start(m_draw_frame, Gtk::PACK_EXPAND_WIDGET, 10);
+  m_draw_frame.add(m_rotate_grid);  
+  m_area.set_size_request(600,200);
+  m_rotate_grid.attach(m_area, 1, 1, 10, 20);
+  m_area.show();
+
+  m_rotate_grid.attach_next_to(m_top_rotate, m_area, Gtk::POS_BOTTOM, 3, 1);
+  m_rotate_grid.attach_next_to(m_left_rotate, m_top_rotate, Gtk::POS_RIGHT, 3, 1);
+  m_rotate_grid.attach_next_to(m_bottom_rotate, m_left_rotate, Gtk::POS_RIGHT, 3, 1);
+  m_rotate_grid.attach_next_to(m_right_rotate, m_bottom_rotate, Gtk::POS_RIGHT, 3, 1);  
+
+  m_area.signal_draw().connect(
+sigc::mem_fun(*this, &ConstructWindow::on_custom_draw));
+
 
   // Signal Handlers
   m_submit.signal_clicked().connect(sigc::mem_fun(*this,
@@ -214,6 +234,11 @@ void ConstructWindow::on_button_created()
     proj->sideview = *(this->side);
     createProjection(proj);
   }
+}
+
+bool ConstructWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)
+{
+
 }
 
 ConstructWindow::~ConstructWindow()
