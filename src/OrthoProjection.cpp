@@ -25,9 +25,12 @@ vector<Point> OrthoProjection::possibleNeighbours(Point point) {
     //cout << "samecluster points added "<<endl;
     auto pointeranswer= &answer;
     // cout<< "checking edges"<<endl;
+    // cout << "num edges is " <<edges.size() << endl;
+    // cout << "last edge is " << edges[edges.size()-1].cp1.points[0] << " : " << edges[edges.size()-1].cp2.points[0] << endl;
     auto thisedge = find_if(edges.begin(),edges.end(),[point,pointeranswer](Edge2D thisoneedge)->bool{
         // cout << "new edge being iterated"<<endl;
         // cout << "lests check in cp1"<<endl;
+        // cout << "considering "<<thisoneedge.cp1.points[0] << " : " << thisoneedge.cp2.points[0] <<endl;
         auto p1cluster =  find_if(thisoneedge.cp1.points.begin(),thisoneedge.cp1.points.end(),[point](Point p)->bool{
                                 if(p.label==point.label){
                                     // cout << "found the point in cp1 cluster"<<endl;

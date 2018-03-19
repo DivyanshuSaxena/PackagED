@@ -55,12 +55,13 @@ Wireframe Projection2D::create3D(){
         chkif3edgesanddefthem();
         printmatrix(adjacencyMatrix);
         numcountwhile++;
-        if(numcountwhile==3){
-            // break;
+        if(numcountwhile==50){
+            cout << "wrong answer"<<endl;
+            break;
         }
         // break;
     }
-
+    cout << "numcount is "<< numcountwhile << endl;
     Wireframe answer;
     answer.vertices = allpoints;
     for(auto verticesitr = answer.vertices.begin();verticesitr!=answer.vertices.end();verticesitr++){

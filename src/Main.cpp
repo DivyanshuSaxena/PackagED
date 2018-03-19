@@ -4,11 +4,13 @@
 #include <Eigen/Dense>
 #include <gtkmm.h>
 #include "gui.h"
+#include <fstream>
 
 using namespace std;
 using Eigen::MatrixXd;
 int check2D();
 int check3D();
+int check2Dfile();
 
 int main(int argc, char *argv[]) {
     /// 
@@ -16,7 +18,7 @@ int main(int argc, char *argv[]) {
     ///
         
     // ---------To Be Used Later---------
-    check3D();  
+    check2Dfile();  
     // auto app =
     //     Gtk::Application::create(argc, argv,
     //     "org.gtkmm.examples");
@@ -164,6 +166,250 @@ int check2D() {
     myproj.topview =topview;
     //cout <<atop<<endl;
     myproj.create3D();
+    return 0;
+}
+int check2Dfile(){
+    // ofstream inFile;
+    cout <<"start" <<endl;
+	// inFile.open("example.txt");
+    ifstream inFile ("inp2.txt");
+    if(!(inFile.is_open())){
+        cout<< "not started" <<endl;
+    }
+
+	//char output[100];
+	OrthoProjection top,front,side;
+
+	Point temp2dpoint;
+	
+
+	string output;
+    cout<< "file started"<<endl;
+    if(inFile.is_open()){
+        if(!inFile.eof())
+		{
+			inFile >> output;
+			//transform(output.begin(), output.end(), output.begin(), ::tolower);
+            cout<<"begin" <<endl;
+			if(output == "Top"){
+                cout << "entered Top "<<endl;
+                inFile >> output;
+                map<string, ClusteredPoint> sampmap;
+                if(output=="Vertices"){
+                    cout << "entered Vertices" << endl;
+                    inFile >> output;
+                    while(output!=";"){
+                        double n1 = atof(output.c_str());
+                        // cout << n1 << endl;
+                        inFile >> output;
+                        double n2 = atof(output.c_str());
+                        inFile >> output;
+                        vector<string> thisstr;
+                        inFile >> output;
+                        while(output!="]"){
+                            // inFile >> output;
+                            thisstr.push_back(output);
+                            inFile >> output;
+                        }
+                        ClusteredPoint tempcluster;
+                        for(int i=0;i<thisstr.size();i++){
+                            Point tempoint;
+                            tempoint.x = n1;
+                            tempoint.y = n2;
+                            tempoint.z = 0 ;
+                            tempoint.label = thisstr[i];
+                            cout << tempoint.label << endl;
+                            cout << tempoint << endl;
+                            tempcluster.points.push_back(tempoint);
+                        }
+                        sampmap[tempcluster.points[0].label] = tempcluster;
+                        top.vertices.push_back(tempcluster);
+                        inFile >> output;
+                    }
+
+                    while(output!=";;"){
+                        cout << "ended vertices" << endl;
+                        inFile >> output;
+                        if(output=="Edges"){
+                            cout << "entered edges " <<endl;
+                            
+                            while(output!=";;"){
+                                inFile >> output;
+                                string a1 = output;
+                                inFile >> output;
+                                string a2 = output;
+                                // cout << "a1 and a2 are " <<a1<<" "<<a2<<endl; 
+                                ClusteredPoint c1 = sampmap[a1];
+                                ClusteredPoint c2 = sampmap[a2];
+                                Edge2D thisedge2d;
+                                thisedge2d.cp1 = c1;
+                                thisedge2d.cp2 = c2;
+                                top.edges.push_back(thisedge2d);
+                                inFile >> output;
+                            }
+                            cout << "edge size is " << top.edges.size() << endl;
+                            // cout << "last edge is " << top.edges[top.edges.size()-1].cp1.points[0] << " : "<< top.edges[top.edges.size()-1].cp2.points[0] <<endl;
+                        }
+                    }
+                    
+                }
+
+            }
+            //yha se
+            inFile >> output;
+            if(output=="Front"){
+                cout << "entered Front" <<endl;
+                inFile >> output;
+
+                map<string, ClusteredPoint> sampmap;
+                if(output=="Vertices"){
+                    cout << "entered Vertices" << endl;
+                    inFile >> output;
+                    while(output!=";"){
+                        double n1 = atof(output.c_str());
+                        // cout << n1 << endl;
+                        inFile >> output;
+                        double n2 = atof(output.c_str());
+                        inFile >> output;
+                        vector<string> thisstr;
+                        inFile >> output;
+                        while(output!="]"){
+                            // inFile >> output;
+                            thisstr.push_back(output);
+                            inFile >> output;
+                        }
+                        ClusteredPoint tempcluster;
+                        for(int i=0;i<thisstr.size();i++){
+                            Point tempoint;
+                            tempoint.x = n1;
+                            tempoint.y = 0;
+                            tempoint.z = n2 ;
+                            tempoint.label = thisstr[i];
+                            cout << tempoint.label << endl;
+                            cout << tempoint << endl;
+                            tempcluster.points.push_back(tempoint);
+                        }
+                        sampmap[tempcluster.points[0].label] = tempcluster;
+                        front.vertices.push_back(tempcluster);
+                        inFile >> output;
+                    }
+
+                    while(output!=";;"){
+                        cout << "ended vertices" << endl;
+                        inFile >> output;
+                        if(output=="Edges"){
+                            cout << "entered edges " <<endl;
+                            
+                            while(output!=";;"){
+                                inFile >> output;
+                                string a1 = output;
+                                inFile >> output;
+                                string a2 = output;
+                                ClusteredPoint c1 = sampmap[a1];
+                                ClusteredPoint c2 = sampmap[a2];
+                                Edge2D thisedge2d;
+                                thisedge2d.cp1 = c1;
+                                thisedge2d.cp2 = c2;
+                                front.edges.push_back(thisedge2d);
+                                inFile >> output;
+                            }
+                            cout << "edge size is " << front.edges.size() << endl;
+                        }
+                    }
+                    
+                }
+
+
+
+
+
+
+
+                //end doc
+            }
+            inFile >> output;
+            if(output=="Side"){
+
+                cout << "entered Side" <<endl;
+                inFile >> output;
+
+                map<string, ClusteredPoint> sampmap;
+                if(output=="Vertices"){
+                    cout << "entered Vertices" << endl;
+                    inFile >> output;
+                    while(output!=";"){
+                        double n1 = atof(output.c_str());
+                        // cout << n1 << endl;
+                        inFile >> output;
+                        double n2 = atof(output.c_str());
+                        inFile >> output;
+                        vector<string> thisstr;
+                        inFile >> output;
+                        while(output!="]"){
+                            // inFile >> output;
+                            thisstr.push_back(output);
+                            inFile >> output;
+                        }
+                        ClusteredPoint tempcluster;
+                        for(int i=0;i<thisstr.size();i++){
+                            Point tempoint;
+                            tempoint.x = 0;
+                            tempoint.y = n1 ;
+                            tempoint.z = n2 ;
+                            tempoint.label = thisstr[i];
+                            cout << tempoint.label << endl;
+                            cout << tempoint << endl;
+                            tempcluster.points.push_back(tempoint);
+                        }
+                        sampmap[tempcluster.points[0].label] = tempcluster;
+                        side.vertices.push_back(tempcluster);
+                        inFile >> output;
+                    }
+
+                    while(output!=";;"){
+                        cout << "ended vertices" << endl;
+                        inFile >> output;
+                        if(output=="Edges"){
+                            cout << "entered edges " <<endl;
+                            
+                            while(output!=";;"){
+                                inFile >> output;
+                                string a1 = output;
+                                inFile >> output;
+                                string a2 = output;
+                                ClusteredPoint c1 = sampmap[a1];
+                                ClusteredPoint c2 = sampmap[a2];
+                                Edge2D thisedge2d;
+                                thisedge2d.cp1 = c1;
+                                thisedge2d.cp2 = c2;
+                                side.edges.push_back(thisedge2d);
+                                inFile >> output;
+                            }
+                            cout << "edge size is " << side.edges.size() << endl;
+                            inFile >> output;
+                        }
+                    }
+                    
+                }
+
+
+            //end doc
+
+
+
+            }
+			
+
+		}
+        cout << "lets start the computation now "<< endl;
+        // we have top front side
+        Projection2D myproj;
+        myproj.frontview = front;
+        myproj.sideview = side;
+        myproj.topview = top;
+        myproj.create3D();
+        
+    }
     return 0;
 }
 
