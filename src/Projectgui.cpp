@@ -116,7 +116,7 @@ ProjectionWindow::ProjectionWindow()
   m_draw_frame.add(m_area);
   // m_area.show_now();
   m_area.signal_draw().connect(
-sigc::mem_fun(*this, &ProjectionWindow::on_custom_draw));
+  sigc::mem_fun(*this, &ProjectionWindow::on_custom_draw));
 
   // Signal Handlers
   m_submit.signal_clicked().connect(sigc::mem_fun(*this,

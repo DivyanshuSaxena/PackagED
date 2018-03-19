@@ -6,6 +6,7 @@ ConstructWindow::ConstructWindow()
   m_point_frame("Points"),
   m_edge_frame("Edges"),
   m_draw_frame("Rendered Object"),
+  m_rotate_frame("Rotate Object"),  
   m_submit("All Points Done"),
   m_add_point("Add More Points"),
   m_add_label("Add Label to this Point"),
@@ -20,6 +21,8 @@ ConstructWindow::ConstructWindow()
   top = new OrthoProjection;
   side = new OrthoProjection;
   cp = new ClusteredPoint;
+  proj = new Projection2D;
+  object = new Wireframe;
   this->projection = 0;
 
   set_title("Front View");
@@ -78,16 +81,20 @@ ConstructWindow::ConstructWindow()
   // Create Button
   m_Box.pack_start(m_create, Gtk::PACK_EXPAND_WIDGET, 10);
 
+  // Add Drawing Area
   m_Box.pack_start(m_draw_frame, Gtk::PACK_EXPAND_WIDGET, 10);
-  m_draw_frame.add(m_rotate_grid);  
+  m_draw_frame.add(m_draw_grid);  
   m_area.set_size_request(600,200);
-  m_rotate_grid.attach(m_area, 1, 1, 10, 20);
+  m_draw_grid.add(m_area);
   m_area.show();
 
-  m_rotate_grid.attach_next_to(m_top_rotate, m_area, Gtk::POS_BOTTOM, 3, 1);
-  m_rotate_grid.attach_next_to(m_left_rotate, m_top_rotate, Gtk::POS_RIGHT, 3, 1);
-  m_rotate_grid.attach_next_to(m_bottom_rotate, m_left_rotate, Gtk::POS_RIGHT, 3, 1);
-  m_rotate_grid.attach_next_to(m_right_rotate, m_bottom_rotate, Gtk::POS_RIGHT, 3, 1);  
+  // Add Rotate Buttons
+  m_Box.pack_start(m_rotate_frame, Gtk::PACK_EXPAND_WIDGET, 10);
+  m_rotate_frame.add(m_rotate_grid);
+  m_rotate_grid.add(m_top_rotate);
+  m_rotate_grid.attach_next_to(m_left_rotate, m_top_rotate, Gtk::POS_RIGHT, 1, 1);
+  m_rotate_grid.attach_next_to(m_bottom_rotate, m_left_rotate, Gtk::POS_RIGHT, 1, 1);
+  m_rotate_grid.attach_next_to(m_right_rotate, m_bottom_rotate, Gtk::POS_RIGHT, 1, 1);  
 
   m_area.signal_draw().connect(
 sigc::mem_fun(*this, &ConstructWindow::on_custom_draw));
@@ -103,7 +110,15 @@ sigc::mem_fun(*this, &ConstructWindow::on_custom_draw));
   m_add_edge.signal_clicked().connect(sigc::mem_fun(*this,
       &ConstructWindow::on_button_addedge) );
   m_create.signal_clicked().connect(sigc::mem_fun(*this,
-    &ConstructWindow::on_button_created) );
+      &ConstructWindow::on_button_created) );
+  m_top_rotate.signal_clicked().connect(sigc::bind<int>(sigc::mem_fun(*this,
+      &ConstructWindow::on_button_rotate), 1) );
+  m_left_rotate.signal_clicked().connect(sigc::bind<int>(sigc::mem_fun(*this,
+      &ConstructWindow::on_button_rotate), 2) );
+  m_bottom_rotate.signal_clicked().connect(sigc::bind<int>(sigc::mem_fun(*this,
+      &ConstructWindow::on_button_rotate), 3) );
+  m_right_rotate.signal_clicked().connect(sigc::bind<int>(sigc::mem_fun(*this,
+      &ConstructWindow::on_button_rotate), 4) );
   show_all_children();
 }
 
@@ -239,6 +254,11 @@ void ConstructWindow::on_button_created()
 bool ConstructWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 {
 
+}
+
+void ConstructWindow::on_button_rotate(int type)
+{
+  
 }
 
 ConstructWindow::~ConstructWindow()

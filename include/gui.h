@@ -61,6 +61,7 @@ public:
   ConstructWindow();
   virtual ~ConstructWindow();
   Projection2D* proj;
+  Wireframe* object;
   
 private:
   // Signal handlers:
@@ -71,15 +72,16 @@ private:
   void on_button_addedge();
   void on_button_created();
   bool on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr);  
+  void on_button_rotate(int type);
 
   int projection, create;
   OrthoProjection* front, * top, * side;
   ClusteredPoint* cp;
 
   // Child widgets:
-  Gtk::Box m_Box, m_VBox, m_GBox;
-  Gtk::Frame m_point_frame, m_edge_frame, m_draw_frame;
-  Gtk::Grid m_point_grid, m_edge_grid, m_rotate_grid;
+  Gtk::Box m_Box;
+  Gtk::Frame m_point_frame, m_edge_frame, m_draw_frame, m_rotate_frame;
+  Gtk::Grid m_point_grid, m_edge_grid, m_draw_grid, m_rotate_grid;
   Gtk::Entry m_entry_x, m_entry_y, m_entry_z, m_entry_label;
   Gtk::Entry m_edge_p1, m_edge_p2;
   Gtk::Button m_submit, m_add_point, m_add_label;
