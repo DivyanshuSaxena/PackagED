@@ -104,6 +104,7 @@ public:
     vector<Edge2D> edges;
     vector<Point> possibleNeighbours(Point);
     vector<Point> sameclusterpoints(Point);
+    vector<Point> sameclusterpointsincluded(Point);
     bool isConnected(string, string);
     
 };
