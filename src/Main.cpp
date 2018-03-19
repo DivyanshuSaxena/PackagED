@@ -11,6 +11,7 @@ using Eigen::MatrixXd;
 int check2D();
 int check3D();
 int check2Dfile();
+int check3Dfile();
 
 int main(int argc, char *argv[]) {
     /// 
@@ -18,7 +19,7 @@ int main(int argc, char *argv[]) {
     ///
         
     // ---------To Be Used Later---------
-    check2Dfile();  
+    check3Dfile();  
     // auto app =
     //     Gtk::Application::create(argc, argv,
     //     "org.gtkmm.examples");
@@ -79,6 +80,119 @@ int check3D() {
     cout << "Projection: " << *p << endl;
     p->rotatePlane();
     cout << "Rotated Projection: " << *p << endl;
+    return 0;
+}
+
+int check3Dfile(){
+    ifstream inFile ("inp4.txt");
+    string output;
+    Object3D obj;
+    double planearr [4];
+    if(!(inFile.is_open())){
+        cout<< "not started" <<endl;
+    }
+    map<string, int> labeltoindex;
+    if(inFile.is_open()){
+        cout << "start file"<<endl;
+        if(!inFile.eof()){
+            inFile >> output;
+            cout<< "getting vertices"<<endl;
+            if(output=="Vertices"){
+                // inFile>> output;
+                int tempindex = 0;
+                while(output!=";"){
+                    inFile >> output;
+                    double n1 = atof(output.c_str());
+                    inFile >> output;
+                    double n2 = atof(output.c_str());
+                    inFile >> output;
+                    double n3 = atof(output.c_str());
+                    inFile >> output;
+                    string label = output;
+                    Point tempoint;
+                    tempoint.setCoordinatesAndLabel(n1,n2,n3, label);
+                    cout << "point is "<< tempoint<< endl;
+                    obj.vertices.push_back(tempoint);
+                    labeltoindex[label] = tempindex;
+                    inFile >> output;
+                    tempindex++;
+                }
+            }
+            cout << "vertices finished" <<endl;
+            inFile >> output;
+            cout << "edges begin "<< endl;
+            if(output=="Edges"){
+                while(output!=";"){
+                    inFile >> output;
+                    string label1 = output;
+                    inFile >> output;
+                    string label2 = output;
+                    auto point1ptr = find_if(obj.vertices.begin(),obj.vertices.end(),[label1](Point p)->bool{
+                        return(p.label == label1);
+                    });
+                    auto point2ptr = find_if(obj.vertices.begin(),obj.vertices.end(),[label2](Point p)->bool{
+                        return(p.label == label2);
+                    });
+                    Edge tempedge;
+                    tempedge.p1 = * point1ptr;
+                    tempedge.p2 = * point2ptr;
+                    obj.edges.push_back(tempedge);
+                    inFile >> output;
+                }
+            }
+            cout << "edges finished"<< endl;
+            inFile >> output;
+            cout << "faces starting" << endl;
+            if(output=="Faces"){
+                while(output!=";"){
+                    inFile >> output;
+                    // vector<string> labelvec;
+                    Face tempface;
+                    while(output!="," && output!=";"){
+                        string tempstr = output;
+                        // labelvec.push_back(tempstr);
+                        cout << "tempstr is " <<tempstr << endl;
+                        inFile >> output;
+                        tempface.vertices.push_back(labeltoindex[tempstr]);
+                        
+                    }
+                    obj.faces.push_back(tempface);
+                    cout << "pushed face"<<endl;
+                    // break;
+                    // inFile >> output;
+                }
+            }
+            cout << "faces finished" <<endl;
+            inFile >> output;
+            cout << "plane started "<< endl;
+            if(output=="Plane"){
+                inFile >> output;
+                double n1 = atof(output.c_str());
+                inFile >> output;
+                double n2 = atof(output.c_str());
+                inFile >> output;
+                double n3 = atof(output.c_str());
+                inFile >> output;
+                double n4 = atof(output.c_str());
+                // inFile >> output
+                // planearr={n1,n2,n3,n4};
+                planearr[0]=n1;
+                planearr[1]=n2;
+                planearr[2]=n3;
+                planearr[3]=n4;
+
+              
+            }
+            cout << "plane finished" << endl;
+        }
+        cout << "file complete"<<endl;
+        PlaneProjection* p = obj.project3D(planearr);
+        cout << "Projection: " << *p << endl;
+        p->rotatePlane();
+        cout << "Rotated Projection: " << *p << endl;
+
+    }
+
     return 0;
 }
 
