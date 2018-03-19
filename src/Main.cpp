@@ -173,7 +173,7 @@ int check2Dfile(){
     // ofstream inFile;
     cout <<"start" <<endl;
 	// inFile.open("example.txt");
-    ifstream inFile ("inp2.txt");
+    ifstream inFile ("inp3.txt");
     if(!(inFile.is_open())){
         cout<< "not started" <<endl;
     }

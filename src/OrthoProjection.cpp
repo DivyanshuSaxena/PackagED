@@ -98,6 +98,27 @@ vector<Point> OrthoProjection::sameclusterpoints(Point point){
             answer.push_back((* it));
         }
     } 
+    return answer;
+}
+vector<Point> OrthoProjection::sameclusterpointsincluded(Point point){
+    vector<Point> answer;
+    auto samecluster = find_if(vertices.begin(),vertices.end(),[point](ClusteredPoint p)->bool{
+        if(find_if(p.points.begin(),p.points.end(),[point](Point thispoint)->bool{
+            return(thispoint.label==point.label);            
+        })!= p.points.end()){
+            return true;
+        }else{
+            return false;
+        }
+    });
+    // cout<<"dekho bhai "<<endl;
+    for(auto it= samecluster->points.begin();it!=samecluster->points.end();it++){
+        // if(it->label != point.label){
+            // cout <<"vertice wala" <<endl;
+            answer.push_back((* it));
+        // }
+    } 
+    return answer;
 }
 bool OrthoProjection::isConnected(string s1,string s2){
     auto edge2ditr = find_if(edges.begin(),edges.end(),[s1,s2](Edge2D thisedge)->bool{

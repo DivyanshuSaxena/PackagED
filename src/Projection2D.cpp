@@ -501,39 +501,60 @@ bool Projection2D::chkcollinearpossanddef(){
     return ret;
 }
 bool Projection2D::chkcollinearpossandposs(){
+    // cout << "poss and poss started "<< endl;
     int numpoints = allpoints.size();
     bool ret =false;
     for(int i=0;i<numpoints;i++){
-        Point * thispoint = & (allpoints[i]);
+        Point * thispoint = new Point;
+        thispoint = & (allpoints[i]);
+        // cout << "point of consideration is " << *thispoint << endl;
         vector<int> thisvec = adjacencyMatrix[i];
         int numposs = count(thisvec.begin(),thisvec.end(),1);
         int numdef = count(thisvec.begin(),thisvec.end(),2);
+        // cout << "numpos and numdef are " << numposs << " " << numdef << endl;
         if(numposs>=2){
             for(int j=0;j<numpoints;j++){
                 if(adjacencyMatrix[i][j]==1){
                     for(int k=j+1;k<numpoints;k++){
                         if(adjacencyMatrix[i][k]==1){
+                            // cout << "j and k are " << j << " " << k << endl;
                             if(thispoint->checkcollinear(indextopointmap[j],indextopointmap[k])){
-                                Point * jpointptr = indextopointmap[j];
-                                Point * kpointptr = indextopointmap[k];
+                                // cout << "j and k are collinear "<< endl;
+                                Point * jpointptr = new Point;
+                                Point * kpointptr = new Point;
+                                jpointptr = indextopointmap[j];
+                                kpointptr = indextopointmap[k];
+                                // cout << "jpoint is " << *jpointptr << endl;
+                                // cout << "kpoint is " << *kpointptr << endl;
                                 for(int it=0;it<3;it++){
+                                    // cout << "it is " <<it << endl;
                                     vector<Point> topcluster;
                                     if(it==0){
-                                        topcluster =topview.sameclusterpoints(*thispoint);
+                                        topcluster =topview.sameclusterpointsincluded(*thispoint);
                                     }else if(it==1){
-                                        topcluster = frontview.sameclusterpoints(*thispoint);
+                                        topcluster = frontview.sameclusterpointsincluded(*thispoint);
                                     }else{
-                                        topcluster = sideview.sameclusterpoints(*thispoint);
+                                        topcluster = sideview.sameclusterpointsincluded(*thispoint);
                                     }
+                                    // cout << "topcluster computed" <<endl;
+                                    if(topcluster.size()==0){
+                                        continue;
+                                    }
+                                    // cout << "topcluster size isnt 0" << endl;
                                     auto jiterator = find_if(topcluster.begin(),topcluster.end(),[jpointptr](Point p)->bool{
                                         return(jpointptr->label==p.label);
                                     });
                                     if(jiterator!=topcluster.end()){
+                                        // cout << "it must enter in this j"<< endl;
                                         auto kiterator = find_if(topcluster.begin(),topcluster.end(),[kpointptr](Point p)->bool{
                                             return(kpointptr->label==p.label);
                                         });
                                         if(kiterator!=topcluster.end()){
-                                            if(topcluster.begin()->label==thispoint->label || topcluster.end()->label==thispoint->label){
+                                            // cout << "it must enter in this k"<< endl;
+                                            int topclustersize = topcluster.size();
+                                            // cout << "end and start of this cluster are "<< topcluster[0].label << " and "<< topcluster[topclustersize-1].label << endl;
+                                            if((topcluster[0].label)==(thispoint->label) || (topcluster[topclustersize-1].label)==(thispoint->label)){
+                                                // cout << "do not change the end part "<< endl;
                                                 Vector3d a1(thispoint->x,thispoint->y,thispoint->z);
                                                 Vector3d a2(jpointptr->x,jpointptr->y,jpointptr->z);
                                                 Vector3d a3(kpointptr->x,kpointptr->y,kpointptr->z);
