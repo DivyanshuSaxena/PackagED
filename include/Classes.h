@@ -61,8 +61,10 @@ class Face {
 public:
     vector<int> vertices;
     friend std::ostream& operator<< (std::ostream &out, const Face &face) {
+        out << "Face(";
         for(int i = 0; i < face.vertices.size(); i++)
-            out << face.vertices[i] << ", ";    
+            out << face.vertices[i] << ", ";
+        out << ")";
         return out;
     }
 };

@@ -18,24 +18,25 @@ PlaneProjection* Object3D::project3D(double projectionPlane[4]) {
     ///
     /// General Function to project the current 3D object onto the projection plane passed as parameter "projectionPlane"
     ///
-    cout << "In project3D" << endl;
-    // int len = this->vertices.size();
-    cout << "Check"; // --------Remove
+    // cout << "Check"<<endl; // --------Remove
     // vector<Point> projectedVertices(len); --------Remove
     vector<bool> isHidden;
     vector<int> isHiddenEdge;
     int len = vertices.size();    
+    cout << "vertices size is " << len << endl;
     // Iteration to find all the projected vertices
     for (int i = 0; i < len; i++) {
-        this->projectedVertices.push_back(this->vertices[i].projectPoint(projectionPlane));
+        cout << vertices[i].projectPoint(projectionPlane) <<endl;
+        projectedVertices.push_back(vertices[i].projectPoint(projectionPlane));
     }
+    cout << "vertices projected "<<endl;
     // Now, we check if any of the vertices is hidden or not
     for (int i = 0; i < len; i++) {
         // cout << vertices[i].x << vertices[i].y << vertices[i].z << endl; -------Remove
         int flag = 0;
         // cout << this->faces.size(); -------Remove
         for (int j = 0; j < 5; j++) {
-            // cout << "Yo"; ---------Remove
+            // cout << "Yo";// ---------Remove
             if(checkHiddenVertice(vertices[i],faces[j],projectionPlane,0))
             {
                 flag = 1;
@@ -68,6 +69,9 @@ PlaneProjection* Object3D::project3D(double projectionPlane[4]) {
     // The vectors isHidden and isHiddenEdge store whether or not a point/edge is hidden.
     // This can be used to generate an OrthoProjection object that can be returned from this function.
     PlaneProjection* projection = new PlaneProjection;
+    for (int i = 0; i < 4; i++) {
+        projection->normal[i] = projectionPlane[i];
+    }
     for (auto i = 0; i < projectedVertices.size(); i++) {
         projection->vertices.push_back(projectedVertices[i]);
     }

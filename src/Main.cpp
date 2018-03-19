@@ -77,6 +77,8 @@ int check3D() {
     obj.faces.push_back(f5);
     PlaneProjection* p = obj.project3D(thisarr);
     cout << "Projection: " << *p << endl;
+    p->rotatePlane();
+    cout << "Rotated Projection: " << *p << endl;
     return 0;
 }
 
@@ -164,7 +166,6 @@ int check2D() {
     myproj.frontview=frontview;
     myproj.sideview=sideview;
     myproj.topview =topview;
-    //cout <<atop<<endl;
     myproj.create3D();
     return 0;
 }
@@ -418,10 +419,23 @@ PlaneProjection* createObject(Object3D* object, double plane[4]) {
     /// This function shall make use of the gtk library, to interactively take input from the user and returns the 3D object created from the user input
     ///
     cout << "In createObject" << endl; // ----------Remove
-    // cout << "Input Object:" << endl << object;
-    PlaneProjection* res = object->project3D(plane);
-    cout << "Object Returned";
+    Object3D temp_obj;
+    for(int i = 0; i < object->vertices.size(); i++)
+        temp_obj.vertices.push_back(object->vertices[i]);
+    for(int i = 0; i < object->edges.size(); i++)
+        temp_obj.edges.push_back(object->edges[i]);
+    for(int i = 0; i < object->faces.size(); i++)
+        temp_obj.faces.push_back(object->faces[i]);
+    cout << "Input Object:" << endl << temp_obj;
+    for(int i = 0; i < 4; i++)
+        cout << plane[i];
+    PlaneProjection* res = new PlaneProjection;
+    res = temp_obj.project3D(plane);
+    cout << "Object Returned: " << endl; // --------Remove
+    cout << *res << endl; // --------Remove
     res->rotatePlane();
+    cout << "Plane Rotated:" << endl; // ---------Remove
+    cout << *res << endl; // ---------Remove
     return res;
 }
 
@@ -431,6 +445,7 @@ int createProjection(Projection2D* projection) {
     ///
     cout << "In createObject" << endl; // ----------Remove
 }
+
 int renderObject(Wireframe frame) {
     ///
     /// This function shall make use of opengl library to render the object, from the Wireframe instance passed in parameter.

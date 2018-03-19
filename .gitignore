@@ -34,6 +34,7 @@
 check.cpp
 CDBProject/
 src/Classes.h
+src/OutputArea.cpp
 build/
 run.sh
 .vscode/

@@ -7,7 +7,8 @@ int PlaneProjection::rotatePlane() {
     /// Function to rotate the PlaneProjection instance so as to get the normal parallel to z-axis
     ///
     Vector3d zaxis(0,0,1);
-    Vector3d norml(normal[0]/normal[3],normal[1]/normal[3],normal[2]/normal[3]);
+    Vector3d norml(normal[0],normal[1],normal[2]);
+    cout << "Norml: " << endl << norml << endl;
     double costheta = zaxis.dot(norml);
     double sintheta = zaxis.cross(norml).norm();
     if(costheta < 0) {
@@ -15,11 +16,14 @@ int PlaneProjection::rotatePlane() {
     }
     Vector3d axis = zaxis.cross(norml);
     Matrix3d id = Matrix3d::Identity();
+    cout << "Identity Matrix: " << endl << id << endl;
     Matrix3d ux;
     ux << 0, -axis.z(), axis.y(),
                 axis.z(), 0, -axis.x(),
                 -axis.y(), axis.x(), 0;
+    cout << "UX Matrix: " << endl << ux << endl;
     Matrix3d tensorprod = axis*axis.transpose();
+    cout << "Tensor Product Matrix: " << endl << tensorprod << endl;
     Matrix3d rotmax = costheta*id + sintheta*ux + (1-costheta)*tensorprod;
     for(auto i = 0; i < visibleEdges.size(); i++) {
         Vector3d point1(visibleEdges[i].p1.x,visibleEdges[i].p1.y,visibleEdges[i].p1.z);

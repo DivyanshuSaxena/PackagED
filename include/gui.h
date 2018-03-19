@@ -8,17 +8,17 @@
 #include "Classes.h"
 using namespace std;
 
-class OutputArea : public Gtk::DrawingArea
-{
-public:
-  OutputArea(PlaneProjection&);
-  virtual ~OutputArea();
-  PlaneProjection* render;
+// class OutputArea : public Gtk::DrawingArea
+// {
+// public:
+//   OutputArea();
+//   virtual ~OutputArea();
+//   PlaneProjection* render;
 
-protected:
-  //Override default signal handler:
-  bool on_draw(const Cairo::RefPtr<Cairo::Context>& cr) override;
-};
+// protected:
+//   //Override default signal handler:
+//   bool on_draw(const Cairo::RefPtr<Cairo::Context>& cr) override;
+// };
 
 class ProjectionWindow : public Gtk::Window
 {
@@ -26,6 +26,7 @@ public:
   ProjectionWindow();
   virtual ~ProjectionWindow();
   Object3D* obj;
+  PlaneProjection* output;
   double plane[4];
   bool create;
 
@@ -36,13 +37,14 @@ private:
   void on_button_addedge();
   void on_button_addface();
   void on_button_created();
+  bool on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr);
   
   // Signals
   bool pointsDone, init;
 
   // Child widgets:
-  Gtk::Box m_Box;
-  Gtk::Frame m_point_frame, m_edge_frame, m_face_frame, m_plane_frame;
+  Gtk::Box m_Box, m_VBox, m_GBox;
+  Gtk::Frame m_point_frame, m_edge_frame, m_face_frame, m_plane_frame, m_draw_frame;
   Gtk::Grid m_point_grid, m_edge_grid, m_face_grid, m_plane_grid;
   Gtk::Entry m_entry_x, m_entry_y, m_entry_z, m_entry_label;
   Gtk::Entry m_entry_a, m_entry_b, m_entry_c, m_entry_d;
@@ -50,6 +52,7 @@ private:
   Gtk::Button m_submit, m_add_point;
   Gtk::Button m_add_edge, m_add_face, m_create;
   Gtk::CheckButton** m_face_point;
+  Gtk::DrawingArea m_area;
 };
 
 class ConstructWindow : public Gtk::Window
@@ -67,19 +70,22 @@ private:
   void on_button_addlabel();
   void on_button_addedge();
   void on_button_created();
+  bool on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr);  
 
   int projection, create;
   OrthoProjection* front, * top, * side;
   ClusteredPoint* cp;
 
   // Child widgets:
-  Gtk::Box m_Box;
-  Gtk::Frame m_point_frame, m_edge_frame;
-  Gtk::Grid m_point_grid, m_edge_grid;
+  Gtk::Box m_Box, m_VBox, m_GBox;
+  Gtk::Frame m_point_frame, m_edge_frame, m_draw_frame;
+  Gtk::Grid m_point_grid, m_edge_grid, m_rotate_grid;
   Gtk::Entry m_entry_x, m_entry_y, m_entry_z, m_entry_label;
   Gtk::Entry m_edge_p1, m_edge_p2;
   Gtk::Button m_submit, m_add_point, m_add_label;
   Gtk::Button m_add_edge, m_create;
+  Gtk::Button m_top_rotate, m_bottom_rotate, m_left_rotate, m_right_rotate;
+  Gtk::DrawingArea m_area;
 };
 
 class MainWindow : public Gtk::Window
