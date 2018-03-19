@@ -1,0 +1,33 @@
+Top
+Vertices
+1 1 [ a e ]
+2 1 [ b f ]
+2 2 [ c g ]
+1 2 [ d h ] ;
+Edges
+a b ,
+b c ,
+c d ,
+d a ;;
+Front
+Vertices
+1 1 [ e h ]
+2 1 [ f g ]
+2 2 [ b c ]
+1 2 [ a d ] ;
+Edges
+e f ,
+f b ,
+b a ,
+a e ;;
+Side
+Vertices
+2 1 [ g h ]
+1 1 [ f e ]
+1 2 [ b a ]
+2 2 [ c d ] ;
+Edges
+g f ,
+f b ,
+b c ,
+c g ;;
