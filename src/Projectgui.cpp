@@ -1,12 +1,17 @@
 #include "gui.h"
+#include <Eigen/Dense>
+
+using namespace Eigen;
 
 ProjectionWindow::ProjectionWindow()
-: m_Box(Gtk::ORIENTATION_VERTICAL),
+: m_Box(Gtk::ORIENTATION_HORIZONTAL),
+  m_VBox(Gtk::ORIENTATION_VERTICAL),
+  m_GBox(Gtk::ORIENTATION_VERTICAL),
   m_point_frame("Points"),
   m_edge_frame("Edges"),
   m_face_frame("Faces"),
   m_plane_frame("Projection Plane"),
-  m_draw_frame("Rendered Object"),
+  m_draw_frame("Rendered Projection"),
   m_submit("All Points Done"),
   m_add_point("Add More Points"),
   m_add_edge("Add Edge"),
@@ -21,7 +26,8 @@ ProjectionWindow::ProjectionWindow()
   set_border_width(12);
 
   add(m_Box);
-  m_Box.pack_start(m_point_frame, Gtk::PACK_EXPAND_WIDGET, 10);
+  m_Box.pack_start(m_VBox);
+  m_VBox.pack_start(m_point_frame, Gtk::PACK_EXPAND_WIDGET, 10);
 
   // Add Points
   m_point_frame.add(m_point_grid);
@@ -50,7 +56,7 @@ ProjectionWindow::ProjectionWindow()
   m_point_grid.attach_next_to(m_add_point, m_submit, Gtk::POS_RIGHT, 2, 1);
 
   // Add Edges
-  m_Box.pack_start(m_edge_frame, Gtk::PACK_EXPAND_WIDGET, 10);
+  m_VBox.pack_start(m_edge_frame, Gtk::PACK_EXPAND_WIDGET, 10);
 
   m_edge_p1.set_max_length(30);
   m_edge_p1.set_text("Label of First Point");
@@ -69,7 +75,7 @@ ProjectionWindow::ProjectionWindow()
   m_add_edge.set_sensitive(false);
 
   // Add Faces
-  m_Box.pack_start(m_face_frame, Gtk::PACK_EXPAND_WIDGET, 10);
+  m_VBox.pack_start(m_face_frame, Gtk::PACK_EXPAND_WIDGET, 10);
 
   m_face_frame.add(m_face_grid);
   m_face_grid.add(m_add_face);
@@ -77,7 +83,7 @@ ProjectionWindow::ProjectionWindow()
   m_add_face.set_sensitive(false);
 
   // Add Projection Plane
-  m_Box.pack_start(m_plane_frame, Gtk::PACK_EXPAND_WIDGET, 10);
+  m_VBox.pack_start(m_plane_frame, Gtk::PACK_EXPAND_WIDGET, 10);
   m_plane_frame.add(m_plane_grid);
 
   m_entry_a.set_max_length(10);
@@ -102,9 +108,11 @@ ProjectionWindow::ProjectionWindow()
   m_plane_grid.attach_next_to(m_entry_d, m_entry_c, Gtk::POS_RIGHT, 1, 1);
   m_plane_grid.attach_next_to(m_create, m_entry_b, Gtk::POS_BOTTOM, 2, 1);
 
+  m_Box.pack_start(m_GBox);  
+
   // Add Drawing Area
-  m_Box.pack_start(m_draw_frame, Gtk::PACK_EXPAND_WIDGET, 10);
-  m_area.set_size_request(200,200);
+  m_GBox.pack_start(m_draw_frame, Gtk::PACK_EXPAND_WIDGET, 10);
+  m_area.set_size_request(600,200);
   m_draw_frame.add(m_area);
   // m_area.show_now();
   m_area.signal_draw().connect(
@@ -219,8 +227,8 @@ bool ProjectionWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 {
   int width = m_area.get_allocated_width();  
   int height = m_area.get_allocated_height();  
-  std::cout << "In oncdraw" << std::endl;
-  std::cout << width << " " << height << std::endl;
+  // std::cout << "In oncdraw" << std::endl;
+  // std::cout << width << " " << height << std::endl;
   // coordinates for the center of the window
   int xc, yc;
   xc = width / 2;
@@ -232,21 +240,25 @@ bool ProjectionWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)
     cr->set_line_width(15.0);
   // draw red lines out from the center of the window
   cr->set_source_rgb(0.0, 0.0, 0.0);
-  
+
   if(this->create) {
+    Vector3d p1(output->visibleEdges[0].p1.x,output->visibleEdges[0].p1.y,output->visibleEdges[0].p1.z);
+    Vector3d p2(output->visibleEdges[0].p2.x,output->visibleEdges[0].p2.y,output->visibleEdges[0].p2.z);
+    double dist = (p1-p2).norm();
+    double factor = (width/dist)/5;  
     std::vector<double> vec;
     vec.push_back(10.0);
     vec.push_back(5.0);
     cr->set_dash(vec,0);
     for(int i = 0; i < output->hiddenEdges.size(); i++) {
-      cr->move_to((output->hiddenEdges[i].p1.x)*100 + xc, (output->hiddenEdges[i].p1.z)*100 + yc);
-      cr->line_to((output->hiddenEdges[i].p2.x)*100 + xc, (output->hiddenEdges[i].p2.z)*100 + yc);
+      cr->move_to((output->hiddenEdges[i].p1.x)*factor + xc, (output->hiddenEdges[i].p1.y)*factor + yc);
+      cr->line_to((output->hiddenEdges[i].p2.x)*factor + xc, (output->hiddenEdges[i].p2.y)*factor + yc);
     }
     cr->stroke();
     cr->restore();
     for(int i = 0; i < output->visibleEdges.size(); i++) {
-      cr->move_to((output->visibleEdges[i].p1.x)*100 + xc, (output->visibleEdges[i].p1.z)*100 + yc);
-      cr->line_to((output->visibleEdges[i].p2.x)*100 + xc, (output->visibleEdges[i].p2.z)*100 + yc);
+      cr->move_to((output->visibleEdges[i].p1.x)*factor + xc, (output->visibleEdges[i].p1.y)*factor + yc);
+      cr->line_to((output->visibleEdges[i].p2.x)*factor + xc, (output->visibleEdges[i].p2.y)*factor + yc);
     }
     cr->stroke();
   } else {

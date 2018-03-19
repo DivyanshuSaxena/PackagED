@@ -75,6 +75,8 @@ int check3D() {
     obj.faces.push_back(f5);
     PlaneProjection* p = obj.project3D(thisarr);
     cout << "Projection: " << *p << endl;
+    p->rotatePlane();
+    cout << "Rotated Projection: " << *p << endl;
     return 0;
 }
 
@@ -183,11 +185,11 @@ PlaneProjection* createObject(Object3D* object, double plane[4]) {
         cout << plane[i];
     PlaneProjection* res = new PlaneProjection;
     res = temp_obj.project3D(plane);
-    cout << "Object Returned: " << endl;
-    cout << *res << endl;
-    // res->rotatePlane();
-    // cout << "Plane Rotated:" << endl;
-    // cout << *res << endl;
+    cout << "Object Returned: " << endl; // --------Remove
+    cout << *res << endl; // --------Remove
+    res->rotatePlane();
+    cout << "Plane Rotated:" << endl; // ---------Remove
+    cout << *res << endl; // ---------Remove
     return res;
 }
 

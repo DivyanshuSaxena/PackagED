@@ -43,7 +43,7 @@ private:
   bool pointsDone, init;
 
   // Child widgets:
-  Gtk::Box m_Box;
+  Gtk::Box m_Box, m_VBox, m_GBox;
   Gtk::Frame m_point_frame, m_edge_frame, m_face_frame, m_plane_frame, m_draw_frame;
   Gtk::Grid m_point_grid, m_edge_grid, m_face_grid, m_plane_grid;
   Gtk::Entry m_entry_x, m_entry_y, m_entry_z, m_entry_label;
