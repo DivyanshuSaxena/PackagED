@@ -111,7 +111,7 @@ int check3Dfile(){
                     string label = output;
                     Point tempoint;
                     tempoint.setCoordinatesAndLabel(n1,n2,n3, label);
-                    cout << "point is "<< tempoint<< endl;
+                    // cout << "point is "<< tempoint<< endl;
                     obj.vertices.push_back(tempoint);
                     labeltoindex[label] = tempindex;
                     inFile >> output;
@@ -151,13 +151,13 @@ int check3Dfile(){
                     while(output!="," && output!=";"){
                         string tempstr = output;
                         // labelvec.push_back(tempstr);
-                        cout << "tempstr is " <<tempstr << endl;
+                        // cout << "tempstr is " <<tempstr << endl;
                         inFile >> output;
                         tempface.vertices.push_back(labeltoindex[tempstr]);
                         
                     }
                     obj.faces.push_back(tempface);
-                    cout << "pushed face"<<endl;
+                    // cout << "pushed face"<<endl;
                     // break;
                     // inFile >> output;
                 }
