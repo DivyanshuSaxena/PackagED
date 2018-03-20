@@ -86,7 +86,7 @@ ConstructWindow::ConstructWindow()
   // Add Drawing Area
   m_Box.pack_start(m_draw_frame, Gtk::PACK_EXPAND_WIDGET, 10);
   m_draw_frame.add(m_draw_grid);  
-  m_area.set_size_request(600,200);
+  m_area.set_size_request(600,500);
   m_draw_grid.add(m_area);
   m_area.show();
 
@@ -99,7 +99,7 @@ ConstructWindow::ConstructWindow()
   m_rotate_grid.attach_next_to(m_right_rotate, m_bottom_rotate, Gtk::POS_RIGHT, 1, 1);  
 
   m_area.signal_draw().connect(
-sigc::mem_fun(*this, &ConstructWindow::on_custom_draw));
+  sigc::mem_fun(*this, &ConstructWindow::on_custom_draw));
 
 
   // Signal Handlers
@@ -175,8 +175,9 @@ void ConstructWindow::on_button_addpoint()
 
 void ConstructWindow::on_button_addlabel()
 {
-  std::cout << "Entered text: " <<  m_entry_label.get_text() << std::endl;
-  this->m_entry_label.set_text("label");
+  std::cout << "Entered text: " << m_entry_x.get_text() << m_entry_y.get_text() 
+    << m_entry_z.get_text() << m_entry_label.get_text() << std::endl;
+  // this->m_entry_label.set_text("label");
   Point p;
   double x = atof(m_entry_x.get_text().c_str());
   double y = atof(m_entry_y.get_text().c_str());
@@ -238,18 +239,23 @@ void ConstructWindow::on_button_created()
   cp = new ClusteredPoint;
   if(projection==1) {
     m_create.set_label("Top View Done");
+    cout << "Front View: " << *(this->front) << endl;
     this->set_title("Top View");
   }
   else if(projection==2) {
     m_create.set_label("Side View Done");
+    this->set_title("Top View");
+    cout << "Top View: " << *(this->top) << endl;    
     this->set_title("Side View");
   }
   else {
     this->create = true;
+    cout << "Side View: " << *(this->side) << endl;        
     proj->frontview = *(this->front);
     proj->topview = *(this->top);
     proj->sideview = *(this->side);
     object = createProjection(proj);
+    cout << object->vertices.size() << endl;
     m_area.queue_draw();
   }
 }
@@ -268,6 +274,9 @@ bool ConstructWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)
   Wireframe* obj;
   obj = object->projectFrame();
 
+  cout << "Frame passed in custom_draw: " << *object << endl;
+  cout << "Projected Frame: " << *obj << endl;
+
   if(this->create)
     cr->set_line_width(2.0);
   else
@@ -280,8 +289,9 @@ bool ConstructWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)
     double dist = (p1-p2).norm();
     double factor = (width/dist)/5;  
     for(int i = 0; i < obj->edges.size(); i++) {
-      cr->move_to((obj->edges[i].p1.x)*factor + xc, (obj->edges[i].p1.y)*factor + yc);
-      cr->line_to((obj->edges[i].p2.x)*factor + xc, (obj->edges[i].p2.y)*factor + yc);
+      // cout << obj->edges[i].p1.x << " " << obj->edges[i].p1.y << endl;
+      cr->move_to((obj->edges[i].p1.x)*100 + xc, (obj->edges[i].p1.y)*100 + yc);
+      cr->line_to((obj->edges[i].p2.x)*100 + xc, (obj->edges[i].p2.y)*100 + yc);
     }
     cr->stroke();
   } else {

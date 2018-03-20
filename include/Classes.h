@@ -18,7 +18,7 @@ public:
     double relativePosition(double[]);
     int adjacencyIndex;
     friend std::ostream& operator<< (std::ostream &out, const Point &point) {
-        out << "Point(" << point.x << ", " << point.y << ", " << point.z <<  ")"<<" " << point.label;    
+        out << "Point(" << point.x << ", " << point.y << ", " << point.z << ", " << point.label << ") ";    
         return out;
     }
     bool checkcollinear(Point *, Point *);
@@ -31,6 +31,13 @@ public:
 class ClusteredPoint{
 public:
     vector<Point> points;
+    friend std::ostream& operator<< (std::ostream &out, const ClusteredPoint &cpoint) {
+        out << "Cluster(";
+        for(int i = 0; i < cpoint.points.size(); i++)
+            out << cpoint.points[i].label << ", ";
+        out << ") ";
+        return out;
+    }
 };
 
 ///
@@ -51,6 +58,10 @@ public:
 class Edge2D {
 public:
     ClusteredPoint cp1, cp2;
+    friend std::ostream& operator<< (std::ostream &out, const Edge2D &edge) {
+        out << "Edge( " << edge.cp1 << ", " << edge.cp2 << " )";    
+        return out;
+    }
 };
 
 
@@ -106,7 +117,18 @@ public:
     vector<Point> sameclusterpoints(Point);
     vector<Point> sameclusterpointsincluded(Point);
     bool isConnected(string, string);
-    
+    friend std::ostream& operator<< (std::ostream &out, const OrthoProjection &op) {
+        out << "OrthoProjection: " << std::endl << "Vertices: ";
+        for(int i = 0; i < op.vertices.size(); i++) {
+            out << op.vertices[i] << ", ";
+        }
+        out << std::endl << "Edges: ";
+        for(int i = 0; i < op.edges.size(); i++) {
+            out << op.edges[i] << ", ";
+        }
+        out << endl;
+        return out;
+    }  
 };
 
 ///
@@ -151,6 +173,18 @@ public:
     vector<vector<int> > adjacencyMatrix;
     Wireframe* projectFrame();
     int rotateFrame(int);
+    friend std::ostream& operator<< (std::ostream &out, const Wireframe &op) {
+        out << "Wireframe: " << std::endl << "Vertices: ";
+        for(int i = 0; i < op.vertices.size(); i++) {
+            out << op.vertices[i] << ", ";
+        }
+        out << std::endl << "Edges: ";
+        for(int i = 0; i < op.edges.size(); i++) {
+            out << op.edges[i] << ", ";
+        }
+        out << endl;
+        return out;
+    }  
 };
 
 ///

@@ -80,7 +80,7 @@ private:
 
   // Child widgets:
   Gtk::Box m_Box;
-  Gtk::Frame m_point_frame, m_edge_frame, m_draw_frame, m_rotate_frame;
+  Gtk::Frame m_point_frame, m_edge_frame, m_draw_frame, m_rotate_frame, m_file_frame;
   Gtk::Grid m_point_grid, m_edge_grid, m_draw_grid, m_rotate_grid;
   Gtk::Entry m_entry_x, m_entry_y, m_entry_z, m_entry_label;
   Gtk::Entry m_edge_p1, m_edge_p2;

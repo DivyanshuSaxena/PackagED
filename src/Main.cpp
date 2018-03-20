@@ -433,12 +433,6 @@ int check2Dfile(){
                     
                 }
 
-
-
-
-
-
-
                 //end doc
             }
             inFile >> output;
@@ -512,8 +506,6 @@ int check2Dfile(){
 
 
             }
-			
-
 		}
         cout << "lets start the computation now "<< endl;
         // we have top front side
