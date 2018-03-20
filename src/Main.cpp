@@ -84,7 +84,7 @@ int check3D() {
 }
 
 int check3Dfile(){
-    ifstream inFile ("inp4.txt");
+    ifstream inFile ("inp5.txt");
     string output;
     Object3D obj;
     double planearr [4];
