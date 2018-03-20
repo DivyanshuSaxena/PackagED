@@ -221,6 +221,6 @@ private:
 
 int check2D();
 int check3D();
-int check2Dfile();
-int check3Dfile();
+Wireframe* input2Dfile(string filename);
+PlaneProjection* input3Dfile(string filename);
 

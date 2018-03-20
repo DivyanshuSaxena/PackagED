@@ -234,14 +234,20 @@ void ProjectionWindow::on_button_created()
 
 void ProjectionWindow::on_file_button()
 {
-
+  cout << "File Name: " << m_entry_file.get_text() << endl;
+  std::string str = m_entry_file.get_text();
+  output = new PlaneProjection;
+  output = input3Dfile(str);
+  cout << "File output object" << endl << *output << endl;
+  this->create = true;
+  m_area.queue_draw();
 }
 
 bool ProjectionWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 {
   int width = m_area.get_allocated_width();  
   int height = m_area.get_allocated_height();  
-  // std::cout << "In oncdraw" << std::endl;
+  std::cout << "In oncdraw" << std::endl;
   // std::cout << width << " " << height << std::endl;
   // coordinates for the center of the window
   int xc, yc;

@@ -277,7 +277,11 @@ void ConstructWindow::on_button_created()
 
 void ConstructWindow::on_file_button()
 {
-
+  cout << "Input Name" << m_entry_file.get_text() << endl;
+  std::string str = m_entry_file.get_text();
+  object = input2Dfile(str);
+  this->create = true;
+  m_area.queue_draw();
 }
 
 bool ConstructWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)

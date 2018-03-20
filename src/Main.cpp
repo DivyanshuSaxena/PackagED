@@ -78,8 +78,8 @@ int check3D() {
     return 0;
 }
 
-int check3Dfile(){
-    ifstream inFile ("inp5.txt");
+PlaneProjection* input3Dfile(string filename){
+    ifstream inFile (filename);
     string output;
     Object3D obj;
     double planearr [4];
@@ -175,8 +175,6 @@ int check3Dfile(){
                 planearr[1]=n2;
                 planearr[2]=n3;
                 planearr[3]=n4;
-
-              
             }
             cout << "plane finished" << endl;
         }
@@ -185,9 +183,8 @@ int check3Dfile(){
         cout << "Projection: " << *p << endl;
         p->rotatePlane();
         cout << "Rotated Projection: " << *p << endl;
-
+        return p;
     }
-
     return 0;
 }
 
@@ -279,21 +276,18 @@ int check2D() {
     return 0;
 }
 
-int check2Dfile(){
+Wireframe* input2Dfile(string filename){
     // ofstream inFile;
     cout <<"start" <<endl;
 	// inFile.open("example.txt");
-    ifstream inFile ("inp3.txt");
+    ifstream inFile (filename);
     if(!(inFile.is_open())){
         cout<< "not started" <<endl;
     }
 
 	//char output[100];
 	OrthoProjection top,front,side;
-
 	Point temp2dpoint;
-	
-
 	string output;
     cout<< "file started"<<endl;
     if(inFile.is_open()){
@@ -426,10 +420,8 @@ int check2Dfile(){
                             }
                             cout << "edge size is " << front.edges.size() << endl;
                         }
-                    }
-                    
+                    }   
                 }
-
                 //end doc
             }
             inFile >> output;
@@ -493,25 +485,31 @@ int check2Dfile(){
                             cout << "edge size is " << side.edges.size() << endl;
                             inFile >> output;
                         }
-                    }
-                    
+                    }   
                 }
-
-
             //end doc
-
-
-
             }
 		}
         cout << "lets start the computation now "<< endl;
         // we have top front side
+        Wireframe frame;
         Projection2D myproj;
         myproj.frontview = front;
         myproj.sideview = side;
         myproj.topview = top;
-        myproj.create3D();
-        
+        frame = myproj.create3D();
+        Wireframe* retFrame;
+        retFrame = new Wireframe;
+        for(int i = 0; i < frame.vertices.size(); i++) {
+            retFrame->vertices.push_back(frame.vertices[i]);
+        }
+        for(int i = 0; i < frame.edges.size(); i++) {
+            Edge edge;
+            edge.p1.setCoordinates(frame.edges[i].p1.x,frame.edges[i].p1.y,frame.edges[i].p1.z);
+            edge.p2.setCoordinates(frame.edges[i].p2.x,frame.edges[i].p2.y,frame.edges[i].p2.z);        
+            retFrame->edges.push_back(edge);
+        }
+        return retFrame;
     }
     return 0;
 }
@@ -560,16 +558,4 @@ Wireframe* createProjection(Projection2D* projection) {
         retFrame->edges.push_back(edge);
     }
     return retFrame;
-}
-
-int renderObject(Wireframe frame) {
-    ///
-    /// This function shall make use of opengl library to render the object, from the Wireframe instance passed in parameter.
-    ///
-}
-
-int renderProjection(OrthoProjection projection) {
-    ///
-    /// This function shall make use of opengl library to render the object, from the OrthoProjection instance passed in parameter.
-    ///
 }
