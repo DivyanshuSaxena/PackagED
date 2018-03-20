@@ -176,10 +176,12 @@ PlaneProjection* input3Dfile(string filename){
                 planearr[2]=n3;
                 planearr[3]=n4;
             }
-            cout << "plane finished" << endl;
+            // cout << "plane finished" << endl;
         }
         cout << "file complete"<<endl;
-        PlaneProjection* p = obj.project3D(planearr);
+        cout << "Object created from file: " << endl << obj << endl; 
+        PlaneProjection* p = new PlaneProjection;
+        p = obj.project3D(planearr);
         cout << "Projection: " << *p << endl;
         p->rotatePlane();
         cout << "Rotated Projection: " << *p << endl;
@@ -509,6 +511,9 @@ Wireframe* input2Dfile(string filename){
             edge.p2.setCoordinates(frame.edges[i].p2.x,frame.edges[i].p2.y,frame.edges[i].p2.z);        
             retFrame->edges.push_back(edge);
         }
+        // cout << "retFrame: " << *retFrame << endl;
+        retFrame->normalise();
+        // cout << "retFrame after normalise: " << endl << *retFrame << endl;    
         return retFrame;
     }
     return 0;
@@ -557,5 +562,8 @@ Wireframe* createProjection(Projection2D* projection) {
         edge.p2.setCoordinates(newFrame.edges[i].p2.x,newFrame.edges[i].p2.y,newFrame.edges[i].p2.z);        
         retFrame->edges.push_back(edge);
     }
+    // cout << "retFrame: " << *retFrame << endl;
+    retFrame->normalise();
+    // cout << "retFrame after normalise: " << endl << *retFrame << endl;
     return retFrame;
 }

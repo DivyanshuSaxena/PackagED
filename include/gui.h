@@ -68,6 +68,7 @@ private:
   int projection, create;
   OrthoProjection* front, * top, * side;
   ClusteredPoint* cp;
+  double factor;
 
   // Child widgets:
   Gtk::Box m_Box;

@@ -8,28 +8,18 @@ Wireframe Projection2D::create3D(){
     cout << "lets start"<<endl;
     allpoints = determineAllPoints();
     cout <<"adjacencyMatrix point" <<endl;
-    printmatrix(adjacencyMatrix);
-    // cout << "allpoints detected and their number are "<< allpoints.size()<<endl;
-    // for(int i=0;i<allpoints.size();i++){
-    //     cout << allpoints[i] << endl;
-    //     cout << "i is "<< i<<endl;
-    //     cout << "check if index to points map ======================================================================"<< endl;
-        
-    //     //cout << allpoints[i].label << " maps to "<< * (labeltopointmap[allpoints[i].label])<<endl;
-    //     cout << allpoints[i].adjacencyIndex << " maps to "<< * (indextopointmap.at(i))<<endl;
-    // }
+    // printmatrix(adjacencyMatrix);
+    
     determineIntersectedEdges();
     cout << "determineintersected edges complete "<< endl;
-    printmatrix(adjacencyMatrix);
+    // printmatrix(adjacencyMatrix);
     cout << "execute corollary 1" <<endl;
     executeCorollary1();
-    printmatrix(adjacencyMatrix);
-
-
+    // printmatrix(adjacencyMatrix);
 
     cout << "corollary 1 finished chek3edge ==================================================="<< endl;
     chkif3edgesanddefthem();
-    printmatrix(adjacencyMatrix);
+    // printmatrix(adjacencyMatrix);
 
     cout<< "chek3edge finished loop starting==================================================="<< endl;
     int numcountwhile = 0;
@@ -37,18 +27,18 @@ Wireframe Projection2D::create3D(){
         //function below checks if for a point a possible and definite point are collinear and removes the possible point
         cout << "chekcollinearpossanddef started ================================================================" << endl;
         bool ifcollinearpossanddef = chkcollinearpossanddef();
-        printmatrix(adjacencyMatrix);
+        // printmatrix(adjacencyMatrix);
         cout << "chkcollinearpossandposs started ================================================================" <<endl;
         bool ifcollinearpossandposs = chkcollinearpossandposs();
-        printmatrix(adjacencyMatrix);
+        // printmatrix(adjacencyMatrix);
         cout << "chkposshasdefinanother started ================================================================" <<endl;
 
         bool ifposshasdefinother = chkposshasdefinother();
-        printmatrix(adjacencyMatrix);
+        // printmatrix(adjacencyMatrix);
         cout << "chk3dgesanddefthem started ================================================================" <<endl;
 
         chkif3edgesanddefthem();
-        printmatrix(adjacencyMatrix);
+        // printmatrix(adjacencyMatrix);
         numcountwhile++;
         if(numcountwhile==50){
             cout << "wrong answer"<<endl;

@@ -311,11 +311,12 @@ bool ConstructWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)
     Vector3d p1(obj->edges[0].p1.x,obj->edges[0].p1.y,obj->edges[0].p1.z);
     Vector3d p2(obj->edges[0].p2.x,obj->edges[0].p2.y,obj->edges[0].p2.z);
     double dist = (p1-p2).norm();
-    double factor = (width/dist)/5;  
+    if(factor==0)
+      factor = (width/dist)/5;  
     for(int i = 0; i < obj->edges.size(); i++) {
       // cout << obj->edges[i].p1.x << " " << obj->edges[i].p1.y << endl;
-      cr->move_to((obj->edges[i].p1.x)*100 + xc, (obj->edges[i].p1.y)*100 + yc);
-      cr->line_to((obj->edges[i].p2.x)*100 + xc, (obj->edges[i].p2.y)*100 + yc);
+      cr->move_to((obj->edges[i].p1.x)*factor + xc, (obj->edges[i].p1.y)*factor + yc);
+      cr->line_to((obj->edges[i].p2.x)*factor + xc, (obj->edges[i].p2.y)*factor + yc);
     }
     cr->stroke();
   } else {

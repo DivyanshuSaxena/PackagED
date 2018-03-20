@@ -3,6 +3,29 @@
 #include <math.h>
 using namespace Eigen;
 
+int Wireframe::normalise() {
+    double sumx = 0.0;
+    double sumy = 0.0;
+    double sumz = 0.0;
+    for(int i = 0; i < this->vertices.size(); i++) {
+        sumx += this->vertices[i].x;
+        sumy += this->vertices[i].y;
+        sumz += this->vertices[i].z;
+    }
+    sumx = sumx/(this->vertices.size());
+    sumy = sumy/(this->vertices.size());
+    sumz = sumz/(this->vertices.size());
+    for(int i = 0; i < this->edges.size(); i++) {
+        this->edges[i].p1.x -= sumx;
+        this->edges[i].p1.y -= sumy;
+        this->edges[i].p1.z -= sumz;
+        this->edges[i].p2.x -= sumx;
+        this->edges[i].p2.y -= sumy;
+        this->edges[i].p2.z -= sumz;
+    }
+    return 0;
+}
+
 Wireframe* Wireframe::projectFrame() {
     double plane[4] = {0,0,1,0};
     Wireframe* projected;

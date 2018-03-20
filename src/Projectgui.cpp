@@ -120,7 +120,7 @@ ProjectionWindow::ProjectionWindow()
 
   // Add Drawing Area
   m_Box.pack_start(m_draw_frame, Gtk::PACK_EXPAND_WIDGET, 10);
-  m_area.set_size_request(600,400);
+  m_area.set_size_request(600,500);
   m_draw_frame.add(m_area);
 
   // Signal Handlers
@@ -262,6 +262,25 @@ bool ProjectionWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)
   cr->set_source_rgb(0.0, 0.0, 0.0);
 
   if(this->create) {
+    double sumx = 0.0;
+    double sumy = 0.0;
+    int len = output->visibleEdges.size() + output->hiddenEdges.size();
+    for(int i = 0; i < len; i++) {
+      if(i < output->visibleEdges.size()) {
+        sumx += output->visibleEdges[i].p1.x;
+        sumx += output->visibleEdges[i].p2.x;
+        sumy += output->visibleEdges[i].p1.y;
+        sumy += output->visibleEdges[i].p2.y;
+      } else {
+        sumx += output->hiddenEdges[i].p1.x;
+        sumx += output->hiddenEdges[i].p1.x;
+        sumx += output->hiddenEdges[i].p1.x;
+        sumx += output->hiddenEdges[i].p1.x;        
+      }
+    }
+    sumx = sumx/(len);
+    sumy = sumy/(len);
+    cout << sumx << " " << sumy << endl;
     Vector3d p1(output->visibleEdges[0].p1.x,output->visibleEdges[0].p1.y,output->visibleEdges[0].p1.z);
     Vector3d p2(output->visibleEdges[0].p2.x,output->visibleEdges[0].p2.y,output->visibleEdges[0].p2.z);
     double dist = (p1-p2).norm();
@@ -271,8 +290,8 @@ bool ProjectionWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)
     vec.push_back(5.0);
     cr->set_dash(vec,0);
     for(int i = 0; i < output->hiddenEdges.size(); i++) {
-      cr->move_to((output->hiddenEdges[i].p1.x)*factor + xc, (output->hiddenEdges[i].p1.y)*factor + yc);
-      cr->line_to((output->hiddenEdges[i].p2.x)*factor + xc, (output->hiddenEdges[i].p2.y)*factor + yc);
+      cr->move_to((output->hiddenEdges[i].p1.x)*factor + xc - sumx, (output->hiddenEdges[i].p1.y)*factor + yc - sumy);
+      cr->line_to((output->hiddenEdges[i].p2.x)*factor + xc - sumx, (output->hiddenEdges[i].p2.y)*factor + yc - sumy);
     }
     cr->stroke();
     cr->restore();
