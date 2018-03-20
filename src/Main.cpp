@@ -8,10 +8,6 @@
 
 using namespace std;
 using Eigen::MatrixXd;
-int check2D();
-int check3D();
-int check2Dfile();
-int check3Dfile();
 
 int main(int argc, char *argv[]) {
     /// 

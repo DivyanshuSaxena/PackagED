@@ -219,7 +219,8 @@ private:
     void printmatrix(vector<vector<int> >);
 };
 
-PlaneProjection* createObject(Object3D*,double[4]);
-Wireframe* createProjection(Projection2D*);
-int renderObject(Wireframe);
-int renderProjection(OrthoProjection);
+int check2D();
+int check3D();
+int check2Dfile();
+int check3Dfile();
+

@@ -8,18 +8,6 @@
 #include "Classes.h"
 using namespace std;
 
-// class OutputArea : public Gtk::DrawingArea
-// {
-// public:
-//   OutputArea();
-//   virtual ~OutputArea();
-//   PlaneProjection* render;
-
-// protected:
-//   //Override default signal handler:
-//   bool on_draw(const Cairo::RefPtr<Cairo::Context>& cr) override;
-// };
-
 class ProjectionWindow : public Gtk::Window
 {
 public:
@@ -104,5 +92,8 @@ private:
   Gtk::Grid m_grid;
   Gtk::Button m_button_1, m_button_2;
 };
+
+PlaneProjection* createObject(Object3D*,double[4]);
+Wireframe* createProjection(Projection2D*);
 
 #endif /* GTKMM_PROJWINDOW_H */
