@@ -19,7 +19,7 @@ DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 _GDEPS = Classes.h gui.h
 GDEPS = $(patsubst %,$(IDIR)/%,$(_GDEPS))
 
-_OBJ = Point.o Object3D.o Projection2D.o OrthoProjection.o PlaneProjection.o
+_OBJ = Point.o Object3D.o Projection2D.o OrthoProjection.o PlaneProjection.o Wireframe.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 _GOBJ = Main.o Maingui.o Projectgui.o Constructgui.o
