@@ -4,19 +4,19 @@
 using namespace Eigen;
 
 ProjectionWindow::ProjectionWindow()
-: m_Box(Gtk::ORIENTATION_HORIZONTAL),
-  m_VBox(Gtk::ORIENTATION_VERTICAL),
-  m_GBox(Gtk::ORIENTATION_VERTICAL),
+: m_Box(Gtk::ORIENTATION_VERTICAL),
   m_point_frame("Points"),
   m_edge_frame("Edges"),
   m_face_frame("Faces"),
   m_plane_frame("Projection Plane"),
   m_draw_frame("Rendered Projection"),
+  m_file_frame("Enter from file"),
   m_submit("All Points Done"),
   m_add_point("Add More Points"),
   m_add_edge("Add Edge"),
   m_add_face("Add Face"),
-  m_create("Create Projection")
+  m_create("Create Projection"),
+  m_add_file("Create Projection")
 {
   obj = new Object3D;
   pointsDone = false;
@@ -26,8 +26,7 @@ ProjectionWindow::ProjectionWindow()
   set_border_width(12);
 
   add(m_Box);
-  m_Box.pack_start(m_VBox);
-  m_VBox.pack_start(m_point_frame, Gtk::PACK_EXPAND_WIDGET, 10);
+  m_Box.pack_start(m_point_frame, Gtk::PACK_EXPAND_WIDGET, 10);
 
   // Add Points
   m_point_frame.add(m_point_grid);
@@ -56,7 +55,7 @@ ProjectionWindow::ProjectionWindow()
   m_point_grid.attach_next_to(m_add_point, m_submit, Gtk::POS_RIGHT, 2, 1);
 
   // Add Edges
-  m_VBox.pack_start(m_edge_frame, Gtk::PACK_EXPAND_WIDGET, 10);
+  m_Box.pack_start(m_edge_frame, Gtk::PACK_EXPAND_WIDGET, 10);
 
   m_edge_p1.set_max_length(30);
   m_edge_p1.set_text("Label of First Point");
@@ -75,7 +74,7 @@ ProjectionWindow::ProjectionWindow()
   m_add_edge.set_sensitive(false);
 
   // Add Faces
-  m_VBox.pack_start(m_face_frame, Gtk::PACK_EXPAND_WIDGET, 10);
+  m_Box.pack_start(m_face_frame, Gtk::PACK_EXPAND_WIDGET, 10);
 
   m_face_frame.add(m_face_grid);
   m_face_grid.add(m_add_face);
@@ -83,7 +82,7 @@ ProjectionWindow::ProjectionWindow()
   m_add_face.set_sensitive(false);
 
   // Add Projection Plane
-  m_VBox.pack_start(m_plane_frame, Gtk::PACK_EXPAND_WIDGET, 10);
+  m_Box.pack_start(m_plane_frame, Gtk::PACK_EXPAND_WIDGET, 10);
   m_plane_frame.add(m_plane_grid);
 
   m_entry_a.set_max_length(10);
@@ -108,15 +107,21 @@ ProjectionWindow::ProjectionWindow()
   m_plane_grid.attach_next_to(m_entry_d, m_entry_c, Gtk::POS_RIGHT, 1, 1);
   m_plane_grid.attach_next_to(m_create, m_entry_b, Gtk::POS_BOTTOM, 2, 1);
 
-  m_Box.pack_start(m_GBox);  
+  // Add Choose from File
+  m_Box.pack_start(m_file_frame, Gtk::PACK_EXPAND_WIDGET, 10);
+  m_file_frame.add(m_file_grid);
+
+  m_entry_file.set_max_length(30);
+  m_entry_file.set_text("Name of file");
+  m_entry_file.select_region(0, m_entry_file.get_text_length());
+
+  m_file_grid.add(m_entry_file);
+  m_file_grid.attach_next_to(m_add_file, m_entry_file, Gtk::POS_RIGHT, 1, 1);
 
   // Add Drawing Area
-  m_GBox.pack_start(m_draw_frame, Gtk::PACK_EXPAND_WIDGET, 10);
-  m_area.set_size_request(600,200);
+  m_Box.pack_start(m_draw_frame, Gtk::PACK_EXPAND_WIDGET, 10);
+  m_area.set_size_request(600,400);
   m_draw_frame.add(m_area);
-  // m_area.show_now();
-  m_area.signal_draw().connect(
-  sigc::mem_fun(*this, &ProjectionWindow::on_custom_draw));
 
   // Signal Handlers
   m_submit.signal_clicked().connect(sigc::mem_fun(*this,
@@ -129,6 +134,10 @@ ProjectionWindow::ProjectionWindow()
       &ProjectionWindow::on_button_addface) );
   m_create.signal_clicked().connect(sigc::mem_fun(*this,
     &ProjectionWindow::on_button_created) );
+  m_area.signal_draw().connect(
+    sigc::mem_fun(*this, &ProjectionWindow::on_custom_draw));
+  m_add_file.signal_clicked().connect(sigc::mem_fun(*this,
+      &ProjectionWindow::on_file_button) );
   show_all_children();
 }
 
@@ -221,6 +230,11 @@ void ProjectionWindow::on_button_created()
   // OutputArea area;
   m_area.queue_draw();
   // m_Box.add(area);
+}
+
+void ProjectionWindow::on_file_button()
+{
+
 }
 
 bool ProjectionWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)

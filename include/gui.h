@@ -25,19 +25,21 @@ private:
   void on_button_addedge();
   void on_button_addface();
   void on_button_created();
+  void on_file_button();
   bool on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr);
   
   // Signals
   bool pointsDone, init;
 
   // Child widgets:
-  Gtk::Box m_Box, m_VBox, m_GBox;
-  Gtk::Frame m_point_frame, m_edge_frame, m_face_frame, m_plane_frame, m_draw_frame;
-  Gtk::Grid m_point_grid, m_edge_grid, m_face_grid, m_plane_grid;
+  Gtk::Box m_Box;
+  Gtk::Frame m_point_frame, m_edge_frame, m_face_frame;
+  Gtk::Frame m_plane_frame, m_draw_frame, m_file_frame;
+  Gtk::Grid m_point_grid, m_edge_grid, m_face_grid, m_plane_grid, m_file_grid;
   Gtk::Entry m_entry_x, m_entry_y, m_entry_z, m_entry_label;
   Gtk::Entry m_entry_a, m_entry_b, m_entry_c, m_entry_d;
-  Gtk::Entry m_edge_p1, m_edge_p2;
-  Gtk::Button m_submit, m_add_point;
+  Gtk::Entry m_edge_p1, m_edge_p2, m_entry_file;
+  Gtk::Button m_submit, m_add_point, m_add_file;
   Gtk::Button m_add_edge, m_add_face, m_create;
   Gtk::CheckButton** m_face_point;
   Gtk::DrawingArea m_area;
@@ -61,6 +63,7 @@ private:
   void on_button_created();
   bool on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr);  
   void on_button_rotate(int type);
+  void on_file_button();
 
   int projection, create;
   OrthoProjection* front, * top, * side;
@@ -68,12 +71,13 @@ private:
 
   // Child widgets:
   Gtk::Box m_Box;
-  Gtk::Frame m_point_frame, m_edge_frame, m_draw_frame, m_rotate_frame, m_file_frame;
-  Gtk::Grid m_point_grid, m_edge_grid, m_draw_grid, m_rotate_grid;
+  Gtk::Frame m_point_frame, m_edge_frame, m_draw_frame;
+  Gtk::Frame m_rotate_frame, m_file_frame;
+  Gtk::Grid m_point_grid, m_edge_grid, m_draw_grid, m_rotate_grid, m_file_grid;
   Gtk::Entry m_entry_x, m_entry_y, m_entry_z, m_entry_label;
-  Gtk::Entry m_edge_p1, m_edge_p2;
+  Gtk::Entry m_edge_p1, m_edge_p2, m_entry_file;
   Gtk::Button m_submit, m_add_point, m_add_label;
-  Gtk::Button m_add_edge, m_create;
+  Gtk::Button m_add_edge, m_create, m_add_file;
   Gtk::Button m_top_rotate, m_bottom_rotate, m_left_rotate, m_right_rotate;
   Gtk::DrawingArea m_area;
 };

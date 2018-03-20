@@ -8,6 +8,7 @@ ConstructWindow::ConstructWindow()
   m_point_frame("Points"),
   m_edge_frame("Edges"),
   m_draw_frame("Rendered Object"),
+  m_file_frame("Choose From File"),  
   m_rotate_frame("Rotate Object"),  
   m_submit("All Points Done"),
   m_add_point("Add More Points"),
@@ -17,7 +18,8 @@ ConstructWindow::ConstructWindow()
   m_top_rotate("Rotate Top"),
   m_bottom_rotate("Rotate Bottom"),
   m_left_rotate("Rotate Left"),
-  m_right_rotate("Rotate Right")
+  m_right_rotate("Rotate Right"),
+  m_add_file("Create Object")
 {
   front = new OrthoProjection;
   top = new OrthoProjection;
@@ -83,6 +85,17 @@ ConstructWindow::ConstructWindow()
   // Create Button
   m_Box.pack_start(m_create, Gtk::PACK_EXPAND_WIDGET, 10);
 
+  // Add File Input
+  m_Box.pack_start(m_file_frame, Gtk::PACK_EXPAND_WIDGET, 10);
+  m_file_frame.add(m_file_grid);
+
+  m_entry_file.set_max_length(30);
+  m_entry_file.set_text("Name of file");
+  m_entry_file.select_region(0, m_entry_file.get_text_length());
+
+  m_file_grid.add(m_entry_file);
+  m_file_grid.attach_next_to(m_add_file, m_entry_file, Gtk::POS_RIGHT, 1, 1); 
+
   // Add Drawing Area
   m_Box.pack_start(m_draw_frame, Gtk::PACK_EXPAND_WIDGET, 10);
   m_draw_frame.add(m_draw_grid);  
@@ -93,7 +106,7 @@ ConstructWindow::ConstructWindow()
   // Add Rotate Buttons
   m_Box.pack_start(m_rotate_frame, Gtk::PACK_EXPAND_WIDGET, 10);
   m_rotate_frame.add(m_rotate_grid);
-  m_rotate_grid.add(m_top_rotate);
+  m_rotate_grid.attach(m_top_rotate, 1, 1, 2, 1);
   m_rotate_grid.attach_next_to(m_left_rotate, m_top_rotate, Gtk::POS_RIGHT, 1, 1);
   m_rotate_grid.attach_next_to(m_bottom_rotate, m_left_rotate, Gtk::POS_RIGHT, 1, 1);
   m_rotate_grid.attach_next_to(m_right_rotate, m_bottom_rotate, Gtk::POS_RIGHT, 1, 1);  
@@ -121,6 +134,8 @@ ConstructWindow::ConstructWindow()
       &ConstructWindow::on_button_rotate), 3) );
   m_right_rotate.signal_clicked().connect(sigc::bind<int>(sigc::mem_fun(*this,
       &ConstructWindow::on_button_rotate), 4) );
+  m_add_file.signal_clicked().connect(sigc::mem_fun(*this,
+      &ConstructWindow::on_file_button) );
   show_all_children();
 }
 
@@ -258,6 +273,11 @@ void ConstructWindow::on_button_created()
     cout << object->vertices.size() << endl;
     m_area.queue_draw();
   }
+}
+
+void ConstructWindow::on_file_button()
+{
+
 }
 
 bool ConstructWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)
