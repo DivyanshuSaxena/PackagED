@@ -18,6 +18,7 @@ int main(int argc, char *argv[]) {
     /// The main function shall be responsible for calling various other functions and instantiating the classes for using their functions cop290
     ///
         
+    // check3Dfile();
     auto app =
         Gtk::Application::create(argc, argv,
         "org.gtkmm.examples");

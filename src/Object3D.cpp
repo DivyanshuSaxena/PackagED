@@ -26,7 +26,7 @@ PlaneProjection* Object3D::project3D(double projectionPlane[4]) {
     cout << "vertices size is " << len << endl;
     // Iteration to find all the projected vertices
     for (int i = 0; i < len; i++) {
-        cout << vertices[i].projectPoint(projectionPlane) <<endl;
+        // cout << vertices[i].projectPoint(projectionPlane) <<endl; // ------Remove
         projectedVertices.push_back(vertices[i].projectPoint(projectionPlane));
     }
     cout << "vertices projected "<<endl;
@@ -35,7 +35,7 @@ PlaneProjection* Object3D::project3D(double projectionPlane[4]) {
         // cout << vertices[i].x << vertices[i].y << vertices[i].z << endl; -------Remove
         int flag = 0;
         // cout << this->faces.size(); -------Remove
-        for (int j = 0; j < 5; j++) {
+        for (int j = 0; j < this->faces.size(); j++) {
             // cout << "Yo";// ---------Remove
             if(checkHiddenVertice(vertices[i],faces[j],projectionPlane,0))
             {
@@ -48,7 +48,7 @@ PlaneProjection* Object3D::project3D(double projectionPlane[4]) {
         else
             isHidden.push_back(false);
     }
-    cout << "Vertices Done" << endl; // -------------Remove
+    cout << "Vertices Done" << endl; 
     // Next, we check for each edge, if it is hidden or not
     /* Note: If a part of an edge is hidden then the edge is replaced by the first part 
        and the remaining part is added in the edges vector of the Object3D object */
@@ -65,7 +65,7 @@ PlaneProjection* Object3D::project3D(double projectionPlane[4]) {
         isHiddenEdge.push_back(flag);
         // cout << i << " " << edges[i] << ":" << flag << isHiddenEdge[i] << isHiddenEdge.size() << endl;
     }
-    cout << "Edges Done" << endl; // ----------Remove
+    cout << "Edges Done" << endl;
     // The vectors isHidden and isHiddenEdge store whether or not a point/edge is hidden.
     // This can be used to generate an OrthoProjection object that can be returned from this function.
     PlaneProjection* projection = new PlaneProjection;
@@ -244,7 +244,7 @@ bool Object3D::checkHiddenVertice(Point vertex, Face face, double plane[4], int 
                 retValue = true;
         }
     }
-    //cout<<"retvalue is lund "<< retValue<<endl;
+    // cout << "retvalue is " << retValue << endl;
     return retValue;
 }
 
@@ -253,7 +253,7 @@ bool Object3D::checkHiddenEdge(Edge edge, Face face, double plane[4], int index)
     /// Function to evaluate if the Edge "edge", passed as parameter is hidden by the face, 
     /// whose projection on the plane "plane" is passed as argument "face"
     ///
-    // cout << "In CHE" << endl;
+    cout << "In CHE" << endl;
     bool retValue = false;
     Point p1 = edge.p1;
     Point p2 = edge.p2;
@@ -280,7 +280,7 @@ bool Object3D::checkHiddenEdge(Edge edge, Face face, double plane[4], int index)
     if(rayCasting(projectp1,faceProject)) {
         if(checkHiddenVertice(edge.p1,face,plane,1)) {
             // Evaluate the point of intersection of edge with the polygon faceProject
-            // cout << "First point is hidden."; -------Remove
+            // cout << "First point is hidden."; // -------Remove
             Vector3d avertice(projectp1.x,projectp1.y,projectp1.z);
             Vector3d endvertice(projectp2.x,projectp2.y,projectp2.z);
             Vector3d linevector(projectp2.x-projectp1.x,projectp2.y-projectp1.y,projectp2.z-projectp1.z);
@@ -316,7 +316,7 @@ bool Object3D::checkHiddenEdge(Edge edge, Face face, double plane[4], int index)
                 }else if(ci==1){
                     // Intersects (bvertice,dvertice) in the middle somewhere  
                     Vector3d intersection = intersectLines(edge.p1,edge.p2,bvertice,dvertice);
-                    // cout << "Between " << edge << " and " << bvertice << ", " << dvertice << endl; // ---------Remove
+                    cout << "Between " << edge << " and " << bvertice << ", " << dvertice << endl; // ---------Remove
                     intersections.push_back(intersection);
                 }
                 i++;
@@ -372,6 +372,6 @@ bool Object3D::checkHiddenEdge(Edge edge, Face face, double plane[4], int index)
     // if(retValue) 
     //     cout << edge << " is hidden by the face formed by: " << face << endl;
     // else
-    //     cout << edge << " is not hidden by the face formed by: " << face << endl; -------Remove
+    //     cout << edge << " is not hidden by the face formed by: " << face << endl; // -------Remove
     return retValue;
 }

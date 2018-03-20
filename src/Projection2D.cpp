@@ -29,12 +29,7 @@ Wireframe Projection2D::create3D(){
 
     cout << "corollary 1 finished chek3edge ==================================================="<< endl;
     chkif3edgesanddefthem();
-
-
     printmatrix(adjacencyMatrix);
-
-
-
 
     cout<< "chek3edge finished loop starting==================================================="<< endl;
     int numcountwhile = 0;
@@ -66,7 +61,6 @@ Wireframe Projection2D::create3D(){
     answer.vertices = allpoints;
     for(auto verticesitr = answer.vertices.begin();verticesitr!=answer.vertices.end();verticesitr++){
         cout << "final points are "<< *verticesitr<<endl;
-        
     }
     int numpoints = allpoints.size();
     for(int i=0;i<numpoints;i++){
@@ -87,16 +81,12 @@ Wireframe Projection2D::create3D(){
     cout << "final print of adjacencyMatrix"<<endl;
     printmatrix(answer.adjacencyMatrix);
     return answer;
-
 }
 
-//  kl   //doublecalculaedpossibleedges has all the edges calculated twice now
-
+//doublecalculaedpossibleedges has all the edges calculated twice now
 
 vector<Point> Projection2D::determineAllPoints(){
-    vector<Point> answer;
-    // Point * pointerdeterpoint;
-    
+    vector<Point> answer;    
     for(auto it=(frontview.vertices.begin());it!=frontview.vertices.end();it++){
         for(auto nestit=(it->points.begin());nestit!=it->points.end();nestit++){
             string thislabel = nestit->label;
@@ -576,7 +566,6 @@ bool Projection2D::chkcollinearpossandposs(){
                                         }
                                     }
                                 }
-
                             }
                         }
                     }
