@@ -288,7 +288,7 @@ bool ConstructWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 {
   int width = m_area.get_allocated_width();  
   int height = m_area.get_allocated_height();  
-  // std::cout << "In oncdraw" << std::endl;
+  std::cout << "In oncdraw" << std::endl;
   // std::cout << width << " " << height << std::endl;
   // coordinates for the center of the window
   int xc, yc;
@@ -298,14 +298,15 @@ bool ConstructWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)
   Wireframe* obj;
   obj = object->projectFrame();
 
-  cout << "Frame passed in custom_draw: " << *object << endl;
-  cout << "Projected Frame: " << *obj << endl;
+  // cout << "Frame passed in custom_draw: " << *object << endl;
+  cout << "Projected Frame drawn" << endl;
+  // cout << "Projected Frame: " << *obj << endl;
 
   if(this->create)
     cr->set_line_width(2.0);
   else
     cr->set_line_width(15.0);
-  cr->set_source_rgb(0.0, 0.0, 0.0);
+  cr->set_source_rgb(0.1, 0.1, 0.6);
 
   if(this->create) {
     Vector3d p1(obj->edges[0].p1.x,obj->edges[0].p1.y,obj->edges[0].p1.z);
