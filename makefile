@@ -2,7 +2,6 @@ IDIR =./include
 INDIR =./lib
 CC=g++
 CFLAGS=-I$(IDIR) -I$(INDIR)
-GLFLAGS= -lglut -lGL -lGLU
 GTKFLAG = `pkg-config gtkmm-3.0 --cflags --libs`
 
 ODIR =./bin/source
@@ -24,8 +23,6 @@ OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 _GOBJ = Main.o Maingui.o Projectgui.o Constructgui.o
 GOBJ = $(patsubst %,$(OGDIR)/%,$(_GOBJ))
-
-ESS = ./bin/Point.o ./bin/Main.o
 
 _BUILDS = main
 BUILDS = $(patsubst %,$(BDIR)/%,$(_BUILDS))

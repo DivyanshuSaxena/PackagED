@@ -15,8 +15,8 @@ ConstructWindow::ConstructWindow()
   m_add_label("Add Label to this Point"),
   m_add_edge("Add Edge"),
   m_create("Front View Done"),
-  m_top_rotate("Rotate Top"),
-  m_bottom_rotate("Rotate Bottom"),
+  m_top_rotate("Rotate Bottom"),
+  m_bottom_rotate("Rotate Top"),
   m_left_rotate("Rotate Left"),
   m_right_rotate("Rotate Right"),
   m_add_file("Create Object")

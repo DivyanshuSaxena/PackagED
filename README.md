@@ -34,11 +34,11 @@ Following is a description of the above-mentioned directories:
 
 ## Dependencies
 
-The project makes use of the OpenGL(GLUT) and GTKmm libraries for C++.
-Hence these packages are needed to be installed before running the software package.
+The project makes use of the GTKmm libraries for C++.
+Hence this package is needed to be installed before running the software package.
 Use the following command:
 ```
-sudo apt-get install freeglut3 freeglut3-dev mesa-common-dev libgtkmm-3.0-dev
+sudo apt-get install libgtkmm-3.0-dev
 ```
 The above command installs the requisite packages. Now the software package can be built and used.
 

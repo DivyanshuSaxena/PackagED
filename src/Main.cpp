@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <GL/glut.h>
 #include <Eigen/Dense>
 #include <gtkmm.h>
 #include "gui.h"
