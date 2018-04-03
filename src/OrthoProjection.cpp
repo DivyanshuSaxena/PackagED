@@ -81,6 +81,9 @@ vector<Point> OrthoProjection::possibleNeighbours(Point point) {
     return answer;
 }
 vector<Point> OrthoProjection::sameclusterpoints(Point point){
+    /// 
+    /// Function to evaluate the points that are in the same cluster as the passed point
+    ///
     vector<Point> answer;
     auto samecluster = find_if(vertices.begin(),vertices.end(),[point](ClusteredPoint p)->bool{
         if(find_if(p.points.begin(),p.points.end(),[point](Point thispoint)->bool{

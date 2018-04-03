@@ -8,6 +8,9 @@
 #include "Classes.h"
 using namespace std;
 
+///
+/// Class to input and display 3D to 2D transition
+///
 class ProjectionWindow : public Gtk::Window
 {
 public:
@@ -45,6 +48,9 @@ private:
   Gtk::DrawingArea m_area;
 };
 
+///
+/// Class to input and display 2D to 3D transition
+///
 class ConstructWindow : public Gtk::Window
 {
 public:
@@ -83,6 +89,9 @@ private:
   Gtk::DrawingArea m_area;
 };
 
+///
+/// Class to model the window for taking choices from the user
+///
 class MainWindow : public Gtk::Window
 {
 public:

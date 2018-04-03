@@ -27,6 +27,9 @@ int Wireframe::normalise() {
 }
 
 Wireframe* Wireframe::projectFrame() {
+    ///
+    /// Project the frame on xz plane
+    ///
     double plane[4] = {0,0,1,0};
     Wireframe* projected;
     projected = new Wireframe;
@@ -40,6 +43,9 @@ Wireframe* Wireframe::projectFrame() {
 }
 
 int Wireframe::rotateFrame(int type) {
+    ///
+    /// Rotate the Wireframe by ten degrees
+    ///
     Matrix3d rot;
     double theta = 0.2;
     double costheta = cos(theta);

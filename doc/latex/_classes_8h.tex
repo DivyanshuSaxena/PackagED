@@ -1,7 +1,18 @@
 \hypertarget{_classes_8h}{}\section{Packag\+E\+D/include/\+Classes.h File Reference}
 \label{_classes_8h}\index{Packag\+E\+D/include/\+Classes.\+h@{Packag\+E\+D/include/\+Classes.\+h}}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$gtkmm.\+h$>$}\\*
+{\ttfamily \#include $<$map$>$}\\*
+Include dependency graph for Classes.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_classes_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -13,13 +24,107 @@ This graph shows which files directly or indirectly include this file\+:
 \item 
 class \hyperlink{class_point}{Point}
 \item 
+class \hyperlink{class_clustered_point}{Clustered\+Point}
+\item 
 class \hyperlink{class_edge}{Edge}
 \item 
+class \hyperlink{class_edge2_d}{Edge2D}
+\item 
 class \hyperlink{class_face}{Face}
+\item 
+class \hyperlink{class_plane_projection}{Plane\+Projection}
 \item 
 class \hyperlink{class_ortho_projection}{Ortho\+Projection}
 \item 
 class \hyperlink{class_object3_d}{Object3D}
 \item 
 class \hyperlink{class_wireframe}{Wireframe}
+\item 
+class \hyperlink{class_projection2_d}{Projection2D}
 \end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_classes_8h_af55dca22c340b42a2992f9f270495789}{check2D} ()
+\item 
+int \hyperlink{_classes_8h_a1c78b5af1e79bd9d8c8660a677d8379d}{check3D} ()
+\item 
+\hyperlink{class_wireframe}{Wireframe} $\ast$ \hyperlink{_classes_8h_a58dea5abaabfe7848670218ba390150a}{input2\+Dfile} (string filename)
+\item 
+\hyperlink{class_plane_projection}{Plane\+Projection} $\ast$ \hyperlink{_classes_8h_ac40e3d324848f2c969794764a35076c1}{input3\+Dfile} (string filename)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{Classes.\+h@{Classes.\+h}!check2D@{check2D}}
+\index{check2D@{check2D}!Classes.\+h@{Classes.\+h}}
+\subsubsection[{\texorpdfstring{check2\+D()}{check2D()}}]{\setlength{\rightskip}{0pt plus 5cm}int check2D (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{_classes_8h_af55dca22c340b42a2992f9f270495789}{}\label{_classes_8h_af55dca22c340b42a2992f9f270495789}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{_classes_8h_af55dca22c340b42a2992f9f270495789_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Classes.\+h@{Classes.\+h}!check3D@{check3D}}
+\index{check3D@{check3D}!Classes.\+h@{Classes.\+h}}
+\subsubsection[{\texorpdfstring{check3\+D()}{check3D()}}]{\setlength{\rightskip}{0pt plus 5cm}int check3D (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{_classes_8h_a1c78b5af1e79bd9d8c8660a677d8379d}{}\label{_classes_8h_a1c78b5af1e79bd9d8c8660a677d8379d}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_classes_8h_a1c78b5af1e79bd9d8c8660a677d8379d_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Classes.\+h@{Classes.\+h}!input2\+Dfile@{input2\+Dfile}}
+\index{input2\+Dfile@{input2\+Dfile}!Classes.\+h@{Classes.\+h}}
+\subsubsection[{\texorpdfstring{input2\+Dfile(string filename)}{input2Dfile(string filename)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Wireframe}$\ast$ input2\+Dfile (
+\begin{DoxyParamCaption}
+\item[{string}]{filename}
+\end{DoxyParamCaption}
+)}\hypertarget{_classes_8h_a58dea5abaabfe7848670218ba390150a}{}\label{_classes_8h_a58dea5abaabfe7848670218ba390150a}
+Function to get input of 2D Projections from a file
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{_classes_8h_a58dea5abaabfe7848670218ba390150a_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Classes.\+h@{Classes.\+h}!input3\+Dfile@{input3\+Dfile}}
+\index{input3\+Dfile@{input3\+Dfile}!Classes.\+h@{Classes.\+h}}
+\subsubsection[{\texorpdfstring{input3\+Dfile(string filename)}{input3Dfile(string filename)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Plane\+Projection}$\ast$ input3\+Dfile (
+\begin{DoxyParamCaption}
+\item[{string}]{filename}
+\end{DoxyParamCaption}
+)}\hypertarget{_classes_8h_ac40e3d324848f2c969794764a35076c1}{}\label{_classes_8h_ac40e3d324848f2c969794764a35076c1}
+Function to get input of the 3D Object from file
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_classes_8h_ac40e3d324848f2c969794764a35076c1_cgraph}
+\end{center}
+\end{figure}
+
+

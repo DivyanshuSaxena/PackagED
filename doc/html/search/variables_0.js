@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['edges',['edges',['../class_object3_d.html#ad93f210748663a4d0aaa89287dee3dae',1,'Object3D::edges()'],['../class_wireframe.html#a909822e1ff36d03b8b86052b7008bc98',1,'Wireframe::edges()']]]
+  ['adjacencyindex',['adjacencyIndex',['../class_point.html#a6995d9f9ed71b43b711347a3483eb3b9',1,'Point']]],
+  ['adjacencymatrix',['adjacencyMatrix',['../class_wireframe.html#a0bd14f3c6be92f087fddbbe7e4ddc344',1,'Wireframe::adjacencyMatrix()'],['../class_projection2_d.html#a0a4be368b0a7233a1aa93efe17c7314e',1,'Projection2D::adjacencyMatrix()']]],
+  ['allpoints',['allpoints',['../class_projection2_d.html#aacafd767e5289005e7ec5d48c791d02f',1,'Projection2D']]]
 ];

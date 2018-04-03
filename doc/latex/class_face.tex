@@ -4,30 +4,36 @@
 
 {\ttfamily \#include $<$Classes.\+h$>$}
 
-
-
-Collaboration diagram for Face\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=138pt]{class_face__coll__graph}
-\end{center}
-\end{figure}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_point}{Point} \hyperlink{class_face_acb5b50d81748e6dcbab0a533b336f534}{vertices} \mbox{[}$\,$\mbox{]}
+vector$<$ int $>$ \hyperlink{class_face_a143cb19243f02eae4ba5784c0d72e47b}{vertices}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{class_face_a1c05a6b4dfdc5dfc598b70a65b3a05e7}{operator$<$$<$} (std\+::ostream \&out, const \hyperlink{class_face}{Face} \&face)
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 This class is the abstraction to represent the faces of a 3D object. 
 
+\subsection{Friends And Related Function Documentation}
+\index{Face@{Face}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Face@{Face}}
+\subsubsection[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{out, }
+\item[{const {\bf Face} \&}]{face}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{class_face_a1c05a6b4dfdc5dfc598b70a65b3a05e7}{}\label{class_face_a1c05a6b4dfdc5dfc598b70a65b3a05e7}
+
+
 \subsection{Member Data Documentation}
 \index{Face@{Face}!vertices@{vertices}}
 \index{vertices@{vertices}!Face@{Face}}
-\subsubsection[{\texorpdfstring{vertices}{vertices}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point} Face\+::vertices\mbox{[}$\,$\mbox{]}}\hypertarget{class_face_acb5b50d81748e6dcbab0a533b336f534}{}\label{class_face_acb5b50d81748e6dcbab0a533b336f534}
+\subsubsection[{\texorpdfstring{vertices}{vertices}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$ Face\+::vertices}\hypertarget{class_face_a143cb19243f02eae4ba5784c0d72e47b}{}\label{class_face_a143cb19243f02eae4ba5784c0d72e47b}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

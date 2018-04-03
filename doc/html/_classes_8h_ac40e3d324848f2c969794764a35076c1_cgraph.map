@@ -1,0 +1,6 @@
+<map id="input3Dfile" name="input3Dfile">
+<area shape="rect" id="node2" href="$class_point.html#a6fffe55537a7cbe523ff4e1c33ddb9e5" title="Point::setCoordinatesAnd\lLabel" alt="" coords="145,5,316,47"/>
+<area shape="rect" id="node3" href="$class_object3_d.html#a7767ac8b73a117c8cd8cbdaf7c6f4699" title="Object3D::project3D" alt="" coords="160,71,301,98"/>
+<area shape="rect" id="node5" href="$class_plane_projection.html#ac528e8dbd92be24628e136b10f4842f3" title="PlaneProjection::rotatePlane" alt="" coords="137,122,324,149"/>
+<area shape="rect" id="node4" href="$class_point.html#a209c076529495ad94cf65b8a71d29913" title="Point::projectPoint" alt="" coords="372,71,501,98"/>
+</map>

@@ -2,18 +2,23 @@
 \label{class_projection2_d}\index{Projection2D@{Projection2D}}
 
 
-Collaboration diagram for Projection2D\+:
-\nopagebreak
+{\ttfamily \#include $<$Classes.\+h$>$}
+
+
+
+Collaboration diagram for Projection2D\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=211pt]{class_projection2_d__coll__graph}
+\includegraphics[width=165pt]{class_projection2_d__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{class_projection2_d_a02e2cbca6d928a05400597693cbb6a08}{create3D} ()
+\hyperlink{class_wireframe}{Wireframe} \hyperlink{class_projection2_d_aa061602930f19acad32720f7067c58fa}{create3D} ()
+\item 
+void \hyperlink{class_projection2_d_a64751fc8527786d489d3e1f9dd613778}{chkif3edgesanddefthem} ()
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -21,37 +26,123 @@ int \hyperlink{class_projection2_d_a02e2cbca6d928a05400597693cbb6a08}{create3D} 
 \hyperlink{class_ortho_projection}{Ortho\+Projection} \hyperlink{class_projection2_d_a1eb4d010190b1bd62bf0f9c4e4afc88a}{frontview}
 \item 
 \hyperlink{class_ortho_projection}{Ortho\+Projection} \hyperlink{class_projection2_d_a90079954379a766f60ba01ad393327ab}{topview}
+\item 
+\hyperlink{class_ortho_projection}{Ortho\+Projection} \hyperlink{class_projection2_d_a82c9e3f197b07ffe9a10f59de60edbee}{sideview}
+\item 
+vector$<$ \hyperlink{class_point}{Point} $>$ \hyperlink{class_projection2_d_aacafd767e5289005e7ec5d48c791d02f}{allpoints}
+\item 
+vector$<$ vector$<$ int $>$ $>$ \hyperlink{class_projection2_d_a0a4be368b0a7233a1aa93efe17c7314e}{adjacency\+Matrix}
+\item 
+map$<$ int, \hyperlink{class_point}{Point} $\ast$ $>$ \hyperlink{class_projection2_d_a08675aad4022218dc78dd54187be18a9}{indextopointmap}
+\item 
+map$<$ string, \hyperlink{class_point}{Point} $\ast$ $>$ \hyperlink{class_projection2_d_a0afd92ccd321bc86e6e019b4bec99fc8}{labeltopointmap}
 \end{DoxyCompactItemize}
 \subsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \hyperlink{class_projection2_d_a6be4ef41d013628ba91a3f1dbcc1f9bf}{determine\+Intersected\+Edges} ()
+\item 
+void \hyperlink{class_projection2_d_af65b18c0f1aed2c6bda79173ef6a0f5e}{execute\+Corollary1onebyone} (\hyperlink{class_ortho_projection}{Ortho\+Projection} $\ast$, \hyperlink{class_ortho_projection}{Ortho\+Projection} $\ast$, \hyperlink{class_ortho_projection}{Ortho\+Projection} $\ast$)
+\item 
+void \hyperlink{class_projection2_d_a7433a1a25a81f16a79c308d5dd7d98b5}{execute\+Corollary1} ()
+\item 
 \hyperlink{class_point}{Point} \hyperlink{class_projection2_d_a0185949b0711aa0a43bd2f66da9aaee7}{determine\+Point} (\hyperlink{class_point}{Point}, \hyperlink{class_point}{Point})
 \item 
-\hyperlink{class_edge}{Edge} $\ast$ \hyperlink{class_projection2_d_a99c89f3a7125ea17ba260e6356c2307c}{determine\+Edges} (\hyperlink{class_point}{Point}, \hyperlink{class_point}{Point}\mbox{[}$\,$\mbox{]}, \hyperlink{class_point}{Point}\mbox{[}$\,$\mbox{]})
+vector$<$ \hyperlink{class_point}{Point} $>$ \hyperlink{class_projection2_d_af2972a56d0f0fa6a9d01576d7021180d}{determine\+All\+Points} ()
+\item 
+pair$<$ vector$<$ \hyperlink{class_edge}{Edge} $>$, vector$<$ vector$<$ int $>$ $>$ $>$ \hyperlink{class_projection2_d_ad5f6fe26ce1a18cb5de2fe87e6b0869e}{determine\+Possible\+Edges} (\hyperlink{class_point}{Point}, vector$<$ \hyperlink{class_point}{Point} $>$ $\ast$, vector$<$ \hyperlink{class_point}{Point} $>$ $\ast$)
+\item 
+int \hyperlink{class_projection2_d_ad277ae374c9340f41f821e3b23aa6c04}{numofpossibleedge} ()
+\item 
+bool \hyperlink{class_projection2_d_af9a959f2c44a1801687dda170ba0d5d2}{chkcollinearpossanddef} ()
+\item 
+bool \hyperlink{class_projection2_d_a26179e263ee8be9bfbc260bedaea14c7}{chkcollinearpossandposs} ()
+\item 
+bool \hyperlink{class_projection2_d_a7b26c1f31633d19a33bdf54e8c47d3d8}{chkposshasdefinother} ()
+\item 
+void \hyperlink{class_projection2_d_a209abc191321c5bdd970c57c68dd0ac8}{printmatrix} (vector$<$ vector$<$ int $>$ $>$)
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-This class holds the 2D orthographic projections of a 3D object. 
+This class holds the 2D orthographic projections of a 3D object. The orthographic views given by the user must be on the standard planes of reference. We describe our model, assuming that\+: 1. Top view is taken on x-\/y plane
+\begin{DoxyEnumerate}
+\item Front view must be taken on x-\/z plane 
+\end{DoxyEnumerate}
 
 \subsection{Member Function Documentation}
-\index{Projection2D@{Projection2D}!create3D@{create3D}}
-\index{create3D@{create3D}!Projection2D@{Projection2D}}
-\subsubsection[{\texorpdfstring{create3\+D()}{create3D()}}]{\setlength{\rightskip}{0pt plus 5cm}int Projection2\+D\+::create3D (
+\index{Projection2D@{Projection2D}!chkcollinearpossanddef@{chkcollinearpossanddef}}
+\index{chkcollinearpossanddef@{chkcollinearpossanddef}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{chkcollinearpossanddef()}{chkcollinearpossanddef()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Projection2\+D\+::chkcollinearpossanddef (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\hypertarget{class_projection2_d_a02e2cbca6d928a05400597693cbb6a08}{}\label{class_projection2_d_a02e2cbca6d928a05400597693cbb6a08}
-\index{Projection2D@{Projection2D}!determine\+Edges@{determine\+Edges}}
-\index{determine\+Edges@{determine\+Edges}!Projection2D@{Projection2D}}
-\subsubsection[{\texorpdfstring{determine\+Edges(\+Point, Point[], Point[])}{determineEdges(Point, Point[], Point[])}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Edge} $\ast$ Projection2\+D\+::determine\+Edges (
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_af9a959f2c44a1801687dda170ba0d5d2}{}\label{class_projection2_d_af9a959f2c44a1801687dda170ba0d5d2}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_projection2_d_af9a959f2c44a1801687dda170ba0d5d2_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Projection2D@{Projection2D}!chkcollinearpossandposs@{chkcollinearpossandposs}}
+\index{chkcollinearpossandposs@{chkcollinearpossandposs}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{chkcollinearpossandposs()}{chkcollinearpossandposs()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Projection2\+D\+::chkcollinearpossandposs (
 \begin{DoxyParamCaption}
-\item[{{\bf Point}}]{vertex, }
-\item[{{\bf Point}}]{top\+Neighbours\mbox{[}$\,$\mbox{]}, }
-\item[{{\bf Point}}]{front\+Neighbours\mbox{[}$\,$\mbox{]}}
+{}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a99c89f3a7125ea17ba260e6356c2307c}{}\label{class_projection2_d_a99c89f3a7125ea17ba260e6356c2307c}
-This function determines the edges containing the \hyperlink{class_point}{Point} vertex as one of the endpoints By interpreting its neighbours from the top view and front view\index{Projection2D@{Projection2D}!determine\+Point@{determine\+Point}}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a26179e263ee8be9bfbc260bedaea14c7}{}\label{class_projection2_d_a26179e263ee8be9bfbc260bedaea14c7}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_projection2_d_a26179e263ee8be9bfbc260bedaea14c7_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Projection2D@{Projection2D}!chkif3edgesanddefthem@{chkif3edgesanddefthem}}
+\index{chkif3edgesanddefthem@{chkif3edgesanddefthem}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{chkif3edgesanddefthem()}{chkif3edgesanddefthem()}}]{\setlength{\rightskip}{0pt plus 5cm}void Projection2\+D\+::chkif3edgesanddefthem (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_projection2_d_a64751fc8527786d489d3e1f9dd613778}{}\label{class_projection2_d_a64751fc8527786d489d3e1f9dd613778}
+\index{Projection2D@{Projection2D}!chkposshasdefinother@{chkposshasdefinother}}
+\index{chkposshasdefinother@{chkposshasdefinother}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{chkposshasdefinother()}{chkposshasdefinother()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Projection2\+D\+::chkposshasdefinother (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a7b26c1f31633d19a33bdf54e8c47d3d8}{}\label{class_projection2_d_a7b26c1f31633d19a33bdf54e8c47d3d8}
+\index{Projection2D@{Projection2D}!create3D@{create3D}}
+\index{create3D@{create3D}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{create3\+D()}{create3D()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Wireframe} Projection2\+D\+::create3D (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_projection2_d_aa061602930f19acad32720f7067c58fa}{}\label{class_projection2_d_aa061602930f19acad32720f7067c58fa}
+\index{Projection2D@{Projection2D}!determine\+All\+Points@{determine\+All\+Points}}
+\index{determine\+All\+Points@{determine\+All\+Points}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{determine\+All\+Points()}{determineAllPoints()}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Point} $>$ Projection2\+D\+::determine\+All\+Points (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_af2972a56d0f0fa6a9d01576d7021180d}{}\label{class_projection2_d_af2972a56d0f0fa6a9d01576d7021180d}
+\index{Projection2D@{Projection2D}!determine\+Intersected\+Edges@{determine\+Intersected\+Edges}}
+\index{determine\+Intersected\+Edges@{determine\+Intersected\+Edges}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{determine\+Intersected\+Edges()}{determineIntersectedEdges()}}]{\setlength{\rightskip}{0pt plus 5cm}void Projection2\+D\+::determine\+Intersected\+Edges (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a6be4ef41d013628ba91a3f1dbcc1f9bf}{}\label{class_projection2_d_a6be4ef41d013628ba91a3f1dbcc1f9bf}
+\index{Projection2D@{Projection2D}!determine\+Point@{determine\+Point}}
 \index{determine\+Point@{determine\+Point}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{determine\+Point(\+Point, Point)}{determinePoint(Point, Point)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point} Projection2\+D\+::determine\+Point (
 \begin{DoxyParamCaption}
@@ -61,15 +152,92 @@ This function determines the edges containing the \hyperlink{class_point}{Point}
 )\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a0185949b0711aa0a43bd2f66da9aaee7}{}\label{class_projection2_d_a0185949b0711aa0a43bd2f66da9aaee7}
 This function extends the points from the top view and front view to give the 3D projection of the \hyperlink{class_point}{Point}
 
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_projection2_d_a0185949b0711aa0a43bd2f66da9aaee7_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Projection2D@{Projection2D}!determine\+Possible\+Edges@{determine\+Possible\+Edges}}
+\index{determine\+Possible\+Edges@{determine\+Possible\+Edges}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{determine\+Possible\+Edges(\+Point, vector$<$ Point $>$ $\ast$, vector$<$ Point $>$ $\ast$)}{determinePossibleEdges(Point, vector< Point > *, vector< Point > *)}}]{\setlength{\rightskip}{0pt plus 5cm}pair$<$ vector$<$ {\bf Edge} $>$, vector$<$ vector$<$ int $>$ $>$ $>$ Projection2\+D\+::determine\+Possible\+Edges (
+\begin{DoxyParamCaption}
+\item[{{\bf Point}}]{vertex, }
+\item[{vector$<$ {\bf Point} $>$ $\ast$}]{topneighbourptr, }
+\item[{vector$<$ {\bf Point} $>$ $\ast$}]{frontneighbourptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_ad5f6fe26ce1a18cb5de2fe87e6b0869e}{}\label{class_projection2_d_ad5f6fe26ce1a18cb5de2fe87e6b0869e}
+This function determines the edges containing the \hyperlink{class_point}{Point} vertex as one of the endpoints By interpreting its neighbours from the top view and front view\index{Projection2D@{Projection2D}!execute\+Corollary1@{execute\+Corollary1}}
+\index{execute\+Corollary1@{execute\+Corollary1}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{execute\+Corollary1()}{executeCorollary1()}}]{\setlength{\rightskip}{0pt plus 5cm}void Projection2\+D\+::execute\+Corollary1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a7433a1a25a81f16a79c308d5dd7d98b5}{}\label{class_projection2_d_a7433a1a25a81f16a79c308d5dd7d98b5}
+\index{Projection2D@{Projection2D}!execute\+Corollary1onebyone@{execute\+Corollary1onebyone}}
+\index{execute\+Corollary1onebyone@{execute\+Corollary1onebyone}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{execute\+Corollary1onebyone(\+Ortho\+Projection $\ast$, Ortho\+Projection $\ast$, Ortho\+Projection $\ast$)}{executeCorollary1onebyone(OrthoProjection *, OrthoProjection *, OrthoProjection *)}}]{\setlength{\rightskip}{0pt plus 5cm}void Projection2\+D\+::execute\+Corollary1onebyone (
+\begin{DoxyParamCaption}
+\item[{{\bf Ortho\+Projection} $\ast$}]{view1, }
+\item[{{\bf Ortho\+Projection} $\ast$}]{view2, }
+\item[{{\bf Ortho\+Projection} $\ast$}]{view3}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_af65b18c0f1aed2c6bda79173ef6a0f5e}{}\label{class_projection2_d_af65b18c0f1aed2c6bda79173ef6a0f5e}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_projection2_d_af65b18c0f1aed2c6bda79173ef6a0f5e_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Projection2D@{Projection2D}!numofpossibleedge@{numofpossibleedge}}
+\index{numofpossibleedge@{numofpossibleedge}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{numofpossibleedge()}{numofpossibleedge()}}]{\setlength{\rightskip}{0pt plus 5cm}int Projection2\+D\+::numofpossibleedge (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_ad277ae374c9340f41f821e3b23aa6c04}{}\label{class_projection2_d_ad277ae374c9340f41f821e3b23aa6c04}
+\index{Projection2D@{Projection2D}!printmatrix@{printmatrix}}
+\index{printmatrix@{printmatrix}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{printmatrix(vector$<$ vector$<$ int $>$ $>$)}{printmatrix(vector< vector< int > >)}}]{\setlength{\rightskip}{0pt plus 5cm}void Projection2\+D\+::printmatrix (
+\begin{DoxyParamCaption}
+\item[{vector$<$ vector$<$ int $>$ $>$}]{thisone}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a209abc191321c5bdd970c57c68dd0ac8}{}\label{class_projection2_d_a209abc191321c5bdd970c57c68dd0ac8}
+
+
 \subsection{Member Data Documentation}
+\index{Projection2D@{Projection2D}!adjacency\+Matrix@{adjacency\+Matrix}}
+\index{adjacency\+Matrix@{adjacency\+Matrix}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{adjacency\+Matrix}{adjacencyMatrix}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$vector$<$int$>$ $>$ Projection2\+D\+::adjacency\+Matrix}\hypertarget{class_projection2_d_a0a4be368b0a7233a1aa93efe17c7314e}{}\label{class_projection2_d_a0a4be368b0a7233a1aa93efe17c7314e}
+\index{Projection2D@{Projection2D}!allpoints@{allpoints}}
+\index{allpoints@{allpoints}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{allpoints}{allpoints}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Point}$>$ Projection2\+D\+::allpoints}\hypertarget{class_projection2_d_aacafd767e5289005e7ec5d48c791d02f}{}\label{class_projection2_d_aacafd767e5289005e7ec5d48c791d02f}
 \index{Projection2D@{Projection2D}!frontview@{frontview}}
 \index{frontview@{frontview}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{frontview}{frontview}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ortho\+Projection} Projection2\+D\+::frontview}\hypertarget{class_projection2_d_a1eb4d010190b1bd62bf0f9c4e4afc88a}{}\label{class_projection2_d_a1eb4d010190b1bd62bf0f9c4e4afc88a}
+\index{Projection2D@{Projection2D}!indextopointmap@{indextopointmap}}
+\index{indextopointmap@{indextopointmap}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{indextopointmap}{indextopointmap}}]{\setlength{\rightskip}{0pt plus 5cm}map$<$int, {\bf Point} $\ast$$>$ Projection2\+D\+::indextopointmap}\hypertarget{class_projection2_d_a08675aad4022218dc78dd54187be18a9}{}\label{class_projection2_d_a08675aad4022218dc78dd54187be18a9}
+\index{Projection2D@{Projection2D}!labeltopointmap@{labeltopointmap}}
+\index{labeltopointmap@{labeltopointmap}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{labeltopointmap}{labeltopointmap}}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, {\bf Point} $\ast$$>$ Projection2\+D\+::labeltopointmap}\hypertarget{class_projection2_d_a0afd92ccd321bc86e6e019b4bec99fc8}{}\label{class_projection2_d_a0afd92ccd321bc86e6e019b4bec99fc8}
+\index{Projection2D@{Projection2D}!sideview@{sideview}}
+\index{sideview@{sideview}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{sideview}{sideview}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ortho\+Projection} Projection2\+D\+::sideview}\hypertarget{class_projection2_d_a82c9e3f197b07ffe9a10f59de60edbee}{}\label{class_projection2_d_a82c9e3f197b07ffe9a10f59de60edbee}
 \index{Projection2D@{Projection2D}!topview@{topview}}
 \index{topview@{topview}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{topview}{topview}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ortho\+Projection} Projection2\+D\+::topview}\hypertarget{class_projection2_d_a90079954379a766f60ba01ad393327ab}{}\label{class_projection2_d_a90079954379a766f60ba01ad393327ab}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
+Packag\+E\+D/include/\hyperlink{_classes_8h}{Classes.\+h}\item 
 Packag\+E\+D/src/\hyperlink{_projection2_d_8cpp}{Projection2\+D.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,4 @@
+<map id="ConstructWindow::on_custom_draw" name="ConstructWindow::on_custom_draw">
+<area shape="rect" id="node2" href="$class_wireframe.html#a3ed1a5c8abc099d1eea1495b3b87e52e" title="Wireframe::projectFrame" alt="" coords="201,13,368,39"/>
+<area shape="rect" id="node3" href="$class_point.html#a209c076529495ad94cf65b8a71d29913" title="Point::projectPoint" alt="" coords="416,13,545,39"/>
+</map>

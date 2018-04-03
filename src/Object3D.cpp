@@ -2,18 +2,6 @@
 #include <Eigen/Dense>
 using namespace Eigen;
 
-Object3D Object3D::rotateObject(double aboutx, double abouty, double aboutz) {
-    ///
-    /// Returns a new 3D Object with the rotated coordinates, obtained by rotating the current object by the angles "aboutz" about the Z-axis, by "aboutx" about the X-axis and by "abouty" about the Y-axis
-    ///
-}
-
-Object3D Object3D::translate(double x, double y, double z) {
-    ///
-    /// This function returns a new Object3D instance, which is obtained by translating the current object by the distances, specified in the parameters
-    ///
-}
-
 PlaneProjection* Object3D::project3D(double projectionPlane[4]) {
     ///
     /// General Function to project the current 3D object onto the projection plane passed as parameter "projectionPlane"
@@ -89,6 +77,10 @@ PlaneProjection* Object3D::project3D(double projectionPlane[4]) {
 }
 
 int countIntersections(Vector3d avertice,Vector3d bvertice,Vector3d dvertice,Vector3d evertice,Vector3d linevector){
+    ///
+    /// Function to count intersections of the line originating from avertice in the direction of linevector, 
+    /// with the edges of a polygon, formed using bvertice, dvertice, evertice
+    ///
     int retValue = 0;
     Vector3d zerovector(0,0,0);
     Vector3d abvector = bvertice - avertice;

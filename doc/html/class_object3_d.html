@@ -63,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -86,6 +87,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_object3_d-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Object3D Class Reference</div>  </div>
@@ -93,21 +96,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="_classes_8h_source.html">Classes.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for Object3D:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_object3_d__coll__graph.png" border="0" usemap="#_object3_d_coll__map" alt="Collaboration graph"/></div>
-<map name="_object3_d_coll__map" id="_object3_d_coll__map">
-<area shape="rect" id="node2" href="class_face.html" title="Face" alt="" coords="72,109,123,136"/>
-<area shape="rect" id="node3" href="class_point.html" title="Point" alt="" coords="66,5,118,32"/>
-<area shape="rect" id="node4" href="class_edge.html" title="Edge" alt="" coords="148,109,200,136"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a17e177a936a71e0a5599ce7ca76bae78"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#a17e177a936a71e0a5599ce7ca76bae78">project3D</a> (double[4])</td></tr>
-<tr class="separator:a17e177a936a71e0a5599ce7ca76bae78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7767ac8b73a117c8cd8cbdaf7c6f4699"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_plane_projection.html">PlaneProjection</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#a7767ac8b73a117c8cd8cbdaf7c6f4699">project3D</a> (double[])</td></tr>
+<tr class="separator:a7767ac8b73a117c8cd8cbdaf7c6f4699"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a476b3de610cb30be0b050b4701ba4701"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_object3_d.html">Object3D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#a476b3de610cb30be0b050b4701ba4701">rotateObject</a> (double, double, double)</td></tr>
 <tr class="separator:a476b3de610cb30be0b050b4701ba4701"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb299c53794e9f4fb708efbde24c9a21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_object3_d.html">Object3D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#afb299c53794e9f4fb708efbde24c9a21">translate</a> (double, double, double)</td></tr>
@@ -115,26 +108,36 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a23cc82ea4ef0af8e0e22871bdbdba6c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#a23cc82ea4ef0af8e0e22871bdbdba6c6">vertices</a> []</td></tr>
-<tr class="separator:a23cc82ea4ef0af8e0e22871bdbdba6c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad93f210748663a4d0aaa89287dee3dae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">Edge</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#ad93f210748663a4d0aaa89287dee3dae">edges</a> []</td></tr>
-<tr class="separator:ad93f210748663a4d0aaa89287dee3dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cc7f57059a990a8573a7644a4d3ab2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_face.html">Face</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#a4cc7f57059a990a8573a7644a4d3ab2a">faces</a> []</td></tr>
-<tr class="separator:a4cc7f57059a990a8573a7644a4d3ab2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a225a5c970a1d3d343fc495764ccc3cfd"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_point.html">Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#a225a5c970a1d3d343fc495764ccc3cfd">vertices</a></td></tr>
+<tr class="separator:a225a5c970a1d3d343fc495764ccc3cfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1d85cb131bbc39c772dc5badd0ec1c0"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_edge.html">Edge</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#ad1d85cb131bbc39c772dc5badd0ec1c0">edges</a></td></tr>
+<tr class="separator:ad1d85cb131bbc39c772dc5badd0ec1c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58677f390d3ba13026e68f4b2a530580"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_face.html">Face</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#a58677f390d3ba13026e68f4b2a530580">faces</a></td></tr>
+<tr class="separator:a58677f390d3ba13026e68f4b2a530580"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a15cac865480b725a7c0c68e53dc9cae9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#a15cac865480b725a7c0c68e53dc9cae9">checkHiddenVertice</a> (<a class="el" href="class_point.html">Point</a>, double[4])</td></tr>
-<tr class="separator:a15cac865480b725a7c0c68e53dc9cae9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3451dd667e1b121c8c204f390a05967"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#ab3451dd667e1b121c8c204f390a05967">checkHiddenEdge</a> (<a class="el" href="class_edge.html">Edge</a>, double[4])</td></tr>
-<tr class="separator:ab3451dd667e1b121c8c204f390a05967"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad16d6c03084f03254058a628db58b07e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#ad16d6c03084f03254058a628db58b07e">rayCasting</a> (<a class="el" href="class_point.html">Point</a>, <a class="el" href="class_face.html">Face</a>)</td></tr>
-<tr class="separator:ad16d6c03084f03254058a628db58b07e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ec1e4c1198f44794b3c3a1c72f6143d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#a2ec1e4c1198f44794b3c3a1c72f6143d">checkHiddenVertice</a> (<a class="el" href="class_point.html">Point</a>, <a class="el" href="class_face.html">Face</a>, double[], int)</td></tr>
+<tr class="separator:a2ec1e4c1198f44794b3c3a1c72f6143d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bc5ce361addc05302a078ada575261d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#a2bc5ce361addc05302a078ada575261d">checkHiddenEdge</a> (<a class="el" href="class_edge.html">Edge</a>, <a class="el" href="class_face.html">Face</a>, double[], int)</td></tr>
+<tr class="separator:a2bc5ce361addc05302a078ada575261d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a026c35f9fcf1f58f4d48c18ab26d7712"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#a026c35f9fcf1f58f4d48c18ab26d7712">rayCasting</a> (<a class="el" href="class_point.html">Point</a>, vector&lt; <a class="el" href="class_point.html">Point</a> &gt;)</td></tr>
+<tr class="separator:a026c35f9fcf1f58f4d48c18ab26d7712"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a40518019f2d67c105a32d218e38a0d4f"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_point.html">Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#a40518019f2d67c105a32d218e38a0d4f">projectedVertices</a></td></tr>
+<tr class="separator:a40518019f2d67c105a32d218e38a0d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:aadcfd04a104ea0b7ee94d707ca4a0143"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object3_d.html#aadcfd04a104ea0b7ee94d707ca4a0143">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="class_object3_d.html">Object3D</a> &amp;obj)</td></tr>
+<tr class="separator:aadcfd04a104ea0b7ee94d707ca4a0143"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class provides an abstraction for a real world 3D object and incorporates the functions for the same. The class incorporates functions for operating upon the object </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ab3451dd667e1b121c8c204f390a05967"></a>
+<a class="anchor" id="a2bc5ce361addc05302a078ada575261d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -145,13 +148,25 @@ Private Member Functions</h2></td></tr>
           <td class="memname">bool Object3D::checkHiddenEdge </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_edge.html">Edge</a>&#160;</td>
-          <td class="paramname"><em>edge</em>, </td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_face.html">Face</a>&#160;</td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>plane</em>[4]&#160;</td>
+          <td class="paramname">[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -165,11 +180,24 @@ Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Function to evaluate if the <a class="el" href="class_edge.html">Edge</a> "edge", passed as parameter is hidden by the plane or not</p>
+<p>Function to evaluate if the <a class="el" href="class_edge.html">Edge</a> "edge", passed as parameter is hidden by the face, whose projection on the plane "plane" is passed as argument "face"</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_object3_d_a2bc5ce361addc05302a078ada575261d_cgraph.png" border="0" usemap="#class_object3_d_a2bc5ce361addc05302a078ada575261d_cgraph" alt=""/></div>
+<map name="class_object3_d_a2bc5ce361addc05302a078ada575261d_cgraph" id="class_object3_d_a2bc5ce361addc05302a078ada575261d_cgraph">
+<area shape="rect" id="node2" href="class_point.html#a209c076529495ad94cf65b8a71d29913" title="Point::projectPoint" alt="" coords="253,5,383,32"/>
+<area shape="rect" id="node3" href="_object3_d_8cpp.html#a170b3e9f1c52cf37b8e9791daa3b67e6" title="countIntersections" alt="" coords="253,56,383,83"/>
+<area shape="rect" id="node4" href="_object3_d_8cpp.html#a1f02974f6d0fff470e1d9b655da6e42c" title="intersectLines" alt="" coords="267,107,369,133"/>
+<area shape="rect" id="node5" href="class_point.html#aa9e5bde544a36d44988c1d544ba4593f" title="Point::setCoordinates" alt="" coords="244,157,392,184"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a15cac865480b725a7c0c68e53dc9cae9"></a>
+<a class="anchor" id="a2ec1e4c1198f44794b3c3a1c72f6143d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -180,13 +208,25 @@ Private Member Functions</h2></td></tr>
           <td class="memname">bool Object3D::checkHiddenVertice </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_point.html">Point</a>&#160;</td>
-          <td class="paramname"><em>vertex</em>, </td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_face.html">Face</a>&#160;</td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>plane</em>[4]&#160;</td>
+          <td class="paramname">[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -200,28 +240,49 @@ Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Function to check if the <a class="el" href="class_point.html">Point</a> passed as parameter "vertex" is hidden by the passed "plane"</p>
+<p>Function to check if the <a class="el" href="class_point.html">Point</a> passed as parameter "vertex" is hidden by the face, which is passed in the parameter "face", the projection being taken on the plane "plane"</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_object3_d_a2ec1e4c1198f44794b3c3a1c72f6143d_cgraph.png" border="0" usemap="#class_object3_d_a2ec1e4c1198f44794b3c3a1c72f6143d_cgraph" alt=""/></div>
+<map name="class_object3_d_a2ec1e4c1198f44794b3c3a1c72f6143d_cgraph" id="class_object3_d_a2ec1e4c1198f44794b3c3a1c72f6143d_cgraph">
+<area shape="rect" id="node2" href="class_point.html#a209c076529495ad94cf65b8a71d29913" title="Point::projectPoint" alt="" coords="266,5,395,32"/>
+<area shape="rect" id="node3" href="class_point.html#a700201e1da138be7e3225b9d2bff50e9" title="Point::relativePosition" alt="" coords="256,56,405,83"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a17e177a936a71e0a5599ce7ca76bae78"></a>
+<a class="anchor" id="a7767ac8b73a117c8cd8cbdaf7c6f4699"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Object3D::project3D </td>
+          <td class="memname"><a class="el" href="class_plane_projection.html">PlaneProjection</a> * Object3D::project3D </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>projectionPlane</em>[4]</td><td>)</td>
+          <td class="paramname">[]</td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>General Function to project the current 3D object onto the projection plane passed as parameter "projectionPlane"</p>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_object3_d_a7767ac8b73a117c8cd8cbdaf7c6f4699_cgraph.png" border="0" usemap="#class_object3_d_a7767ac8b73a117c8cd8cbdaf7c6f4699_cgraph" alt=""/></div>
+<map name="class_object3_d_a7767ac8b73a117c8cd8cbdaf7c6f4699_cgraph" id="class_object3_d_a7767ac8b73a117c8cd8cbdaf7c6f4699_cgraph">
+<area shape="rect" id="node2" href="class_point.html#a209c076529495ad94cf65b8a71d29913" title="Point::projectPoint" alt="" coords="195,5,324,32"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
-<a class="anchor" id="ad16d6c03084f03254058a628db58b07e"></a>
+<a class="anchor" id="a026c35f9fcf1f58f4d48c18ab26d7712"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -237,7 +298,7 @@ Private Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_face.html">Face</a>&#160;</td>
+          <td class="paramtype">vector&lt; <a class="el" href="class_point.html">Point</a> &gt;&#160;</td>
           <td class="paramname"><em>polygon</em>&#160;</td>
         </tr>
         <tr>
@@ -254,6 +315,16 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Function that returns if the <a class="el" href="class_point.html">Point</a> "point" lies within the polygon formed by the <a class="el" href="class_face.html">Face</a> "polygon", passed as parameter.</p>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_object3_d_a026c35f9fcf1f58f4d48c18ab26d7712_cgraph.png" border="0" usemap="#class_object3_d_a026c35f9fcf1f58f4d48c18ab26d7712_cgraph" alt=""/></div>
+<map name="class_object3_d_a026c35f9fcf1f58f4d48c18ab26d7712_cgraph" id="class_object3_d_a026c35f9fcf1f58f4d48c18ab26d7712_cgraph">
+<area shape="rect" id="node2" href="_object3_d_8cpp.html#a170b3e9f1c52cf37b8e9791daa3b67e6" title="countIntersections" alt="" coords="201,5,331,32"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a476b3de610cb30be0b050b4701ba4701"></a>
@@ -264,19 +335,19 @@ Private Member Functions</h2></td></tr>
           <td class="memname"><a class="el" href="class_object3_d.html">Object3D</a> Object3D::rotateObject </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>aboutx</em>, </td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>abouty</em>, </td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>aboutz</em>&#160;</td>
+          <td class="paramname">&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -285,7 +356,6 @@ Private Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns a new 3D Object with the rotated coordinates, obtained by rotating the current object by the angles "aboutz" about the Z-axis, by "aboutx" about the X-axis and by "abouty" about the Y-axis</p>
 
 </div>
 </div>
@@ -297,19 +367,19 @@ Private Member Functions</h2></td></tr>
           <td class="memname"><a class="el" href="class_object3_d.html">Object3D</a> Object3D::translate </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>z</em>&#160;</td>
+          <td class="paramname">&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -318,41 +388,95 @@ Private Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function returns a new <a class="el" href="class_object3_d.html">Object3D</a> instance, which is obtained by translating the current object by the distances, specified in the parameters</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="aadcfd04a104ea0b7ee94d707ca4a0143"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_object3_d.html">Object3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>obj</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ad93f210748663a4d0aaa89287dee3dae"></a>
+<a class="anchor" id="ad1d85cb131bbc39c772dc5badd0ec1c0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_edge.html">Edge</a> Object3D::edges[]</td>
+          <td class="memname">vector&lt;<a class="el" href="class_edge.html">Edge</a>&gt; Object3D::edges</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a4cc7f57059a990a8573a7644a4d3ab2a"></a>
+<a class="anchor" id="a58677f390d3ba13026e68f4b2a530580"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_face.html">Face</a> Object3D::faces[]</td>
+          <td class="memname">vector&lt;<a class="el" href="class_face.html">Face</a>&gt; Object3D::faces</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a23cc82ea4ef0af8e0e22871bdbdba6c6"></a>
+<a class="anchor" id="a40518019f2d67c105a32d218e38a0d4f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="class_point.html">Point</a>&gt; Object3D::projectedVertices</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a225a5c970a1d3d343fc495764ccc3cfd"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_point.html">Point</a> Object3D::vertices[]</td>
+          <td class="memname">vector&lt;<a class="el" href="class_point.html">Point</a>&gt; Object3D::vertices</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -1,0 +1,411 @@
+\hypertarget{class_construct_window}{}\section{Construct\+Window Class Reference}
+\label{class_construct_window}\index{Construct\+Window@{Construct\+Window}}
+
+
+{\ttfamily \#include $<$gui.\+h$>$}
+
+
+
+Inheritance diagram for Construct\+Window\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{class_construct_window__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Construct\+Window\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_construct_window__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_construct_window_afbb85abe7e7a42cc8efb29dbac587646}{Construct\+Window} ()
+\item 
+virtual \hyperlink{class_construct_window_a5182d4b2d3fbdb1b9b8fa54bdfb8036c}{$\sim$\+Construct\+Window} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_projection2_d}{Projection2D} $\ast$ \hyperlink{class_construct_window_a1c4f16b6dbb43569a8aa2c992b13950d}{proj}
+\item 
+\hyperlink{class_wireframe}{Wireframe} $\ast$ \hyperlink{class_construct_window_adc9531aab11327949db243959a44ac10}{object}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_construct_window_a5dcaf37144ff4fc628256e77a9960577}{on\+\_\+button\+\_\+submit} ()
+\item 
+void \hyperlink{class_construct_window_a8842011425ba1b731a4dae5d967a5ffd}{on\+\_\+button\+\_\+addpoint} ()
+\item 
+void \hyperlink{class_construct_window_a3cb10b090a414f412670a3caf2cc6269}{on\+\_\+button\+\_\+addlabel} ()
+\item 
+void \hyperlink{class_construct_window_aea4ae0b05b660bbaf1bf808822d851cc}{on\+\_\+button\+\_\+addedge} ()
+\item 
+void \hyperlink{class_construct_window_a41da466f959938ac1f8bee034ab94b01}{on\+\_\+button\+\_\+created} ()
+\item 
+bool \hyperlink{class_construct_window_a207140b364fbc6412fa488fd78c11071}{on\+\_\+custom\+\_\+draw} (const Cairo\+::\+Ref\+Ptr$<$ Cairo\+::\+Context $>$ \&cr)
+\item 
+void \hyperlink{class_construct_window_ae4f9ac332fbef78298b93379b8b9b8df}{on\+\_\+button\+\_\+rotate} (int type)
+\item 
+void \hyperlink{class_construct_window_abb4ff002be0d1bdbe09fda5852b43ccd}{on\+\_\+file\+\_\+button} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_construct_window_a5db9eb781ceacefdfff06d68c30ef108}{projection}
+\item 
+int \hyperlink{class_construct_window_a0d66cf4e35b57cf6aa806f14bbfc650c}{create}
+\item 
+\hyperlink{class_ortho_projection}{Ortho\+Projection} $\ast$ \hyperlink{class_construct_window_a241b582859a9abbda9461f99ca1193ad}{front}
+\item 
+\hyperlink{class_ortho_projection}{Ortho\+Projection} $\ast$ \hyperlink{class_construct_window_a400b924c57cd3a4f09165a5f5862f3cb}{top}
+\item 
+\hyperlink{class_ortho_projection}{Ortho\+Projection} $\ast$ \hyperlink{class_construct_window_ad2ef07e4940cd866ea8ae64ae1a1b0cb}{side}
+\item 
+\hyperlink{class_clustered_point}{Clustered\+Point} $\ast$ \hyperlink{class_construct_window_aaed91d05bc404bacfa1ab28fc4e59a18}{cp}
+\item 
+double \hyperlink{class_construct_window_aa26b3bc47101e701e30105241df3ecba}{factor}
+\item 
+Gtk\+::\+Box \hyperlink{class_construct_window_aebc12f0722ef5c6e3cf95c1af2cc3eff}{m\+\_\+\+Box}
+\item 
+Gtk\+::\+Frame \hyperlink{class_construct_window_abf7b3fa2668de59906157f0a079d2643}{m\+\_\+point\+\_\+frame}
+\item 
+Gtk\+::\+Frame \hyperlink{class_construct_window_a2a8d99900db3b562639c8c6652b9397d}{m\+\_\+edge\+\_\+frame}
+\item 
+Gtk\+::\+Frame \hyperlink{class_construct_window_a8aaef7a20aa651f1cc1f9530ec5a3a12}{m\+\_\+draw\+\_\+frame}
+\item 
+Gtk\+::\+Frame \hyperlink{class_construct_window_ac496afbdbf430ed87dc64d5ef9e67b91}{m\+\_\+rotate\+\_\+frame}
+\item 
+Gtk\+::\+Frame \hyperlink{class_construct_window_a02e692af0641166a72a79069bb59b081}{m\+\_\+file\+\_\+frame}
+\item 
+Gtk\+::\+Grid \hyperlink{class_construct_window_a83605233173d470b1d1db0332808aa99}{m\+\_\+point\+\_\+grid}
+\item 
+Gtk\+::\+Grid \hyperlink{class_construct_window_a929eae3d5bd082d159a719af9b7e2674}{m\+\_\+edge\+\_\+grid}
+\item 
+Gtk\+::\+Grid \hyperlink{class_construct_window_a1bcef215bf6404b2c5222909952500e0}{m\+\_\+draw\+\_\+grid}
+\item 
+Gtk\+::\+Grid \hyperlink{class_construct_window_ab96011e590f3138153ef221be1608865}{m\+\_\+rotate\+\_\+grid}
+\item 
+Gtk\+::\+Grid \hyperlink{class_construct_window_a5d9e8a08026b6381853aa5d7ddf8d062}{m\+\_\+file\+\_\+grid}
+\item 
+Gtk\+::\+Entry \hyperlink{class_construct_window_a11982439b17251d83fc2d2eadd5b4c0a}{m\+\_\+entry\+\_\+x}
+\item 
+Gtk\+::\+Entry \hyperlink{class_construct_window_ad05c6e1379b84f795ae4b495d3621a1d}{m\+\_\+entry\+\_\+y}
+\item 
+Gtk\+::\+Entry \hyperlink{class_construct_window_a21e505c7b74d70e3f37ca94c6dc79bbc}{m\+\_\+entry\+\_\+z}
+\item 
+Gtk\+::\+Entry \hyperlink{class_construct_window_a031a78a66f7c69da3395c25c8d84c699}{m\+\_\+entry\+\_\+label}
+\item 
+Gtk\+::\+Entry \hyperlink{class_construct_window_a49425c4f8cc175011f608ef26598ecc0}{m\+\_\+edge\+\_\+p1}
+\item 
+Gtk\+::\+Entry \hyperlink{class_construct_window_a2cd8576e8bcd49dfedaa82c65766028e}{m\+\_\+edge\+\_\+p2}
+\item 
+Gtk\+::\+Entry \hyperlink{class_construct_window_a18364de5c0d738051d7eeb478bf4086b}{m\+\_\+entry\+\_\+file}
+\item 
+Gtk\+::\+Button \hyperlink{class_construct_window_a855cdd124dc2fb10b911e88b5d020a59}{m\+\_\+submit}
+\item 
+Gtk\+::\+Button \hyperlink{class_construct_window_a18879d0b8580c30589fd3dcd2a3de7d6}{m\+\_\+add\+\_\+point}
+\item 
+Gtk\+::\+Button \hyperlink{class_construct_window_a1dd9adca873008e41db7a7610e9cd1fb}{m\+\_\+add\+\_\+label}
+\item 
+Gtk\+::\+Button \hyperlink{class_construct_window_a8eb470f90db79f60612a0389d3d9a93f}{m\+\_\+add\+\_\+edge}
+\item 
+Gtk\+::\+Button \hyperlink{class_construct_window_acaf528e94f75726e4168b6b21e57a4c1}{m\+\_\+create}
+\item 
+Gtk\+::\+Button \hyperlink{class_construct_window_a62de6f36977a3b994c45a8792aeb39e2}{m\+\_\+add\+\_\+file}
+\item 
+Gtk\+::\+Button \hyperlink{class_construct_window_a2092e74c068ec46139a1883b1cb4b79e}{m\+\_\+top\+\_\+rotate}
+\item 
+Gtk\+::\+Button \hyperlink{class_construct_window_ad05f416b88027120b3b5091c7f56994d}{m\+\_\+bottom\+\_\+rotate}
+\item 
+Gtk\+::\+Button \hyperlink{class_construct_window_a4a4ded63890f51ad62cebe7599294fed}{m\+\_\+left\+\_\+rotate}
+\item 
+Gtk\+::\+Button \hyperlink{class_construct_window_a6992f35a1c502bfb48743730d4c59273}{m\+\_\+right\+\_\+rotate}
+\item 
+Gtk\+::\+Drawing\+Area \hyperlink{class_construct_window_a7cfd32007cdcb14ec957c90f7293004f}{m\+\_\+area}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class to input and display 2D to 3D transition 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Construct\+Window@{Construct\+Window}!Construct\+Window@{Construct\+Window}}
+\index{Construct\+Window@{Construct\+Window}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{Construct\+Window()}{ConstructWindow()}}]{\setlength{\rightskip}{0pt plus 5cm}Construct\+Window\+::\+Construct\+Window (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_construct_window_afbb85abe7e7a42cc8efb29dbac587646}{}\label{class_construct_window_afbb85abe7e7a42cc8efb29dbac587646}
+The constructor for Constructor\+Window
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_construct_window_afbb85abe7e7a42cc8efb29dbac587646_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Construct\+Window@{Construct\+Window}!````~Construct\+Window@{$\sim$\+Construct\+Window}}
+\index{````~Construct\+Window@{$\sim$\+Construct\+Window}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{$\sim$\+Construct\+Window()}{~ConstructWindow()}}]{\setlength{\rightskip}{0pt plus 5cm}Construct\+Window\+::$\sim$\+Construct\+Window (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_construct_window_a5182d4b2d3fbdb1b9b8fa54bdfb8036c}{}\label{class_construct_window_a5182d4b2d3fbdb1b9b8fa54bdfb8036c}
+
+
+\subsection{Member Function Documentation}
+\index{Construct\+Window@{Construct\+Window}!on\+\_\+button\+\_\+addedge@{on\+\_\+button\+\_\+addedge}}
+\index{on\+\_\+button\+\_\+addedge@{on\+\_\+button\+\_\+addedge}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+button\+\_\+addedge()}{on_button_addedge()}}]{\setlength{\rightskip}{0pt plus 5cm}void Construct\+Window\+::on\+\_\+button\+\_\+addedge (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_aea4ae0b05b660bbaf1bf808822d851cc}{}\label{class_construct_window_aea4ae0b05b660bbaf1bf808822d851cc}
+Function to add a new edge to the projection\index{Construct\+Window@{Construct\+Window}!on\+\_\+button\+\_\+addlabel@{on\+\_\+button\+\_\+addlabel}}
+\index{on\+\_\+button\+\_\+addlabel@{on\+\_\+button\+\_\+addlabel}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+button\+\_\+addlabel()}{on_button_addlabel()}}]{\setlength{\rightskip}{0pt plus 5cm}void Construct\+Window\+::on\+\_\+button\+\_\+addlabel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a3cb10b090a414f412670a3caf2cc6269}{}\label{class_construct_window_a3cb10b090a414f412670a3caf2cc6269}
+Function to add label to the \hyperlink{class_clustered_point}{Clustered\+Point}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_construct_window_a3cb10b090a414f412670a3caf2cc6269_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Construct\+Window@{Construct\+Window}!on\+\_\+button\+\_\+addpoint@{on\+\_\+button\+\_\+addpoint}}
+\index{on\+\_\+button\+\_\+addpoint@{on\+\_\+button\+\_\+addpoint}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+button\+\_\+addpoint()}{on_button_addpoint()}}]{\setlength{\rightskip}{0pt plus 5cm}void Construct\+Window\+::on\+\_\+button\+\_\+addpoint (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a8842011425ba1b731a4dae5d967a5ffd}{}\label{class_construct_window_a8842011425ba1b731a4dae5d967a5ffd}
+Function to add a point to the previous \hyperlink{class_clustered_point}{Clustered\+Point}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_construct_window_a8842011425ba1b731a4dae5d967a5ffd_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Construct\+Window@{Construct\+Window}!on\+\_\+button\+\_\+created@{on\+\_\+button\+\_\+created}}
+\index{on\+\_\+button\+\_\+created@{on\+\_\+button\+\_\+created}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+button\+\_\+created()}{on_button_created()}}]{\setlength{\rightskip}{0pt plus 5cm}void Construct\+Window\+::on\+\_\+button\+\_\+created (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a41da466f959938ac1f8bee034ab94b01}{}\label{class_construct_window_a41da466f959938ac1f8bee034ab94b01}
+Create 3D Object
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_construct_window_a41da466f959938ac1f8bee034ab94b01_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Construct\+Window@{Construct\+Window}!on\+\_\+button\+\_\+rotate@{on\+\_\+button\+\_\+rotate}}
+\index{on\+\_\+button\+\_\+rotate@{on\+\_\+button\+\_\+rotate}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+button\+\_\+rotate(int type)}{on_button_rotate(int type)}}]{\setlength{\rightskip}{0pt plus 5cm}void Construct\+Window\+::on\+\_\+button\+\_\+rotate (
+\begin{DoxyParamCaption}
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_ae4f9ac332fbef78298b93379b8b9b8df}{}\label{class_construct_window_ae4f9ac332fbef78298b93379b8b9b8df}
+Rotate object based on the type passed aas parameter\index{Construct\+Window@{Construct\+Window}!on\+\_\+button\+\_\+submit@{on\+\_\+button\+\_\+submit}}
+\index{on\+\_\+button\+\_\+submit@{on\+\_\+button\+\_\+submit}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+button\+\_\+submit()}{on_button_submit()}}]{\setlength{\rightskip}{0pt plus 5cm}void Construct\+Window\+::on\+\_\+button\+\_\+submit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a5dcaf37144ff4fc628256e77a9960577}{}\label{class_construct_window_a5dcaf37144ff4fc628256e77a9960577}
+Function to submit \hyperlink{class_clustered_point}{Clustered\+Point}, so as to enter the next point
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_construct_window_a5dcaf37144ff4fc628256e77a9960577_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Construct\+Window@{Construct\+Window}!on\+\_\+custom\+\_\+draw@{on\+\_\+custom\+\_\+draw}}
+\index{on\+\_\+custom\+\_\+draw@{on\+\_\+custom\+\_\+draw}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+custom\+\_\+draw(const Cairo\+::\+Ref\+Ptr$<$ Cairo\+::\+Context $>$ \&cr)}{on_custom_draw(const Cairo::RefPtr< Cairo::Context > &cr)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Construct\+Window\+::on\+\_\+custom\+\_\+draw (
+\begin{DoxyParamCaption}
+\item[{const Cairo\+::\+Ref\+Ptr$<$ Cairo\+::\+Context $>$ \&}]{cr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a207140b364fbc6412fa488fd78c11071}{}\label{class_construct_window_a207140b364fbc6412fa488fd78c11071}
+Function to draw the \hyperlink{class_wireframe}{Wireframe} Model
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_construct_window_a207140b364fbc6412fa488fd78c11071_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Construct\+Window@{Construct\+Window}!on\+\_\+file\+\_\+button@{on\+\_\+file\+\_\+button}}
+\index{on\+\_\+file\+\_\+button@{on\+\_\+file\+\_\+button}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+file\+\_\+button()}{on_file_button()}}]{\setlength{\rightskip}{0pt plus 5cm}void Construct\+Window\+::on\+\_\+file\+\_\+button (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_abb4ff002be0d1bdbe09fda5852b43ccd}{}\label{class_construct_window_abb4ff002be0d1bdbe09fda5852b43ccd}
+Add file name for input
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_construct_window_abb4ff002be0d1bdbe09fda5852b43ccd_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\index{Construct\+Window@{Construct\+Window}!cp@{cp}}
+\index{cp@{cp}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{cp}{cp}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Clustered\+Point}$\ast$ Construct\+Window\+::cp\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_aaed91d05bc404bacfa1ab28fc4e59a18}{}\label{class_construct_window_aaed91d05bc404bacfa1ab28fc4e59a18}
+\index{Construct\+Window@{Construct\+Window}!create@{create}}
+\index{create@{create}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{create}{create}}]{\setlength{\rightskip}{0pt plus 5cm}int Construct\+Window\+::create\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a0d66cf4e35b57cf6aa806f14bbfc650c}{}\label{class_construct_window_a0d66cf4e35b57cf6aa806f14bbfc650c}
+\index{Construct\+Window@{Construct\+Window}!factor@{factor}}
+\index{factor@{factor}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{factor}{factor}}]{\setlength{\rightskip}{0pt plus 5cm}double Construct\+Window\+::factor\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_aa26b3bc47101e701e30105241df3ecba}{}\label{class_construct_window_aa26b3bc47101e701e30105241df3ecba}
+\index{Construct\+Window@{Construct\+Window}!front@{front}}
+\index{front@{front}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{front}{front}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ortho\+Projection}$\ast$ Construct\+Window\+::front\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a241b582859a9abbda9461f99ca1193ad}{}\label{class_construct_window_a241b582859a9abbda9461f99ca1193ad}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+add\+\_\+edge@{m\+\_\+add\+\_\+edge}}
+\index{m\+\_\+add\+\_\+edge@{m\+\_\+add\+\_\+edge}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+add\+\_\+edge}{m_add_edge}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Button Construct\+Window\+::m\+\_\+add\+\_\+edge\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a8eb470f90db79f60612a0389d3d9a93f}{}\label{class_construct_window_a8eb470f90db79f60612a0389d3d9a93f}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+add\+\_\+file@{m\+\_\+add\+\_\+file}}
+\index{m\+\_\+add\+\_\+file@{m\+\_\+add\+\_\+file}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+add\+\_\+file}{m_add_file}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Button Construct\+Window\+::m\+\_\+add\+\_\+file\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a62de6f36977a3b994c45a8792aeb39e2}{}\label{class_construct_window_a62de6f36977a3b994c45a8792aeb39e2}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+add\+\_\+label@{m\+\_\+add\+\_\+label}}
+\index{m\+\_\+add\+\_\+label@{m\+\_\+add\+\_\+label}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+add\+\_\+label}{m_add_label}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Button Construct\+Window\+::m\+\_\+add\+\_\+label\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a1dd9adca873008e41db7a7610e9cd1fb}{}\label{class_construct_window_a1dd9adca873008e41db7a7610e9cd1fb}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+add\+\_\+point@{m\+\_\+add\+\_\+point}}
+\index{m\+\_\+add\+\_\+point@{m\+\_\+add\+\_\+point}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+add\+\_\+point}{m_add_point}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Button Construct\+Window\+::m\+\_\+add\+\_\+point\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a18879d0b8580c30589fd3dcd2a3de7d6}{}\label{class_construct_window_a18879d0b8580c30589fd3dcd2a3de7d6}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+area@{m\+\_\+area}}
+\index{m\+\_\+area@{m\+\_\+area}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+area}{m_area}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Drawing\+Area Construct\+Window\+::m\+\_\+area\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a7cfd32007cdcb14ec957c90f7293004f}{}\label{class_construct_window_a7cfd32007cdcb14ec957c90f7293004f}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+bottom\+\_\+rotate@{m\+\_\+bottom\+\_\+rotate}}
+\index{m\+\_\+bottom\+\_\+rotate@{m\+\_\+bottom\+\_\+rotate}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+bottom\+\_\+rotate}{m_bottom_rotate}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Button Construct\+Window\+::m\+\_\+bottom\+\_\+rotate\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_ad05f416b88027120b3b5091c7f56994d}{}\label{class_construct_window_ad05f416b88027120b3b5091c7f56994d}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+\+Box@{m\+\_\+\+Box}}
+\index{m\+\_\+\+Box@{m\+\_\+\+Box}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+\+Box}{m_Box}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Box Construct\+Window\+::m\+\_\+\+Box\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_aebc12f0722ef5c6e3cf95c1af2cc3eff}{}\label{class_construct_window_aebc12f0722ef5c6e3cf95c1af2cc3eff}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+create@{m\+\_\+create}}
+\index{m\+\_\+create@{m\+\_\+create}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+create}{m_create}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Button Construct\+Window\+::m\+\_\+create\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_acaf528e94f75726e4168b6b21e57a4c1}{}\label{class_construct_window_acaf528e94f75726e4168b6b21e57a4c1}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+draw\+\_\+frame@{m\+\_\+draw\+\_\+frame}}
+\index{m\+\_\+draw\+\_\+frame@{m\+\_\+draw\+\_\+frame}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+draw\+\_\+frame}{m_draw_frame}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Frame Construct\+Window\+::m\+\_\+draw\+\_\+frame\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a8aaef7a20aa651f1cc1f9530ec5a3a12}{}\label{class_construct_window_a8aaef7a20aa651f1cc1f9530ec5a3a12}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+draw\+\_\+grid@{m\+\_\+draw\+\_\+grid}}
+\index{m\+\_\+draw\+\_\+grid@{m\+\_\+draw\+\_\+grid}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+draw\+\_\+grid}{m_draw_grid}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Grid Construct\+Window\+::m\+\_\+draw\+\_\+grid\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a1bcef215bf6404b2c5222909952500e0}{}\label{class_construct_window_a1bcef215bf6404b2c5222909952500e0}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+edge\+\_\+frame@{m\+\_\+edge\+\_\+frame}}
+\index{m\+\_\+edge\+\_\+frame@{m\+\_\+edge\+\_\+frame}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+edge\+\_\+frame}{m_edge_frame}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Frame Construct\+Window\+::m\+\_\+edge\+\_\+frame\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a2a8d99900db3b562639c8c6652b9397d}{}\label{class_construct_window_a2a8d99900db3b562639c8c6652b9397d}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+edge\+\_\+grid@{m\+\_\+edge\+\_\+grid}}
+\index{m\+\_\+edge\+\_\+grid@{m\+\_\+edge\+\_\+grid}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+edge\+\_\+grid}{m_edge_grid}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Grid Construct\+Window\+::m\+\_\+edge\+\_\+grid\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a929eae3d5bd082d159a719af9b7e2674}{}\label{class_construct_window_a929eae3d5bd082d159a719af9b7e2674}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+edge\+\_\+p1@{m\+\_\+edge\+\_\+p1}}
+\index{m\+\_\+edge\+\_\+p1@{m\+\_\+edge\+\_\+p1}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+edge\+\_\+p1}{m_edge_p1}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Entry Construct\+Window\+::m\+\_\+edge\+\_\+p1\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a49425c4f8cc175011f608ef26598ecc0}{}\label{class_construct_window_a49425c4f8cc175011f608ef26598ecc0}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+edge\+\_\+p2@{m\+\_\+edge\+\_\+p2}}
+\index{m\+\_\+edge\+\_\+p2@{m\+\_\+edge\+\_\+p2}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+edge\+\_\+p2}{m_edge_p2}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Entry Construct\+Window\+::m\+\_\+edge\+\_\+p2\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a2cd8576e8bcd49dfedaa82c65766028e}{}\label{class_construct_window_a2cd8576e8bcd49dfedaa82c65766028e}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+entry\+\_\+file@{m\+\_\+entry\+\_\+file}}
+\index{m\+\_\+entry\+\_\+file@{m\+\_\+entry\+\_\+file}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+entry\+\_\+file}{m_entry_file}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Entry Construct\+Window\+::m\+\_\+entry\+\_\+file\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a18364de5c0d738051d7eeb478bf4086b}{}\label{class_construct_window_a18364de5c0d738051d7eeb478bf4086b}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+entry\+\_\+label@{m\+\_\+entry\+\_\+label}}
+\index{m\+\_\+entry\+\_\+label@{m\+\_\+entry\+\_\+label}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+entry\+\_\+label}{m_entry_label}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Entry Construct\+Window\+::m\+\_\+entry\+\_\+label\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a031a78a66f7c69da3395c25c8d84c699}{}\label{class_construct_window_a031a78a66f7c69da3395c25c8d84c699}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+entry\+\_\+x@{m\+\_\+entry\+\_\+x}}
+\index{m\+\_\+entry\+\_\+x@{m\+\_\+entry\+\_\+x}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+entry\+\_\+x}{m_entry_x}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Entry Construct\+Window\+::m\+\_\+entry\+\_\+x\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a11982439b17251d83fc2d2eadd5b4c0a}{}\label{class_construct_window_a11982439b17251d83fc2d2eadd5b4c0a}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+entry\+\_\+y@{m\+\_\+entry\+\_\+y}}
+\index{m\+\_\+entry\+\_\+y@{m\+\_\+entry\+\_\+y}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+entry\+\_\+y}{m_entry_y}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Entry Construct\+Window\+::m\+\_\+entry\+\_\+y\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_ad05c6e1379b84f795ae4b495d3621a1d}{}\label{class_construct_window_ad05c6e1379b84f795ae4b495d3621a1d}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+entry\+\_\+z@{m\+\_\+entry\+\_\+z}}
+\index{m\+\_\+entry\+\_\+z@{m\+\_\+entry\+\_\+z}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+entry\+\_\+z}{m_entry_z}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Entry Construct\+Window\+::m\+\_\+entry\+\_\+z\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a21e505c7b74d70e3f37ca94c6dc79bbc}{}\label{class_construct_window_a21e505c7b74d70e3f37ca94c6dc79bbc}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+file\+\_\+frame@{m\+\_\+file\+\_\+frame}}
+\index{m\+\_\+file\+\_\+frame@{m\+\_\+file\+\_\+frame}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+file\+\_\+frame}{m_file_frame}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Frame Construct\+Window\+::m\+\_\+file\+\_\+frame\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a02e692af0641166a72a79069bb59b081}{}\label{class_construct_window_a02e692af0641166a72a79069bb59b081}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+file\+\_\+grid@{m\+\_\+file\+\_\+grid}}
+\index{m\+\_\+file\+\_\+grid@{m\+\_\+file\+\_\+grid}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+file\+\_\+grid}{m_file_grid}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Grid Construct\+Window\+::m\+\_\+file\+\_\+grid\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a5d9e8a08026b6381853aa5d7ddf8d062}{}\label{class_construct_window_a5d9e8a08026b6381853aa5d7ddf8d062}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+left\+\_\+rotate@{m\+\_\+left\+\_\+rotate}}
+\index{m\+\_\+left\+\_\+rotate@{m\+\_\+left\+\_\+rotate}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+left\+\_\+rotate}{m_left_rotate}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Button Construct\+Window\+::m\+\_\+left\+\_\+rotate\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a4a4ded63890f51ad62cebe7599294fed}{}\label{class_construct_window_a4a4ded63890f51ad62cebe7599294fed}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+point\+\_\+frame@{m\+\_\+point\+\_\+frame}}
+\index{m\+\_\+point\+\_\+frame@{m\+\_\+point\+\_\+frame}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+point\+\_\+frame}{m_point_frame}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Frame Construct\+Window\+::m\+\_\+point\+\_\+frame\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_abf7b3fa2668de59906157f0a079d2643}{}\label{class_construct_window_abf7b3fa2668de59906157f0a079d2643}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+point\+\_\+grid@{m\+\_\+point\+\_\+grid}}
+\index{m\+\_\+point\+\_\+grid@{m\+\_\+point\+\_\+grid}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+point\+\_\+grid}{m_point_grid}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Grid Construct\+Window\+::m\+\_\+point\+\_\+grid\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a83605233173d470b1d1db0332808aa99}{}\label{class_construct_window_a83605233173d470b1d1db0332808aa99}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+right\+\_\+rotate@{m\+\_\+right\+\_\+rotate}}
+\index{m\+\_\+right\+\_\+rotate@{m\+\_\+right\+\_\+rotate}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+right\+\_\+rotate}{m_right_rotate}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Button Construct\+Window\+::m\+\_\+right\+\_\+rotate\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a6992f35a1c502bfb48743730d4c59273}{}\label{class_construct_window_a6992f35a1c502bfb48743730d4c59273}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+rotate\+\_\+frame@{m\+\_\+rotate\+\_\+frame}}
+\index{m\+\_\+rotate\+\_\+frame@{m\+\_\+rotate\+\_\+frame}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+rotate\+\_\+frame}{m_rotate_frame}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Frame Construct\+Window\+::m\+\_\+rotate\+\_\+frame\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_ac496afbdbf430ed87dc64d5ef9e67b91}{}\label{class_construct_window_ac496afbdbf430ed87dc64d5ef9e67b91}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+rotate\+\_\+grid@{m\+\_\+rotate\+\_\+grid}}
+\index{m\+\_\+rotate\+\_\+grid@{m\+\_\+rotate\+\_\+grid}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+rotate\+\_\+grid}{m_rotate_grid}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Grid Construct\+Window\+::m\+\_\+rotate\+\_\+grid\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_ab96011e590f3138153ef221be1608865}{}\label{class_construct_window_ab96011e590f3138153ef221be1608865}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+submit@{m\+\_\+submit}}
+\index{m\+\_\+submit@{m\+\_\+submit}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+submit}{m_submit}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Button Construct\+Window\+::m\+\_\+submit\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a855cdd124dc2fb10b911e88b5d020a59}{}\label{class_construct_window_a855cdd124dc2fb10b911e88b5d020a59}
+\index{Construct\+Window@{Construct\+Window}!m\+\_\+top\+\_\+rotate@{m\+\_\+top\+\_\+rotate}}
+\index{m\+\_\+top\+\_\+rotate@{m\+\_\+top\+\_\+rotate}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{m\+\_\+top\+\_\+rotate}{m_top_rotate}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Button Construct\+Window\+::m\+\_\+top\+\_\+rotate\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a2092e74c068ec46139a1883b1cb4b79e}{}\label{class_construct_window_a2092e74c068ec46139a1883b1cb4b79e}
+\index{Construct\+Window@{Construct\+Window}!object@{object}}
+\index{object@{object}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{object}{object}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Wireframe}$\ast$ Construct\+Window\+::object}\hypertarget{class_construct_window_adc9531aab11327949db243959a44ac10}{}\label{class_construct_window_adc9531aab11327949db243959a44ac10}
+\index{Construct\+Window@{Construct\+Window}!proj@{proj}}
+\index{proj@{proj}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{proj}{proj}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Projection2D}$\ast$ Construct\+Window\+::proj}\hypertarget{class_construct_window_a1c4f16b6dbb43569a8aa2c992b13950d}{}\label{class_construct_window_a1c4f16b6dbb43569a8aa2c992b13950d}
+\index{Construct\+Window@{Construct\+Window}!projection@{projection}}
+\index{projection@{projection}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{projection}{projection}}]{\setlength{\rightskip}{0pt plus 5cm}int Construct\+Window\+::projection\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a5db9eb781ceacefdfff06d68c30ef108}{}\label{class_construct_window_a5db9eb781ceacefdfff06d68c30ef108}
+\index{Construct\+Window@{Construct\+Window}!side@{side}}
+\index{side@{side}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{side}{side}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ortho\+Projection} $\ast$ Construct\+Window\+::side\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_ad2ef07e4940cd866ea8ae64ae1a1b0cb}{}\label{class_construct_window_ad2ef07e4940cd866ea8ae64ae1a1b0cb}
+\index{Construct\+Window@{Construct\+Window}!top@{top}}
+\index{top@{top}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{top}{top}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ortho\+Projection} $\ast$ Construct\+Window\+::top\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a400b924c57cd3a4f09165a5f5862f3cb}{}\label{class_construct_window_a400b924c57cd3a4f09165a5f5862f3cb}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Packag\+E\+D/include/\hyperlink{gui_8h}{gui.\+h}\item 
+Packag\+E\+D/src/\hyperlink{_constructgui_8cpp}{Constructgui.\+cpp}\end{DoxyCompactItemize}

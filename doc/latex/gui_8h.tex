@@ -1,0 +1,77 @@
+\hypertarget{gui_8h}{}\section{Packag\+E\+D/include/gui.h File Reference}
+\label{gui_8h}\index{Packag\+E\+D/include/gui.\+h@{Packag\+E\+D/include/gui.\+h}}
+{\ttfamily \#include $<$gtkmm.\+h$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include \char`\"{}Classes.\+h\char`\"{}}\\*
+Include dependency graph for gui.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gui_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gui_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_projection_window}{Projection\+Window}
+\item 
+class \hyperlink{class_construct_window}{Construct\+Window}
+\item 
+class \hyperlink{class_main_window}{Main\+Window}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_plane_projection}{Plane\+Projection} $\ast$ \hyperlink{gui_8h_a20579b255f3974d5091c9a219ad58ad5}{create\+Object} (\hyperlink{class_object3_d}{Object3D} $\ast$, double\mbox{[}4\mbox{]})
+\item 
+\hyperlink{class_wireframe}{Wireframe} $\ast$ \hyperlink{gui_8h_ad5f87004ece886cd2a7407118fa10d8f}{create\+Projection} (\hyperlink{class_projection2_d}{Projection2D} $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{gui.\+h@{gui.\+h}!create\+Object@{create\+Object}}
+\index{create\+Object@{create\+Object}!gui.\+h@{gui.\+h}}
+\subsubsection[{\texorpdfstring{create\+Object(\+Object3\+D $\ast$, double[4])}{createObject(Object3D *, double[4])}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Plane\+Projection}$\ast$ create\+Object (
+\begin{DoxyParamCaption}
+\item[{{\bf Object3D} $\ast$}]{, }
+\item[{double}]{\mbox{[}4\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{gui_8h_a20579b255f3974d5091c9a219ad58ad5}{}\label{gui_8h_a20579b255f3974d5091c9a219ad58ad5}
+This function shall make use of the gtk library, to interactively take input from the user and returns the 3D object created from the user input
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{gui_8h_a20579b255f3974d5091c9a219ad58ad5_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{gui.\+h@{gui.\+h}!create\+Projection@{create\+Projection}}
+\index{create\+Projection@{create\+Projection}!gui.\+h@{gui.\+h}}
+\subsubsection[{\texorpdfstring{create\+Projection(\+Projection2\+D $\ast$)}{createProjection(Projection2D *)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Wireframe}$\ast$ create\+Projection (
+\begin{DoxyParamCaption}
+\item[{{\bf Projection2D} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{gui_8h_ad5f87004ece886cd2a7407118fa10d8f}{}\label{gui_8h_ad5f87004ece886cd2a7407118fa10d8f}
+This function shall make use of the gtk library, to interactively take input from the user, to form a 2D projection and returns the Projection created from the user input
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{gui_8h_ad5f87004ece886cd2a7407118fa10d8f_cgraph}
+\end{center}
+\end{figure}
+
+

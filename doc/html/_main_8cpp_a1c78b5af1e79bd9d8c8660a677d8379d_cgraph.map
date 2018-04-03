@@ -1,0 +1,6 @@
+<map id="check3D" name="check3D">
+<area shape="rect" id="node2" href="$class_point.html#aa9e5bde544a36d44988c1d544ba4593f" title="Point::setCoordinates" alt="" coords="147,5,295,32"/>
+<area shape="rect" id="node3" href="$class_object3_d.html#a7767ac8b73a117c8cd8cbdaf7c6f4699" title="Object3D::project3D" alt="" coords="151,56,292,83"/>
+<area shape="rect" id="node5" href="$class_plane_projection.html#ac528e8dbd92be24628e136b10f4842f3" title="PlaneProjection::rotatePlane" alt="" coords="128,107,315,133"/>
+<area shape="rect" id="node4" href="$class_point.html#a209c076529495ad94cf65b8a71d29913" title="Point::projectPoint" alt="" coords="363,56,492,83"/>
+</map>

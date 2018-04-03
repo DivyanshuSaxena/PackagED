@@ -1,0 +1,5 @@
+<map id="createProjection" name="createProjection">
+<area shape="rect" id="node2" href="$class_projection2_d.html#aa061602930f19acad32720f7067c58fa" title="Projection2D::create3D" alt="" coords="169,5,328,32"/>
+<area shape="rect" id="node3" href="$class_point.html#aa9e5bde544a36d44988c1d544ba4593f" title="Point::setCoordinates" alt="" coords="175,56,323,83"/>
+<area shape="rect" id="node4" href="$class_wireframe.html#ad348b2bb91519338ccdefa0401309a9b" title="Wireframe::normalise" alt="" coords="175,107,322,133"/>
+</map>

@@ -91,110 +91,243 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Main.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;GL/glut.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="_classes_8h_source.html">Classes.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;Eigen/Dense&gt;</code><br />
+<code>#include &lt;gtkmm.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="gui_8h_source.html">gui.h</a>&quot;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Main.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="_main_8cpp__incl.png" border="0" usemap="#_packag_e_d_2src_2_main_8cpp" alt=""/></div>
 <map name="_packag_e_d_2src_2_main_8cpp" id="_packag_e_d_2src_2_main_8cpp">
-<area shape="rect" id="node3" href="_classes_8h.html" title="Classes.h" alt="" coords="105,80,186,107"/>
+<area shape="rect" id="node6" href="gui_8h.html" title="gui.h" alt="" coords="257,80,308,107"/>
+<area shape="rect" id="node8" href="_classes_8h.html" title="Classes.h" alt="" coords="130,155,211,181"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5c38baf978c399ae8cc04df06da85c43"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_object3_d.html">Object3D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_main_8cpp.html#a5c38baf978c399ae8cc04df06da85c43">createObject</a> ()</td></tr>
-<tr class="separator:a5c38baf978c399ae8cc04df06da85c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b0b9e643edcb552ad38f8b687036659"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ortho_projection.html">OrthoProjection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_main_8cpp.html#a8b0b9e643edcb552ad38f8b687036659">createProjection</a> ()</td></tr>
-<tr class="separator:a8b0b9e643edcb552ad38f8b687036659"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0739e255d0ab5aaabeaea59a2e57f64"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_main_8cpp.html#ad0739e255d0ab5aaabeaea59a2e57f64">renderObject</a> (<a class="el" href="class_wireframe.html">Wireframe</a>)</td></tr>
-<tr class="separator:ad0739e255d0ab5aaabeaea59a2e57f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9dfa01f76820fc1c4908c305ccb7903"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_main_8cpp.html#af9dfa01f76820fc1c4908c305ccb7903">renderProjection</a> (<a class="el" href="class_ortho_projection.html">OrthoProjection</a>)</td></tr>
-<tr class="separator:af9dfa01f76820fc1c4908c305ccb7903"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
-<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+<tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c78b5af1e79bd9d8c8660a677d8379d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_main_8cpp.html#a1c78b5af1e79bd9d8c8660a677d8379d">check3D</a> ()</td></tr>
+<tr class="separator:a1c78b5af1e79bd9d8c8660a677d8379d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac40e3d324848f2c969794764a35076c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_plane_projection.html">PlaneProjection</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_main_8cpp.html#ac40e3d324848f2c969794764a35076c1">input3Dfile</a> (string filename)</td></tr>
+<tr class="separator:ac40e3d324848f2c969794764a35076c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af55dca22c340b42a2992f9f270495789"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_main_8cpp.html#af55dca22c340b42a2992f9f270495789">check2D</a> ()</td></tr>
+<tr class="separator:af55dca22c340b42a2992f9f270495789"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58dea5abaabfe7848670218ba390150a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_wireframe.html">Wireframe</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_main_8cpp.html#a58dea5abaabfe7848670218ba390150a">input2Dfile</a> (string filename)</td></tr>
+<tr class="separator:a58dea5abaabfe7848670218ba390150a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acab27e3306ac9a4a308e62f633e30e84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_plane_projection.html">PlaneProjection</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_main_8cpp.html#acab27e3306ac9a4a308e62f633e30e84">createObject</a> (<a class="el" href="class_object3_d.html">Object3D</a> *object, double plane[4])</td></tr>
+<tr class="separator:acab27e3306ac9a4a308e62f633e30e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5092f55af8fcb978372a0bf77aa69f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_wireframe.html">Wireframe</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_main_8cpp.html#aa5092f55af8fcb978372a0bf77aa69f6">createProjection</a> (<a class="el" href="class_projection2_d.html">Projection2D</a> *projection)</td></tr>
+<tr class="separator:aa5092f55af8fcb978372a0bf77aa69f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a5c38baf978c399ae8cc04df06da85c43"></a>
+<a class="anchor" id="af55dca22c340b42a2992f9f270495789"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_object3_d.html">Object3D</a> createObject </td>
+          <td class="memname">int check2D </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function shall make use of the gtk library, to interactively take input from the user and returns the 3D object created from the user input</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_main_8cpp_af55dca22c340b42a2992f9f270495789_cgraph.png" border="0" usemap="#_main_8cpp_af55dca22c340b42a2992f9f270495789_cgraph" alt=""/></div>
+<map name="_main_8cpp_af55dca22c340b42a2992f9f270495789_cgraph" id="_main_8cpp_af55dca22c340b42a2992f9f270495789_cgraph">
+<area shape="rect" id="node2" href="class_point.html#a6fffe55537a7cbe523ff4e1c33ddb9e5" title="Point::setCoordinatesAnd\lLabel" alt="" coords="128,5,299,47"/>
+<area shape="rect" id="node3" href="class_projection2_d.html#aa061602930f19acad32720f7067c58fa" title="Projection2D::create3D" alt="" coords="134,71,293,98"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a8b0b9e643edcb552ad38f8b687036659"></a>
+<a class="anchor" id="a1c78b5af1e79bd9d8c8660a677d8379d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_ortho_projection.html">OrthoProjection</a> createProjection </td>
+          <td class="memname">int check3D </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_main_8cpp_a1c78b5af1e79bd9d8c8660a677d8379d_cgraph.png" border="0" usemap="#_main_8cpp_a1c78b5af1e79bd9d8c8660a677d8379d_cgraph" alt=""/></div>
+<map name="_main_8cpp_a1c78b5af1e79bd9d8c8660a677d8379d_cgraph" id="_main_8cpp_a1c78b5af1e79bd9d8c8660a677d8379d_cgraph">
+<area shape="rect" id="node2" href="class_point.html#aa9e5bde544a36d44988c1d544ba4593f" title="Point::setCoordinates" alt="" coords="147,5,295,32"/>
+<area shape="rect" id="node3" href="class_object3_d.html#a7767ac8b73a117c8cd8cbdaf7c6f4699" title="Object3D::project3D" alt="" coords="151,56,292,83"/>
+<area shape="rect" id="node5" href="class_plane_projection.html#ac528e8dbd92be24628e136b10f4842f3" title="PlaneProjection::rotatePlane" alt="" coords="128,107,315,133"/>
+<area shape="rect" id="node4" href="class_point.html#a209c076529495ad94cf65b8a71d29913" title="Point::projectPoint" alt="" coords="363,56,492,83"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="acab27e3306ac9a4a308e62f633e30e84"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_plane_projection.html">PlaneProjection</a>* createObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_object3_d.html">Object3D</a> *&#160;</td>
+          <td class="paramname"><em>object</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>plane</em>[4]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function shall make use of the gtk library, to interactively take input from the user and returns the 3D object created from the user input</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_main_8cpp_acab27e3306ac9a4a308e62f633e30e84_cgraph.png" border="0" usemap="#_main_8cpp_acab27e3306ac9a4a308e62f633e30e84_cgraph" alt=""/></div>
+<map name="_main_8cpp_acab27e3306ac9a4a308e62f633e30e84_cgraph" id="_main_8cpp_acab27e3306ac9a4a308e62f633e30e84_cgraph">
+<area shape="rect" id="node2" href="class_plane_projection.html#ac528e8dbd92be24628e136b10f4842f3" title="PlaneProjection::rotatePlane" alt="" coords="149,5,336,32"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa5092f55af8fcb978372a0bf77aa69f6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_wireframe.html">Wireframe</a>* createProjection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_projection2_d.html">Projection2D</a> *&#160;</td>
+          <td class="paramname"><em>projection</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>This function shall make use of the gtk library, to interactively take input from the user, to form a 2D projection and returns the Projection created from the user input</p>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_main_8cpp_aa5092f55af8fcb978372a0bf77aa69f6_cgraph.png" border="0" usemap="#_main_8cpp_aa5092f55af8fcb978372a0bf77aa69f6_cgraph" alt=""/></div>
+<map name="_main_8cpp_aa5092f55af8fcb978372a0bf77aa69f6_cgraph" id="_main_8cpp_aa5092f55af8fcb978372a0bf77aa69f6_cgraph">
+<area shape="rect" id="node2" href="class_projection2_d.html#aa061602930f19acad32720f7067c58fa" title="Projection2D::create3D" alt="" coords="169,5,328,32"/>
+<area shape="rect" id="node3" href="class_point.html#aa9e5bde544a36d44988c1d544ba4593f" title="Point::setCoordinates" alt="" coords="175,56,323,83"/>
+<area shape="rect" id="node4" href="class_wireframe.html#ad348b2bb91519338ccdefa0401309a9b" title="Wireframe::normalise" alt="" coords="175,107,322,133"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
-<a class="anchor" id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
+<a class="anchor" id="a58dea5abaabfe7848670218ba390150a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_wireframe.html">Wireframe</a>* input2Dfile </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function to get input of 2D Projections from a file</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_main_8cpp_a58dea5abaabfe7848670218ba390150a_cgraph.png" border="0" usemap="#_main_8cpp_a58dea5abaabfe7848670218ba390150a_cgraph" alt=""/></div>
+<map name="_main_8cpp_a58dea5abaabfe7848670218ba390150a_cgraph" id="_main_8cpp_a58dea5abaabfe7848670218ba390150a_cgraph">
+<area shape="rect" id="node2" href="class_projection2_d.html#aa061602930f19acad32720f7067c58fa" title="Projection2D::create3D" alt="" coords="137,5,296,32"/>
+<area shape="rect" id="node3" href="class_point.html#aa9e5bde544a36d44988c1d544ba4593f" title="Point::setCoordinates" alt="" coords="143,56,291,83"/>
+<area shape="rect" id="node4" href="class_wireframe.html#ad348b2bb91519338ccdefa0401309a9b" title="Wireframe::normalise" alt="" coords="143,107,290,133"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac40e3d324848f2c969794764a35076c1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_plane_projection.html">PlaneProjection</a>* input3Dfile </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function to get input of the 3D Object from file</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_main_8cpp_ac40e3d324848f2c969794764a35076c1_cgraph.png" border="0" usemap="#_main_8cpp_ac40e3d324848f2c969794764a35076c1_cgraph" alt=""/></div>
+<map name="_main_8cpp_ac40e3d324848f2c969794764a35076c1_cgraph" id="_main_8cpp_ac40e3d324848f2c969794764a35076c1_cgraph">
+<area shape="rect" id="node2" href="class_point.html#a6fffe55537a7cbe523ff4e1c33ddb9e5" title="Point::setCoordinatesAnd\lLabel" alt="" coords="145,5,316,47"/>
+<area shape="rect" id="node3" href="class_object3_d.html#a7767ac8b73a117c8cd8cbdaf7c6f4699" title="Object3D::project3D" alt="" coords="160,71,301,98"/>
+<area shape="rect" id="node5" href="class_plane_projection.html#ac528e8dbd92be24628e136b10f4842f3" title="PlaneProjection::rotatePlane" alt="" coords="137,122,324,149"/>
+<area shape="rect" id="node4" href="class_point.html#a209c076529495ad94cf65b8a71d29913" title="Point::projectPoint" alt="" coords="372,71,501,98"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a0ddf1224851353fc92bfbff6f499fa97"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int main </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-<p>The main function shall be responsible for calling various other functions and instantiating the classes for using their functions</p>
-
-</div>
-</div>
-<a class="anchor" id="ad0739e255d0ab5aaabeaea59a2e57f64"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">int renderObject </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_wireframe.html">Wireframe</a>&#160;</td>
-          <td class="paramname"><em>frame</em></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
         </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function shall make use of opengl library to render the object, from the <a class="el" href="class_wireframe.html">Wireframe</a> instance passed in parameter.</p>
-
-</div>
-</div>
-<a class="anchor" id="af9dfa01f76820fc1c4908c305ccb7903"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">int renderProjection </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_ortho_projection.html">OrthoProjection</a>&#160;</td>
-          <td class="paramname"><em>projection</em></td><td>)</td>
           <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function shall make use of opengl library to render the object, from the <a class="el" href="class_ortho_projection.html">OrthoProjection</a> instance passed in parameter.</p>
+<p>The main function shall be responsible for calling various other functions and instantiating the classes for using their functions cop290</p>
 
 </div>
 </div>

@@ -78,6 +78,9 @@ int check3D() {
 }
 
 PlaneProjection* input3Dfile(string filename){
+    ///
+    /// Function to get input of the 3D Object from file
+    ///
     ifstream inFile (filename);
     string output;
     Object3D obj;
@@ -278,6 +281,9 @@ int check2D() {
 }
 
 Wireframe* input2Dfile(string filename){
+    ///
+    /// Function to get input of 2D Projections from a file
+    ///
     // ofstream inFile;
     cout <<"start" <<endl;
 	// inFile.open("example.txt");

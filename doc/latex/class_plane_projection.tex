@@ -1,0 +1,72 @@
+\hypertarget{class_plane_projection}{}\section{Plane\+Projection Class Reference}
+\label{class_plane_projection}\index{Plane\+Projection@{Plane\+Projection}}
+
+
+{\ttfamily \#include $<$Classes.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_plane_projection_ac528e8dbd92be24628e136b10f4842f3}{rotate\+Plane} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \hyperlink{class_point}{Point} $>$ \hyperlink{class_plane_projection_aa87b142fcdadad8437f3c733cba84e53}{vertices}
+\item 
+vector$<$ \hyperlink{class_edge}{Edge} $>$ \hyperlink{class_plane_projection_af0213c6d4a2dab2651f070215ebec049}{visible\+Edges}
+\item 
+vector$<$ \hyperlink{class_edge}{Edge} $>$ \hyperlink{class_plane_projection_ab66dbf817366f25e9e989f987d5f2c71}{hidden\+Edges}
+\item 
+double \hyperlink{class_plane_projection_a3741978f1a0ad2b5fcd6a1aac4678f93}{normal} \mbox{[}4\mbox{]}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{class_plane_projection_a6542b7d2d9923de0082284419edfa85a}{operator$<$$<$} (std\+::ostream \&out, const \hyperlink{class_plane_projection}{Plane\+Projection} \&plane)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class provides an abstraction for the 2D projection of a 3D object on a plane, that is calculated by the algorithm 
+
+\subsection{Member Function Documentation}
+\index{Plane\+Projection@{Plane\+Projection}!rotate\+Plane@{rotate\+Plane}}
+\index{rotate\+Plane@{rotate\+Plane}!Plane\+Projection@{Plane\+Projection}}
+\subsubsection[{\texorpdfstring{rotate\+Plane()}{rotatePlane()}}]{\setlength{\rightskip}{0pt plus 5cm}int Plane\+Projection\+::rotate\+Plane (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plane_projection_ac528e8dbd92be24628e136b10f4842f3}{}\label{class_plane_projection_ac528e8dbd92be24628e136b10f4842f3}
+Function to rotate the \hyperlink{class_plane_projection}{Plane\+Projection} instance so as to get the normal parallel to z-\/axis
+
+\subsection{Friends And Related Function Documentation}
+\index{Plane\+Projection@{Plane\+Projection}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Plane\+Projection@{Plane\+Projection}}
+\subsubsection[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{out, }
+\item[{const {\bf Plane\+Projection} \&}]{plane}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{class_plane_projection_a6542b7d2d9923de0082284419edfa85a}{}\label{class_plane_projection_a6542b7d2d9923de0082284419edfa85a}
+
+
+\subsection{Member Data Documentation}
+\index{Plane\+Projection@{Plane\+Projection}!hidden\+Edges@{hidden\+Edges}}
+\index{hidden\+Edges@{hidden\+Edges}!Plane\+Projection@{Plane\+Projection}}
+\subsubsection[{\texorpdfstring{hidden\+Edges}{hiddenEdges}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Edge}$>$ Plane\+Projection\+::hidden\+Edges}\hypertarget{class_plane_projection_ab66dbf817366f25e9e989f987d5f2c71}{}\label{class_plane_projection_ab66dbf817366f25e9e989f987d5f2c71}
+\index{Plane\+Projection@{Plane\+Projection}!normal@{normal}}
+\index{normal@{normal}!Plane\+Projection@{Plane\+Projection}}
+\subsubsection[{\texorpdfstring{normal}{normal}}]{\setlength{\rightskip}{0pt plus 5cm}double Plane\+Projection\+::normal\mbox{[}4\mbox{]}}\hypertarget{class_plane_projection_a3741978f1a0ad2b5fcd6a1aac4678f93}{}\label{class_plane_projection_a3741978f1a0ad2b5fcd6a1aac4678f93}
+\index{Plane\+Projection@{Plane\+Projection}!vertices@{vertices}}
+\index{vertices@{vertices}!Plane\+Projection@{Plane\+Projection}}
+\subsubsection[{\texorpdfstring{vertices}{vertices}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Point}$>$ Plane\+Projection\+::vertices}\hypertarget{class_plane_projection_aa87b142fcdadad8437f3c733cba84e53}{}\label{class_plane_projection_aa87b142fcdadad8437f3c733cba84e53}
+\index{Plane\+Projection@{Plane\+Projection}!visible\+Edges@{visible\+Edges}}
+\index{visible\+Edges@{visible\+Edges}!Plane\+Projection@{Plane\+Projection}}
+\subsubsection[{\texorpdfstring{visible\+Edges}{visibleEdges}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Edge}$>$ Plane\+Projection\+::visible\+Edges}\hypertarget{class_plane_projection_af0213c6d4a2dab2651f070215ebec049}{}\label{class_plane_projection_af0213c6d4a2dab2651f070215ebec049}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Packag\+E\+D/include/\hyperlink{_classes_8h}{Classes.\+h}\item 
+Packag\+E\+D/src/\hyperlink{_plane_projection_8cpp}{Plane\+Projection.\+cpp}\end{DoxyCompactItemize}

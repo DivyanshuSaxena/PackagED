@@ -1,11 +1,42 @@
 \hypertarget{_object3_d_8cpp}{}\section{Packag\+E\+D/src/\+Object3D.cpp File Reference}
 \label{_object3_d_8cpp}\index{Packag\+E\+D/src/\+Object3\+D.\+cpp@{Packag\+E\+D/src/\+Object3\+D.\+cpp}}
 {\ttfamily \#include \char`\"{}Classes.\+h\char`\"{}}\\*
-Include dependency graph for Object3\+D.\+cpp\+:
-\nopagebreak
+{\ttfamily \#include $<$Eigen/\+Dense$>$}\\*
+Include dependency graph for Object3\+D.\+cpp\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=223pt]{_object3_d_8cpp__incl}
+\includegraphics[width=350pt]{_object3_d_8cpp__incl}
 \end{center}
 \end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_object3_d_8cpp_a170b3e9f1c52cf37b8e9791daa3b67e6}{count\+Intersections} (Vector3d avertice, Vector3d bvertice, Vector3d dvertice, Vector3d evertice, Vector3d linevector)
+\item 
+Vector3d \hyperlink{_object3_d_8cpp_a1f02974f6d0fff470e1d9b655da6e42c}{intersect\+Lines} (\hyperlink{class_point}{Point} a, \hyperlink{class_point}{Point} b, Vector3d c, Vector3d d)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{Object3\+D.\+cpp@{Object3\+D.\+cpp}!count\+Intersections@{count\+Intersections}}
+\index{count\+Intersections@{count\+Intersections}!Object3\+D.\+cpp@{Object3\+D.\+cpp}}
+\subsubsection[{\texorpdfstring{count\+Intersections(\+Vector3d avertice, Vector3d bvertice, Vector3d dvertice, Vector3d evertice, Vector3d linevector)}{countIntersections(Vector3d avertice, Vector3d bvertice, Vector3d dvertice, Vector3d evertice, Vector3d linevector)}}]{\setlength{\rightskip}{0pt plus 5cm}int count\+Intersections (
+\begin{DoxyParamCaption}
+\item[{Vector3d}]{avertice, }
+\item[{Vector3d}]{bvertice, }
+\item[{Vector3d}]{dvertice, }
+\item[{Vector3d}]{evertice, }
+\item[{Vector3d}]{linevector}
+\end{DoxyParamCaption}
+)}\hypertarget{_object3_d_8cpp_a170b3e9f1c52cf37b8e9791daa3b67e6}{}\label{_object3_d_8cpp_a170b3e9f1c52cf37b8e9791daa3b67e6}
+Function to count intersections of the line originating from avertice in the direction of linevector, with the edges of a polygon, formed using bvertice, dvertice, evertice\index{Object3\+D.\+cpp@{Object3\+D.\+cpp}!intersect\+Lines@{intersect\+Lines}}
+\index{intersect\+Lines@{intersect\+Lines}!Object3\+D.\+cpp@{Object3\+D.\+cpp}}
+\subsubsection[{\texorpdfstring{intersect\+Lines(\+Point a, Point b, Vector3d c, Vector3d d)}{intersectLines(Point a, Point b, Vector3d c, Vector3d d)}}]{\setlength{\rightskip}{0pt plus 5cm}Vector3d intersect\+Lines (
+\begin{DoxyParamCaption}
+\item[{{\bf Point}}]{a, }
+\item[{{\bf Point}}]{b, }
+\item[{Vector3d}]{c, }
+\item[{Vector3d}]{d}
+\end{DoxyParamCaption}
+)}\hypertarget{_object3_d_8cpp_a1f02974f6d0fff470e1d9b655da6e42c}{}\label{_object3_d_8cpp_a1f02974f6d0fff470e1d9b655da6e42c}

@@ -1,0 +1,15 @@
+<map id="ProjectionWindow::ProjectionWindow" name="ProjectionWindow::ProjectionWindow">
+<area shape="rect" id="node2" href="$class_projection_window.html#a63deb52bcb4430a8b69433469a07e86a" title="ProjectionWindow::on\l_button_submit" alt="" coords="444,5,593,47"/>
+<area shape="rect" id="node4" href="$class_projection_window.html#a7c9820a913ddd148340de253f89d597d" title="ProjectionWindow::on\l_button_addpoint" alt="" coords="444,71,593,112"/>
+<area shape="rect" id="node5" href="$class_projection_window.html#acccff48ee21968a09a650530b88b83c7" title="ProjectionWindow::on\l_button_addedge" alt="" coords="247,256,396,297"/>
+<area shape="rect" id="node6" href="$class_projection_window.html#a3205f524a90213beffb9870b8fddd5e7" title="ProjectionWindow::on\l_button_addface" alt="" coords="247,321,396,363"/>
+<area shape="rect" id="node7" href="$class_projection_window.html#a6565002548ab838930bd4fd7b7a8e52e" title="ProjectionWindow::on\l_button_created" alt="" coords="247,191,396,232"/>
+<area shape="rect" id="node10" href="$class_projection_window.html#abac0b81445020f55b0bcfaf3a2548492" title="ProjectionWindow::on\l_custom_draw" alt="" coords="247,387,396,428"/>
+<area shape="rect" id="node11" href="$class_projection_window.html#ad8985e5ffa65b9e4fa4a17a2fc1680a5" title="ProjectionWindow::on\l_file_button" alt="" coords="247,125,396,167"/>
+<area shape="rect" id="node3" href="$class_point.html#a6fffe55537a7cbe523ff4e1c33ddb9e5" title="Point::setCoordinatesAnd\lLabel" alt="" coords="649,71,820,112"/>
+<area shape="rect" id="node8" href="$gui_8h.html#a20579b255f3974d5091c9a219ad58ad5" title="createObject" alt="" coords="471,193,567,219"/>
+<area shape="rect" id="node9" href="$class_plane_projection.html#ac528e8dbd92be24628e136b10f4842f3" title="PlaneProjection::rotatePlane" alt="" coords="641,190,828,217"/>
+<area shape="rect" id="node12" href="$_classes_8h.html#ac40e3d324848f2c969794764a35076c1" title="input3Dfile" alt="" coords="477,137,561,163"/>
+<area shape="rect" id="node13" href="$class_object3_d.html#a7767ac8b73a117c8cd8cbdaf7c6f4699" title="Object3D::project3D" alt="" coords="664,137,805,163"/>
+<area shape="rect" id="node14" href="$class_point.html#a209c076529495ad94cf65b8a71d29913" title="Point::projectPoint" alt="" coords="876,137,1005,163"/>
+</map>

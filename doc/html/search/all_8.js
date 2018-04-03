@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['raycasting',['rayCasting',['../class_object3_d.html#ad16d6c03084f03254058a628db58b07e',1,'Object3D']]],
-  ['readme_2emd',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
-  ['relativeposition',['relativePosition',['../class_point.html#a700201e1da138be7e3225b9d2bff50e9',1,'Point']]],
-  ['renderobject',['renderObject',['../_main_8cpp.html#ad0739e255d0ab5aaabeaea59a2e57f64',1,'Main.cpp']]],
-  ['renderprojection',['renderProjection',['../_main_8cpp.html#af9dfa01f76820fc1c4908c305ccb7903',1,'Main.cpp']]],
-  ['rotateobject',['rotateObject',['../class_object3_d.html#a476b3de610cb30be0b050b4701ba4701',1,'Object3D']]]
+  ['label',['label',['../class_point.html#a1e929419353f9bec46732af977adb55a',1,'Point']]],
+  ['labeltopointmap',['labeltopointmap',['../class_projection2_d.html#a0afd92ccd321bc86e6e019b4bec99fc8',1,'Projection2D']]]
 ];

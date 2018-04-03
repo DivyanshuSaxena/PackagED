@@ -63,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -83,7 +84,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_wireframe-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Wireframe Class Reference</div>  </div>
@@ -91,50 +94,166 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="_classes_8h_source.html">Classes.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for Wireframe:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_wireframe__coll__graph.png" border="0" usemap="#_wireframe_coll__map" alt="Collaboration graph"/></div>
-<map name="_wireframe_coll__map" id="_wireframe_coll__map">
-<area shape="rect" id="node2" href="class_edge.html" title="Edge" alt="" coords="86,109,138,136"/>
-<area shape="rect" id="node3" href="class_point.html" title="Point" alt="" coords="21,5,73,32"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a3ed1a5c8abc099d1eea1495b3b87e52e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_wireframe.html">Wireframe</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wireframe.html#a3ed1a5c8abc099d1eea1495b3b87e52e">projectFrame</a> ()</td></tr>
+<tr class="separator:a3ed1a5c8abc099d1eea1495b3b87e52e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad348b2bb91519338ccdefa0401309a9b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wireframe.html#ad348b2bb91519338ccdefa0401309a9b">normalise</a> ()</td></tr>
+<tr class="separator:ad348b2bb91519338ccdefa0401309a9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3fbb29a285e80d4d3448ea4e3e96d93"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wireframe.html#ad3fbb29a285e80d4d3448ea4e3e96d93">rotateFrame</a> (int)</td></tr>
+<tr class="separator:ad3fbb29a285e80d4d3448ea4e3e96d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aabbceba0ec194b6ec51c6881a97cd46a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wireframe.html#aabbceba0ec194b6ec51c6881a97cd46a">vertices</a> []</td></tr>
-<tr class="separator:aabbceba0ec194b6ec51c6881a97cd46a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a909822e1ff36d03b8b86052b7008bc98"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">Edge</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wireframe.html#a909822e1ff36d03b8b86052b7008bc98">edges</a> []</td></tr>
-<tr class="separator:a909822e1ff36d03b8b86052b7008bc98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a327766b43c4260925c0bacab853d02"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_point.html">Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wireframe.html#a8a327766b43c4260925c0bacab853d02">vertices</a></td></tr>
+<tr class="separator:a8a327766b43c4260925c0bacab853d02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef6867295610ed6d02a40c3e3b27700e"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_edge.html">Edge</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wireframe.html#aef6867295610ed6d02a40c3e3b27700e">edges</a></td></tr>
+<tr class="separator:aef6867295610ed6d02a40c3e3b27700e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bd14f3c6be92f087fddbbe7e4ddc344"><td class="memItemLeft" align="right" valign="top">vector&lt; vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wireframe.html#a0bd14f3c6be92f087fddbbe7e4ddc344">adjacencyMatrix</a></td></tr>
+<tr class="separator:a0bd14f3c6be92f087fddbbe7e4ddc344"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:ad074337c71dffaa7d1c65bf7ddf23e0e"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wireframe.html#ad074337c71dffaa7d1c65bf7ddf23e0e">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="class_wireframe.html">Wireframe</a> &amp;op)</td></tr>
+<tr class="separator:ad074337c71dffaa7d1c65bf7ddf23e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class is an abstraction for a <a class="el" href="class_wireframe.html">Wireframe</a> Model that will be generated by projecting the three Orthographic views </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ad348b2bb91519338ccdefa0401309a9b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Wireframe::normalise </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3ed1a5c8abc099d1eea1495b3b87e52e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_wireframe.html">Wireframe</a> * Wireframe::projectFrame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Project the frame on xz plane</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_wireframe_a3ed1a5c8abc099d1eea1495b3b87e52e_cgraph.png" border="0" usemap="#class_wireframe_a3ed1a5c8abc099d1eea1495b3b87e52e_cgraph" alt=""/></div>
+<map name="class_wireframe_a3ed1a5c8abc099d1eea1495b3b87e52e_cgraph" id="class_wireframe_a3ed1a5c8abc099d1eea1495b3b87e52e_cgraph">
+<area shape="rect" id="node2" href="class_point.html#a209c076529495ad94cf65b8a71d29913" title="Point::projectPoint" alt="" coords="220,5,349,32"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad3fbb29a285e80d4d3448ea4e3e96d93"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Wireframe::rotateFrame </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Rotate the <a class="el" href="class_wireframe.html">Wireframe</a> by ten degrees</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="ad074337c71dffaa7d1c65bf7ddf23e0e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_wireframe.html">Wireframe</a> &amp;&#160;</td>
+          <td class="paramname"><em>op</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a909822e1ff36d03b8b86052b7008bc98"></a>
+<a class="anchor" id="a0bd14f3c6be92f087fddbbe7e4ddc344"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_edge.html">Edge</a> Wireframe::edges[]</td>
+          <td class="memname">vector&lt;vector&lt;int&gt; &gt; Wireframe::adjacencyMatrix</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="aabbceba0ec194b6ec51c6881a97cd46a"></a>
+<a class="anchor" id="aef6867295610ed6d02a40c3e3b27700e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_point.html">Point</a> Wireframe::vertices[]</td>
+          <td class="memname">vector&lt;<a class="el" href="class_edge.html">Edge</a>&gt; Wireframe::edges</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a class="anchor" id="a8a327766b43c4260925c0bacab853d02"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="class_point.html">Point</a>&gt; Wireframe::vertices</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>PackagED/include/<a class="el" href="_classes_8h_source.html">Classes.h</a></li>
+<li>PackagED/src/<a class="el" href="_wireframe_8cpp.html">Wireframe.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

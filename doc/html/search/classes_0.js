@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['edge',['Edge',['../class_edge.html',1,'']]]
+  ['clusteredpoint',['ClusteredPoint',['../class_clustered_point.html',1,'']]],
+  ['constructwindow',['ConstructWindow',['../class_construct_window.html',1,'']]]
 ];

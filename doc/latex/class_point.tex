@@ -7,9 +7,15 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \hyperlink{class_point_aa9e5bde544a36d44988c1d544ba4593f}{set\+Coordinates} (double, double, double)
+\item 
+void \hyperlink{class_point_a6fffe55537a7cbe523ff4e1c33ddb9e5}{set\+Coordinates\+And\+Label} (double, double, double, string)
+\item 
 \hyperlink{class_point}{Point} \hyperlink{class_point_a209c076529495ad94cf65b8a71d29913}{project\+Point} (double\mbox{[}$\,$\mbox{]})
 \item 
 double \hyperlink{class_point_a700201e1da138be7e3225b9d2bff50e9}{relative\+Position} (double\mbox{[}$\,$\mbox{]})
+\item 
+bool \hyperlink{class_point_a72f122fa881e8d9c3ef5d509e6494c3b}{checkcollinear} (\hyperlink{class_point}{Point} $\ast$, \hyperlink{class_point}{Point} $\ast$)
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -19,6 +25,15 @@ double \hyperlink{class_point_ab99c56589bc8ad5fa5071387110a5bc7}{x}
 double \hyperlink{class_point_afa38be143ae800e6ad69ce8ed4df62d8}{y}
 \item 
 double \hyperlink{class_point_a05ba3b1dfcb19430582ae953cbbfbded}{z}
+\item 
+string \hyperlink{class_point_a1e929419353f9bec46732af977adb55a}{label}
+\item 
+int \hyperlink{class_point_a6995d9f9ed71b43b711347a3483eb3b9}{adjacency\+Index}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{class_point_a1296a1b72ce26e73895a0eba4ec65b1d}{operator$<$$<$} (std\+::ostream \&out, const \hyperlink{class_point}{Point} \&point)
 \end{DoxyCompactItemize}
 
 
@@ -26,7 +41,15 @@ double \hyperlink{class_point_a05ba3b1dfcb19430582ae953cbbfbded}{z}
 This class is an abstraction of a real-\/world 3D point. 
 
 \subsection{Member Function Documentation}
-\index{Point@{Point}!project\+Point@{project\+Point}}
+\index{Point@{Point}!checkcollinear@{checkcollinear}}
+\index{checkcollinear@{checkcollinear}!Point@{Point}}
+\subsubsection[{\texorpdfstring{checkcollinear(\+Point $\ast$, Point $\ast$)}{checkcollinear(Point *, Point *)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Point\+::checkcollinear (
+\begin{DoxyParamCaption}
+\item[{{\bf Point} $\ast$}]{a, }
+\item[{{\bf Point} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{class_point_a72f122fa881e8d9c3ef5d509e6494c3b}{}\label{class_point_a72f122fa881e8d9c3ef5d509e6494c3b}
+Function to check if the current Pint object is collinear with the points passed as parameters\index{Point@{Point}!project\+Point@{project\+Point}}
 \index{project\+Point@{project\+Point}!Point@{Point}}
 \subsubsection[{\texorpdfstring{project\+Point(double[])}{projectPoint(double[])}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point} Point\+::project\+Point (
 \begin{DoxyParamCaption}
@@ -40,9 +63,45 @@ Function to give the projection of the current calling object on the projection 
 \item[{double}]{plane\mbox{[}$\,$\mbox{]}}
 \end{DoxyParamCaption}
 )}\hypertarget{class_point_a700201e1da138be7e3225b9d2bff50e9}{}\label{class_point_a700201e1da138be7e3225b9d2bff50e9}
-Function to calculate the relative position of the current calling object w.\+r.\+t the passed parameter \char`\"{}plane\char`\"{}
+Function to calculate the relative position of the current calling object w.\+r.\+t the passed parameter \char`\"{}plane\char`\"{}\index{Point@{Point}!set\+Coordinates@{set\+Coordinates}}
+\index{set\+Coordinates@{set\+Coordinates}!Point@{Point}}
+\subsubsection[{\texorpdfstring{set\+Coordinates(double, double, double)}{setCoordinates(double, double, double)}}]{\setlength{\rightskip}{0pt plus 5cm}void Point\+::set\+Coordinates (
+\begin{DoxyParamCaption}
+\item[{double}]{t1, }
+\item[{double}]{t2, }
+\item[{double}]{t3}
+\end{DoxyParamCaption}
+)}\hypertarget{class_point_aa9e5bde544a36d44988c1d544ba4593f}{}\label{class_point_aa9e5bde544a36d44988c1d544ba4593f}
+Setter Function for \hyperlink{class_point}{Point} Class, to set coordinates\index{Point@{Point}!set\+Coordinates\+And\+Label@{set\+Coordinates\+And\+Label}}
+\index{set\+Coordinates\+And\+Label@{set\+Coordinates\+And\+Label}!Point@{Point}}
+\subsubsection[{\texorpdfstring{set\+Coordinates\+And\+Label(double, double, double, string)}{setCoordinatesAndLabel(double, double, double, string)}}]{\setlength{\rightskip}{0pt plus 5cm}void Point\+::set\+Coordinates\+And\+Label (
+\begin{DoxyParamCaption}
+\item[{double}]{t1, }
+\item[{double}]{t2, }
+\item[{double}]{t3, }
+\item[{string}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{class_point_a6fffe55537a7cbe523ff4e1c33ddb9e5}{}\label{class_point_a6fffe55537a7cbe523ff4e1c33ddb9e5}
+Setter Function for \hyperlink{class_point}{Point} Class, to set coordinates and label
+
+\subsection{Friends And Related Function Documentation}
+\index{Point@{Point}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Point@{Point}}
+\subsubsection[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{out, }
+\item[{const {\bf Point} \&}]{point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{class_point_a1296a1b72ce26e73895a0eba4ec65b1d}{}\label{class_point_a1296a1b72ce26e73895a0eba4ec65b1d}
+
 
 \subsection{Member Data Documentation}
+\index{Point@{Point}!adjacency\+Index@{adjacency\+Index}}
+\index{adjacency\+Index@{adjacency\+Index}!Point@{Point}}
+\subsubsection[{\texorpdfstring{adjacency\+Index}{adjacencyIndex}}]{\setlength{\rightskip}{0pt plus 5cm}int Point\+::adjacency\+Index}\hypertarget{class_point_a6995d9f9ed71b43b711347a3483eb3b9}{}\label{class_point_a6995d9f9ed71b43b711347a3483eb3b9}
+\index{Point@{Point}!label@{label}}
+\index{label@{label}!Point@{Point}}
+\subsubsection[{\texorpdfstring{label}{label}}]{\setlength{\rightskip}{0pt plus 5cm}string Point\+::label}\hypertarget{class_point_a1e929419353f9bec46732af977adb55a}{}\label{class_point_a1e929419353f9bec46732af977adb55a}
 \index{Point@{Point}!x@{x}}
 \index{x@{x}!Point@{Point}}
 \subsubsection[{\texorpdfstring{x}{x}}]{\setlength{\rightskip}{0pt plus 5cm}double Point\+::x}\hypertarget{class_point_ab99c56589bc8ad5fa5071387110a5bc7}{}\label{class_point_ab99c56589bc8ad5fa5071387110a5bc7}

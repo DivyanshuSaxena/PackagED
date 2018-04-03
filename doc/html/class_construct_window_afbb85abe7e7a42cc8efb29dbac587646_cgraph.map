@@ -1,0 +1,18 @@
+<map id="ConstructWindow::ConstructWindow" name="ConstructWindow::ConstructWindow">
+<area shape="rect" id="node2" href="$class_construct_window.html#a207140b364fbc6412fa488fd78c11071" title="ConstructWindow::on\l_custom_draw" alt="" coords="244,5,392,47"/>
+<area shape="rect" id="node5" href="$class_construct_window.html#a5dcaf37144ff4fc628256e77a9960577" title="ConstructWindow::on\l_button_submit" alt="" coords="244,71,392,112"/>
+<area shape="rect" id="node7" href="$class_construct_window.html#a8842011425ba1b731a4dae5d967a5ffd" title="ConstructWindow::on\l_button_addpoint" alt="" coords="244,136,392,177"/>
+<area shape="rect" id="node8" href="$class_construct_window.html#a3cb10b090a414f412670a3caf2cc6269" title="ConstructWindow::on\l_button_addlabel" alt="" coords="244,201,392,243"/>
+<area shape="rect" id="node9" href="$class_construct_window.html#aea4ae0b05b660bbaf1bf808822d851cc" title="ConstructWindow::on\l_button_addedge" alt="" coords="244,267,392,308"/>
+<area shape="rect" id="node10" href="$class_construct_window.html#a41da466f959938ac1f8bee034ab94b01" title="ConstructWindow::on\l_button_created" alt="" coords="244,332,392,373"/>
+<area shape="rect" id="node15" href="$class_construct_window.html#ae4f9ac332fbef78298b93379b8b9b8df" title="ConstructWindow::on\l_button_rotate" alt="" coords="244,463,392,504"/>
+<area shape="rect" id="node16" href="$class_construct_window.html#abb4ff002be0d1bdbe09fda5852b43ccd" title="ConstructWindow::on\l_file_button" alt="" coords="244,397,392,439"/>
+<area shape="rect" id="node3" href="$class_wireframe.html#a3ed1a5c8abc099d1eea1495b3b87e52e" title="Wireframe::projectFrame" alt="" coords="442,13,609,39"/>
+<area shape="rect" id="node4" href="$class_point.html#a209c076529495ad94cf65b8a71d29913" title="Point::projectPoint" alt="" coords="673,13,803,39"/>
+<area shape="rect" id="node6" href="$class_point.html#a6fffe55537a7cbe523ff4e1c33ddb9e5" title="Point::setCoordinatesAnd\lLabel" alt="" coords="440,136,611,177"/>
+<area shape="rect" id="node11" href="$gui_8h.html#ad5f87004ece886cd2a7407118fa10d8f" title="createProjection" alt="" coords="467,346,583,373"/>
+<area shape="rect" id="node12" href="$class_projection2_d.html#aa061602930f19acad32720f7067c58fa" title="Projection2D::create3D" alt="" coords="659,321,817,347"/>
+<area shape="rect" id="node13" href="$class_point.html#aa9e5bde544a36d44988c1d544ba4593f" title="Point::setCoordinates" alt="" coords="664,371,812,398"/>
+<area shape="rect" id="node14" href="$class_wireframe.html#ad348b2bb91519338ccdefa0401309a9b" title="Wireframe::normalise" alt="" coords="665,422,811,449"/>
+<area shape="rect" id="node17" href="$_classes_8h.html#a58dea5abaabfe7848670218ba390150a" title="input2Dfile" alt="" coords="483,397,567,423"/>
+</map>

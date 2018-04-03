@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['topview',['topview',['../class_projection2_d.html#a90079954379a766f60ba01ad393327ab',1,'Projection2D']]]
+  ['hiddenedges',['hiddenEdges',['../class_plane_projection.html#ab66dbf817366f25e9e989f987d5f2c71',1,'PlaneProjection']]]
 ];

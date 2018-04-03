@@ -4,6 +4,9 @@ MainWindow::MainWindow()
 : m_button_1("Project 3D Object on a Plane"),
   m_button_2("Construct Wireframe Orthographic Views")
 {
+  ///
+  /// Constructor for MainWindow
+  ///
   set_title("PackagED");
   set_border_width(12);
 
@@ -25,6 +28,9 @@ MainWindow::MainWindow()
 
 void MainWindow::on_button_numbered(const Glib::ustring& data) 
 {
+  ///
+  /// Function to call respective functions based on input by user
+  ///
   std::cout << data << " was pressed" << std::endl;
   if(data==std::string("1")){
     ProjectionWindow* pinput = new ProjectionWindow;

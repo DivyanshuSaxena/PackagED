@@ -21,6 +21,9 @@ ConstructWindow::ConstructWindow()
   m_right_rotate("Rotate Right"),
   m_add_file("Create Object")
 {
+  ///
+  /// The constructor for ConstructorWindow
+  ///
   front = new OrthoProjection;
   top = new OrthoProjection;
   side = new OrthoProjection;
@@ -141,6 +144,9 @@ ConstructWindow::ConstructWindow()
 
 void ConstructWindow::on_button_submit()
 {
+  ///
+  /// Function to submit ClusteredPoint, so as to enter the next point 
+  ///
   std::cout << "Entered text: " << m_entry_x.get_text() << m_entry_y.get_text() 
     << m_entry_z.get_text() << m_entry_label.get_text() << std::endl;
   Point p;
@@ -166,6 +172,9 @@ void ConstructWindow::on_button_submit()
 
 void ConstructWindow::on_button_addpoint()
 {
+  ///
+  /// Function to add a point to the previous ClusteredPoint
+  ///
   std::cout << "Entered text: " << m_entry_x.get_text() << m_entry_y.get_text() 
     << m_entry_z.get_text() << m_entry_label.get_text() << std::endl;
   Point p;
@@ -190,6 +199,9 @@ void ConstructWindow::on_button_addpoint()
 
 void ConstructWindow::on_button_addlabel()
 {
+  ///
+  /// Function to add label to the ClusteredPoint
+  ///
   std::cout << "Entered text: " << m_entry_x.get_text() << m_entry_y.get_text() 
     << m_entry_z.get_text() << m_entry_label.get_text() << std::endl;
   // this->m_entry_label.set_text("label");
@@ -205,6 +217,9 @@ void ConstructWindow::on_button_addlabel()
 
 void ConstructWindow::on_button_addedge()
 {
+  ///
+  /// Function to add a new edge to the projection
+  ///
   string label1 = std::string(m_edge_p1.get_text());
   string label2 = std::string(m_edge_p2.get_text());\
   OrthoProjection* currProjection;
@@ -242,6 +257,9 @@ void ConstructWindow::on_button_addedge()
 
 void ConstructWindow::on_button_created()
 {
+  ///
+  /// Create 3D Object
+  ///
   projection++;
   m_add_edge.set_sensitive(false);
   m_create.set_sensitive(false);
@@ -277,6 +295,9 @@ void ConstructWindow::on_button_created()
 
 void ConstructWindow::on_file_button()
 {
+  ///
+  /// Add file name for input
+  ///
   cout << "Input Name" << m_entry_file.get_text() << endl;
   std::string str = m_entry_file.get_text();
   object = input2Dfile(str);
@@ -286,6 +307,9 @@ void ConstructWindow::on_file_button()
 
 bool ConstructWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 {
+  ///
+  /// Function to draw the Wireframe Model
+  ///
   int width = m_area.get_allocated_width();  
   int height = m_area.get_allocated_height();  
   std::cout << "In oncdraw" << std::endl;
@@ -332,6 +356,9 @@ bool ConstructWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 
 void ConstructWindow::on_button_rotate(int type)
 {
+  ///
+  /// Rotate object based on the type passed aas parameter
+  ///
   object->rotateFrame(type);
   m_area.queue_draw();
 }

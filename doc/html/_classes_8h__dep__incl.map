@@ -1,7 +1,13 @@
 <map id="PackagED/include/Classes.h" name="PackagED/include/Classes.h">
-<area shape="rect" id="node2" href="$_main_8cpp.html" title="PackagED/src/Main.cpp" alt="" coords="5,87,169,114"/>
-<area shape="rect" id="node3" href="$_object3_d_8cpp.html" title="PackagED/src/Object3D.cpp" alt="" coords="193,87,384,114"/>
-<area shape="rect" id="node4" href="$_ortho_projection_8cpp.html" title="PackagED/src/OrthoProjection.cpp" alt="" coords="409,87,635,114"/>
-<area shape="rect" id="node5" href="$_point_8cpp.html" title="PackagED/src/Point.cpp" alt="" coords="660,87,827,114"/>
-<area shape="rect" id="node6" href="$_projection2_d_8cpp.html" title="PackagED/src/Projection2\lD.cpp" alt="" coords="851,80,1027,121"/>
+<area shape="rect" id="node2" href="$gui_8h.html" title="PackagED/include/gui.h" alt="" coords="340,87,503,114"/>
+<area shape="rect" id="node7" href="$_object3_d_8cpp.html" title="PackagED/src/Object3D.cpp" alt="" coords="527,87,718,114"/>
+<area shape="rect" id="node8" href="$_ortho_projection_8cpp.html" title="PackagED/src/OrthoProjection.cpp" alt="" coords="743,87,969,114"/>
+<area shape="rect" id="node9" href="$_plane_projection_8cpp.html" title="PackagED/src/PlaneProjection.cpp" alt="" coords="993,87,1220,114"/>
+<area shape="rect" id="node10" href="$_point_8cpp.html" title="PackagED/src/Point.cpp" alt="" coords="1245,87,1411,114"/>
+<area shape="rect" id="node11" href="$_projection2_d_8cpp.html" title="PackagED/src/Projection2\lD.cpp" alt="" coords="1436,80,1612,121"/>
+<area shape="rect" id="node12" href="$_wireframe_8cpp.html" title="PackagED/src/Wireframe.cpp" alt="" coords="1637,87,1833,114"/>
+<area shape="rect" id="node3" href="$_constructgui_8cpp.html" title="PackagED/src/Constructgui.cpp" alt="" coords="5,169,216,196"/>
+<area shape="rect" id="node4" href="$_main_8cpp.html" title="PackagED/src/Main.cpp" alt="" coords="241,169,405,196"/>
+<area shape="rect" id="node5" href="$_maingui_8cpp.html" title="PackagED/src/Maingui.cpp" alt="" coords="429,169,611,196"/>
+<area shape="rect" id="node6" href="$_projectgui_8cpp.html" title="PackagED/src/Projectgui.cpp" alt="" coords="635,169,829,196"/>
 </map>

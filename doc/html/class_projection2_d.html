@@ -63,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -91,21 +92,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Projection2D Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_classes_8h_source.html">Classes.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for Projection2D:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_projection2_d__coll__graph.png" border="0" usemap="#_projection2_d_coll__map" alt="Collaboration graph"/></div>
 <map name="_projection2_d_coll__map" id="_projection2_d_coll__map">
-<area shape="rect" id="node2" href="class_ortho_projection.html" title="OrthoProjection" alt="" coords="5,213,117,240"/>
-<area shape="rect" id="node3" href="class_edge.html" title="Edge" alt="" coords="101,109,153,136"/>
-<area shape="rect" id="node4" href="class_point.html" title="Point" alt="" coords="35,5,87,32"/>
+<area shape="rect" id="node2" href="class_ortho_projection.html" title="OrthoProjection" alt="" coords="5,5,117,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a02e2cbca6d928a05400597693cbb6a08"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection2_d.html#a02e2cbca6d928a05400597693cbb6a08">create3D</a> ()</td></tr>
-<tr class="separator:a02e2cbca6d928a05400597693cbb6a08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa061602930f19acad32720f7067c58fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_wireframe.html">Wireframe</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection2_d.html#aa061602930f19acad32720f7067c58fa">create3D</a> ()</td></tr>
+<tr class="separator:aa061602930f19acad32720f7067c58fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64751fc8527786d489d3e1f9dd613778"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection2_d.html#a64751fc8527786d489d3e1f9dd613778">chkif3edgesanddefthem</a> ()</td></tr>
+<tr class="separator:a64751fc8527786d489d3e1f9dd613778"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -113,23 +116,119 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a1eb4d010190b1bd62bf0f9c4e4afc88a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90079954379a766f60ba01ad393327ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ortho_projection.html">OrthoProjection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection2_d.html#a90079954379a766f60ba01ad393327ab">topview</a></td></tr>
 <tr class="separator:a90079954379a766f60ba01ad393327ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82c9e3f197b07ffe9a10f59de60edbee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ortho_projection.html">OrthoProjection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection2_d.html#a82c9e3f197b07ffe9a10f59de60edbee">sideview</a></td></tr>
+<tr class="separator:a82c9e3f197b07ffe9a10f59de60edbee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacafd767e5289005e7ec5d48c791d02f"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_point.html">Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection2_d.html#aacafd767e5289005e7ec5d48c791d02f">allpoints</a></td></tr>
+<tr class="separator:aacafd767e5289005e7ec5d48c791d02f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a4be368b0a7233a1aa93efe17c7314e"><td class="memItemLeft" align="right" valign="top">vector&lt; vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection2_d.html#a0a4be368b0a7233a1aa93efe17c7314e">adjacencyMatrix</a></td></tr>
+<tr class="separator:a0a4be368b0a7233a1aa93efe17c7314e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08675aad4022218dc78dd54187be18a9"><td class="memItemLeft" align="right" valign="top">map&lt; int, <a class="el" href="class_point.html">Point</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection2_d.html#a08675aad4022218dc78dd54187be18a9">indextopointmap</a></td></tr>
+<tr class="separator:a08675aad4022218dc78dd54187be18a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0afd92ccd321bc86e6e019b4bec99fc8"><td class="memItemLeft" align="right" valign="top">map&lt; string, <a class="el" href="class_point.html">Point</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection2_d.html#a0afd92ccd321bc86e6e019b4bec99fc8">labeltopointmap</a></td></tr>
+<tr class="separator:a0afd92ccd321bc86e6e019b4bec99fc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
+<tr class="memitem:a6be4ef41d013628ba91a3f1dbcc1f9bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection2_d.html#a6be4ef41d013628ba91a3f1dbcc1f9bf">determineIntersectedEdges</a> ()</td></tr>
+<tr class="separator:a6be4ef41d013628ba91a3f1dbcc1f9bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af65b18c0f1aed2c6bda79173ef6a0f5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection2_d.html#af65b18c0f1aed2c6bda79173ef6a0f5e">executeCorollary1onebyone</a> (<a class="el" href="class_ortho_projection.html">OrthoProjection</a> *, <a class="el" href="class_ortho_projection.html">OrthoProjection</a> *, <a class="el" href="class_ortho_projection.html">OrthoProjection</a> *)</td></tr>
+<tr class="separator:af65b18c0f1aed2c6bda79173ef6a0f5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7433a1a25a81f16a79c308d5dd7d98b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection2_d.html#a7433a1a25a81f16a79c308d5dd7d98b5">executeCorollary1</a> ()</td></tr>
+<tr class="separator:a7433a1a25a81f16a79c308d5dd7d98b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0185949b0711aa0a43bd2f66da9aaee7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection2_d.html#a0185949b0711aa0a43bd2f66da9aaee7">determinePoint</a> (<a class="el" href="class_point.html">Point</a>, <a class="el" href="class_point.html">Point</a>)</td></tr>
 <tr class="separator:a0185949b0711aa0a43bd2f66da9aaee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99c89f3a7125ea17ba260e6356c2307c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">Edge</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection2_d.html#a99c89f3a7125ea17ba260e6356c2307c">determineEdges</a> (<a class="el" href="class_point.html">Point</a>, <a class="el" href="class_point.html">Point</a>[], <a class="el" href="class_point.html">Point</a>[])</td></tr>
-<tr class="separator:a99c89f3a7125ea17ba260e6356c2307c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2972a56d0f0fa6a9d01576d7021180d"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_point.html">Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection2_d.html#af2972a56d0f0fa6a9d01576d7021180d">determineAllPoints</a> ()</td></tr>
+<tr class="separator:af2972a56d0f0fa6a9d01576d7021180d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5f6fe26ce1a18cb5de2fe87e6b0869e"><td class="memItemLeft" align="right" valign="top">pair&lt; vector&lt; <a class="el" href="class_edge.html">Edge</a> &gt;, vector&lt; vector&lt; int &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection2_d.html#ad5f6fe26ce1a18cb5de2fe87e6b0869e">determinePossibleEdges</a> (<a class="el" href="class_point.html">Point</a>, vector&lt; <a class="el" href="class_point.html">Point</a> &gt; *, vector&lt; <a class="el" href="class_point.html">Point</a> &gt; *)</td></tr>
+<tr class="separator:ad5f6fe26ce1a18cb5de2fe87e6b0869e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad277ae374c9340f41f821e3b23aa6c04"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection2_d.html#ad277ae374c9340f41f821e3b23aa6c04">numofpossibleedge</a> ()</td></tr>
+<tr class="separator:ad277ae374c9340f41f821e3b23aa6c04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9a959f2c44a1801687dda170ba0d5d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection2_d.html#af9a959f2c44a1801687dda170ba0d5d2">chkcollinearpossanddef</a> ()</td></tr>
+<tr class="separator:af9a959f2c44a1801687dda170ba0d5d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26179e263ee8be9bfbc260bedaea14c7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection2_d.html#a26179e263ee8be9bfbc260bedaea14c7">chkcollinearpossandposs</a> ()</td></tr>
+<tr class="separator:a26179e263ee8be9bfbc260bedaea14c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b26c1f31633d19a33bdf54e8c47d3d8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection2_d.html#a7b26c1f31633d19a33bdf54e8c47d3d8">chkposshasdefinother</a> ()</td></tr>
+<tr class="separator:a7b26c1f31633d19a33bdf54e8c47d3d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a209abc191321c5bdd970c57c68dd0ac8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection2_d.html#a209abc191321c5bdd970c57c68dd0ac8">printmatrix</a> (vector&lt; vector&lt; int &gt; &gt;)</td></tr>
+<tr class="separator:a209abc191321c5bdd970c57c68dd0ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class holds the 2D orthographic projections of a 3D object. </p>
+<div class="textblock"><p>This class holds the 2D orthographic projections of a 3D object. The orthographic views given by the user must be on the standard planes of reference. We describe our model, assuming that: 1. Top view is taken on x-y plane</p><ol type="1">
+<li>Front view must be taken on x-z plane </li>
+</ol>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a02e2cbca6d928a05400597693cbb6a08"></a>
+<a class="anchor" id="af9a959f2c44a1801687dda170ba0d5d2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Projection2D::chkcollinearpossanddef </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_projection2_d_af9a959f2c44a1801687dda170ba0d5d2_cgraph.png" border="0" usemap="#class_projection2_d_af9a959f2c44a1801687dda170ba0d5d2_cgraph" alt=""/></div>
+<map name="class_projection2_d_af9a959f2c44a1801687dda170ba0d5d2_cgraph" id="class_projection2_d_af9a959f2c44a1801687dda170ba0d5d2_cgraph">
+<area shape="rect" id="node2" href="class_point.html#a72f122fa881e8d9c3ef5d509e6494c3b" title="Point::checkcollinear" alt="" coords="295,5,437,32"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a26179e263ee8be9bfbc260bedaea14c7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Projection2D::chkcollinearpossandposs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_projection2_d_a26179e263ee8be9bfbc260bedaea14c7_cgraph.png" border="0" usemap="#class_projection2_d_a26179e263ee8be9bfbc260bedaea14c7_cgraph" alt=""/></div>
+<map name="class_projection2_d_a26179e263ee8be9bfbc260bedaea14c7_cgraph" id="class_projection2_d_a26179e263ee8be9bfbc260bedaea14c7_cgraph">
+<area shape="rect" id="node2" href="class_point.html#a72f122fa881e8d9c3ef5d509e6494c3b" title="Point::checkcollinear" alt="" coords="304,5,447,32"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a64751fc8527786d489d3e1f9dd613778"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Projection2D::create3D </td>
+          <td class="memname">void Projection2D::chkif3edgesanddefthem </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -139,7 +238,7 @@ Private Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a99c89f3a7125ea17ba260e6356c2307c"></a>
+<a class="anchor" id="a7b26c1f31633d19a33bdf54e8c47d3d8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -147,27 +246,10 @@ Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_edge.html">Edge</a> * Projection2D::determineEdges </td>
+          <td class="memname">bool Projection2D::chkposshasdefinother </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_point.html">Point</a>&#160;</td>
-          <td class="paramname"><em>vertex</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_point.html">Point</a>&#160;</td>
-          <td class="paramname"><em>topNeighbours</em>[], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_point.html">Point</a>&#160;</td>
-          <td class="paramname"><em>frontNeighbours</em>[]&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -176,7 +258,67 @@ Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>This function determines the edges containing the <a class="el" href="class_point.html">Point</a> vertex as one of the endpoints By interpreting its neighbours from the top view and front view</p>
+
+</div>
+</div>
+<a class="anchor" id="aa061602930f19acad32720f7067c58fa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_wireframe.html">Wireframe</a> Projection2D::create3D </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af2972a56d0f0fa6a9d01576d7021180d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; <a class="el" href="class_point.html">Point</a> &gt; Projection2D::determineAllPoints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6be4ef41d013628ba91a3f1dbcc1f9bf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Projection2D::determineIntersectedEdges </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -213,15 +355,246 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>This function extends the points from the top view and front view to give the 3D projection of the <a class="el" href="class_point.html">Point</a></p>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_projection2_d_a0185949b0711aa0a43bd2f66da9aaee7_cgraph.png" border="0" usemap="#class_projection2_d_a0185949b0711aa0a43bd2f66da9aaee7_cgraph" alt=""/></div>
+<map name="class_projection2_d_a0185949b0711aa0a43bd2f66da9aaee7_cgraph" id="class_projection2_d_a0185949b0711aa0a43bd2f66da9aaee7_cgraph">
+<area shape="rect" id="node2" href="class_point.html#a6fffe55537a7cbe523ff4e1c33ddb9e5" title="Point::setCoordinatesAnd\lLabel" alt="" coords="245,5,416,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad5f6fe26ce1a18cb5de2fe87e6b0869e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pair&lt; vector&lt; <a class="el" href="class_edge.html">Edge</a> &gt;, vector&lt; vector&lt; int &gt; &gt; &gt; Projection2D::determinePossibleEdges </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_point.html">Point</a>&#160;</td>
+          <td class="paramname"><em>vertex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; <a class="el" href="class_point.html">Point</a> &gt; *&#160;</td>
+          <td class="paramname"><em>topneighbourptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; <a class="el" href="class_point.html">Point</a> &gt; *&#160;</td>
+          <td class="paramname"><em>frontneighbourptr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function determines the edges containing the <a class="el" href="class_point.html">Point</a> vertex as one of the endpoints By interpreting its neighbours from the top view and front view</p>
+
+</div>
+</div>
+<a class="anchor" id="a7433a1a25a81f16a79c308d5dd7d98b5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Projection2D::executeCorollary1 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af65b18c0f1aed2c6bda79173ef6a0f5e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Projection2D::executeCorollary1onebyone </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_ortho_projection.html">OrthoProjection</a> *&#160;</td>
+          <td class="paramname"><em>view1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_ortho_projection.html">OrthoProjection</a> *&#160;</td>
+          <td class="paramname"><em>view2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_ortho_projection.html">OrthoProjection</a> *&#160;</td>
+          <td class="paramname"><em>view3</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_projection2_d_af65b18c0f1aed2c6bda79173ef6a0f5e_cgraph.png" border="0" usemap="#class_projection2_d_af65b18c0f1aed2c6bda79173ef6a0f5e_cgraph" alt=""/></div>
+<map name="class_projection2_d_af65b18c0f1aed2c6bda79173ef6a0f5e_cgraph" id="class_projection2_d_af65b18c0f1aed2c6bda79173ef6a0f5e_cgraph">
+<area shape="rect" id="node2" href="class_ortho_projection.html#a3ea4e487b02acea5c94814ae3c27e9c4" title="OrthoProjection::isConnected" alt="" coords="320,5,513,32"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad277ae374c9340f41f821e3b23aa6c04"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Projection2D::numofpossibleedge </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a209abc191321c5bdd970c57c68dd0ac8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Projection2D::printmatrix </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; vector&lt; int &gt; &gt;&#160;</td>
+          <td class="paramname"><em>thisone</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a0a4be368b0a7233a1aa93efe17c7314e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;vector&lt;int&gt; &gt; Projection2D::adjacencyMatrix</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aacafd767e5289005e7ec5d48c791d02f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="class_point.html">Point</a>&gt; Projection2D::allpoints</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a1eb4d010190b1bd62bf0f9c4e4afc88a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_ortho_projection.html">OrthoProjection</a> Projection2D::frontview</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a08675aad4022218dc78dd54187be18a9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;int, <a class="el" href="class_point.html">Point</a> *&gt; Projection2D::indextopointmap</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0afd92ccd321bc86e6e019b4bec99fc8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string, <a class="el" href="class_point.html">Point</a> *&gt; Projection2D::labeltopointmap</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a82c9e3f197b07ffe9a10f59de60edbee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_ortho_projection.html">OrthoProjection</a> Projection2D::sideview</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -240,7 +613,8 @@ Private Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>PackagED/include/<a class="el" href="_classes_8h_source.html">Classes.h</a></li>
 <li>PackagED/src/<a class="el" href="_projection2_d_8cpp.html">Projection2D.cpp</a></li>
 </ul>
 </div><!-- contents -->

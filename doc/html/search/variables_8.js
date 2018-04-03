@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['z',['z',['../class_point.html#a05ba3b1dfcb19430582ae953cbbfbded',1,'Point']]]
+  ['normal',['normal',['../class_plane_projection.html#a3741978f1a0ad2b5fcd6a1aac4678f93',1,'PlaneProjection']]]
 ];

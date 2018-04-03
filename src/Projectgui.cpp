@@ -18,6 +18,9 @@ ProjectionWindow::ProjectionWindow()
   m_create("Create Projection"),
   m_add_file("Create Projection")
 {
+  ///
+  /// The constructor for ProjectWindow
+  ///
   obj = new Object3D;
   pointsDone = false;
   create = false;
@@ -143,6 +146,9 @@ ProjectionWindow::ProjectionWindow()
 
 void ProjectionWindow::on_button_submit()
 {
+  ///
+  /// Submit Points and indicate that all points are done
+  ///
   std::cout << "Entered text: " << m_entry_x.get_text() << m_entry_y.get_text() 
     << m_entry_z.get_text() << m_entry_label.get_text() << std::endl;
   Point p;
@@ -160,6 +166,9 @@ void ProjectionWindow::on_button_submit()
 
 void ProjectionWindow::on_button_addpoint()
 {
+  ///
+  /// Add point to the 3D Object
+  ///
   std::cout << "Entered text: " << m_entry_x.get_text() << m_entry_y.get_text() 
     << m_entry_z.get_text() << m_entry_label.get_text() << std::endl;
   Point p;
@@ -177,6 +186,9 @@ void ProjectionWindow::on_button_addpoint()
 
 void ProjectionWindow::on_button_addedge()
 {
+  ///
+  /// Add a new edge to the 3D Object
+  ///
   string label1 = std::string(m_edge_p1.get_text());
   string label2 = std::string(m_edge_p2.get_text());
   auto it1 = find_if(obj->vertices.begin(),obj->vertices.end(),
@@ -195,6 +207,9 @@ void ProjectionWindow::on_button_addedge()
 
 void ProjectionWindow::on_button_addface()
 {
+  ///
+  /// Add faces to the 3D Object
+  ///
   int len = obj->vertices.size();
   Face face;
   if(this->init) {
@@ -219,6 +234,9 @@ void ProjectionWindow::on_button_addface()
 
 void ProjectionWindow::on_button_created()
 {
+  ///
+  /// Create the projection when all inputs are done
+  ///
   plane[0] = atof(m_entry_a.get_text().c_str());
   plane[1] = atof(m_entry_b.get_text().c_str());
   plane[2] = atof(m_entry_c.get_text().c_str());
@@ -234,6 +252,9 @@ void ProjectionWindow::on_button_created()
 
 void ProjectionWindow::on_file_button()
 {
+  ///
+  /// Function to add file input
+  ///
   cout << "File Name: " << m_entry_file.get_text() << endl;
   std::string str = m_entry_file.get_text();
   output = new PlaneProjection;
@@ -245,6 +266,9 @@ void ProjectionWindow::on_file_button()
 
 bool ProjectionWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 {
+  ///
+  /// Function to draw the projection of the Object
+  ///
   int width = m_area.get_allocated_width();  
   int height = m_area.get_allocated_height();  
   std::cout << "In oncdraw" << std::endl;

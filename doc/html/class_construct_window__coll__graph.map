@@ -1,0 +1,6 @@
+<map id="ConstructWindow" name="ConstructWindow">
+<area shape="rect" id="node3" href="$class_ortho_projection.html" title="OrthoProjection" alt="" coords="103,5,215,32"/>
+<area shape="rect" id="node6" href="$class_projection2_d.html" title="Projection2D" alt="" coords="178,133,275,159"/>
+<area shape="rect" id="node4" href="$class_clustered_point.html" title="ClusteredPoint" alt="" coords="299,133,407,159"/>
+<area shape="rect" id="node5" href="$class_wireframe.html" title="Wireframe" alt="" coords="432,133,515,159"/>
+</map>

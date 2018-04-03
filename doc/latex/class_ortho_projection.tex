@@ -4,55 +4,84 @@
 
 {\ttfamily \#include $<$Classes.\+h$>$}
 
-
-
-Collaboration diagram for Ortho\+Projection\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=211pt]{class_ortho_projection__coll__graph}
-\end{center}
-\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_point}{Point} $\ast$ \hyperlink{class_ortho_projection_aa0634b80a904634451f03a11db28c33d}{possible\+Neighbours} (\hyperlink{class_point}{Point})
+vector$<$ \hyperlink{class_point}{Point} $>$ \hyperlink{class_ortho_projection_a1c40817f0da02d0c1f9ee1c51c142473}{possible\+Neighbours} (\hyperlink{class_point}{Point})
+\item 
+vector$<$ \hyperlink{class_point}{Point} $>$ \hyperlink{class_ortho_projection_a7011d0bf2d7851c1aecc990f95cb65d7}{sameclusterpoints} (\hyperlink{class_point}{Point})
+\item 
+vector$<$ \hyperlink{class_point}{Point} $>$ \hyperlink{class_ortho_projection_ae521048f34f0cd5521c889b43c7ee101}{sameclusterpointsincluded} (\hyperlink{class_point}{Point})
+\item 
+bool \hyperlink{class_ortho_projection_a3ea4e487b02acea5c94814ae3c27e9c4}{is\+Connected} (string, string)
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_point}{Point} \hyperlink{class_ortho_projection_a66b7e72014671cf35f4c6728b7baeec6}{vertices} \mbox{[}$\,$\mbox{]}
+vector$<$ \hyperlink{class_clustered_point}{Clustered\+Point} $>$ \hyperlink{class_ortho_projection_ada31a302b74c5539788b9f2573c1a0a4}{vertices}
 \item 
-\hyperlink{class_edge}{Edge} \hyperlink{class_ortho_projection_a8903896a5a8facc50585ea50584617a1}{visible\+Edges} \mbox{[}$\,$\mbox{]}
+vector$<$ \hyperlink{class_edge2_d}{Edge2D} $>$ \hyperlink{class_ortho_projection_ae2512ad3cf754d708b2c8976806b4400}{edges}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_edge}{Edge} \hyperlink{class_ortho_projection_af5ebfefeb5cbc7ba0373697161ce27da}{hidden\+Edges} \mbox{[}$\,$\mbox{]}
+std\+::ostream \& \hyperlink{class_ortho_projection_a250fd609c6cbab151eddb3795f794ab5}{operator$<$$<$} (std\+::ostream \&out, const \hyperlink{class_ortho_projection}{Ortho\+Projection} \&op)
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-This class provides an abstraction for the 2D projection of a 3D object on a plane. 
+This class provides an abstraction for the 2D projection of a 3D object on a plane, that is supposed to be entered by user. 
 
 \subsection{Member Function Documentation}
+\index{Ortho\+Projection@{Ortho\+Projection}!is\+Connected@{is\+Connected}}
+\index{is\+Connected@{is\+Connected}!Ortho\+Projection@{Ortho\+Projection}}
+\subsubsection[{\texorpdfstring{is\+Connected(string, string)}{isConnected(string, string)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Ortho\+Projection\+::is\+Connected (
+\begin{DoxyParamCaption}
+\item[{string}]{s1, }
+\item[{string}]{s2}
+\end{DoxyParamCaption}
+)}\hypertarget{class_ortho_projection_a3ea4e487b02acea5c94814ae3c27e9c4}{}\label{class_ortho_projection_a3ea4e487b02acea5c94814ae3c27e9c4}
 \index{Ortho\+Projection@{Ortho\+Projection}!possible\+Neighbours@{possible\+Neighbours}}
 \index{possible\+Neighbours@{possible\+Neighbours}!Ortho\+Projection@{Ortho\+Projection}}
-\subsubsection[{\texorpdfstring{possible\+Neighbours(\+Point)}{possibleNeighbours(Point)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point} $\ast$ Ortho\+Projection\+::possible\+Neighbours (
+\subsubsection[{\texorpdfstring{possible\+Neighbours(\+Point)}{possibleNeighbours(Point)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Point} $>$ Ortho\+Projection\+::possible\+Neighbours (
 \begin{DoxyParamCaption}
 \item[{{\bf Point}}]{point}
 \end{DoxyParamCaption}
-)}\hypertarget{class_ortho_projection_aa0634b80a904634451f03a11db28c33d}{}\label{class_ortho_projection_aa0634b80a904634451f03a11db28c33d}
-Function that returns a list of possible neighbors of the point passed in parameter, from the current orthographic projection
+)}\hypertarget{class_ortho_projection_a1c40817f0da02d0c1f9ee1c51c142473}{}\label{class_ortho_projection_a1c40817f0da02d0c1f9ee1c51c142473}
+Function that returns a list of possible neighbors of the point passed in parameter, from the current orthographic projection\index{Ortho\+Projection@{Ortho\+Projection}!sameclusterpoints@{sameclusterpoints}}
+\index{sameclusterpoints@{sameclusterpoints}!Ortho\+Projection@{Ortho\+Projection}}
+\subsubsection[{\texorpdfstring{sameclusterpoints(\+Point)}{sameclusterpoints(Point)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Point} $>$ Ortho\+Projection\+::sameclusterpoints (
+\begin{DoxyParamCaption}
+\item[{{\bf Point}}]{point}
+\end{DoxyParamCaption}
+)}\hypertarget{class_ortho_projection_a7011d0bf2d7851c1aecc990f95cb65d7}{}\label{class_ortho_projection_a7011d0bf2d7851c1aecc990f95cb65d7}
+Function to evaluate the points that are in the same cluster as the passed point\index{Ortho\+Projection@{Ortho\+Projection}!sameclusterpointsincluded@{sameclusterpointsincluded}}
+\index{sameclusterpointsincluded@{sameclusterpointsincluded}!Ortho\+Projection@{Ortho\+Projection}}
+\subsubsection[{\texorpdfstring{sameclusterpointsincluded(\+Point)}{sameclusterpointsincluded(Point)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Point} $>$ Ortho\+Projection\+::sameclusterpointsincluded (
+\begin{DoxyParamCaption}
+\item[{{\bf Point}}]{point}
+\end{DoxyParamCaption}
+)}\hypertarget{class_ortho_projection_ae521048f34f0cd5521c889b43c7ee101}{}\label{class_ortho_projection_ae521048f34f0cd5521c889b43c7ee101}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{Ortho\+Projection@{Ortho\+Projection}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Ortho\+Projection@{Ortho\+Projection}}
+\subsubsection[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::ostream \&}]{out, }
+\item[{const {\bf Ortho\+Projection} \&}]{op}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{class_ortho_projection_a250fd609c6cbab151eddb3795f794ab5}{}\label{class_ortho_projection_a250fd609c6cbab151eddb3795f794ab5}
+
 
 \subsection{Member Data Documentation}
-\index{Ortho\+Projection@{Ortho\+Projection}!hidden\+Edges@{hidden\+Edges}}
-\index{hidden\+Edges@{hidden\+Edges}!Ortho\+Projection@{Ortho\+Projection}}
-\subsubsection[{\texorpdfstring{hidden\+Edges}{hiddenEdges}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Edge} Ortho\+Projection\+::hidden\+Edges\mbox{[}$\,$\mbox{]}}\hypertarget{class_ortho_projection_af5ebfefeb5cbc7ba0373697161ce27da}{}\label{class_ortho_projection_af5ebfefeb5cbc7ba0373697161ce27da}
+\index{Ortho\+Projection@{Ortho\+Projection}!edges@{edges}}
+\index{edges@{edges}!Ortho\+Projection@{Ortho\+Projection}}
+\subsubsection[{\texorpdfstring{edges}{edges}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Edge2D}$>$ Ortho\+Projection\+::edges}\hypertarget{class_ortho_projection_ae2512ad3cf754d708b2c8976806b4400}{}\label{class_ortho_projection_ae2512ad3cf754d708b2c8976806b4400}
 \index{Ortho\+Projection@{Ortho\+Projection}!vertices@{vertices}}
 \index{vertices@{vertices}!Ortho\+Projection@{Ortho\+Projection}}
-\subsubsection[{\texorpdfstring{vertices}{vertices}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point} Ortho\+Projection\+::vertices\mbox{[}$\,$\mbox{]}}\hypertarget{class_ortho_projection_a66b7e72014671cf35f4c6728b7baeec6}{}\label{class_ortho_projection_a66b7e72014671cf35f4c6728b7baeec6}
-\index{Ortho\+Projection@{Ortho\+Projection}!visible\+Edges@{visible\+Edges}}
-\index{visible\+Edges@{visible\+Edges}!Ortho\+Projection@{Ortho\+Projection}}
-\subsubsection[{\texorpdfstring{visible\+Edges}{visibleEdges}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Edge} Ortho\+Projection\+::visible\+Edges\mbox{[}$\,$\mbox{]}}\hypertarget{class_ortho_projection_a8903896a5a8facc50585ea50584617a1}{}\label{class_ortho_projection_a8903896a5a8facc50585ea50584617a1}
+\subsubsection[{\texorpdfstring{vertices}{vertices}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Clustered\+Point}$>$ Ortho\+Projection\+::vertices}\hypertarget{class_ortho_projection_ada31a302b74c5539788b9f2573c1a0a4}{}\label{class_ortho_projection_ada31a302b74c5539788b9f2573c1a0a4}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

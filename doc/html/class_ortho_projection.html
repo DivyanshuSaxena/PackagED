@@ -63,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -85,6 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_ortho_projection-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">OrthoProjection Class Reference</div>  </div>
@@ -92,39 +94,65 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="_classes_8h_source.html">Classes.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for OrthoProjection:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_ortho_projection__coll__graph.png" border="0" usemap="#_ortho_projection_coll__map" alt="Collaboration graph"/></div>
-<map name="_ortho_projection_coll__map" id="_ortho_projection_coll__map">
-<area shape="rect" id="node2" href="class_edge.html" title="Edge" alt="" coords="101,109,153,136"/>
-<area shape="rect" id="node3" href="class_point.html" title="Point" alt="" coords="35,5,87,32"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa0634b80a904634451f03a11db28c33d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ortho_projection.html#aa0634b80a904634451f03a11db28c33d">possibleNeighbours</a> (<a class="el" href="class_point.html">Point</a>)</td></tr>
-<tr class="separator:aa0634b80a904634451f03a11db28c33d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c40817f0da02d0c1f9ee1c51c142473"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_point.html">Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ortho_projection.html#a1c40817f0da02d0c1f9ee1c51c142473">possibleNeighbours</a> (<a class="el" href="class_point.html">Point</a>)</td></tr>
+<tr class="separator:a1c40817f0da02d0c1f9ee1c51c142473"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7011d0bf2d7851c1aecc990f95cb65d7"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_point.html">Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ortho_projection.html#a7011d0bf2d7851c1aecc990f95cb65d7">sameclusterpoints</a> (<a class="el" href="class_point.html">Point</a>)</td></tr>
+<tr class="separator:a7011d0bf2d7851c1aecc990f95cb65d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae521048f34f0cd5521c889b43c7ee101"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_point.html">Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ortho_projection.html#ae521048f34f0cd5521c889b43c7ee101">sameclusterpointsincluded</a> (<a class="el" href="class_point.html">Point</a>)</td></tr>
+<tr class="separator:ae521048f34f0cd5521c889b43c7ee101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ea4e487b02acea5c94814ae3c27e9c4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ortho_projection.html#a3ea4e487b02acea5c94814ae3c27e9c4">isConnected</a> (string, string)</td></tr>
+<tr class="separator:a3ea4e487b02acea5c94814ae3c27e9c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a66b7e72014671cf35f4c6728b7baeec6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ortho_projection.html#a66b7e72014671cf35f4c6728b7baeec6">vertices</a> []</td></tr>
-<tr class="separator:a66b7e72014671cf35f4c6728b7baeec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8903896a5a8facc50585ea50584617a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">Edge</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ortho_projection.html#a8903896a5a8facc50585ea50584617a1">visibleEdges</a> []</td></tr>
-<tr class="separator:a8903896a5a8facc50585ea50584617a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5ebfefeb5cbc7ba0373697161ce27da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">Edge</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ortho_projection.html#af5ebfefeb5cbc7ba0373697161ce27da">hiddenEdges</a> []</td></tr>
-<tr class="separator:af5ebfefeb5cbc7ba0373697161ce27da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada31a302b74c5539788b9f2573c1a0a4"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_clustered_point.html">ClusteredPoint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ortho_projection.html#ada31a302b74c5539788b9f2573c1a0a4">vertices</a></td></tr>
+<tr class="separator:ada31a302b74c5539788b9f2573c1a0a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2512ad3cf754d708b2c8976806b4400"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_edge2_d.html">Edge2D</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ortho_projection.html#ae2512ad3cf754d708b2c8976806b4400">edges</a></td></tr>
+<tr class="separator:ae2512ad3cf754d708b2c8976806b4400"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a250fd609c6cbab151eddb3795f794ab5"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ortho_projection.html#a250fd609c6cbab151eddb3795f794ab5">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="class_ortho_projection.html">OrthoProjection</a> &amp;op)</td></tr>
+<tr class="separator:a250fd609c6cbab151eddb3795f794ab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class provides an abstraction for the 2D projection of a 3D object on a plane. </p>
+<div class="textblock"><p>This class provides an abstraction for the 2D projection of a 3D object on a plane, that is supposed to be entered by user. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aa0634b80a904634451f03a11db28c33d"></a>
+<a class="anchor" id="a3ea4e487b02acea5c94814ae3c27e9c4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_point.html">Point</a> * OrthoProjection::possibleNeighbours </td>
+          <td class="memname">bool OrthoProjection::isConnected </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>s1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>s2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1c40817f0da02d0c1f9ee1c51c142473"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; <a class="el" href="class_point.html">Point</a> &gt; OrthoProjection::possibleNeighbours </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_point.html">Point</a>&#160;</td>
           <td class="paramname"><em>point</em></td><td>)</td>
@@ -136,37 +164,93 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a7011d0bf2d7851c1aecc990f95cb65d7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; <a class="el" href="class_point.html">Point</a> &gt; OrthoProjection::sameclusterpoints </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_point.html">Point</a>&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function to evaluate the points that are in the same cluster as the passed point</p>
+
+</div>
+</div>
+<a class="anchor" id="ae521048f34f0cd5521c889b43c7ee101"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; <a class="el" href="class_point.html">Point</a> &gt; OrthoProjection::sameclusterpointsincluded </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_point.html">Point</a>&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="a250fd609c6cbab151eddb3795f794ab5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_ortho_projection.html">OrthoProjection</a> &amp;&#160;</td>
+          <td class="paramname"><em>op</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="af5ebfefeb5cbc7ba0373697161ce27da"></a>
+<a class="anchor" id="ae2512ad3cf754d708b2c8976806b4400"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_edge.html">Edge</a> OrthoProjection::hiddenEdges[]</td>
+          <td class="memname">vector&lt;<a class="el" href="class_edge2_d.html">Edge2D</a>&gt; OrthoProjection::edges</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a66b7e72014671cf35f4c6728b7baeec6"></a>
+<a class="anchor" id="ada31a302b74c5539788b9f2573c1a0a4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_point.html">Point</a> OrthoProjection::vertices[]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a8903896a5a8facc50585ea50584617a1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_edge.html">Edge</a> OrthoProjection::visibleEdges[]</td>
+          <td class="memname">vector&lt;<a class="el" href="class_clustered_point.html">ClusteredPoint</a>&gt; OrthoProjection::vertices</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -63,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -84,6 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_face-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Face Class Reference</div>  </div>
@@ -91,29 +93,61 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="_classes_8h_source.html">Classes.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for Face:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_face__coll__graph.png" border="0" usemap="#_face_coll__map" alt="Collaboration graph"/></div>
-<map name="_face_coll__map" id="_face_coll__map">
-<area shape="rect" id="node2" href="class_point.html" title="Point" alt="" coords="5,5,57,32"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:acb5b50d81748e6dcbab0a533b336f534"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face.html#acb5b50d81748e6dcbab0a533b336f534">vertices</a> []</td></tr>
-<tr class="separator:acb5b50d81748e6dcbab0a533b336f534"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a143cb19243f02eae4ba5784c0d72e47b"><td class="memItemLeft" align="right" valign="top">vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face.html#a143cb19243f02eae4ba5784c0d72e47b">vertices</a></td></tr>
+<tr class="separator:a143cb19243f02eae4ba5784c0d72e47b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a1c05a6b4dfdc5dfc598b70a65b3a05e7"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face.html#a1c05a6b4dfdc5dfc598b70a65b3a05e7">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="class_face.html">Face</a> &amp;face)</td></tr>
+<tr class="separator:a1c05a6b4dfdc5dfc598b70a65b3a05e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class is the abstraction to represent the faces of a 3D object. </p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="acb5b50d81748e6dcbab0a533b336f534"></a>
+</div><h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="a1c05a6b4dfdc5dfc598b70a65b3a05e7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_face.html">Face</a> &amp;&#160;</td>
+          <td class="paramname"><em>face</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a143cb19243f02eae4ba5784c0d72e47b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_point.html">Point</a> Face::vertices[]</td>
+          <td class="memname">vector&lt;int&gt; Face::vertices</td>
         </tr>
       </table>
 </div><div class="memdoc">

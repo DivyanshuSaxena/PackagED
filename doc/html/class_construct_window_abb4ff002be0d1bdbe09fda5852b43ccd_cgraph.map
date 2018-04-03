@@ -1,0 +1,6 @@
+<map id="ConstructWindow::on_file_button" name="ConstructWindow::on_file_button">
+<area shape="rect" id="node2" href="$_classes_8h.html#a58dea5abaabfe7848670218ba390150a" title="input2Dfile" alt="" coords="201,56,285,83"/>
+<area shape="rect" id="node3" href="$class_projection2_d.html#aa061602930f19acad32720f7067c58fa" title="Projection2D::create3D" alt="" coords="333,5,492,32"/>
+<area shape="rect" id="node4" href="$class_point.html#aa9e5bde544a36d44988c1d544ba4593f" title="Point::setCoordinates" alt="" coords="339,56,487,83"/>
+<area shape="rect" id="node5" href="$class_wireframe.html#ad348b2bb91519338ccdefa0401309a9b" title="Wireframe::normalise" alt="" coords="339,107,486,133"/>
+</map>

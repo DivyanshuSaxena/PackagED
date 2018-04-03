@@ -5,12 +5,18 @@
 using namespace Eigen;
 
 void Point::setCoordinates(double t1, double t2, double t3){
+	///
+	/// Setter Function for Point Class, to set coordinates
+	///
 	x=t1;
 	y=t2;
 	z=t3;
 }
 
 void Point::setCoordinatesAndLabel(double t1,double t2,double t3,string s){
+	///
+	/// Setter Function for Point Class, to set coordinates and label
+	///
 	x=t1;
 	y=t2;
 	z=t3;
@@ -45,12 +51,15 @@ double Point::relativePosition(double plane[]) {
 	double t = ((a*x+b*y+c*z-d)/(a*a+b*b+c*c));
 	return t;
 }
+
 bool Point::checkcollinear(Point * a, Point * b){
+	///
+	/// Function to check if the current Pint object is collinear with the points passed as parameters
+	///
 	Vector3d v1(x, y, z);
 	Vector3d v2(a->x, a->y, a->z);
 	Vector3d v3(b->x, b->y, b->z);
 	Vector3d v4 = (v2-v1).cross(v3-v1);
 	double k = v4.dot(v4);
 	return (k<0.00001);
-
 }
