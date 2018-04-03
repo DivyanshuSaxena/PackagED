@@ -319,6 +319,7 @@ bool ProjectionWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)
     }
     cr->stroke();
     cr->restore();
+    cr->set_line_width(4.0);
     for(int i = 0; i < output->visibleEdges.size(); i++) {
       cr->move_to((output->visibleEdges[i].p1.x)*factor + xc, (output->visibleEdges[i].p1.y)*factor + yc);
       cr->line_to((output->visibleEdges[i].p2.x)*factor + xc, (output->visibleEdges[i].p2.y)*factor + yc);
