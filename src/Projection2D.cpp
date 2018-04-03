@@ -5,6 +5,9 @@ using namespace std;
 using namespace Eigen;
 
 Wireframe Projection2D::create3D(){
+    ///
+    /// Function that creates the wireframe model from the 2d orthographic views
+    ///
     cout << "lets start"<<endl;
     allpoints = determineAllPoints();
     cout <<"adjacencyMatrix point" <<endl;
@@ -76,6 +79,9 @@ Wireframe Projection2D::create3D(){
 //doublecalculaedpossibleedges has all the edges calculated twice now
 
 vector<Point> Projection2D::determineAllPoints(){
+    ///
+    /// Function to determine points by intersection of the corresponding points from topview and frontview
+    ///
     vector<Point> answer;    
     for(auto it=(frontview.vertices.begin());it!=frontview.vertices.end();it++){
         for(auto nestit=(it->points.begin());nestit!=it->points.end();nestit++){
@@ -227,6 +233,9 @@ pair <vector<Edge>, vector<vector<int> > > Projection2D::determinePossibleEdges(
 }
 
 void Projection2D::determineIntersectedEdges(){
+    ///
+    ///Funtion to determine all the  possible edges for all the points 
+    ///
     for(auto pointitr=allpoints.begin();pointitr!=allpoints.end();pointitr++){
         // cout << "-----------------------------------------------------------------------" <<endl;
         // cout << "iterating on point "<< pointitr->label <<endl;
@@ -256,100 +265,19 @@ void Projection2D::determineIntersectedEdges(){
         // vector<Edge> topAndFront = determinePossibleEdges(*pointitr,&topneighbours,&frontneighbours).first;
         auto topandfrontmatrix = determinePossibleEdges(*pointitr,&topneighbours,&frontneighbours).second;
         // cout<< "topandfronthasbeenintersected -------------------"<<endl;
-        // int numpointsaa = allpoints.size();
-        // for(int i= (-1);i<numpointsaa;i++){
-        //     //cout<<"why not working"<<endl;
-        //     for(int j= (-1);j<numpointsaa;j++){
-        //         //cout<<"why not working"<<endl;
-        //         if(i==-1){
-        //             if(j!=-1){
-        //                 cout << allpoints[j].label << " ";
-        //                 if(j==allpoints.size()-1){
-        //                     cout << endl;
-        //                 }
-        //             }else{
-        //                 cout << "  ";
-        //             }
-        //         }else{
-        //             if(j!=-1){
-        //                 cout << topandfrontmatrix[i][j]<< " ";
-        //                 if(j == allpoints.size()-1){
-        //                     cout << endl;
-        //                 }
-        //             }else{
-        //                 cout << allpoints[i].label << " ";
-        //             }
-                    
-        //         }           
-        //     }       
-        // }
+        
         // cout<< "we have to intersect sideandfront ------------------------------"<<endl;
         
         // vector<Edge> sideAndFront = determinePossibleEdges(*pointitr,&sideneighbours,&frontneighbours).first;
         auto sideandfrontmatrix = determinePossibleEdges(*pointitr,&sideneighbours,&frontneighbours).second;
         // cout << "sideandfronthasbeenintersected -----------------------"<<endl;
-        // numpointsaa = allpoints.size();
-        // for(int i= (-1);i<numpointsaa;i++){
-        //     //cout<<"why not working"<<endl;
-        //     for(int j= (-1);j<numpointsaa;j++){
-        //         //cout<<"why not working"<<endl;
-        //         if(i==-1){
-        //             if(j!=-1){
-        //                 cout << allpoints[j].label << " ";
-        //                 if(j==allpoints.size()-1){
-        //                     cout << endl;
-        //                 }
-        //             }else{
-        //                 cout << "  ";
-        //             }
-        //         }else{
-        //             if(j!=-1){
-        //                 cout << sideandfrontmatrix[i][j]<< " ";
-        //                 if(j == allpoints.size()-1){
-        //                     cout << endl;
-        //                 }
-        //             }else{
-        //                 cout << allpoints[i].label << " ";
-        //             }
-                    
-        //         }           
-        //     }       
-        // }
-
-
+    
         // cout<< "we have to intersect topandside ------------------------------"<<endl;
         
         // vector<Edge> sideAndFront = determinePossibleEdges(*pointitr,&sideneighbours,&frontneighbours).first;
         auto topandsidematrix = determinePossibleEdges(*pointitr,&topneighbours,&sideneighbours).second;
         // cout << "topandfronthasbeenintersected -----------------------"<<endl;
-        // numpointsaa = allpoints.size();
-        // for(int i= (-1);i<numpointsaa;i++){
-        //     //cout<<"why not working"<<endl;
-        //     for(int j= (-1);j<numpointsaa;j++){
-        //         //cout<<"why not working"<<endl;
-        //         if(i==-1){
-        //             if(j!=-1){
-        //                 cout << allpoints[j].label << " ";
-        //                 if(j==allpoints.size()-1){
-        //                     cout << endl;
-        //                 }
-        //             }else{
-        //                 cout << "  ";
-        //             }
-        //         }else{
-        //             if(j!=-1){
-        //                 cout << topandsidematrix[i][j]<< " ";
-        //                 if(j == allpoints.size()-1){
-        //                     cout << endl;
-        //                 }
-        //             }else{
-        //                 cout << allpoints[i].label << " ";
-        //             }
-                    
-        //         }           
-        //     }       
-        // }
-
+        
 
 
         int numpoints = allpoints.size();
@@ -362,39 +290,15 @@ void Projection2D::determineIntersectedEdges(){
                 }
             }
         }
-        // cout<< "allpoints size is "<< allpoints.size()<<endl;
-        // int numpointsaa = allpoints.size();
-        // for(int i= (-1);i<numpointsaa;i++){
-        //     //cout<<"why not working"<<endl;
-        //     for(int j= (-1);j<numpointsaa;j++){
-        //         //cout<<"why not working"<<endl;
-        //         if(i==-1){
-        //             if(j!=-1){
-        //                 cout << allpoints[j].label << " ";
-        //                 if(j==allpoints.size()-1){
-        //                     cout << endl;
-        //                 }
-        //             }else{
-        //                 cout << "  ";
-        //             }
-        //         }else{
-        //             if(j!=-1){
-        //                 cout << adjacencyMatrix[i][j]<< " ";
-        //                 if(j == allpoints.size()-1){
-        //                     cout << endl;
-        //                 }
-        //             }else{
-        //                 cout << allpoints[i].label << " ";
-        //             }
-                    
-        //         }           
-        //     }       
-        // }
+        
 
     }
 }
 
 void Projection2D::executeCorollary1onebyone(OrthoProjection* view1, OrthoProjection* view2, OrthoProjection* view3){
+    ///
+    /// Function to execute corollary one of superimposed points in one view and possible edge in other view for each view
+    ///
     for(auto clusteritr = view1->vertices.begin();clusteritr!=view1->vertices.end();clusteritr++){
         if(clusteritr->points.size()==2){
             bool isconnectedinotherview2 = view2->isConnected(clusteritr->points[0].label,clusteritr->points[1].label);
@@ -411,6 +315,9 @@ void Projection2D::executeCorollary1onebyone(OrthoProjection* view1, OrthoProjec
     }
 }
 void Projection2D::executeCorollary1(){
+    ///
+    /// Function to execute corollary one for all views
+    ///
     executeCorollary1onebyone(&topview,&frontview,&sideview);
 
     executeCorollary1onebyone(&frontview,&topview,&sideview);
@@ -421,6 +328,9 @@ void Projection2D::executeCorollary1(){
 
 }
 void Projection2D::chkif3edgesanddefthem(){
+    ///
+    /// Function to check if there are only three possible edges and then make them the final edge
+    ///
     int numpointsall = allpoints.size();
     for(int i=0; i<numpointsall;i++){
         int numedge = count_if(adjacencyMatrix[i].begin(),adjacencyMatrix[i].end(),[](int v)->bool{
@@ -438,6 +348,9 @@ void Projection2D::chkif3edgesanddefthem(){
     }
 }
 int Projection2D::numofpossibleedge(){
+    ///
+    /// Function to determine possible edges
+    ///
     int num1=0;
     int numpointsall = allpoints.size();
     for(int i=0;i<numpointsall;i++){
@@ -446,6 +359,9 @@ int Projection2D::numofpossibleedge(){
     return num1;
 }
 bool Projection2D::chkcollinearpossanddef(){
+    ///
+    /// check if a point has two collinear points as its edge, one being definite and other being possible, if so, remove the possible edge
+    ///
     int numpoints = allpoints.size();
     bool ret =false;
     for(int i=0;i<numpoints;i++){
@@ -481,6 +397,10 @@ bool Projection2D::chkcollinearpossanddef(){
     return ret;
 }
 bool Projection2D::chkcollinearpossandposs(){
+    ///
+    /// if two points are collinear and possible edges only one of them could be definite, definite being the closest point, 
+    /// Given that the point whose neighbours are being calculated lies on one end 
+    ///
     // cout << "poss and poss started "<< endl;
     int numpoints = allpoints.size();
     bool ret =false;
@@ -566,6 +486,9 @@ bool Projection2D::chkcollinearpossandposs(){
     return ret;
 }
 bool Projection2D::chkposshasdefinother(){
+    ///
+    /// Function to check if a possible edge point has definite neighbours with other edges, if so remove them
+    ///
     int numpoints = allpoints.size();
     bool ret =false;
     for(int i=0;i<numpoints;i++){
@@ -600,6 +523,9 @@ bool Projection2D::chkposshasdefinother(){
     return ret;
 }
 void Projection2D::printmatrix(vector<vector<int> > thisone){
+    ///
+    /// Function to print the matrix
+    ///
     int tempint = allpoints.size();
         for(int i=-1;i<tempint;i++){
         for(int j=-1;j<tempint;j++){
