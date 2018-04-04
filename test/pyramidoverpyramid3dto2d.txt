@@ -1,0 +1,32 @@
+Vertices
+0 1 2 f ,
+0 1 0 c ,
+-1 -1 2 g ,
+-1 -1 0 a ,
+1 0 2 e ,
+1 0 0 b ,
+0 0 1 d ;
+Edges
+d f ,
+d g ,
+d e ,
+d c ,
+d a ,
+d b ,
+f g ,
+g e ,
+e f ,
+c a ,
+a b ,
+b c ;
+Faces
+f d g ,
+g d e ,
+e d f ,
+f g e ,
+c d a ,
+a d b ,
+b d c ,
+a b c ;
+Plane 
+0 0 1 0 ;

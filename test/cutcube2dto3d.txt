@@ -1,0 +1,66 @@
+Top
+Vertices
+1 1 [ e a ]
+2 1 [ m i ]
+3 1 [ n j ]
+4 1 [ f b ]
+4 3 [ g c ]
+1 3 [ h d ]
+2 2 [ p l ]
+3 2 [ o k ] ;
+Edges
+e m ,
+e n ,
+e f ,
+m n ,
+m f ,
+n f ,
+f g ,
+g h ,
+h e ,
+m p ,
+p o ,
+n o ;;
+Front
+Vertices
+1 3 [ e h ]
+2 3 [ m p ]
+3 3 [ n o ]
+4 3 [ f g ]
+2 2 [ i l ]
+3 2 [ j k ]
+1 1 [ a d ]
+4 1 [ b c ] ;
+Edges
+e m ,
+e n ,
+e f ,
+m n ,
+m f ,
+n f ,
+f b ,
+b a ,
+a e ,
+m i ,
+i j ,
+j n ;;
+Side
+Vertices
+3 3 [ h g ]
+2 3 [ p o ]
+1 3 [ e m n f ]
+1 2 [ i j ]
+1 1 [ a b ]
+3 1 [ d c ]
+2 2 [ l k ] ;
+Edges
+h p ,
+h e ,
+p e ,
+e i ,
+e a ,
+i a ,
+a d ,
+d h ,
+p l ,
+l i ;;
