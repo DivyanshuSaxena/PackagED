@@ -78,7 +78,7 @@ This class holds the 2D orthographic projections of a 3D object. The orthographi
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_af9a959f2c44a1801687dda170ba0d5d2}{}\label{class_projection2_d_af9a959f2c44a1801687dda170ba0d5d2}
-
+check if a point has two collinear points as its edge, one being definite and other being possible, if so, remove the possible edge
 
 Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
@@ -96,7 +96,7 @@ Here is the call graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a26179e263ee8be9bfbc260bedaea14c7}{}\label{class_projection2_d_a26179e263ee8be9bfbc260bedaea14c7}
-
+if two points are collinear and possible edges only one of them could be definite, definite being the closest point, Given that the point whose neighbours are being calculated lies on one end
 
 Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
@@ -114,35 +114,35 @@ Here is the call graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{class_projection2_d_a64751fc8527786d489d3e1f9dd613778}{}\label{class_projection2_d_a64751fc8527786d489d3e1f9dd613778}
-\index{Projection2D@{Projection2D}!chkposshasdefinother@{chkposshasdefinother}}
+Function to check if there are only three possible edges and then make them the final edge\index{Projection2D@{Projection2D}!chkposshasdefinother@{chkposshasdefinother}}
 \index{chkposshasdefinother@{chkposshasdefinother}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{chkposshasdefinother()}{chkposshasdefinother()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Projection2\+D\+::chkposshasdefinother (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a7b26c1f31633d19a33bdf54e8c47d3d8}{}\label{class_projection2_d_a7b26c1f31633d19a33bdf54e8c47d3d8}
-\index{Projection2D@{Projection2D}!create3D@{create3D}}
+Function to check if a possible edge point has definite neighbours with other edges, if so remove them\index{Projection2D@{Projection2D}!create3D@{create3D}}
 \index{create3D@{create3D}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{create3\+D()}{create3D()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Wireframe} Projection2\+D\+::create3D (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{class_projection2_d_aa061602930f19acad32720f7067c58fa}{}\label{class_projection2_d_aa061602930f19acad32720f7067c58fa}
-\index{Projection2D@{Projection2D}!determine\+All\+Points@{determine\+All\+Points}}
+Function that creates the wireframe model from the 2d orthographic views\index{Projection2D@{Projection2D}!determine\+All\+Points@{determine\+All\+Points}}
 \index{determine\+All\+Points@{determine\+All\+Points}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{determine\+All\+Points()}{determineAllPoints()}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Point} $>$ Projection2\+D\+::determine\+All\+Points (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_af2972a56d0f0fa6a9d01576d7021180d}{}\label{class_projection2_d_af2972a56d0f0fa6a9d01576d7021180d}
-\index{Projection2D@{Projection2D}!determine\+Intersected\+Edges@{determine\+Intersected\+Edges}}
+Function to determine points by intersection of the corresponding points from topview and frontview\index{Projection2D@{Projection2D}!determine\+Intersected\+Edges@{determine\+Intersected\+Edges}}
 \index{determine\+Intersected\+Edges@{determine\+Intersected\+Edges}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{determine\+Intersected\+Edges()}{determineIntersectedEdges()}}]{\setlength{\rightskip}{0pt plus 5cm}void Projection2\+D\+::determine\+Intersected\+Edges (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a6be4ef41d013628ba91a3f1dbcc1f9bf}{}\label{class_projection2_d_a6be4ef41d013628ba91a3f1dbcc1f9bf}
-\index{Projection2D@{Projection2D}!determine\+Point@{determine\+Point}}
+Funtion to determine all the possible edges for all the points\index{Projection2D@{Projection2D}!determine\+Point@{determine\+Point}}
 \index{determine\+Point@{determine\+Point}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{determine\+Point(\+Point, Point)}{determinePoint(Point, Point)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point} Projection2\+D\+::determine\+Point (
 \begin{DoxyParamCaption}
@@ -177,7 +177,7 @@ This function determines the edges containing the \hyperlink{class_point}{Point}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a7433a1a25a81f16a79c308d5dd7d98b5}{}\label{class_projection2_d_a7433a1a25a81f16a79c308d5dd7d98b5}
-\index{Projection2D@{Projection2D}!execute\+Corollary1onebyone@{execute\+Corollary1onebyone}}
+Function to execute corollary one for all views\index{Projection2D@{Projection2D}!execute\+Corollary1onebyone@{execute\+Corollary1onebyone}}
 \index{execute\+Corollary1onebyone@{execute\+Corollary1onebyone}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{execute\+Corollary1onebyone(\+Ortho\+Projection $\ast$, Ortho\+Projection $\ast$, Ortho\+Projection $\ast$)}{executeCorollary1onebyone(OrthoProjection *, OrthoProjection *, OrthoProjection *)}}]{\setlength{\rightskip}{0pt plus 5cm}void Projection2\+D\+::execute\+Corollary1onebyone (
 \begin{DoxyParamCaption}
@@ -186,7 +186,7 @@ This function determines the edges containing the \hyperlink{class_point}{Point}
 \item[{{\bf Ortho\+Projection} $\ast$}]{view3}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_af65b18c0f1aed2c6bda79173ef6a0f5e}{}\label{class_projection2_d_af65b18c0f1aed2c6bda79173ef6a0f5e}
-
+Function to execute corollary one of superimposed points in one view and possible edge in other view for each view
 
 Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
@@ -204,14 +204,14 @@ Here is the call graph for this function\+:\nopagebreak
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_ad277ae374c9340f41f821e3b23aa6c04}{}\label{class_projection2_d_ad277ae374c9340f41f821e3b23aa6c04}
-\index{Projection2D@{Projection2D}!printmatrix@{printmatrix}}
+Function to determine possible edges\index{Projection2D@{Projection2D}!printmatrix@{printmatrix}}
 \index{printmatrix@{printmatrix}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{printmatrix(vector$<$ vector$<$ int $>$ $>$)}{printmatrix(vector< vector< int > >)}}]{\setlength{\rightskip}{0pt plus 5cm}void Projection2\+D\+::printmatrix (
 \begin{DoxyParamCaption}
 \item[{vector$<$ vector$<$ int $>$ $>$}]{thisone}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a209abc191321c5bdd970c57c68dd0ac8}{}\label{class_projection2_d_a209abc191321c5bdd970c57c68dd0ac8}
-
+Function to print the matrix
 
 \subsection{Member Data Documentation}
 \index{Projection2D@{Projection2D}!adjacency\+Matrix@{adjacency\+Matrix}}
