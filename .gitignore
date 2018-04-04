@@ -41,3 +41,4 @@ run.sh
 gtkmm/gui
 gtkmm/.vscode/
 temp/
+test/main
