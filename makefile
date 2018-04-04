@@ -9,6 +9,7 @@ OGDIR=./bin/gui
 LDIR =./lib
 SDIR =./src
 BDIR =./build
+TDIR = ./test
 
 LIBS=-lm
 
@@ -26,6 +27,7 @@ GOBJ = $(patsubst %,$(OGDIR)/%,$(_GOBJ))
 
 _BUILDS = main
 BUILDS = $(patsubst %,$(BDIR)/%,$(_BUILDS))
+TESTS = $(patsubst %,$(TDIR)/%,$(_BUILDS))
 
 MKDIR = mkdir -p
 
@@ -37,10 +39,12 @@ $(ODIR)/%.o: $(SDIR)/%.cpp $(DEPS)
 $(OGDIR)/%.o: $(SDIR)/%.cpp $(GDEPS)
 	$(CC) -c -o $@ $< $(CFLAGS) $(GTKFLAG)
 
-all: directories $(BUILDS)
+all: directories $(BUILDS) $(TESTS)
 
 directories: 
 	$(MKDIR) $(OUT_DIR)
 
 $(BDIR)/main: $(OBJ) $(GOBJ)
+		$(CC) -o $@ $^ $(CFLAGS) $(GTKFLAG) $(LIBS) 
+$(TDIR)/main: $(OBJ) $(GOBJ)
 		$(CC) -o $@ $^ $(CFLAGS) $(GTKFLAG) $(LIBS) 

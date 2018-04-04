@@ -30,7 +30,7 @@ Following is a description of the above-mentioned directories:
    4. **include** - All header files to be included in the project are kept in this folder.
    5. **lib** - This folder contains all external libraries required for the software.
    6. **src** - This folder is supposed to contain all source files (.cpp) written in C++ are to be kept here.
-   7. **test** - This folder shall be host to all test files written for debugging and testing the software package (yet to be updated).   
+   7. **test** - This folder shall be host to all test files written for debugging and testing the software package .   
 
 ## Dependencies
 
@@ -52,6 +52,7 @@ Then cd into the build folder and run the following
 ```
 ./main
 ```
+If you want to run the software with input files cd into test folder, then run the main and chose from the files there. You can also copy the test files into build folder and run the test files there.
 
 ## Documentation
 
