@@ -79,7 +79,7 @@ ConstructWindow::ConstructWindow()
   m_edge_frame.add(m_edge_grid);
   m_edge_grid.add(m_edge_p1);
   m_edge_grid.attach_next_to(m_edge_p2, m_edge_p1, Gtk::POS_RIGHT, 1, 1);
-  m_edge_grid.attach_next_to(m_add_edge, m_edge_p1, Gtk::POS_BOTTOM, 2, 1);
+  m_edge_grid.attach_next_to(m_add_edge, m_edge_p2, Gtk::POS_RIGHT, 2, 1);
   // m_edge_grid.attach_next_to(m_add_edge, m_edge_submit, Gtk::POS_RIGHT, 1, 1);
 
   m_add_edge.set_sensitive(false);
