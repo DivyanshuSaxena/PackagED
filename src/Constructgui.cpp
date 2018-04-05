@@ -8,7 +8,7 @@ ConstructWindow::ConstructWindow()
   m_point_frame("Points"),
   m_edge_frame("Edges"),
   m_draw_frame("Rendered Object"),
-  m_file_frame("Choose From File"),  
+  m_file_frame("Enter from File"),  
   m_rotate_frame("Rotate Object"),  
   m_submit("All Points Done"),
   m_add_point("Add More Points"),
@@ -19,7 +19,7 @@ ConstructWindow::ConstructWindow()
   m_bottom_rotate("Rotate Top"),
   m_left_rotate("Rotate Left"),
   m_right_rotate("Rotate Right"),
-  m_add_file("Create Object")
+  m_add_file("Choose Input File")
 {
   ///
   /// The constructor for ConstructorWindow
@@ -92,12 +92,7 @@ ConstructWindow::ConstructWindow()
   m_Box.pack_start(m_file_frame, Gtk::PACK_EXPAND_WIDGET, 10);
   m_file_frame.add(m_file_grid);
 
-  m_entry_file.set_max_length(30);
-  m_entry_file.set_text("Name of file");
-  m_entry_file.select_region(0, m_entry_file.get_text_length());
-
-  m_file_grid.add(m_entry_file);
-  m_file_grid.attach_next_to(m_add_file, m_entry_file, Gtk::POS_RIGHT, 1, 1); 
+  m_file_grid.add(m_add_file);
 
   // Add Drawing Area
   m_Box.pack_start(m_draw_frame, Gtk::PACK_EXPAND_WIDGET, 10);
@@ -116,7 +111,6 @@ ConstructWindow::ConstructWindow()
 
   m_area.signal_draw().connect(
   sigc::mem_fun(*this, &ConstructWindow::on_custom_draw));
-
 
   // Signal Handlers
   m_submit.signal_clicked().connect(sigc::mem_fun(*this,
@@ -138,7 +132,7 @@ ConstructWindow::ConstructWindow()
   m_right_rotate.signal_clicked().connect(sigc::bind<int>(sigc::mem_fun(*this,
       &ConstructWindow::on_button_rotate), 4) );
   m_add_file.signal_clicked().connect(sigc::mem_fun(*this,
-      &ConstructWindow::on_file_button) );
+      &ConstructWindow::on_button_file_clicked) );
   show_all_children();
 }
 
@@ -293,17 +287,80 @@ void ConstructWindow::on_button_created()
   }
 }
 
-void ConstructWindow::on_file_button()
+void ConstructWindow::on_button_file_clicked()
 {
   ///
-  /// Add file name for input
+  /// Function to take in file input from dialog box from user
   ///
-  cout << "Input Name" << m_entry_file.get_text() << endl;
-  std::string str = m_entry_file.get_text();
-  object = input2Dfile(str);
-  this->create = true;
-  m_area.queue_draw();
+  Gtk::FileChooserDialog dialog("Please choose a file",
+          Gtk::FILE_CHOOSER_ACTION_OPEN);
+  dialog.set_transient_for(*this);
+
+  //Add response buttons the the dialog:
+  dialog.add_button("_Cancel", Gtk::RESPONSE_CANCEL);
+  dialog.add_button("_Open", Gtk::RESPONSE_OK);
+
+  //Add filters, so that only certain file types can be selected:
+
+  auto filter_text = Gtk::FileFilter::create();
+  filter_text->set_name("Text files");
+  filter_text->add_mime_type("text/plain");
+  dialog.add_filter(filter_text);
+
+  auto filter_cpp = Gtk::FileFilter::create();
+  filter_cpp->set_name("C/C++ files");
+  filter_cpp->add_mime_type("text/x-c");
+  filter_cpp->add_mime_type("text/x-c++");
+  filter_cpp->add_mime_type("text/x-c-header");
+  dialog.add_filter(filter_cpp);
+
+  auto filter_any = Gtk::FileFilter::create();
+  filter_any->set_name("Any files");
+  filter_any->add_pattern("*");
+  dialog.add_filter(filter_any);
+
+  //Show the dialog and wait for a user response:
+  int result = dialog.run();
+
+  //Handle the response:
+  switch(result)
+  {
+    case(Gtk::RESPONSE_OK):
+    {
+      std::cout << "Open clicked." << std::endl;
+
+      //Notice that this is a std::string, not a Glib::ustring.
+      std::string filename = dialog.get_filename();
+      std::cout << "File selected: " <<  filename << std::endl;
+      object = input2Dfile(filename);
+      this->create = true;
+      m_area.queue_draw();
+      break;
+    }
+    case(Gtk::RESPONSE_CANCEL):
+    {
+      std::cout << "Cancel clicked." << std::endl;
+      break;
+    }
+    default:
+    {
+      std::cout << "Unexpected button clicked." << std::endl;
+      break;
+    }
+  }
 }
+
+// void ConstructWindow::on_file_button()
+// {
+//   ///
+//   /// Add file name for input
+//   ///
+//   cout << "Input Name" << m_entry_file.get_text() << endl;
+//   std::string str = m_entry_file.get_text();
+//   object = input2Dfile(str);
+//   this->create = true;
+//   m_area.queue_draw();
+// }
 
 bool ConstructWindow::on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr)
 {
