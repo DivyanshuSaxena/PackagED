@@ -104,8 +104,11 @@ private:
   void on_button_numbered(const Glib::ustring& data);
 
   // Child widgets:
+  Gtk::Box m_VBox;
   Gtk::Grid m_grid;
   Gtk::Button m_button_1, m_button_2;
+  Gtk::TextView m_TextView;
+  Glib::RefPtr<Gtk::TextBuffer> m_TextBuffer;
 };
 
 PlaneProjection* createObject(Object3D*,double[4]);

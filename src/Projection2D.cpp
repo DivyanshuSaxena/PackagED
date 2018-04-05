@@ -74,15 +74,16 @@ Wireframe Projection2D::create3D(){
     cout << "final print of adjacencyMatrix"<<endl;
     printmatrix(answer.adjacencyMatrix);
     numpoints = allpoints.size();
-    for(int i=0;i<numpoints;i++){
-        vector<int> neighvec = findneighbours(i);
-        int numneigh = neighvec.size();
-        for(int j=0;j<numneigh;j++){
-            vector<vector<int> > allpaths = giveallpaths(i,neighvec[j]);
-            vector<vector<int> > goodpaths = giveplanarpaths(allpaths);
-            addsuitablepaths(goodpaths);
-        }
-    }
+    // -------------- Check this
+    // for(int i=0;i<numpoints;i++){
+    //     vector<int> neighvec = findneighbours(i);
+    //     int numneigh = neighvec.size();
+    //     for(int j=0;j<numneigh;j++){
+    //         vector<vector<int> > allpaths = giveallpaths(i,neighvec[j]);
+    //         vector<vector<int> > goodpaths = giveplanarpaths(allpaths);
+    //         addsuitablepaths(goodpaths);
+    //     }
+    // }
     return answer;
 }
 
@@ -532,6 +533,7 @@ bool Projection2D::chkposshasdefinother(){
     }
     return ret;
 }
+
 void Projection2D::printmatrix(vector<vector<int> > thisone){
     ///
     /// Function to print the matrix
@@ -573,75 +575,76 @@ vector<int> Projection2D::findneighbours(int thispoint){
     }
     return neighvec;
 }
-vector<vector<int> > Projection2D::giveallpaths(int start, int dest){
-    int numpoints = allpoints.size();
-    vector<vector<int> > allpaths;
-    bool *visited = new bool[numpoints];
-    int *path = new int[numpoints];
-    int path_index = 0; 
-    for (int i = 0; i < V; i++)
-        visited[i] = false;
-    giveAllPathsUtil(start, dest, visited, path, path_index, allpaths);
-    return allpaths;
-}
 
-void Projection2D::giveAllPathsUtil(int u, int d, bool visited[], int path[], int &path_index, vector<vector<int> > &allpaths){
-    visited[u] = true;
-    path[path_index] = u;
-    path_index++;
-    if (u == d)
-    {
-        vector<int> thispath;(path, path + sizeof(path) / sizeof(int) );
-        allpaths.push_back(thispath);
-    }
-    else // If current vertex is not destination
-    {
-        // Recur for all the vertices adjacent to current vertex
-        vector<int> neighvec = findneighbours(u);
-        for(auto iter= neighvec.begin();iter!=neighvec.end();iter++){
-            if(!visited(*iter)){
-                giveAllPathsUtil(*iter, d, visited, path, path_index,allpaths);
-            }
-        }
-    }
-    path_index--;
-    visited[u] = false;
-}
+// vector<vector<int> > Projection2D::giveallpaths(int start, int dest){
+//     int numpoints = allpoints.size();
+//     vector<vector<int> > allpaths;
+//     bool *visited = new bool[numpoints];
+//     int *path = new int[numpoints];
+//     int path_index = 0; 
+//     for (int i = 0; i < V; i++)
+//         visited[i] = false;
+//     giveAllPathsUtil(start, dest, visited, path, path_index, allpaths);
+//     return allpaths;
+// }
 
-vector<vector<int> > Projection2D::giveplanarpaths(vector<vector<int> > allpaths){
-    vector<vector<int> > filteredpaths;
-    int numallpaths = allpaths.size();
-    for(int i=0;i<numallpaths;i++){
-        vector<int> thispath = allpaths[i];
-        if(thispath.size()==3){
-            filteredpaths.push_back(thispath);
-        }else{
-            bool isplanar= isplanar(thispath);
-            if(isplanar){
-                filteredpaths.push_back(thispath);
-            }
-        }
+// void Projection2D::giveAllPathsUtil(int u, int d, bool visited[], int path[], int &path_index, vector<vector<int> > &allpaths){
+//     visited[u] = true;
+//     path[path_index] = u;
+//     path_index++;
+//     if (u == d)
+//     {
+//         vector<int> thispath;(path, path + sizeof(path) / sizeof(int) );
+//         allpaths.push_back(thispath);
+//     }
+//     else // If current vertex is not destination
+//     {
+//         // Recur for all the vertices adjacent to current vertex
+//         vector<int> neighvec = findneighbours(u);
+//         for(auto iter= neighvec.begin();iter!=neighvec.end();iter++){
+//             if(!visited(*iter)){
+//                 giveAllPathsUtil(*iter, d, visited, path, path_index,allpaths);
+//             }
+//         }
+//     }
+//     path_index--;
+//     visited[u] = false;
+// }
 
-    }
-    return filteredpaths;
-}
+// vector<vector<int> > Projection2D::giveplanarpaths(vector<vector<int> > allpaths){
+//     vector<vector<int> > filteredpaths;
+//     int numallpaths = allpaths.size();
+//     for(int i=0;i<numallpaths;i++){
+//         vector<int> thispath = allpaths[i];
+//         if(thispath.size()==3){
+//             filteredpaths.push_back(thispath);
+//         }else{
+//             bool isplanar= isplanar(thispath);
+//             if(isplanar){
+//                 filteredpaths.push_back(thispath);
+//             }
+//         }
 
-bool Projection2D::isplanar(vector<int> thispath){
-    bool isplanar=false;
-    int thispathsize = thispath.size();
-    Point firstpoint = * (indextopointmap[thispath[0]]);
-    Point secondpoint = * (indextopointmap[thispath[1]]);
-    Point thirdpoint = * (indextopointmap[thispath[2]]);
-    Vector3d firstpointvec(firstpoint.x,firstpoint.y,firstpoint.z);
-    Vector3d secondpointvec(secondpoint.x,secondpoint.y,secondpoint.z);
-    Vector3d thirdpointvec(thirdpoint.x,thirdpoint.y,thirdpoint.z);
-    Vector3d firstedge = secondpointvec-firstpointvec;
-    Vector3d secondedge = thirdpointvec-secondpointvec;
-    Vector3d normal = firstedge.cross(secondedge);
-    for(int i=3;i<thispathsize;i++){
-        Point thispoint = * (indextopointmap[thispath[i]]);
-        Point prevpoint = * (indextopointmap[thispath[i-1]]);
+//     }
+//     return filteredpaths;
+// }
+
+// bool Projection2D::isplanar(vector<int> thispath){
+//     bool isplanar=false;
+//     int thispathsize = thispath.size();
+//     Point firstpoint = * (indextopointmap[thispath[0]]);
+//     Point secondpoint = * (indextopointmap[thispath[1]]);
+//     Point thirdpoint = * (indextopointmap[thispath[2]]);
+//     Vector3d firstpointvec(firstpoint.x,firstpoint.y,firstpoint.z);
+//     Vector3d secondpointvec(secondpoint.x,secondpoint.y,secondpoint.z);
+//     Vector3d thirdpointvec(thirdpoint.x,thirdpoint.y,thirdpoint.z);
+//     Vector3d firstedge = secondpointvec-firstpointvec;
+//     Vector3d secondedge = thirdpointvec-secondpointvec;
+//     Vector3d normal = firstedge.cross(secondedge);
+//     for(int i=3;i<thispathsize;i++){
+//         Point thispoint = * (indextopointmap[thispath[i]]);
+//         Point prevpoint = * (indextopointmap[thispath[i-1]]);
         
-    }
-    return isplanar
-}
+//     }
+//     return isplanar
+// }
