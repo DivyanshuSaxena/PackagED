@@ -209,7 +209,8 @@ public:
 
     Wireframe create3D();
     void chkif3edgesanddefthem();
-private:
+// private:
+//check private
     void determineIntersectedEdges();
     void executeCorollary1onebyone(OrthoProjection *,OrthoProjection *, OrthoProjection *);
     void executeCorollary1();
@@ -221,6 +222,11 @@ private:
     bool chkcollinearpossandposs();
     bool chkposshasdefinother();
     void printmatrix(vector<vector<int> >);
+    vector<int> findneighbours(int);
+    vector<vector<int> > giveallpaths(int, int);
+    void giveAllPathsUtil(int , int , bool [], int [], int &,vector<vector<int> >);
+    vector<vector<int> > giveplanarpaths(vector<vector<int> >);
+    bool isplanar(vector<int>);
 };
 
 int check2D();
