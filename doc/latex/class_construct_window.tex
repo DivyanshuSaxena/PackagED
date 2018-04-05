@@ -53,7 +53,7 @@ bool \hyperlink{class_construct_window_a207140b364fbc6412fa488fd78c11071}{on\+\_
 \item 
 void \hyperlink{class_construct_window_ae4f9ac332fbef78298b93379b8b9b8df}{on\+\_\+button\+\_\+rotate} (int type)
 \item 
-void \hyperlink{class_construct_window_abb4ff002be0d1bdbe09fda5852b43ccd}{on\+\_\+file\+\_\+button} ()
+void \hyperlink{class_construct_window_acdede928acf397bf48f9cda296df41bb}{on\+\_\+button\+\_\+file\+\_\+clicked} ()
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -106,8 +106,6 @@ Gtk\+::\+Entry \hyperlink{class_construct_window_a49425c4f8cc175011f608ef26598ec
 \item 
 Gtk\+::\+Entry \hyperlink{class_construct_window_a2cd8576e8bcd49dfedaa82c65766028e}{m\+\_\+edge\+\_\+p2}
 \item 
-Gtk\+::\+Entry \hyperlink{class_construct_window_a18364de5c0d738051d7eeb478bf4086b}{m\+\_\+entry\+\_\+file}
-\item 
 Gtk\+::\+Button \hyperlink{class_construct_window_a855cdd124dc2fb10b911e88b5d020a59}{m\+\_\+submit}
 \item 
 Gtk\+::\+Button \hyperlink{class_construct_window_a18879d0b8580c30589fd3dcd2a3de7d6}{m\+\_\+add\+\_\+point}
@@ -145,7 +143,8 @@ Class to input and display 2D to 3D transition
 )}\hypertarget{class_construct_window_afbb85abe7e7a42cc8efb29dbac587646}{}\label{class_construct_window_afbb85abe7e7a42cc8efb29dbac587646}
 The constructor for Constructor\+Window
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -225,6 +224,25 @@ Here is the call graph for this function\+:\nopagebreak
 \end{figure}
 
 
+\index{Construct\+Window@{Construct\+Window}!on\+\_\+button\+\_\+file\+\_\+clicked@{on\+\_\+button\+\_\+file\+\_\+clicked}}
+\index{on\+\_\+button\+\_\+file\+\_\+clicked@{on\+\_\+button\+\_\+file\+\_\+clicked}!Construct\+Window@{Construct\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+button\+\_\+file\+\_\+clicked()}{on_button_file_clicked()}}]{\setlength{\rightskip}{0pt plus 5cm}void Construct\+Window\+::on\+\_\+button\+\_\+file\+\_\+clicked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_acdede928acf397bf48f9cda296df41bb}{}\label{class_construct_window_acdede928acf397bf48f9cda296df41bb}
+Function to take in file input from dialog box from user
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_construct_window_acdede928acf397bf48f9cda296df41bb_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Construct\+Window@{Construct\+Window}!on\+\_\+button\+\_\+rotate@{on\+\_\+button\+\_\+rotate}}
 \index{on\+\_\+button\+\_\+rotate@{on\+\_\+button\+\_\+rotate}!Construct\+Window@{Construct\+Window}}
 \subsubsection[{\texorpdfstring{on\+\_\+button\+\_\+rotate(int type)}{on_button_rotate(int type)}}]{\setlength{\rightskip}{0pt plus 5cm}void Construct\+Window\+::on\+\_\+button\+\_\+rotate (
@@ -264,24 +282,6 @@ Here is the call graph for this function\+:\nopagebreak
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_construct_window_a207140b364fbc6412fa488fd78c11071_cgraph}
-\end{center}
-\end{figure}
-
-
-\index{Construct\+Window@{Construct\+Window}!on\+\_\+file\+\_\+button@{on\+\_\+file\+\_\+button}}
-\index{on\+\_\+file\+\_\+button@{on\+\_\+file\+\_\+button}!Construct\+Window@{Construct\+Window}}
-\subsubsection[{\texorpdfstring{on\+\_\+file\+\_\+button()}{on_file_button()}}]{\setlength{\rightskip}{0pt plus 5cm}void Construct\+Window\+::on\+\_\+file\+\_\+button (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_abb4ff002be0d1bdbe09fda5852b43ccd}{}\label{class_construct_window_abb4ff002be0d1bdbe09fda5852b43ccd}
-Add file name for input
-
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_construct_window_abb4ff002be0d1bdbe09fda5852b43ccd_cgraph}
 \end{center}
 \end{figure}
 
@@ -343,9 +343,6 @@ Here is the call graph for this function\+:\nopagebreak
 \index{Construct\+Window@{Construct\+Window}!m\+\_\+edge\+\_\+p2@{m\+\_\+edge\+\_\+p2}}
 \index{m\+\_\+edge\+\_\+p2@{m\+\_\+edge\+\_\+p2}!Construct\+Window@{Construct\+Window}}
 \subsubsection[{\texorpdfstring{m\+\_\+edge\+\_\+p2}{m_edge_p2}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Entry Construct\+Window\+::m\+\_\+edge\+\_\+p2\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a2cd8576e8bcd49dfedaa82c65766028e}{}\label{class_construct_window_a2cd8576e8bcd49dfedaa82c65766028e}
-\index{Construct\+Window@{Construct\+Window}!m\+\_\+entry\+\_\+file@{m\+\_\+entry\+\_\+file}}
-\index{m\+\_\+entry\+\_\+file@{m\+\_\+entry\+\_\+file}!Construct\+Window@{Construct\+Window}}
-\subsubsection[{\texorpdfstring{m\+\_\+entry\+\_\+file}{m_entry_file}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Entry Construct\+Window\+::m\+\_\+entry\+\_\+file\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a18364de5c0d738051d7eeb478bf4086b}{}\label{class_construct_window_a18364de5c0d738051d7eeb478bf4086b}
 \index{Construct\+Window@{Construct\+Window}!m\+\_\+entry\+\_\+label@{m\+\_\+entry\+\_\+label}}
 \index{m\+\_\+entry\+\_\+label@{m\+\_\+entry\+\_\+label}!Construct\+Window@{Construct\+Window}}
 \subsubsection[{\texorpdfstring{m\+\_\+entry\+\_\+label}{m_entry_label}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Entry Construct\+Window\+::m\+\_\+entry\+\_\+label\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_construct_window_a031a78a66f7c69da3395c25c8d84c699}{}\label{class_construct_window_a031a78a66f7c69da3395c25c8d84c699}

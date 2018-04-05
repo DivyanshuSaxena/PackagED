@@ -91,16 +91,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>Following is a description of the above-mentioned directories:</p><ol type="1">
 <li><b>bin</b> - All the object files, obtained after build shall be kept in this folder.</li>
 <li><b>build</b> - All executables are supposed to be kept in this folder.</li>
-<li><b>doc</b> - All doxygen generated html pages and other documentations relating to the project are supposed to be kept in this folder.</li>
+<li><b>doc</b> - All doxygen generated html pages and other documentations relating to the project are supposed to be kept in this folder. To view the doxygen generated document without cloning the repository, see this link <a href="http://htmlpreview.github.io/?https://github.com/DivyanshuSaxena/PackagED/blob/master/doc/html/index.html">http://htmlpreview.github.io/?https://github.com/DivyanshuSaxena/PackagED/blob/master/doc/html/index.html</a> or <a href="http://www.cse.iitd.ac.in/~cs1160315/PackageED/">http://www.cse.iitd.ac.in/~cs1160315/PackageED/</a>.</li>
 <li><b>include</b> - All header files to be included in the project are kept in this folder.</li>
 <li><b>lib</b> - This folder contains all external libraries required for the software.</li>
 <li><b>src</b> - This folder is supposed to contain all source files (.cpp) written in C++ are to be kept here.</li>
-<li><b>test</b> - This folder shall be host to all test files written for debugging and testing the software package (yet to be updated).</li>
+<li><b>test</b> - This folder shall be host to all test files written for debugging and testing the software package .</li>
 </ol>
 <h2>Dependencies</h2>
 <p>The project makes use of the GTKmm libraries for C++. Hence this package is needed to be installed before running the software package. Use the following command: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;sudo apt-get install libgtkmm-3.0-dev</div></div><!-- fragment --><p> The above command installs the requisite packages. Now the software package can be built and used.</p>
 <h2>Usage</h2>
-<p>Enter the project directory and run the following command </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;make</div></div><!-- fragment --><p> Then cd into the build folder and run the following </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;./main</div></div><!-- fragment --><h2>Documentation</h2>
+<p>Enter the project directory and run the following command </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;make</div></div><!-- fragment --><p> Then cd into the build folder and run the following </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;./main</div></div><!-- fragment --><p> If you want to run the software with input files cd into test folder, then run the main and chose from the files there. You can also copy the test files into build folder and run the test files there.</p>
+<h2>Documentation</h2>
 <p>The documentation for the current software package is available in the form of webpages. The index.html in doc/html lists the main page. Thereafter, the pages are linked together. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->

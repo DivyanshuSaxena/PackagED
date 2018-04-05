@@ -140,8 +140,8 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a3205f524a90213beffb9870b8fddd5e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6565002548ab838930bd4fd7b7a8e52e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection_window.html#a6565002548ab838930bd4fd7b7a8e52e">on_button_created</a> ()</td></tr>
 <tr class="separator:a6565002548ab838930bd4fd7b7a8e52e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8985e5ffa65b9e4fa4a17a2fc1680a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection_window.html#ad8985e5ffa65b9e4fa4a17a2fc1680a5">on_file_button</a> ()</td></tr>
-<tr class="separator:ad8985e5ffa65b9e4fa4a17a2fc1680a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78c9c0a2b97f1c2775cac14e2ed22744"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection_window.html#a78c9c0a2b97f1c2775cac14e2ed22744">on_button_file_clicked</a> ()</td></tr>
+<tr class="separator:a78c9c0a2b97f1c2775cac14e2ed22744"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abac0b81445020f55b0bcfaf3a2548492"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection_window.html#abac0b81445020f55b0bcfaf3a2548492">on_custom_draw</a> (const Cairo::RefPtr&lt; Cairo::Context &gt; &amp;cr)</td></tr>
 <tr class="separator:abac0b81445020f55b0bcfaf3a2548492"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -195,8 +195,6 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ae18dd1142ec2291156359d603627f260"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cc6daee71ec01c27f32e02c49ade20e"><td class="memItemLeft" align="right" valign="top">Gtk::Entry&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection_window.html#a2cc6daee71ec01c27f32e02c49ade20e">m_edge_p2</a></td></tr>
 <tr class="separator:a2cc6daee71ec01c27f32e02c49ade20e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8472c7e0a9adabbd0513ef1ef27cffd7"><td class="memItemLeft" align="right" valign="top">Gtk::Entry&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection_window.html#a8472c7e0a9adabbd0513ef1ef27cffd7">m_entry_file</a></td></tr>
-<tr class="separator:a8472c7e0a9adabbd0513ef1ef27cffd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1081eb0b152ae185a1f20b433c58b276"><td class="memItemLeft" align="right" valign="top">Gtk::Button&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection_window.html#a1081eb0b152ae185a1f20b433c58b276">m_submit</a></td></tr>
 <tr class="separator:a1081eb0b152ae185a1f20b433c58b276"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03c1bd15354e834e53e9c9fed3ed8d5c"><td class="memItemLeft" align="right" valign="top">Gtk::Button&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_projection_window.html#a03c1bd15354e834e53e9c9fed3ed8d5c">m_add_point</a></td></tr>
@@ -242,7 +240,7 @@ Here is the call graph for this function:</div>
 <area shape="rect" id="node6" href="class_projection_window.html#a3205f524a90213beffb9870b8fddd5e7" title="ProjectionWindow::on\l_button_addface" alt="" coords="247,321,396,363"/>
 <area shape="rect" id="node7" href="class_projection_window.html#a6565002548ab838930bd4fd7b7a8e52e" title="ProjectionWindow::on\l_button_created" alt="" coords="247,191,396,232"/>
 <area shape="rect" id="node10" href="class_projection_window.html#abac0b81445020f55b0bcfaf3a2548492" title="ProjectionWindow::on\l_custom_draw" alt="" coords="247,387,396,428"/>
-<area shape="rect" id="node11" href="class_projection_window.html#ad8985e5ffa65b9e4fa4a17a2fc1680a5" title="ProjectionWindow::on\l_file_button" alt="" coords="247,125,396,167"/>
+<area shape="rect" id="node11" href="class_projection_window.html#a78c9c0a2b97f1c2775cac14e2ed22744" title="ProjectionWindow::on\l_button_file_clicked" alt="" coords="247,125,396,167"/>
 <area shape="rect" id="node3" href="class_point.html#a6fffe55537a7cbe523ff4e1c33ddb9e5" title="Point::setCoordinatesAnd\lLabel" alt="" coords="649,71,820,112"/>
 <area shape="rect" id="node8" href="gui_8h.html#a20579b255f3974d5091c9a219ad58ad5" title="createObject" alt="" coords="471,193,567,219"/>
 <area shape="rect" id="node9" href="class_plane_projection.html#ac528e8dbd92be24628e136b10f4842f3" title="PlaneProjection::rotatePlane" alt="" coords="641,190,828,217"/>
@@ -396,6 +394,44 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a78c9c0a2b97f1c2775cac14e2ed22744"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProjectionWindow::on_button_file_clicked </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Function to take in file input from dialog box from user</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_projection_window_a78c9c0a2b97f1c2775cac14e2ed22744_cgraph.png" border="0" usemap="#class_projection_window_a78c9c0a2b97f1c2775cac14e2ed22744_cgraph" alt=""/></div>
+<map name="class_projection_window_a78c9c0a2b97f1c2775cac14e2ed22744_cgraph" id="class_projection_window_a78c9c0a2b97f1c2775cac14e2ed22744_cgraph">
+<area shape="rect" id="node2" href="_classes_8h.html#ac40e3d324848f2c969794764a35076c1" title="input3Dfile" alt="" coords="203,71,287,98"/>
+<area shape="rect" id="node3" href="class_point.html#a6fffe55537a7cbe523ff4e1c33ddb9e5" title="Point::setCoordinatesAnd\lLabel" alt="" coords="343,5,513,47"/>
+<area shape="rect" id="node4" href="class_object3_d.html#a7767ac8b73a117c8cd8cbdaf7c6f4699" title="Object3D::project3D" alt="" coords="357,71,499,98"/>
+<area shape="rect" id="node6" href="class_plane_projection.html#ac528e8dbd92be24628e136b10f4842f3" title="PlaneProjection::rotatePlane" alt="" coords="335,122,521,149"/>
+<area shape="rect" id="node5" href="class_point.html#a209c076529495ad94cf65b8a71d29913" title="Point::projectPoint" alt="" coords="569,71,699,98"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="a63deb52bcb4430a8b69433469a07e86a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -452,44 +488,6 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 <p>Function to draw the projection of the Object</p>
-
-</div>
-</div>
-<a class="anchor" id="ad8985e5ffa65b9e4fa4a17a2fc1680a5"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ProjectionWindow::on_file_button </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Function to add file input</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_projection_window_ad8985e5ffa65b9e4fa4a17a2fc1680a5_cgraph.png" border="0" usemap="#class_projection_window_ad8985e5ffa65b9e4fa4a17a2fc1680a5_cgraph" alt=""/></div>
-<map name="class_projection_window_ad8985e5ffa65b9e4fa4a17a2fc1680a5_cgraph" id="class_projection_window_ad8985e5ffa65b9e4fa4a17a2fc1680a5_cgraph">
-<area shape="rect" id="node2" href="_classes_8h.html#ac40e3d324848f2c969794764a35076c1" title="input3Dfile" alt="" coords="203,71,287,98"/>
-<area shape="rect" id="node3" href="class_point.html#a6fffe55537a7cbe523ff4e1c33ddb9e5" title="Point::setCoordinatesAnd\lLabel" alt="" coords="343,5,513,47"/>
-<area shape="rect" id="node4" href="class_object3_d.html#a7767ac8b73a117c8cd8cbdaf7c6f4699" title="Object3D::project3D" alt="" coords="357,71,499,98"/>
-<area shape="rect" id="node6" href="class_plane_projection.html#ac528e8dbd92be24628e136b10f4842f3" title="PlaneProjection::rotatePlane" alt="" coords="335,122,521,149"/>
-<area shape="rect" id="node5" href="class_point.html#a209c076529495ad94cf65b8a71d29913" title="Point::projectPoint" alt="" coords="569,71,699,98"/>
-</map>
-</div>
-</p>
 
 </div>
 </div>
@@ -835,26 +833,6 @@ Here is the call graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">Gtk::Entry ProjectionWindow::m_entry_d</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a8472c7e0a9adabbd0513ef1ef27cffd7"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Gtk::Entry ProjectionWindow::m_entry_file</td>
         </tr>
       </table>
   </td>

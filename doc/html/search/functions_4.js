@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['main',['main',['../_main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'Main.cpp']]],
-  ['mainwindow',['MainWindow',['../class_main_window.html#a34c4b4207b46d11a4100c9b19f0e81bb',1,'MainWindow']]]
+  ['giveallpaths',['giveallpaths',['../class_projection2_d.html#a12296093badead168e68c689df080332',1,'Projection2D']]],
+  ['giveallpathsutil',['giveAllPathsUtil',['../class_projection2_d.html#a71696fe8650908a7c0b98e4059d1ecf9',1,'Projection2D']]],
+  ['giveplanarpaths',['giveplanarpaths',['../class_projection2_d.html#af623f07691c744da9b1c2df473df858a',1,'Projection2D']]]
 ];
