@@ -26,8 +26,8 @@ PackagED
 Following is a description of the above-mentioned directories:
    1. **bin** - All the object files, obtained after build shall be kept in this folder.
    2. **build** - All executables are supposed to be kept in this folder.
-   3. **doc** - All doxygen generated html pages and other documentations relating to the project are supposed to be kept in this folder. To view the doxygen generated document without cloning the repository, see this link
-   http://htmlpreview.github.io/?https://github.com/DivyanshuSaxena/PackagED/blob/master/doc/html/index.html or
+   3. **doc** - All doxygen generated html pages and other documentations relating to the project are supposed to be kept in this folder. To view the doxygen generated document without cloning the repository, see this link  
+   http://htmlpreview.github.io/?https://github.com/DivyanshuSaxena/PackagED/blob/master/doc/html/index.html or  
    http://www.cse.iitd.ac.in/~cs1160315/PackageED/.
    4. **include** - All header files to be included in the project are kept in this folder.
    5. **lib** - This folder contains all external libraries required for the software.
