@@ -2,6 +2,7 @@
 #include <Eigen/Dense>
 #include <algorithm>
 #include <fstream>
+#include <cstdlib>
 using namespace std;
 using namespace Eigen;
 
@@ -768,6 +769,15 @@ void Projection2D::makescadfile(){
         }
         scadfile<< "polyhedron( ObjectPoints, ObjectFaces );";
         scadfile.close();
+        system("openscad -o object.stl object.scad");
+        ofstream renderfile ("render.scad");
+        if(renderfile.is_open()){
+            renderfile<< "render(){import(\"object.stl\");}";
+            renderfile.close();
+            system("openscad render.scad");
+        }else{
+            cout<< "unable to render the stl";
+        }
     }else{
         cout<< "unable to open file"<<endl;
     }

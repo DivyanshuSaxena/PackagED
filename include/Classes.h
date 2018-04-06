@@ -164,6 +164,7 @@ private:
     bool checkHiddenVertice(Point,Face,double[],int);
     bool checkHiddenEdge(Edge,Face,double[],int);
     bool rayCasting(Point,vector<Point>);
+    bool check3dobject();
 };
 
 ///
