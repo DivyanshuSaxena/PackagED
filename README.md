@@ -38,10 +38,9 @@ Following is a description of the above-mentioned directories:
 
 The project makes use of the GTKmm libraries for C++ and OpenScad for stl file generation and rendering.
 Hence these packages are needed to be installed before running the software package.
+As of now the software is only tested on Ubuntu.
 Use the following command:
 ```
-sudo add-apt-repository ppa:openscad/releases  
-sudo apt-get update  
 sudo apt-get install openscad 
 sudo apt-get install libgtkmm-3.0-dev
 ```
