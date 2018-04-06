@@ -36,10 +36,13 @@ Following is a description of the above-mentioned directories:
 
 ## Dependencies
 
-The project makes use of the GTKmm libraries for C++.
-Hence this package is needed to be installed before running the software package.
+The project makes use of the GTKmm libraries for C++ and OpenScad for stl file generation and rendering.
+Hence these packages are needed to be installed before running the software package.
 Use the following command:
 ```
+sudo add-apt-repository ppa:openscad/releases  
+sudo apt-get update  
+sudo apt-get install openscad 
 sudo apt-get install libgtkmm-3.0-dev
 ```
 The above command installs the requisite packages. Now the software package can be built and used.
@@ -54,7 +57,7 @@ Then cd into the build folder and run the following
 ```
 ./main
 ```
-If you want to run the software with input files cd into test folder, then run the main and chose from the files there. You can also copy the test files into build folder and run the test files there.
+If you want to run the software with input files, when prompted chose the text file(some test files are in test folder).
 
 ## Documentation
 

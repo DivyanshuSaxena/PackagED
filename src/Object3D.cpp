@@ -10,7 +10,7 @@ PlaneProjection* Object3D::project3D(double projectionPlane[4]) {
     ///
     // cout << "Check"<<endl; // --------Remove
     // vector<Point> projectedVertices(len); --------Remove
-    check3dobject();
+    bool checkinput=check3dobject();
     vector<bool> isHidden;
     vector<int> isHiddenEdge;
     int len = vertices.size();    
