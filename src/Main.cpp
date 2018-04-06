@@ -19,6 +19,8 @@ int main(int argc, char *argv[]) {
         "org.gtkmm.examples");
     MainWindow window;
     return app->run(window);
+    // check2D();
+    // return 0;
 }
 
 int check3D() {

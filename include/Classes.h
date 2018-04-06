@@ -206,7 +206,7 @@ public:
     vector<vector<int> > adjacencyMatrix;
     map<int, Point *> indextopointmap;
     map<string, Point *> labeltopointmap;
-
+    vector<vector<int> > deducedfaces;
     Wireframe create3D();
     void chkif3edgesanddefthem();
 // private:
@@ -224,9 +224,12 @@ public:
     void printmatrix(vector<vector<int> >);
     vector<int> findneighbours(int);
     vector<vector<int> > giveallpaths(int, int);
-    void giveAllPathsUtil(int , int , bool [], int [], int &,vector<vector<int> >);
+    void giveAllPathsUtil(int , int , bool [], int [], int &,vector<vector<int> >&);
     vector<vector<int> > giveplanarpaths(vector<vector<int> >);
     bool isplanar(vector<int>);
+    void addsuitablepaths(vector<vector<int> >);
+    bool ispresent(vector<int>);
+    bool isequavalent(vector<int>,vector<int>);
 };
 
 int check2D();
