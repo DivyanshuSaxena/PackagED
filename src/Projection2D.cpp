@@ -595,6 +595,10 @@ void Projection2D::printmatrix(vector<vector<int> > thisone){
 }
 
 vector<int> Projection2D::findneighbours(int thispoint){
+    ///
+    /// function to find the neighbours of a point
+    ///
+
     vector<int> neighvec;
     int numpoints = allpoints.size();
     for(int i = 0 ;i<numpoints;i++){
@@ -605,6 +609,9 @@ vector<int> Projection2D::findneighbours(int thispoint){
     return neighvec;
 }
 vector<vector<int> > Projection2D::giveallpaths(int start, int dest){
+    ///
+    /// function to give all the possible paths from start to destination
+    ///
     int numpoints = allpoints.size();
     vector<vector<int> > allpaths;
     bool *visited = new bool[numpoints];
@@ -617,6 +624,9 @@ vector<vector<int> > Projection2D::giveallpaths(int start, int dest){
 }
 
 void Projection2D::giveAllPathsUtil(int u, int d, bool visited[], int path[], int &path_index, vector<vector<int> > &allpaths){
+    ///
+    /// function to give all possible paths from u to d
+    ///
     visited[u] = true;
     path[path_index] = u;
     path_index++;
@@ -644,6 +654,9 @@ void Projection2D::giveAllPathsUtil(int u, int d, bool visited[], int path[], in
 }
 
 vector<vector<int> > Projection2D::giveplanarpaths(vector<vector<int> > allpaths){
+    ///
+    /// function to filter out non-planar paths
+    ///
     vector<vector<int> > filteredpaths;
     int numallpaths = allpaths.size();
     for(int i=0;i<numallpaths;i++){
@@ -663,6 +676,9 @@ vector<vector<int> > Projection2D::giveplanarpaths(vector<vector<int> > allpaths
 }
 
 bool Projection2D::isplanar(vector<int> thispath){
+    ///
+    /// function to check if a path is planar or not
+    ///
     bool isplanar=true;
     int thispathsize = thispath.size();
     // cout<<"vector of consideration is "<<endl;
@@ -698,6 +714,9 @@ bool Projection2D::isplanar(vector<int> thispath){
 }
 
 void Projection2D::addsuitablepaths(vector<vector<int> > goodpaths){
+    ///
+    /// function to add planar paths to faces
+    ///
     for(auto iter = goodpaths.begin();iter!= goodpaths.end();iter++){
         if(!ispresent(*iter)){
             deducedfaces.push_back(*iter);
@@ -706,6 +725,9 @@ void Projection2D::addsuitablepaths(vector<vector<int> > goodpaths){
 }
 
 bool Projection2D::ispresent(vector<int> thispath){
+    ///
+    /// function to check if the given face has already been added or not
+    ///
     bool ispresent = false;
     for(auto iter = deducedfaces.begin();iter!=deducedfaces.end();iter++){
         if(isequavalent(*iter,thispath)){
@@ -719,6 +741,9 @@ bool Projection2D::ispresent(vector<int> thispath){
 }
 
 bool Projection2D::isequavalent(vector<int> vec1,vector<int> vec2){
+    ///
+    /// function to check whether two representation of vectors are equal
+    ///
     bool isequavalent = false;
     if(vec1.size()==vec2.size()){
         sort(vec1.begin(),vec1.end());
@@ -734,6 +759,9 @@ bool Projection2D::isequavalent(vector<int> vec1,vector<int> vec2){
     return isequavalent;
 }
 void Projection2D::makescadfile(){
+    ///
+    /// function to make scad file, stl, render scad file and then run it
+    ///
     ofstream scadfile ("object.scad");
     if(scadfile.is_open()){
         // scadfile<< "cube([2,3,9]);";

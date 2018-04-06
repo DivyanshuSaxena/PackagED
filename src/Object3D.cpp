@@ -372,6 +372,9 @@ bool Object3D::checkHiddenEdge(Edge edge, Face face, double plane[4], int index)
 }
 
 bool Object3D::check3dobject(){
+    ///
+    /// function to check the validity of input file
+    ///
     try{
         ofstream scadfile ("object.scad");
         if(scadfile.is_open()){
