@@ -61,3 +61,19 @@ If you want to run the software with input files, when prompted chose the text f
 ## Documentation
 
 The documentation for the current software package is available in the form of webpages. The index.html in doc/html lists the main page. Thereafter, the pages are linked together.
+## Screenshots
+
+When the gui opens window like this would appear  
+![alt](http://www.cse.iitd.ac.in/~cs1160315/PackageED/images/1.png)  
+
+If the user clicks on Project 3D Object on a Plane and say the user choses the input file PackageED/test/pyramidoverpyramid3dto2d.txt a window showing the 3d representation of the selected file like below would appear  
+![alt](http://www.cse.iitd.ac.in/~cs1160315/PackageED/images/5.png)  
+
+If the window is closed the projection like below would appear in the gui  
+![alt](http://www.cse.iitd.ac.in/~cs1160315/PackageED/images/6.png)  
+
+Else if the user clicks on Construct Wireframe Orthographic Views and say the user choses the input file PackageED/test/cutcube2dto3d.txt a window showing the 3d object made from the orthographic projections of the selected input file like below would appear  
+![alt](http://www.cse.iitd.ac.in/~cs1160315/PackageED/images/2.png)  
+
+If the window is closed the object like below would appear in the gui  
+![alt](http://www.cse.iitd.ac.in/~cs1160315/PackageED/images/4.png)  
