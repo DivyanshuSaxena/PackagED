@@ -28,7 +28,7 @@ Following is a description of the above-mentioned directories:
    2. **build** - All executables are supposed to be kept in this folder.
    3. **doc** - All doxygen generated html pages and other documentations relating to the project are supposed to be kept in this folder. To view the doxygen generated document without cloning the repository, see this link  
    http://htmlpreview.github.io/?https://github.com/DivyanshuSaxena/PackagED/blob/master/doc/html/index.html or  
-   http://www.cse.iitd.ac.in/~cs1160315/PackageED/.
+   http://www.cse.iitd.ac.in/~cs1160315/PackageED/ (preferably chose above link, this link is unlikely to updated whereas above link fetches the data in realtime from the repo).
    4. **include** - All header files to be included in the project are kept in this folder.
    5. **lib** - This folder contains all external libraries required for the software.
    6. **src** - This folder is supposed to contain all source files (.cpp) written in C++ are to be kept here.
