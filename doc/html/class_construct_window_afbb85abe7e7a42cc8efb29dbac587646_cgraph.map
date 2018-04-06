@@ -6,7 +6,7 @@
 <area shape="rect" id="node9" href="$class_construct_window.html#aea4ae0b05b660bbaf1bf808822d851cc" title="ConstructWindow::on\l_button_addedge" alt="" coords="244,267,392,308"/>
 <area shape="rect" id="node10" href="$class_construct_window.html#a41da466f959938ac1f8bee034ab94b01" title="ConstructWindow::on\l_button_created" alt="" coords="244,332,392,373"/>
 <area shape="rect" id="node15" href="$class_construct_window.html#ae4f9ac332fbef78298b93379b8b9b8df" title="ConstructWindow::on\l_button_rotate" alt="" coords="244,463,392,504"/>
-<area shape="rect" id="node16" href="$class_construct_window.html#abb4ff002be0d1bdbe09fda5852b43ccd" title="ConstructWindow::on\l_file_button" alt="" coords="244,397,392,439"/>
+<area shape="rect" id="node16" href="$class_construct_window.html#acdede928acf397bf48f9cda296df41bb" title="ConstructWindow::on\l_button_file_clicked" alt="" coords="244,397,392,439"/>
 <area shape="rect" id="node3" href="$class_wireframe.html#a3ed1a5c8abc099d1eea1495b3b87e52e" title="Wireframe::projectFrame" alt="" coords="442,13,609,39"/>
 <area shape="rect" id="node4" href="$class_point.html#a209c076529495ad94cf65b8a71d29913" title="Point::projectPoint" alt="" coords="673,13,803,39"/>
 <area shape="rect" id="node6" href="$class_point.html#a6fffe55537a7cbe523ff4e1c33ddb9e5" title="Point::setCoordinatesAnd\lLabel" alt="" coords="440,136,611,177"/>

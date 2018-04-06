@@ -28,7 +28,8 @@ private:
   void on_button_addedge();
   void on_button_addface();
   void on_button_created();
-  void on_file_button();
+  // void on_file_button();
+  void on_button_file_clicked();
   bool on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr);
   
   // Signals
@@ -41,7 +42,7 @@ private:
   Gtk::Grid m_point_grid, m_edge_grid, m_face_grid, m_plane_grid, m_file_grid;
   Gtk::Entry m_entry_x, m_entry_y, m_entry_z, m_entry_label;
   Gtk::Entry m_entry_a, m_entry_b, m_entry_c, m_entry_d;
-  Gtk::Entry m_edge_p1, m_edge_p2, m_entry_file;
+  Gtk::Entry m_edge_p1, m_edge_p2;
   Gtk::Button m_submit, m_add_point, m_add_file;
   Gtk::Button m_add_edge, m_add_face, m_create;
   Gtk::CheckButton** m_face_point;
@@ -69,7 +70,7 @@ private:
   void on_button_created();
   bool on_custom_draw(const Cairo::RefPtr<Cairo::Context>& cr);  
   void on_button_rotate(int type);
-  void on_file_button();
+  void on_button_file_clicked();  
 
   int projection, create;
   OrthoProjection* front, * top, * side;
@@ -82,7 +83,7 @@ private:
   Gtk::Frame m_rotate_frame, m_file_frame;
   Gtk::Grid m_point_grid, m_edge_grid, m_draw_grid, m_rotate_grid, m_file_grid;
   Gtk::Entry m_entry_x, m_entry_y, m_entry_z, m_entry_label;
-  Gtk::Entry m_edge_p1, m_edge_p2, m_entry_file;
+  Gtk::Entry m_edge_p1, m_edge_p2;
   Gtk::Button m_submit, m_add_point, m_add_label;
   Gtk::Button m_add_edge, m_create, m_add_file;
   Gtk::Button m_top_rotate, m_bottom_rotate, m_left_rotate, m_right_rotate;
@@ -103,8 +104,11 @@ private:
   void on_button_numbered(const Glib::ustring& data);
 
   // Child widgets:
+  Gtk::Box m_VBox;
   Gtk::Grid m_grid;
   Gtk::Button m_button_1, m_button_2;
+  Gtk::TextView m_TextView;
+  Glib::RefPtr<Gtk::TextBuffer> m_TextBuffer;
 };
 
 PlaneProjection* createObject(Object3D*,double[4]);

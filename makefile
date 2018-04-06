@@ -41,10 +41,13 @@ $(OGDIR)/%.o: $(SDIR)/%.cpp $(GDEPS)
 
 all: directories $(BUILDS) $(TESTS)
 
+test: directories $(TESTS)
+
 directories: 
 	$(MKDIR) $(OUT_DIR)
 
 $(BDIR)/main: $(OBJ) $(GOBJ)
 		$(CC) -o $@ $^ $(CFLAGS) $(GTKFLAG) $(LIBS) 
+
 $(TDIR)/main: $(OBJ) $(GOBJ)
 		$(CC) -o $@ $^ $(CFLAGS) $(GTKFLAG) $(LIBS) 

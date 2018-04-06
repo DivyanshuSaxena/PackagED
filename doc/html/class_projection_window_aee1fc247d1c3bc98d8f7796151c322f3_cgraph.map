@@ -5,7 +5,7 @@
 <area shape="rect" id="node6" href="$class_projection_window.html#a3205f524a90213beffb9870b8fddd5e7" title="ProjectionWindow::on\l_button_addface" alt="" coords="247,321,396,363"/>
 <area shape="rect" id="node7" href="$class_projection_window.html#a6565002548ab838930bd4fd7b7a8e52e" title="ProjectionWindow::on\l_button_created" alt="" coords="247,191,396,232"/>
 <area shape="rect" id="node10" href="$class_projection_window.html#abac0b81445020f55b0bcfaf3a2548492" title="ProjectionWindow::on\l_custom_draw" alt="" coords="247,387,396,428"/>
-<area shape="rect" id="node11" href="$class_projection_window.html#ad8985e5ffa65b9e4fa4a17a2fc1680a5" title="ProjectionWindow::on\l_file_button" alt="" coords="247,125,396,167"/>
+<area shape="rect" id="node11" href="$class_projection_window.html#a78c9c0a2b97f1c2775cac14e2ed22744" title="ProjectionWindow::on\l_button_file_clicked" alt="" coords="247,125,396,167"/>
 <area shape="rect" id="node3" href="$class_point.html#a6fffe55537a7cbe523ff4e1c33ddb9e5" title="Point::setCoordinatesAnd\lLabel" alt="" coords="649,71,820,112"/>
 <area shape="rect" id="node8" href="$gui_8h.html#a20579b255f3974d5091c9a219ad58ad5" title="createObject" alt="" coords="471,193,567,219"/>
 <area shape="rect" id="node9" href="$class_plane_projection.html#ac528e8dbd92be24628e136b10f4842f3" title="PlaneProjection::rotatePlane" alt="" coords="641,190,828,217"/>

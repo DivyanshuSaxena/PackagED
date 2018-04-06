@@ -208,9 +208,10 @@ public:
     map<string, Point *> labeltopointmap;
     vector<vector<int> > deducedfaces;
     Wireframe create3D();
-    void chkif3edgesanddefthem();
-// private:
+    
+private:
 //check private
+    void chkif3edgesanddefthem();
     void determineIntersectedEdges();
     void executeCorollary1onebyone(OrthoProjection *,OrthoProjection *, OrthoProjection *);
     void executeCorollary1();

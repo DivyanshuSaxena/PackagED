@@ -53,7 +53,7 @@ void \hyperlink{class_projection_window_a3205f524a90213beffb9870b8fddd5e7}{on\+\
 \item 
 void \hyperlink{class_projection_window_a6565002548ab838930bd4fd7b7a8e52e}{on\+\_\+button\+\_\+created} ()
 \item 
-void \hyperlink{class_projection_window_ad8985e5ffa65b9e4fa4a17a2fc1680a5}{on\+\_\+file\+\_\+button} ()
+void \hyperlink{class_projection_window_a78c9c0a2b97f1c2775cac14e2ed22744}{on\+\_\+button\+\_\+file\+\_\+clicked} ()
 \item 
 bool \hyperlink{class_projection_window_abac0b81445020f55b0bcfaf3a2548492}{on\+\_\+custom\+\_\+draw} (const Cairo\+::\+Ref\+Ptr$<$ Cairo\+::\+Context $>$ \&cr)
 \end{DoxyCompactItemize}
@@ -108,8 +108,6 @@ Gtk\+::\+Entry \hyperlink{class_projection_window_ae18dd1142ec2291156359d603627f
 \item 
 Gtk\+::\+Entry \hyperlink{class_projection_window_a2cc6daee71ec01c27f32e02c49ade20e}{m\+\_\+edge\+\_\+p2}
 \item 
-Gtk\+::\+Entry \hyperlink{class_projection_window_a8472c7e0a9adabbd0513ef1ef27cffd7}{m\+\_\+entry\+\_\+file}
-\item 
 Gtk\+::\+Button \hyperlink{class_projection_window_a1081eb0b152ae185a1f20b433c58b276}{m\+\_\+submit}
 \item 
 Gtk\+::\+Button \hyperlink{class_projection_window_a03c1bd15354e834e53e9c9fed3ed8d5c}{m\+\_\+add\+\_\+point}
@@ -141,7 +139,8 @@ Class to input and display 3D to 2D transition
 )}\hypertarget{class_projection_window_aee1fc247d1c3bc98d8f7796151c322f3}{}\label{class_projection_window_aee1fc247d1c3bc98d8f7796151c322f3}
 The constructor for Project\+Window
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -210,6 +209,25 @@ Here is the call graph for this function\+:\nopagebreak
 \end{figure}
 
 
+\index{Projection\+Window@{Projection\+Window}!on\+\_\+button\+\_\+file\+\_\+clicked@{on\+\_\+button\+\_\+file\+\_\+clicked}}
+\index{on\+\_\+button\+\_\+file\+\_\+clicked@{on\+\_\+button\+\_\+file\+\_\+clicked}!Projection\+Window@{Projection\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+button\+\_\+file\+\_\+clicked()}{on_button_file_clicked()}}]{\setlength{\rightskip}{0pt plus 5cm}void Projection\+Window\+::on\+\_\+button\+\_\+file\+\_\+clicked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection_window_a78c9c0a2b97f1c2775cac14e2ed22744}{}\label{class_projection_window_a78c9c0a2b97f1c2775cac14e2ed22744}
+Function to take in file input from dialog box from user
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_projection_window_a78c9c0a2b97f1c2775cac14e2ed22744_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Projection\+Window@{Projection\+Window}!on\+\_\+button\+\_\+submit@{on\+\_\+button\+\_\+submit}}
 \index{on\+\_\+button\+\_\+submit@{on\+\_\+button\+\_\+submit}!Projection\+Window@{Projection\+Window}}
 \subsubsection[{\texorpdfstring{on\+\_\+button\+\_\+submit()}{on_button_submit()}}]{\setlength{\rightskip}{0pt plus 5cm}void Projection\+Window\+::on\+\_\+button\+\_\+submit (
@@ -235,25 +253,7 @@ Here is the call graph for this function\+:\nopagebreak
 \item[{const Cairo\+::\+Ref\+Ptr$<$ Cairo\+::\+Context $>$ \&}]{cr}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection_window_abac0b81445020f55b0bcfaf3a2548492}{}\label{class_projection_window_abac0b81445020f55b0bcfaf3a2548492}
-Function to draw the projection of the Object\index{Projection\+Window@{Projection\+Window}!on\+\_\+file\+\_\+button@{on\+\_\+file\+\_\+button}}
-\index{on\+\_\+file\+\_\+button@{on\+\_\+file\+\_\+button}!Projection\+Window@{Projection\+Window}}
-\subsubsection[{\texorpdfstring{on\+\_\+file\+\_\+button()}{on_file_button()}}]{\setlength{\rightskip}{0pt plus 5cm}void Projection\+Window\+::on\+\_\+file\+\_\+button (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection_window_ad8985e5ffa65b9e4fa4a17a2fc1680a5}{}\label{class_projection_window_ad8985e5ffa65b9e4fa4a17a2fc1680a5}
-Function to add file input
-
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_projection_window_ad8985e5ffa65b9e4fa4a17a2fc1680a5_cgraph}
-\end{center}
-\end{figure}
-
-
-
+Function to draw the projection of the Object
 
 \subsection{Member Data Documentation}
 \index{Projection\+Window@{Projection\+Window}!create@{create}}
@@ -310,9 +310,6 @@ Here is the call graph for this function\+:\nopagebreak
 \index{Projection\+Window@{Projection\+Window}!m\+\_\+entry\+\_\+d@{m\+\_\+entry\+\_\+d}}
 \index{m\+\_\+entry\+\_\+d@{m\+\_\+entry\+\_\+d}!Projection\+Window@{Projection\+Window}}
 \subsubsection[{\texorpdfstring{m\+\_\+entry\+\_\+d}{m_entry_d}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Entry Projection\+Window\+::m\+\_\+entry\+\_\+d\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection_window_a5ae59154fe9dd24c67e3db07c0d75521}{}\label{class_projection_window_a5ae59154fe9dd24c67e3db07c0d75521}
-\index{Projection\+Window@{Projection\+Window}!m\+\_\+entry\+\_\+file@{m\+\_\+entry\+\_\+file}}
-\index{m\+\_\+entry\+\_\+file@{m\+\_\+entry\+\_\+file}!Projection\+Window@{Projection\+Window}}
-\subsubsection[{\texorpdfstring{m\+\_\+entry\+\_\+file}{m_entry_file}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Entry Projection\+Window\+::m\+\_\+entry\+\_\+file\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection_window_a8472c7e0a9adabbd0513ef1ef27cffd7}{}\label{class_projection_window_a8472c7e0a9adabbd0513ef1ef27cffd7}
 \index{Projection\+Window@{Projection\+Window}!m\+\_\+entry\+\_\+label@{m\+\_\+entry\+\_\+label}}
 \index{m\+\_\+entry\+\_\+label@{m\+\_\+entry\+\_\+label}!Projection\+Window@{Projection\+Window}}
 \subsubsection[{\texorpdfstring{m\+\_\+entry\+\_\+label}{m_entry_label}}]{\setlength{\rightskip}{0pt plus 5cm}Gtk\+::\+Entry Projection\+Window\+::m\+\_\+entry\+\_\+label\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection_window_a490b52bafb75b5e5530bf1802b02e16a}{}\label{class_projection_window_a490b52bafb75b5e5530bf1802b02e16a}
