@@ -1,6 +1,7 @@
 #include "Classes.h"
 #include <Eigen/Dense>
 #include <algorithm>
+#include <fstream>
 using namespace std;
 using namespace Eigen;
 
@@ -110,6 +111,7 @@ Wireframe Projection2D::create3D(){
                 cout<<endl;
     }
     cout << "printed final faces"<<endl;
+    makescadfile();
     return answer;
 }
 
@@ -729,4 +731,45 @@ bool Projection2D::isequavalent(vector<int> vec1,vector<int> vec2){
         return true;
     }
     return isequavalent;
+}
+void Projection2D::makescadfile(){
+    ofstream scadfile ("object.scad");
+    if(scadfile.is_open()){
+        // scadfile<< "cube([2,3,9]);";
+        scadfile <<"ObjectPoints = [\n";
+        int numpoints = allpoints.size();
+        for(int i=0;i<numpoints;i++){
+            Point temp = allpoints[i];
+            scadfile<<"    [ "<<temp.x<<", "<<temp.y<<", "<<temp.z<<" ]";
+            if(i!=numpoints-1){
+                scadfile<<",";
+            }else{
+                scadfile<<"];";
+            }
+            scadfile<<  "  //"<<i<<"\n";
+        }
+        scadfile <<"\n";
+        scadfile << "ObjectFaces = [\n";
+        int numfaces = deducedfaces.size();
+        for(int i=0;i<numfaces;i++){
+            scadfile<<"[";
+            for(int j=0;j<deducedfaces[i].size();j++){
+                scadfile<<deducedfaces[i][j];
+                if(j!=deducedfaces[i].size()-1){
+                    scadfile<<",";
+                }
+            }
+            scadfile<< "]";
+            if(i!=numfaces-1){
+                scadfile<<",\n";
+            }else{
+                scadfile<<"];\n";
+            }
+        }
+        scadfile<< "polyhedron( ObjectPoints, ObjectFaces );";
+        scadfile.close();
+    }else{
+        cout<< "unable to open file"<<endl;
+    }
+
 }

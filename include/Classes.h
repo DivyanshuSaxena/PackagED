@@ -231,6 +231,7 @@ private:
     void addsuitablepaths(vector<vector<int> >);
     bool ispresent(vector<int>);
     bool isequavalent(vector<int>,vector<int>);
+    void makescadfile();
 };
 
 int check2D();
