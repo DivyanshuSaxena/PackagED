@@ -17,6 +17,28 @@ Collaboration diagram for Projection2D\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_wireframe}{Wireframe} \hyperlink{class_projection2_d_aa061602930f19acad32720f7067c58fa}{create3D} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_ortho_projection}{Ortho\+Projection} \hyperlink{class_projection2_d_a1eb4d010190b1bd62bf0f9c4e4afc88a}{frontview}
+\item 
+\hyperlink{class_ortho_projection}{Ortho\+Projection} \hyperlink{class_projection2_d_a90079954379a766f60ba01ad393327ab}{topview}
+\item 
+\hyperlink{class_ortho_projection}{Ortho\+Projection} \hyperlink{class_projection2_d_a82c9e3f197b07ffe9a10f59de60edbee}{sideview}
+\item 
+vector$<$ \hyperlink{class_point}{Point} $>$ \hyperlink{class_projection2_d_aacafd767e5289005e7ec5d48c791d02f}{allpoints}
+\item 
+vector$<$ vector$<$ int $>$ $>$ \hyperlink{class_projection2_d_a0a4be368b0a7233a1aa93efe17c7314e}{adjacency\+Matrix}
+\item 
+map$<$ int, \hyperlink{class_point}{Point} $\ast$ $>$ \hyperlink{class_projection2_d_a08675aad4022218dc78dd54187be18a9}{indextopointmap}
+\item 
+map$<$ string, \hyperlink{class_point}{Point} $\ast$ $>$ \hyperlink{class_projection2_d_a0afd92ccd321bc86e6e019b4bec99fc8}{labeltopointmap}
+\item 
+vector$<$ vector$<$ int $>$ $>$ \hyperlink{class_projection2_d_ab61981ca6001560343c1e378c334866a}{deducedfaces}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
 \item 
 void \hyperlink{class_projection2_d_a64751fc8527786d489d3e1f9dd613778}{chkif3edgesanddefthem} ()
 \item 
@@ -44,30 +66,21 @@ void \hyperlink{class_projection2_d_a209abc191321c5bdd970c57c68dd0ac8}{printmatr
 \item 
 vector$<$ int $>$ \hyperlink{class_projection2_d_ac86b5c70c7ad7d1e3e3df3f41161bec7}{findneighbours} (int)
 \item 
-vector$<$ vector$<$ int $>$ $>$ \hyperlink{class_projection2_d_a12296093badead168e68c689df080332}{giveallpaths} (int, int)
+vector$<$ vector$<$ int $>$ $>$ \hyperlink{class_projection2_d_a2be0e30485d5fb74edefac1c31ce46a2}{giveallpaths} (int, int)
 \item 
-void \hyperlink{class_projection2_d_a71696fe8650908a7c0b98e4059d1ecf9}{give\+All\+Paths\+Util} (int, int, bool\mbox{[}$\,$\mbox{]}, int\mbox{[}$\,$\mbox{]}, int \&, vector$<$ vector$<$ int $>$ $>$)
+void \hyperlink{class_projection2_d_afcafeef06178e9d071c1f25f5ab7c4da}{give\+All\+Paths\+Util} (int, int, bool\mbox{[}$\,$\mbox{]}, int\mbox{[}$\,$\mbox{]}, int \&, vector$<$ vector$<$ int $>$ $>$ \&)
 \item 
-vector$<$ vector$<$ int $>$ $>$ \hyperlink{class_projection2_d_af623f07691c744da9b1c2df473df858a}{giveplanarpaths} (vector$<$ vector$<$ int $>$ $>$)
+vector$<$ vector$<$ int $>$ $>$ \hyperlink{class_projection2_d_a77acf0c6b5c00735c12e34f218b4c361}{giveplanarpaths} (vector$<$ vector$<$ int $>$ $>$)
 \item 
 bool \hyperlink{class_projection2_d_a4b86c26f97d2a91f7fde20fa7ab51092}{isplanar} (vector$<$ int $>$)
-\end{DoxyCompactItemize}
-\subsection*{Public Attributes}
-\begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_ortho_projection}{Ortho\+Projection} \hyperlink{class_projection2_d_a1eb4d010190b1bd62bf0f9c4e4afc88a}{frontview}
+void \hyperlink{class_projection2_d_ac8e6feedf3873847f2868ce5b5f0b77a}{addsuitablepaths} (vector$<$ vector$<$ int $>$ $>$)
 \item 
-\hyperlink{class_ortho_projection}{Ortho\+Projection} \hyperlink{class_projection2_d_a90079954379a766f60ba01ad393327ab}{topview}
+bool \hyperlink{class_projection2_d_ac2f97acfe9d066a026b7b8edc2d24c2c}{ispresent} (vector$<$ int $>$)
 \item 
-\hyperlink{class_ortho_projection}{Ortho\+Projection} \hyperlink{class_projection2_d_a82c9e3f197b07ffe9a10f59de60edbee}{sideview}
+bool \hyperlink{class_projection2_d_a65a00d3f14f35c5b19d88cfb0ffd1e49}{isequavalent} (vector$<$ int $>$, vector$<$ int $>$)
 \item 
-vector$<$ \hyperlink{class_point}{Point} $>$ \hyperlink{class_projection2_d_aacafd767e5289005e7ec5d48c791d02f}{allpoints}
-\item 
-vector$<$ vector$<$ int $>$ $>$ \hyperlink{class_projection2_d_a0a4be368b0a7233a1aa93efe17c7314e}{adjacency\+Matrix}
-\item 
-map$<$ int, \hyperlink{class_point}{Point} $\ast$ $>$ \hyperlink{class_projection2_d_a08675aad4022218dc78dd54187be18a9}{indextopointmap}
-\item 
-map$<$ string, \hyperlink{class_point}{Point} $\ast$ $>$ \hyperlink{class_projection2_d_a0afd92ccd321bc86e6e019b4bec99fc8}{labeltopointmap}
+void \hyperlink{class_projection2_d_ab0bddff5a0c3cc8177bbedc3713501e0}{makescadfile} ()
 \end{DoxyCompactItemize}
 
 
@@ -78,13 +91,20 @@ This class holds the 2D orthographic projections of a 3D object. The orthographi
 \end{DoxyEnumerate}
 
 \subsection{Member Function Documentation}
-\index{Projection2D@{Projection2D}!chkcollinearpossanddef@{chkcollinearpossanddef}}
+\index{Projection2D@{Projection2D}!addsuitablepaths@{addsuitablepaths}}
+\index{addsuitablepaths@{addsuitablepaths}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{addsuitablepaths(vector$<$ vector$<$ int $>$ $>$)}{addsuitablepaths(vector< vector< int > >)}}]{\setlength{\rightskip}{0pt plus 5cm}void Projection2\+D\+::addsuitablepaths (
+\begin{DoxyParamCaption}
+\item[{vector$<$ vector$<$ int $>$ $>$}]{goodpaths}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_ac8e6feedf3873847f2868ce5b5f0b77a}{}\label{class_projection2_d_ac8e6feedf3873847f2868ce5b5f0b77a}
+function to add planar paths to faces\index{Projection2D@{Projection2D}!chkcollinearpossanddef@{chkcollinearpossanddef}}
 \index{chkcollinearpossanddef@{chkcollinearpossanddef}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{chkcollinearpossanddef()}{chkcollinearpossanddef()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Projection2\+D\+::chkcollinearpossanddef (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\hypertarget{class_projection2_d_af9a959f2c44a1801687dda170ba0d5d2}{}\label{class_projection2_d_af9a959f2c44a1801687dda170ba0d5d2}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_af9a959f2c44a1801687dda170ba0d5d2}{}\label{class_projection2_d_af9a959f2c44a1801687dda170ba0d5d2}
 check if a point has two collinear points as its edge, one being definite and other being possible, if so, remove the possible edge
 
 Here is the call graph for this function\+:\nopagebreak
@@ -102,7 +122,7 @@ Here is the call graph for this function\+:\nopagebreak
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\hypertarget{class_projection2_d_a26179e263ee8be9bfbc260bedaea14c7}{}\label{class_projection2_d_a26179e263ee8be9bfbc260bedaea14c7}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a26179e263ee8be9bfbc260bedaea14c7}{}\label{class_projection2_d_a26179e263ee8be9bfbc260bedaea14c7}
 if two points are collinear and possible edges only one of them could be definite, definite being the closest point, Given that the point whose neighbours are being calculated lies on one end
 
 Here is the call graph for this function\+:\nopagebreak
@@ -120,14 +140,14 @@ Here is the call graph for this function\+:\nopagebreak
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\hypertarget{class_projection2_d_a64751fc8527786d489d3e1f9dd613778}{}\label{class_projection2_d_a64751fc8527786d489d3e1f9dd613778}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a64751fc8527786d489d3e1f9dd613778}{}\label{class_projection2_d_a64751fc8527786d489d3e1f9dd613778}
 Function to check if there are only three possible edges and then make them the final edge\index{Projection2D@{Projection2D}!chkposshasdefinother@{chkposshasdefinother}}
 \index{chkposshasdefinother@{chkposshasdefinother}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{chkposshasdefinother()}{chkposshasdefinother()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Projection2\+D\+::chkposshasdefinother (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\hypertarget{class_projection2_d_a7b26c1f31633d19a33bdf54e8c47d3d8}{}\label{class_projection2_d_a7b26c1f31633d19a33bdf54e8c47d3d8}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a7b26c1f31633d19a33bdf54e8c47d3d8}{}\label{class_projection2_d_a7b26c1f31633d19a33bdf54e8c47d3d8}
 Function to check if a possible edge point has definite neighbours with other edges, if so remove them\index{Projection2D@{Projection2D}!create3D@{create3D}}
 \index{create3D@{create3D}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{create3\+D()}{create3D()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Wireframe} Projection2\+D\+::create3D (
@@ -141,14 +161,14 @@ Function that creates the wireframe model from the 2d orthographic views\index{P
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\hypertarget{class_projection2_d_af2972a56d0f0fa6a9d01576d7021180d}{}\label{class_projection2_d_af2972a56d0f0fa6a9d01576d7021180d}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_af2972a56d0f0fa6a9d01576d7021180d}{}\label{class_projection2_d_af2972a56d0f0fa6a9d01576d7021180d}
 Function to determine points by intersection of the corresponding points from topview and frontview\index{Projection2D@{Projection2D}!determine\+Intersected\+Edges@{determine\+Intersected\+Edges}}
 \index{determine\+Intersected\+Edges@{determine\+Intersected\+Edges}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{determine\+Intersected\+Edges()}{determineIntersectedEdges()}}]{\setlength{\rightskip}{0pt plus 5cm}void Projection2\+D\+::determine\+Intersected\+Edges (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\hypertarget{class_projection2_d_a6be4ef41d013628ba91a3f1dbcc1f9bf}{}\label{class_projection2_d_a6be4ef41d013628ba91a3f1dbcc1f9bf}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a6be4ef41d013628ba91a3f1dbcc1f9bf}{}\label{class_projection2_d_a6be4ef41d013628ba91a3f1dbcc1f9bf}
 Funtion to determine all the possible edges for all the points\index{Projection2D@{Projection2D}!determine\+Point@{determine\+Point}}
 \index{determine\+Point@{determine\+Point}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{determine\+Point(\+Point, Point)}{determinePoint(Point, Point)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point} Projection2\+D\+::determine\+Point (
@@ -156,7 +176,7 @@ Funtion to determine all the possible edges for all the points\index{Projection2
 \item[{{\bf Point}}]{pfront, }
 \item[{{\bf Point}}]{ptop}
 \end{DoxyParamCaption}
-)}\hypertarget{class_projection2_d_a0185949b0711aa0a43bd2f66da9aaee7}{}\label{class_projection2_d_a0185949b0711aa0a43bd2f66da9aaee7}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a0185949b0711aa0a43bd2f66da9aaee7}{}\label{class_projection2_d_a0185949b0711aa0a43bd2f66da9aaee7}
 This function extends the points from the top view and front view to give the 3D projection of the \hyperlink{class_point}{Point}
 
 Here is the call graph for this function\+:\nopagebreak
@@ -176,14 +196,14 @@ Here is the call graph for this function\+:\nopagebreak
 \item[{vector$<$ {\bf Point} $>$ $\ast$}]{topneighbourptr, }
 \item[{vector$<$ {\bf Point} $>$ $\ast$}]{frontneighbourptr}
 \end{DoxyParamCaption}
-)}\hypertarget{class_projection2_d_ad5f6fe26ce1a18cb5de2fe87e6b0869e}{}\label{class_projection2_d_ad5f6fe26ce1a18cb5de2fe87e6b0869e}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_ad5f6fe26ce1a18cb5de2fe87e6b0869e}{}\label{class_projection2_d_ad5f6fe26ce1a18cb5de2fe87e6b0869e}
 This function determines the edges containing the \hyperlink{class_point}{Point} vertex as one of the endpoints By interpreting its neighbours from the top view and front view\index{Projection2D@{Projection2D}!execute\+Corollary1@{execute\+Corollary1}}
 \index{execute\+Corollary1@{execute\+Corollary1}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{execute\+Corollary1()}{executeCorollary1()}}]{\setlength{\rightskip}{0pt plus 5cm}void Projection2\+D\+::execute\+Corollary1 (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\hypertarget{class_projection2_d_a7433a1a25a81f16a79c308d5dd7d98b5}{}\label{class_projection2_d_a7433a1a25a81f16a79c308d5dd7d98b5}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a7433a1a25a81f16a79c308d5dd7d98b5}{}\label{class_projection2_d_a7433a1a25a81f16a79c308d5dd7d98b5}
 Function to execute corollary one for all views\index{Projection2D@{Projection2D}!execute\+Corollary1onebyone@{execute\+Corollary1onebyone}}
 \index{execute\+Corollary1onebyone@{execute\+Corollary1onebyone}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{execute\+Corollary1onebyone(\+Ortho\+Projection $\ast$, Ortho\+Projection $\ast$, Ortho\+Projection $\ast$)}{executeCorollary1onebyone(OrthoProjection *, OrthoProjection *, OrthoProjection *)}}]{\setlength{\rightskip}{0pt plus 5cm}void Projection2\+D\+::execute\+Corollary1onebyone (
@@ -192,7 +212,7 @@ Function to execute corollary one for all views\index{Projection2D@{Projection2D
 \item[{{\bf Ortho\+Projection} $\ast$}]{view2, }
 \item[{{\bf Ortho\+Projection} $\ast$}]{view3}
 \end{DoxyParamCaption}
-)}\hypertarget{class_projection2_d_af65b18c0f1aed2c6bda79173ef6a0f5e}{}\label{class_projection2_d_af65b18c0f1aed2c6bda79173ef6a0f5e}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_af65b18c0f1aed2c6bda79173ef6a0f5e}{}\label{class_projection2_d_af65b18c0f1aed2c6bda79173ef6a0f5e}
 Function to execute corollary one of superimposed points in one view and possible edge in other view for each view
 
 Here is the call graph for this function\+:\nopagebreak
@@ -210,55 +230,77 @@ Here is the call graph for this function\+:\nopagebreak
 \begin{DoxyParamCaption}
 \item[{int}]{thispoint}
 \end{DoxyParamCaption}
-)}\hypertarget{class_projection2_d_ac86b5c70c7ad7d1e3e3df3f41161bec7}{}\label{class_projection2_d_ac86b5c70c7ad7d1e3e3df3f41161bec7}
-\index{Projection2D@{Projection2D}!giveallpaths@{giveallpaths}}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_ac86b5c70c7ad7d1e3e3df3f41161bec7}{}\label{class_projection2_d_ac86b5c70c7ad7d1e3e3df3f41161bec7}
+function to find the neighbours of a point\index{Projection2D@{Projection2D}!giveallpaths@{giveallpaths}}
 \index{giveallpaths@{giveallpaths}!Projection2D@{Projection2D}}
-\subsubsection[{\texorpdfstring{giveallpaths(int, int)}{giveallpaths(int, int)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$vector$<$int$>$ $>$ Projection2\+D\+::giveallpaths (
+\subsubsection[{\texorpdfstring{giveallpaths(int, int)}{giveallpaths(int, int)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ vector$<$ int $>$ $>$ Projection2\+D\+::giveallpaths (
 \begin{DoxyParamCaption}
-\item[{int}]{, }
-\item[{int}]{}
+\item[{int}]{start, }
+\item[{int}]{dest}
 \end{DoxyParamCaption}
-)}\hypertarget{class_projection2_d_a12296093badead168e68c689df080332}{}\label{class_projection2_d_a12296093badead168e68c689df080332}
-\index{Projection2D@{Projection2D}!give\+All\+Paths\+Util@{give\+All\+Paths\+Util}}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a2be0e30485d5fb74edefac1c31ce46a2}{}\label{class_projection2_d_a2be0e30485d5fb74edefac1c31ce46a2}
+function to give all the possible paths from start to destination\index{Projection2D@{Projection2D}!give\+All\+Paths\+Util@{give\+All\+Paths\+Util}}
 \index{give\+All\+Paths\+Util@{give\+All\+Paths\+Util}!Projection2D@{Projection2D}}
-\subsubsection[{\texorpdfstring{give\+All\+Paths\+Util(int, int, bool[], int[], int \&, vector$<$ vector$<$ int $>$ $>$)}{giveAllPathsUtil(int, int, bool[], int[], int &, vector< vector< int > >)}}]{\setlength{\rightskip}{0pt plus 5cm}void Projection2\+D\+::give\+All\+Paths\+Util (
+\subsubsection[{\texorpdfstring{give\+All\+Paths\+Util(int, int, bool[], int[], int \&, vector$<$ vector$<$ int $>$ $>$ \&)}{giveAllPathsUtil(int, int, bool[], int[], int &, vector< vector< int > > &)}}]{\setlength{\rightskip}{0pt plus 5cm}void Projection2\+D\+::give\+All\+Paths\+Util (
 \begin{DoxyParamCaption}
-\item[{int}]{, }
-\item[{int}]{, }
-\item[{bool}]{\mbox{[}$\,$\mbox{]}, }
-\item[{int}]{\mbox{[}$\,$\mbox{]}, }
-\item[{int \&}]{, }
-\item[{vector$<$ vector$<$ int $>$ $>$}]{}
+\item[{int}]{u, }
+\item[{int}]{d, }
+\item[{bool}]{visited\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{path\mbox{[}$\,$\mbox{]}, }
+\item[{int \&}]{path\+\_\+index, }
+\item[{vector$<$ vector$<$ int $>$ $>$ \&}]{allpaths}
 \end{DoxyParamCaption}
-)}\hypertarget{class_projection2_d_a71696fe8650908a7c0b98e4059d1ecf9}{}\label{class_projection2_d_a71696fe8650908a7c0b98e4059d1ecf9}
-\index{Projection2D@{Projection2D}!giveplanarpaths@{giveplanarpaths}}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_afcafeef06178e9d071c1f25f5ab7c4da}{}\label{class_projection2_d_afcafeef06178e9d071c1f25f5ab7c4da}
+function to give all possible paths from u to d\index{Projection2D@{Projection2D}!giveplanarpaths@{giveplanarpaths}}
 \index{giveplanarpaths@{giveplanarpaths}!Projection2D@{Projection2D}}
-\subsubsection[{\texorpdfstring{giveplanarpaths(vector$<$ vector$<$ int $>$ $>$)}{giveplanarpaths(vector< vector< int > >)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$vector$<$int$>$ $>$ Projection2\+D\+::giveplanarpaths (
+\subsubsection[{\texorpdfstring{giveplanarpaths(vector$<$ vector$<$ int $>$ $>$)}{giveplanarpaths(vector< vector< int > >)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ vector$<$ int $>$ $>$ Projection2\+D\+::giveplanarpaths (
 \begin{DoxyParamCaption}
-\item[{vector$<$ vector$<$ int $>$ $>$}]{}
+\item[{vector$<$ vector$<$ int $>$ $>$}]{allpaths}
 \end{DoxyParamCaption}
-)}\hypertarget{class_projection2_d_af623f07691c744da9b1c2df473df858a}{}\label{class_projection2_d_af623f07691c744da9b1c2df473df858a}
-\index{Projection2D@{Projection2D}!isplanar@{isplanar}}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a77acf0c6b5c00735c12e34f218b4c361}{}\label{class_projection2_d_a77acf0c6b5c00735c12e34f218b4c361}
+function to filter out non-\/planar paths\index{Projection2D@{Projection2D}!isequavalent@{isequavalent}}
+\index{isequavalent@{isequavalent}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{isequavalent(vector$<$ int $>$, vector$<$ int $>$)}{isequavalent(vector< int >, vector< int >)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Projection2\+D\+::isequavalent (
+\begin{DoxyParamCaption}
+\item[{vector$<$ int $>$}]{vec1, }
+\item[{vector$<$ int $>$}]{vec2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a65a00d3f14f35c5b19d88cfb0ffd1e49}{}\label{class_projection2_d_a65a00d3f14f35c5b19d88cfb0ffd1e49}
+function to check whether two representation of vectors are equal\index{Projection2D@{Projection2D}!isplanar@{isplanar}}
 \index{isplanar@{isplanar}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{isplanar(vector$<$ int $>$)}{isplanar(vector< int >)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Projection2\+D\+::isplanar (
 \begin{DoxyParamCaption}
-\item[{vector$<$ int $>$}]{}
+\item[{vector$<$ int $>$}]{thispath}
 \end{DoxyParamCaption}
-)}\hypertarget{class_projection2_d_a4b86c26f97d2a91f7fde20fa7ab51092}{}\label{class_projection2_d_a4b86c26f97d2a91f7fde20fa7ab51092}
-\index{Projection2D@{Projection2D}!numofpossibleedge@{numofpossibleedge}}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a4b86c26f97d2a91f7fde20fa7ab51092}{}\label{class_projection2_d_a4b86c26f97d2a91f7fde20fa7ab51092}
+function to check if a path is planar or not\index{Projection2D@{Projection2D}!ispresent@{ispresent}}
+\index{ispresent@{ispresent}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{ispresent(vector$<$ int $>$)}{ispresent(vector< int >)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Projection2\+D\+::ispresent (
+\begin{DoxyParamCaption}
+\item[{vector$<$ int $>$}]{thispath}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_ac2f97acfe9d066a026b7b8edc2d24c2c}{}\label{class_projection2_d_ac2f97acfe9d066a026b7b8edc2d24c2c}
+function to check if the given face has already been added or not\index{Projection2D@{Projection2D}!makescadfile@{makescadfile}}
+\index{makescadfile@{makescadfile}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{makescadfile()}{makescadfile()}}]{\setlength{\rightskip}{0pt plus 5cm}void Projection2\+D\+::makescadfile (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_ab0bddff5a0c3cc8177bbedc3713501e0}{}\label{class_projection2_d_ab0bddff5a0c3cc8177bbedc3713501e0}
+function to make scad file, stl, render scad file and then run it\index{Projection2D@{Projection2D}!numofpossibleedge@{numofpossibleedge}}
 \index{numofpossibleedge@{numofpossibleedge}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{numofpossibleedge()}{numofpossibleedge()}}]{\setlength{\rightskip}{0pt plus 5cm}int Projection2\+D\+::numofpossibleedge (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\hypertarget{class_projection2_d_ad277ae374c9340f41f821e3b23aa6c04}{}\label{class_projection2_d_ad277ae374c9340f41f821e3b23aa6c04}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_ad277ae374c9340f41f821e3b23aa6c04}{}\label{class_projection2_d_ad277ae374c9340f41f821e3b23aa6c04}
 Function to determine possible edges\index{Projection2D@{Projection2D}!printmatrix@{printmatrix}}
 \index{printmatrix@{printmatrix}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{printmatrix(vector$<$ vector$<$ int $>$ $>$)}{printmatrix(vector< vector< int > >)}}]{\setlength{\rightskip}{0pt plus 5cm}void Projection2\+D\+::printmatrix (
 \begin{DoxyParamCaption}
 \item[{vector$<$ vector$<$ int $>$ $>$}]{thisone}
 \end{DoxyParamCaption}
-)}\hypertarget{class_projection2_d_a209abc191321c5bdd970c57c68dd0ac8}{}\label{class_projection2_d_a209abc191321c5bdd970c57c68dd0ac8}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_projection2_d_a209abc191321c5bdd970c57c68dd0ac8}{}\label{class_projection2_d_a209abc191321c5bdd970c57c68dd0ac8}
 Function to print the matrix
 
 \subsection{Member Data Documentation}
@@ -268,6 +310,9 @@ Function to print the matrix
 \index{Projection2D@{Projection2D}!allpoints@{allpoints}}
 \index{allpoints@{allpoints}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{allpoints}{allpoints}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Point}$>$ Projection2\+D\+::allpoints}\hypertarget{class_projection2_d_aacafd767e5289005e7ec5d48c791d02f}{}\label{class_projection2_d_aacafd767e5289005e7ec5d48c791d02f}
+\index{Projection2D@{Projection2D}!deducedfaces@{deducedfaces}}
+\index{deducedfaces@{deducedfaces}!Projection2D@{Projection2D}}
+\subsubsection[{\texorpdfstring{deducedfaces}{deducedfaces}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$vector$<$int$>$ $>$ Projection2\+D\+::deducedfaces}\hypertarget{class_projection2_d_ab61981ca6001560343c1e378c334866a}{}\label{class_projection2_d_ab61981ca6001560343c1e378c334866a}
 \index{Projection2D@{Projection2D}!frontview@{frontview}}
 \index{frontview@{frontview}!Projection2D@{Projection2D}}
 \subsubsection[{\texorpdfstring{frontview}{frontview}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ortho\+Projection} Projection2\+D\+::frontview}\hypertarget{class_projection2_d_a1eb4d010190b1bd62bf0f9c4e4afc88a}{}\label{class_projection2_d_a1eb4d010190b1bd62bf0f9c4e4afc88a}

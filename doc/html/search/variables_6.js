@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['label',['label',['../class_point.html#a1e929419353f9bec46732af977adb55a',1,'Point']]],
-  ['labeltopointmap',['labeltopointmap',['../class_projection2_d.html#a0afd92ccd321bc86e6e019b4bec99fc8',1,'Projection2D']]]
+  ['indextopointmap',['indextopointmap',['../class_projection2_d.html#a08675aad4022218dc78dd54187be18a9',1,'Projection2D']]],
+  ['init',['init',['../class_projection_window.html#aef738e0adb09fefd45156e1a6fc3c70d',1,'ProjectionWindow']]]
 ];

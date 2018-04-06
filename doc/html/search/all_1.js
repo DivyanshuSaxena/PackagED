@@ -2,6 +2,7 @@ var searchData=
 [
   ['check2d',['check2D',['../_classes_8h.html#af55dca22c340b42a2992f9f270495789',1,'check2D():&#160;Main.cpp'],['../_main_8cpp.html#af55dca22c340b42a2992f9f270495789',1,'check2D():&#160;Main.cpp']]],
   ['check3d',['check3D',['../_classes_8h.html#a1c78b5af1e79bd9d8c8660a677d8379d',1,'check3D():&#160;Main.cpp'],['../_main_8cpp.html#a1c78b5af1e79bd9d8c8660a677d8379d',1,'check3D():&#160;Main.cpp']]],
+  ['check3dobject',['check3dobject',['../class_object3_d.html#a37f6e1bb07f45453a09a92b1238006c8',1,'Object3D']]],
   ['checkcollinear',['checkcollinear',['../class_point.html#a72f122fa881e8d9c3ef5d509e6494c3b',1,'Point']]],
   ['checkhiddenedge',['checkHiddenEdge',['../class_object3_d.html#a2bc5ce361addc05302a078ada575261d',1,'Object3D']]],
   ['checkhiddenvertice',['checkHiddenVertice',['../class_object3_d.html#a2ec1e4c1198f44794b3c3a1c72f6143d',1,'Object3D']]],

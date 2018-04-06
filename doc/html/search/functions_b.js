@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['sameclusterpoints',['sameclusterpoints',['../class_ortho_projection.html#a7011d0bf2d7851c1aecc990f95cb65d7',1,'OrthoProjection']]],
-  ['sameclusterpointsincluded',['sameclusterpointsincluded',['../class_ortho_projection.html#ae521048f34f0cd5521c889b43c7ee101',1,'OrthoProjection']]],
-  ['setcoordinates',['setCoordinates',['../class_point.html#aa9e5bde544a36d44988c1d544ba4593f',1,'Point']]],
-  ['setcoordinatesandlabel',['setCoordinatesAndLabel',['../class_point.html#a6fffe55537a7cbe523ff4e1c33ddb9e5',1,'Point']]]
+  ['raycasting',['rayCasting',['../class_object3_d.html#a026c35f9fcf1f58f4d48c18ab26d7712',1,'Object3D']]],
+  ['relativeposition',['relativePosition',['../class_point.html#a700201e1da138be7e3225b9d2bff50e9',1,'Point']]],
+  ['rotateframe',['rotateFrame',['../class_wireframe.html#ad3fbb29a285e80d4d3448ea4e3e96d93',1,'Wireframe']]],
+  ['rotateobject',['rotateObject',['../class_object3_d.html#a476b3de610cb30be0b050b4701ba4701',1,'Object3D']]],
+  ['rotateplane',['rotatePlane',['../class_plane_projection.html#ac528e8dbd92be24628e136b10f4842f3',1,'PlaneProjection']]]
 ];

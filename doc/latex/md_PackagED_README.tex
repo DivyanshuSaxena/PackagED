@@ -26,9 +26,12 @@ Following is a description of the above-\/mentioned directories\+:
 
 \subsection*{Dependencies}
 
-The project makes use of the G\+T\+Kmm libraries for C++. Hence this package is needed to be installed before running the software package. Use the following command\+: 
+The project makes use of the G\+T\+Kmm libraries for C++ and Open\+Scad for stl file generation and rendering. Hence these packages are needed to be installed before running the software package. Use the following command\+: 
 \begin{DoxyCode}
-1 sudo apt-get install libgtkmm-3.0-dev
+1 sudo add-apt-repository ppa:openscad/releases  
+2 sudo apt-get update  
+3 sudo apt-get install openscad 
+4 sudo apt-get install libgtkmm-3.0-dev
 \end{DoxyCode}
  The above command installs the requisite packages. Now the software package can be built and used.
 
@@ -42,7 +45,7 @@ Enter the project directory and run the following command
 \begin{DoxyCode}
 1 ./main
 \end{DoxyCode}
- If you want to run the software with input files cd into test folder, then run the main and chose from the files there. You can also copy the test files into build folder and run the test files there.
+ If you want to run the software with input files, when prompted chose the text file(some test files are in test folder).
 
 \subsection*{Documentation}
 
