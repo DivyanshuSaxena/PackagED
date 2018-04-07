@@ -161,6 +161,7 @@ public:
 
 private:
     vector<Point> projectedVertices;
+    Face getCyclicFace(Face);
     bool checkHiddenVertice(Point,Face,double[],int);
     bool checkHiddenEdge(Edge,Face,double[],int);
     bool rayCasting(Point,vector<Point>);

@@ -576,6 +576,8 @@ vector<int> Projection2D::findneighbours(int thispoint){
     return neighvec;
 }
 
+
+
 // vector<vector<int> > Projection2D::giveallpaths(int start, int dest){
 //     int numpoints = allpoints.size();
 //     vector<vector<int> > allpaths;

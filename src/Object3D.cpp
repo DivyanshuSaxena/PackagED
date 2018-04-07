@@ -6,15 +6,22 @@ PlaneProjection* Object3D::project3D(double projectionPlane[4]) {
     ///
     /// General Function to project the current 3D object onto the projection plane passed as parameter "projectionPlane"
     ///
-    // cout << "Check"<<endl; // --------Remove
-    // vector<Point> projectedVertices(len); --------Remove
     vector<bool> isHidden;
     vector<int> isHiddenEdge;
     int len = vertices.size();    
-    cout << "vertices size is " << len << endl;
+    // Before anything else, make all faces cyclic
+    for(int i = 0; i < this->faces.size(); i++) {
+        // cout << "Operating over " << faces[i];
+        faces[i] = getCyclicFace(faces[i]);
+        // cout << " Got this face: " << faces[i] << endl;
+    }
+    // cout << "Cyclic Faces: ";
+    // for(int i = 0; i < this->faces.size(); i++) {
+    //     cout << faces[i];
+    // }
+    // cout << endl;
     // Iteration to find all the projected vertices
     for (int i = 0; i < len; i++) {
-        // cout << vertices[i].projectPoint(projectionPlane) <<endl; // ------Remove
         projectedVertices.push_back(vertices[i].projectPoint(projectionPlane));
     }
     cout << "vertices projected "<<endl;
@@ -22,9 +29,7 @@ PlaneProjection* Object3D::project3D(double projectionPlane[4]) {
     for (int i = 0; i < len; i++) {
         // cout << vertices[i].x << vertices[i].y << vertices[i].z << endl; -------Remove
         int flag = 0;
-        // cout << this->faces.size(); -------Remove
         for (int j = 0; j < this->faces.size(); j++) {
-            // cout << "Yo";// ---------Remove
             if(checkHiddenVertice(vertices[i],faces[j],projectionPlane,0))
             {
                 flag = 1;
@@ -280,6 +285,7 @@ bool Object3D::checkHiddenEdge(Edge edge, Face face, double plane[4], int index)
             vector<Point> polygon;
             for(int i = 0; i < face.vertices.size(); i++) {
                 polygon.push_back(this->projectedVertices[face.vertices[i]]);
+                // pointIndex.push_back(face.vertices[i]);
             }
             int i=0, numverticesinpolygon=polygon.size();
             for(auto it= polygon.begin();it!=polygon.end();it++){
@@ -366,4 +372,80 @@ bool Object3D::checkHiddenEdge(Edge edge, Face face, double plane[4], int index)
     // else
     //     cout << edge << " is not hidden by the face formed by: " << face << endl; // -------Remove
     return retValue;
+}
+
+Face Object3D::getCyclicFace(Face face) {
+    vector<int> pointIndex;
+    Face newFace;
+    for(int i = 0; i < face.vertices.size(); i++) {
+        // polygon.push_back(this->projectedVertices[face.vertices[i]]);
+        pointIndex.push_back(face.vertices[i]);
+    }
+    int i=0, numverticesinpolygon=face.vertices.size();
+    bool done = false;
+    Vector3d edge1(vertices[face.vertices[1]].x-vertices[face.vertices[0]].x,vertices[face.vertices[1]].y-vertices[face.vertices[0]].y,vertices[face.vertices[1]].z-vertices[face.vertices[0]].z);
+    Vector3d edge2(vertices[face.vertices[2]].x-vertices[face.vertices[1]].x,vertices[face.vertices[2]].y-vertices[face.vertices[1]].y,vertices[face.vertices[2]].z-vertices[face.vertices[1]].z);
+    Vector3d normalToFace = edge1.cross(edge2);
+    for(int i = 0; i < numverticesinpolygon; i++) {
+        if(i==0){
+            newFace.vertices.push_back(pointIndex[0]);
+        }else if(i==1){
+            int index = newFace.vertices[0];
+            Point p = this->vertices[index];
+            auto it = find_if(this->edges.begin(), this->edges.end(), 
+                [p,normalToFace](Edge e) -> bool {
+                    bool retVal = false;
+                    if ((p.x==e.p1.x && p.y==e.p1.y && p.z==e.p1.z) || (p.x==e.p2.x && p.y==e.p2.y && p.z==e.p2.z)){
+                        Vector3d edge(e.p1.x-e.p2.x,e.p1.y-e.p2.y,e.p1.z-e.p2.z);
+                        if(edge.dot(normalToFace)==0){
+                            retVal = true;
+                        }
+                    }
+                    return retVal;});
+            Point neighbor;
+            Edge e = *it;
+            if(p.x==e.p1.x && p.y==e.p1.y && p.z==e.p1.z)
+                neighbor = e.p2;
+            else
+                neighbor = e.p1;
+            auto it1 = find_if(this->vertices.begin(), this->vertices.end(), 
+                [neighbor](Point p) -> bool {return (p.x==neighbor.x && p.y==neighbor.y && p.z==neighbor.z);});
+            int index1;
+            if(it1 != vertices.end())
+                index1 = distance(vertices.begin(),it1);
+            newFace.vertices.push_back(index1);
+        }else{
+            int index = newFace.vertices[i-1];
+            int prevIndex = newFace.vertices[i-2];
+            Point p = this->vertices[index];
+            Point prevp = this->vertices[prevIndex];
+            auto it = find_if(this->edges.begin(), this->edges.end(), 
+                [p,prevp,normalToFace](Edge e) -> bool {
+                    bool retVal = false;
+                    if ((p.x==e.p1.x && p.y==e.p1.y && p.z==e.p1.z) || (p.x==e.p2.x && p.y==e.p2.y && p.z==e.p2.z)){
+                        Vector3d edge(e.p1.x-e.p2.x,e.p1.y-e.p2.y,e.p1.z-e.p2.z);
+                        if(edge.dot(normalToFace)==0){
+                            if((p.x==e.p1.x && p.y==e.p1.y && p.z==e.p1.z) && !(prevp.x==e.p2.x && prevp.y==e.p2.y && prevp.z==e.p2.z)){
+                                retVal = true;
+                            }else if((p.x==e.p2.x && p.y==e.p2.y && p.z==e.p2.z) && !(prevp.x==e.p1.x && prevp.y==e.p1.y && prevp.z==e.p1.z)){
+                                retVal = true;
+                            }
+                        }
+                    }
+                    return retVal;});
+            Point neighbor;
+            Edge e = *it;
+            if(p.x==e.p1.x && p.y==e.p1.y && p.z==e.p1.z)
+                neighbor = e.p2;
+            else
+                neighbor = e.p1;
+            auto it1 = find_if(this->vertices.begin(), this->vertices.end(), 
+                [neighbor](Point p) -> bool {return (p.x==neighbor.x && p.y==neighbor.y && p.z==neighbor.z);});
+            int index1;
+            if(it1 != vertices.end())
+                index1 = distance(vertices.begin(),it1);
+            newFace.vertices.push_back(index1);
+        }
+    }
+    return newFace;
 }
