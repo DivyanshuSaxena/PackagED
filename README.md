@@ -41,8 +41,7 @@ Hence these packages are needed to be installed before running the software pack
 As of now the software is only tested on Ubuntu.
 Use the following command:
 ```
-sudo apt-get install openscad 
-sudo apt-get install libgtkmm-3.0-dev
+sudo apt-get install libgtkmm-3.0-dev openscad 
 ```
 The above command installs the requisite packages. Now the software package can be built and used.
 
