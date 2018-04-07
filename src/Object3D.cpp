@@ -380,6 +380,9 @@ bool Object3D::checkHiddenEdge(Edge edge, Face face, double plane[4], int index)
 }
 
 Face Object3D::getCyclicFace(Face face) {
+    ///
+    /// Function that reeturns the face with the vertices, re-arranged so that a cyclic order is maintained
+    ///
     vector<int> pointIndex;
     Face newFace;
     for(int i = 0; i < face.vertices.size(); i++) {
@@ -457,7 +460,7 @@ Face Object3D::getCyclicFace(Face face) {
 
 bool Object3D::check3dobject(){
     ///
-    /// function to check the validity of input file
+    /// Function to check the validity of input file, by rendering the Object in OpenScad
     ///
     try{
         ofstream scadfile ("object.scad");

@@ -25,6 +25,8 @@ vector$<$ \hyperlink{class_face}{Face} $>$ \hyperlink{class_object3_d_a58677f390
 \subsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{class_face}{Face} \hyperlink{class_object3_d_a1e7e47e01aeac572378c9ab645e93adb}{get\+Cyclic\+Face} (\hyperlink{class_face}{Face})
+\item 
 bool \hyperlink{class_object3_d_a2ec1e4c1198f44794b3c3a1c72f6143d}{check\+Hidden\+Vertice} (\hyperlink{class_point}{Point}, \hyperlink{class_face}{Face}, double\mbox{[}$\,$\mbox{]}, int)
 \item 
 bool \hyperlink{class_object3_d_a2bc5ce361addc05302a078ada575261d}{check\+Hidden\+Edge} (\hyperlink{class_edge}{Edge}, \hyperlink{class_face}{Face}, double\mbox{[}$\,$\mbox{]}, int)
@@ -56,7 +58,7 @@ This class provides an abstraction for a real world 3D object and incorporates t
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_object3_d_a37f6e1bb07f45453a09a92b1238006c8}{}\label{class_object3_d_a37f6e1bb07f45453a09a92b1238006c8}
-function to check the validity of input file\index{Object3D@{Object3D}!check\+Hidden\+Edge@{check\+Hidden\+Edge}}
+Function to check the validity of input file, by rendering the Object in Open\+Scad\index{Object3D@{Object3D}!check\+Hidden\+Edge@{check\+Hidden\+Edge}}
 \index{check\+Hidden\+Edge@{check\+Hidden\+Edge}!Object3D@{Object3D}}
 \subsubsection[{\texorpdfstring{check\+Hidden\+Edge(\+Edge, Face, double[], int)}{checkHiddenEdge(Edge, Face, double[], int)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Object3\+D\+::check\+Hidden\+Edge (
 \begin{DoxyParamCaption}
@@ -98,7 +100,14 @@ Here is the call graph for this function\+:\nopagebreak
 \end{figure}
 
 
-\index{Object3D@{Object3D}!project3D@{project3D}}
+\index{Object3D@{Object3D}!get\+Cyclic\+Face@{get\+Cyclic\+Face}}
+\index{get\+Cyclic\+Face@{get\+Cyclic\+Face}!Object3D@{Object3D}}
+\subsubsection[{\texorpdfstring{get\+Cyclic\+Face(\+Face)}{getCyclicFace(Face)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Face} Object3\+D\+::get\+Cyclic\+Face (
+\begin{DoxyParamCaption}
+\item[{{\bf Face}}]{face}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_object3_d_a1e7e47e01aeac572378c9ab645e93adb}{}\label{class_object3_d_a1e7e47e01aeac572378c9ab645e93adb}
+Function that reeturns the face with the vertices, re-\/arranged so that a cyclic order is maintained\index{Object3D@{Object3D}!project3D@{project3D}}
 \index{project3D@{project3D}!Object3D@{Object3D}}
 \subsubsection[{\texorpdfstring{project3\+D(double[])}{project3D(double[])}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Plane\+Projection} $\ast$ Object3\+D\+::project3D (
 \begin{DoxyParamCaption}

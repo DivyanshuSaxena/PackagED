@@ -91,19 +91,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>Following is a description of the above-mentioned directories:</p><ol type="1">
 <li><b>bin</b> - All the object files, obtained after build shall be kept in this folder.</li>
 <li><b>build</b> - All executables are supposed to be kept in this folder.</li>
-<li><b>doc</b> - All doxygen generated html pages and other documentations relating to the project are supposed to be kept in this folder. To view the doxygen generated document without cloning the repository, see this link <a href="http://htmlpreview.github.io/?https://github.com/DivyanshuSaxena/PackagED/blob/master/doc/html/index.html">http://htmlpreview.github.io/?https://github.com/DivyanshuSaxena/PackagED/blob/master/doc/html/index.html</a> or <a href="http://www.cse.iitd.ac.in/~cs1160315/PackageED/">http://www.cse.iitd.ac.in/~cs1160315/PackageED/</a>.</li>
+<li><b>doc</b> - All doxygen generated html pages and other documentations relating to the project are supposed to be kept in this folder. To view the doxygen generated document without cloning the repository, see this link <a href="http://htmlpreview.github.io/?https://github.com/DivyanshuSaxena/PackagED/blob/master/doc/html/index.html">http://htmlpreview.github.io/?https://github.com/DivyanshuSaxena/PackagED/blob/master/doc/html/index.html</a> or <a href="http://www.cse.iitd.ac.in/~cs1160315/PackageED/">http://www.cse.iitd.ac.in/~cs1160315/PackageED/</a> (preferably chose above link, this link is unlikely to updated whereas above link fetches the data in realtime from the repo).</li>
 <li><b>include</b> - All header files to be included in the project are kept in this folder.</li>
 <li><b>lib</b> - This folder contains all external libraries required for the software.</li>
 <li><b>src</b> - This folder is supposed to contain all source files (.cpp) written in C++ are to be kept here.</li>
 <li><b>test</b> - This folder shall be host to all test files written for debugging and testing the software package .</li>
 </ol>
 <h2>Dependencies</h2>
-<p>The project makes use of the GTKmm libraries for C++ and OpenScad for stl file generation and rendering. Hence these packages are needed to be installed before running the software package. Use the following command: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;sudo add-apt-repository ppa:openscad/releases  </div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;sudo apt-get update  </div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;sudo apt-get install openscad </div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;sudo apt-get install libgtkmm-3.0-dev</div></div><!-- fragment --><p> The above command installs the requisite packages. Now the software package can be built and used.</p>
+<p>The project makes use of the GTKmm libraries for C++ and OpenScad for stl file generation and rendering. Hence these packages are needed to be installed before running the software package. As of now the software is only tested on Ubuntu. Use the following command: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;sudo apt-get install openscad </div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;sudo apt-get install libgtkmm-3.0-dev</div></div><!-- fragment --><p> The above command installs the requisite packages. Now the software package can be built and used.</p>
 <h2>Usage</h2>
 <p>Enter the project directory and run the following command </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;make</div></div><!-- fragment --><p> Then cd into the build folder and run the following </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;./main</div></div><!-- fragment --><p> If you want to run the software with input files, when prompted chose the text file(some test files are in test folder).</p>
 <h2>Documentation</h2>
-<p>The documentation for the current software package is available in the form of webpages. The index.html in doc/html lists the main page. Thereafter, the pages are linked together. </p>
-</div></div><!-- contents -->
+<p>The documentation for the current software package is available in the form of webpages. The index.html in doc/html lists the main page. Thereafter, the pages are linked together. </p><h2>Screenshots</h2>
+<p>When the gui opens window like this would appear </p><div class="image">
+<img src="http://www.cse.iitd.ac.in/~cs1160315/PackageED/images/1.png"  alt="alt"/>
+</div>
+<p>If the user clicks on Project 3D Object on a Plane and say the user choses the input file PackageED/test/pyramidoverpyramid3dto2d.txt a window showing the 3d representation of the selected file like below would appear </p><div class="image">
+<img src="http://www.cse.iitd.ac.in/~cs1160315/PackageED/images/5.png"  alt="alt"/>
+</div>
+<p>If the window is closed the projection like below would appear in the gui </p><div class="image">
+<img src="http://www.cse.iitd.ac.in/~cs1160315/PackageED/images/6.png"  alt="alt"/>
+</div>
+<p>Else if the user clicks on Construct <a class="el" href="class_wireframe.html">Wireframe</a> Orthographic Views and say the user choses the input file PackageED/test/cutcube2dto3d.txt a window showing the 3d object made from the orthographic projections of the selected input file like below would appear </p><div class="image">
+<img src="http://www.cse.iitd.ac.in/~cs1160315/PackageED/images/2.png"  alt="alt"/>
+</div>
+<p>If the window is closed the object like below would appear in the gui </p><div class="image">
+<img src="http://www.cse.iitd.ac.in/~cs1160315/PackageED/images/4.png"  alt="alt"/>
+</div>
+ </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

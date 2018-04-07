@@ -30,7 +30,6 @@ var searchData=
   ['m_5fface_5fpoint',['m_face_point',['../class_projection_window.html#ae4ba55b88388ba52011c1c5d3ca215a7',1,'ProjectionWindow']]],
   ['m_5ffile_5fframe',['m_file_frame',['../class_projection_window.html#a06143fa33aa0b7987f3bb4039d14d6fa',1,'ProjectionWindow::m_file_frame()'],['../class_construct_window.html#a02e692af0641166a72a79069bb59b081',1,'ConstructWindow::m_file_frame()']]],
   ['m_5ffile_5fgrid',['m_file_grid',['../class_projection_window.html#a6ebf47b33e793ff26d150bbb1ad88287',1,'ProjectionWindow::m_file_grid()'],['../class_construct_window.html#a5d9e8a08026b6381853aa5d7ddf8d062',1,'ConstructWindow::m_file_grid()']]],
-  ['m_5fgrid',['m_grid',['../class_main_window.html#a376f22a8ee7464a0b7c19fcf2cf7e41e',1,'MainWindow']]],
   ['m_5fleft_5frotate',['m_left_rotate',['../class_construct_window.html#a4a4ded63890f51ad62cebe7599294fed',1,'ConstructWindow']]],
   ['m_5fplane_5fframe',['m_plane_frame',['../class_projection_window.html#ac3266587c32c7ecc2f06adb36c357478',1,'ProjectionWindow']]],
   ['m_5fplane_5fgrid',['m_plane_grid',['../class_projection_window.html#a9219931edb2e16362527561d81603f4c',1,'ProjectionWindow']]],

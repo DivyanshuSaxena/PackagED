@@ -17,7 +17,7 @@ Following is a description of the above-\/mentioned directories\+:
 \begin{DoxyEnumerate}
 \item {\bfseries bin} -\/ All the object files, obtained after build shall be kept in this folder.
 \item {\bfseries build} -\/ All executables are supposed to be kept in this folder.
-\item {\bfseries doc} -\/ All doxygen generated html pages and other documentations relating to the project are supposed to be kept in this folder. To view the doxygen generated document without cloning the repository, see this link \href{http://htmlpreview.github.io/?https://github.com/DivyanshuSaxena/PackagED/blob/master/doc/html/index.html}{\tt http\+://htmlpreview.\+github.\+io/?https\+://github.\+com/\+Divyanshu\+Saxena/\+Packag\+E\+D/blob/master/doc/html/index.\+html} or \href{http://www.cse.iitd.ac.in/~cs1160315/PackageED/}{\tt http\+://www.\+cse.\+iitd.\+ac.\+in/$\sim$cs1160315/\+Package\+E\+D/}.
+\item {\bfseries doc} -\/ All doxygen generated html pages and other documentations relating to the project are supposed to be kept in this folder. To view the doxygen generated document without cloning the repository, see this link \href{http://htmlpreview.github.io/?https://github.com/DivyanshuSaxena/PackagED/blob/master/doc/html/index.html}{\tt http\+://htmlpreview.\+github.\+io/?https\+://github.\+com/\+Divyanshu\+Saxena/\+Packag\+E\+D/blob/master/doc/html/index.\+html} or \href{http://www.cse.iitd.ac.in/~cs1160315/PackageED/}{\tt http\+://www.\+cse.\+iitd.\+ac.\+in/$\sim$cs1160315/\+Package\+E\+D/} (preferably chose above link, this link is unlikely to updated whereas above link fetches the data in realtime from the repo).
 \item {\bfseries include} -\/ All header files to be included in the project are kept in this folder.
 \item {\bfseries lib} -\/ This folder contains all external libraries required for the software.
 \item {\bfseries src} -\/ This folder is supposed to contain all source files (.cpp) written in C++ are to be kept here.
@@ -26,12 +26,10 @@ Following is a description of the above-\/mentioned directories\+:
 
 \subsection*{Dependencies}
 
-The project makes use of the G\+T\+Kmm libraries for C++ and Open\+Scad for stl file generation and rendering. Hence these packages are needed to be installed before running the software package. Use the following command\+: 
+The project makes use of the G\+T\+Kmm libraries for C++ and Open\+Scad for stl file generation and rendering. Hence these packages are needed to be installed before running the software package. As of now the software is only tested on Ubuntu. Use the following command\+: 
 \begin{DoxyCode}
-1 sudo add-apt-repository ppa:openscad/releases  
-2 sudo apt-get update  
-3 sudo apt-get install openscad 
-4 sudo apt-get install libgtkmm-3.0-dev
+1 sudo apt-get install openscad 
+2 sudo apt-get install libgtkmm-3.0-dev
 \end{DoxyCode}
  The above command installs the requisite packages. Now the software package can be built and used.
 
@@ -49,4 +47,14 @@ Enter the project directory and run the following command
 
 \subsection*{Documentation}
 
-The documentation for the current software package is available in the form of webpages. The index.\+html in doc/html lists the main page. Thereafter, the pages are linked together. 
+The documentation for the current software package is available in the form of webpages. The index.\+html in doc/html lists the main page. Thereafter, the pages are linked together. \subsection*{Screenshots}
+
+When the gui opens window like this would appear 
+
+If the user clicks on Project 3D Object on a Plane and say the user choses the input file Package\+E\+D/test/pyramidoverpyramid3dto2d.\+txt a window showing the 3d representation of the selected file like below would appear 
+
+If the window is closed the projection like below would appear in the gui 
+
+Else if the user clicks on Construct \hyperlink{class_wireframe}{Wireframe} Orthographic Views and say the user choses the input file Package\+E\+D/test/cutcube2dto3d.\+txt a window showing the 3d object made from the orthographic projections of the selected input file like below would appear 
+
+If the window is closed the object like below would appear in the gui  
