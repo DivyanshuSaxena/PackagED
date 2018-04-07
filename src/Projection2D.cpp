@@ -1,6 +1,8 @@
 #include "Classes.h"
 #include <Eigen/Dense>
 #include <algorithm>
+#include <fstream>
+#include <cstdlib>
 using namespace std;
 using namespace Eigen;
 
@@ -74,16 +76,43 @@ Wireframe Projection2D::create3D(){
     cout << "final print of adjacencyMatrix"<<endl;
     printmatrix(answer.adjacencyMatrix);
     numpoints = allpoints.size();
-    // -------------- Check this
-    // for(int i=0;i<numpoints;i++){
-    //     vector<int> neighvec = findneighbours(i);
-    //     int numneigh = neighvec.size();
-    //     for(int j=0;j<numneigh;j++){
-    //         vector<vector<int> > allpaths = giveallpaths(i,neighvec[j]);
-    //         vector<vector<int> > goodpaths = giveplanarpaths(allpaths);
-    //         addsuitablepaths(goodpaths);
-    //     }
-    // }
+    for(int i=0;i<numpoints;i++){
+        vector<int> neighvec = findneighbours(i);
+        // cout << "i is "<<i <<endl;
+        // cout<< "found neighbours"<<endl;
+        int numneigh = neighvec.size();
+        for(int j=0;j<numneigh;j++){
+            vector<vector<int> > allpaths = giveallpaths(i,neighvec[j]);
+            // cout << "given all paths for j = "<<j<<"or neighbour "<<neighvec[j]<<endl;
+            // for(int k=0;k<allpaths.size();k++){
+            //     for(int l=0;l<allpaths[k].size();l++){
+            //         cout << allpaths[k][l] << " ";
+            //     }
+            //     cout<<endl;
+            // }
+            // cout<< "printed allpaths"<<endl;
+            vector<vector<int> > goodpaths = giveplanarpaths(allpaths);
+            // cout << "given all goodpaths for j = "<<j<<endl;
+            // for(int k=0;k<goodpaths.size();k++){
+            //     for(int l=0;l<goodpaths[k].size();l++){
+            //         cout << goodpaths[k][l] << " ";
+            //     }
+            //     cout<<endl;
+            // }
+            // cout<< "printed goodpaths"<<endl;
+            addsuitablepaths(goodpaths);
+            // cout << "added suitable paths for j = "<<j<<endl;
+        }
+    }
+    cout << "printing final faces"<<endl;
+    for(int k=0;k<deducedfaces.size();k++){
+                for(int l=0;l<deducedfaces[k].size();l++){
+                    cout << indextopointmap[deducedfaces[k][l]]->label << " ";
+                }
+                cout<<endl;
+    }
+    cout << "printed final faces"<<endl;
+    makescadfile();
     return answer;
 }
 
@@ -566,6 +595,10 @@ void Projection2D::printmatrix(vector<vector<int> > thisone){
 }
 
 vector<int> Projection2D::findneighbours(int thispoint){
+    ///
+    /// function to find the neighbours of a point
+    ///
+
     vector<int> neighvec;
     int numpoints = allpoints.size();
     for(int i = 0 ;i<numpoints;i++){
@@ -575,78 +608,206 @@ vector<int> Projection2D::findneighbours(int thispoint){
     }
     return neighvec;
 }
+vector<vector<int> > Projection2D::giveallpaths(int start, int dest){
+    ///
+    /// function to give all the possible paths from start to destination
+    ///
+    int numpoints = allpoints.size();
+    vector<vector<int> > allpaths;
+    bool *visited = new bool[numpoints];
+    int *path = new int[numpoints];
+    int path_index = 0; 
+    for (int i = 0; i < numpoints; i++)
+        visited[i] = false;
+    giveAllPathsUtil(start, dest, visited, path, path_index, allpaths);
+    return allpaths;
+}
 
+void Projection2D::giveAllPathsUtil(int u, int d, bool visited[], int path[], int &path_index, vector<vector<int> > &allpaths){
+    ///
+    /// function to give all possible paths from u to d
+    ///
+    visited[u] = true;
+    path[path_index] = u;
+    path_index++;
+    if (u == d)
+    {
+        // vector<int> thispath(path, path + path_index);
+        vector<int> thispath;
+        for(int i = 0;i<path_index;i++){
+            thispath.push_back(path[i]);
+        }
+        allpaths.push_back(thispath);
+    }
+    else // If current vertex is not destination
+    {
+        // Recur for all the vertices adjacent to current vertex
+        vector<int> neighvec = findneighbours(u);
+        for(auto iter= neighvec.begin();iter!=neighvec.end();iter++){
+            if(!visited[*iter]){
+                giveAllPathsUtil(*iter, d, visited, path, path_index,allpaths);
+            }
+        }
+    }
+    path_index--;
+    visited[u] = false;
+}
 
+vector<vector<int> > Projection2D::giveplanarpaths(vector<vector<int> > allpaths){
+    ///
+    /// function to filter out non-planar paths
+    ///
+    vector<vector<int> > filteredpaths;
+    int numallpaths = allpaths.size();
+    for(int i=0;i<numallpaths;i++){
+        vector<int> thispath = allpaths[i];
+        if(thispath.size()==3){
+            filteredpaths.push_back(thispath);
+            // cout<<"adding path of lenght 3"<<endl;
+        }else if(thispath.size()>3){
+            bool isplanarbool= isplanar(thispath);
+            if(isplanarbool){
+                filteredpaths.push_back(thispath);
+            }
+        }
 
-// vector<vector<int> > Projection2D::giveallpaths(int start, int dest){
-//     int numpoints = allpoints.size();
-//     vector<vector<int> > allpaths;
-//     bool *visited = new bool[numpoints];
-//     int *path = new int[numpoints];
-//     int path_index = 0; 
-//     for (int i = 0; i < V; i++)
-//         visited[i] = false;
-//     giveAllPathsUtil(start, dest, visited, path, path_index, allpaths);
-//     return allpaths;
-// }
+    }
+    return filteredpaths;
+}
 
-// void Projection2D::giveAllPathsUtil(int u, int d, bool visited[], int path[], int &path_index, vector<vector<int> > &allpaths){
-//     visited[u] = true;
-//     path[path_index] = u;
-//     path_index++;
-//     if (u == d)
-//     {
-//         vector<int> thispath;(path, path + sizeof(path) / sizeof(int) );
-//         allpaths.push_back(thispath);
-//     }
-//     else // If current vertex is not destination
-//     {
-//         // Recur for all the vertices adjacent to current vertex
-//         vector<int> neighvec = findneighbours(u);
-//         for(auto iter= neighvec.begin();iter!=neighvec.end();iter++){
-//             if(!visited(*iter)){
-//                 giveAllPathsUtil(*iter, d, visited, path, path_index,allpaths);
-//             }
-//         }
-//     }
-//     path_index--;
-//     visited[u] = false;
-// }
+bool Projection2D::isplanar(vector<int> thispath){
+    ///
+    /// function to check if a path is planar or not
+    ///
+    bool isplanar=true;
+    int thispathsize = thispath.size();
+    // cout<<"vector of consideration is "<<endl;
+    // for(int i=0;i<thispathsize;i++){
+    //     cout << thispath[i]<<" ";
+    // }
+    // cout <<endl;
+    Point firstpoint = * (indextopointmap[thispath[0]]);
+    Point secondpoint = * (indextopointmap[thispath[1]]);
+    Point thirdpoint = * (indextopointmap[thispath[2]]);
+    Vector3d firstpointvec(firstpoint.x,firstpoint.y,firstpoint.z);
+    Vector3d secondpointvec(secondpoint.x,secondpoint.y,secondpoint.z);
+    Vector3d thirdpointvec(thirdpoint.x,thirdpoint.y,thirdpoint.z);
+    Vector3d firstedge = secondpointvec-firstpointvec;
+    Vector3d secondedge = thirdpointvec-secondpointvec;
+    Vector3d normal = firstedge.cross(secondedge);
+    for(int i=3;i<thispathsize;i++){
+        Point thispoint = * (indextopointmap[thispath[i]]);
+        Point prevpoint = * (indextopointmap[thispath[i-1]]);
+        Vector3d thispointvec(thispoint.x,thispoint.y,thispoint.z);
+        Vector3d prevpointvec(prevpoint.x,prevpoint.y,prevpoint.z);
+        Vector3d thisedge = thispointvec-prevpointvec;
+        double dotproduct = normal.dot(thisedge);
+        if(dotproduct==0.0){
+            continue;
+        }else{
+            isplanar=false;
+            break;
+        }
+    }
+    // cout <<"was this planar "<<isplanar<<endl;
+    return isplanar;
+}
 
-// vector<vector<int> > Projection2D::giveplanarpaths(vector<vector<int> > allpaths){
-//     vector<vector<int> > filteredpaths;
-//     int numallpaths = allpaths.size();
-//     for(int i=0;i<numallpaths;i++){
-//         vector<int> thispath = allpaths[i];
-//         if(thispath.size()==3){
-//             filteredpaths.push_back(thispath);
-//         }else{
-//             bool isplanar= isplanar(thispath);
-//             if(isplanar){
-//                 filteredpaths.push_back(thispath);
-//             }
-//         }
+void Projection2D::addsuitablepaths(vector<vector<int> > goodpaths){
+    ///
+    /// function to add planar paths to faces
+    ///
+    for(auto iter = goodpaths.begin();iter!= goodpaths.end();iter++){
+        if(!ispresent(*iter)){
+            deducedfaces.push_back(*iter);
+        }
+    }
+}
 
-//     }
-//     return filteredpaths;
-// }
+bool Projection2D::ispresent(vector<int> thispath){
+    ///
+    /// function to check if the given face has already been added or not
+    ///
+    bool ispresent = false;
+    for(auto iter = deducedfaces.begin();iter!=deducedfaces.end();iter++){
+        if(isequavalent(*iter,thispath)){
+            ispresent=true;
+            break;
+        }else{
+            continue;
+        }
+    }
+    return ispresent;
+}
 
-// bool Projection2D::isplanar(vector<int> thispath){
-//     bool isplanar=false;
-//     int thispathsize = thispath.size();
-//     Point firstpoint = * (indextopointmap[thispath[0]]);
-//     Point secondpoint = * (indextopointmap[thispath[1]]);
-//     Point thirdpoint = * (indextopointmap[thispath[2]]);
-//     Vector3d firstpointvec(firstpoint.x,firstpoint.y,firstpoint.z);
-//     Vector3d secondpointvec(secondpoint.x,secondpoint.y,secondpoint.z);
-//     Vector3d thirdpointvec(thirdpoint.x,thirdpoint.y,thirdpoint.z);
-//     Vector3d firstedge = secondpointvec-firstpointvec;
-//     Vector3d secondedge = thirdpointvec-secondpointvec;
-//     Vector3d normal = firstedge.cross(secondedge);
-//     for(int i=3;i<thispathsize;i++){
-//         Point thispoint = * (indextopointmap[thispath[i]]);
-//         Point prevpoint = * (indextopointmap[thispath[i-1]]);
-        
-//     }
-//     return isplanar
-// }
+bool Projection2D::isequavalent(vector<int> vec1,vector<int> vec2){
+    ///
+    /// function to check whether two representation of vectors are equal
+    ///
+    bool isequavalent = false;
+    if(vec1.size()==vec2.size()){
+        sort(vec1.begin(),vec1.end());
+        sort(vec2.begin(),vec2.end());
+        for(int i=0;i<vec1.size();i++){
+            if(vec1[i]!=vec2[i]){
+                return false;
+            }
+        }
+        isequavalent=true;
+        return true;
+    }
+    return isequavalent;
+}
+void Projection2D::makescadfile(){
+    ///
+    /// function to make scad file, stl, render scad file and then run it
+    ///
+    ofstream scadfile ("object.scad");
+    if(scadfile.is_open()){
+        // scadfile<< "cube([2,3,9]);";
+        scadfile <<"ObjectPoints = [\n";
+        int numpoints = allpoints.size();
+        for(int i=0;i<numpoints;i++){
+            Point temp = allpoints[i];
+            scadfile<<"    [ "<<temp.x<<", "<<temp.y<<", "<<temp.z<<" ]";
+            if(i!=numpoints-1){
+                scadfile<<",";
+            }else{
+                scadfile<<"];";
+            }
+            scadfile<<  "  //"<<i<<"\n";
+        }
+        scadfile <<"\n";
+        scadfile << "ObjectFaces = [\n";
+        int numfaces = deducedfaces.size();
+        for(int i=0;i<numfaces;i++){
+            scadfile<<"[";
+            for(int j=0;j<deducedfaces[i].size();j++){
+                scadfile<<deducedfaces[i][j];
+                if(j!=deducedfaces[i].size()-1){
+                    scadfile<<",";
+                }
+            }
+            scadfile<< "]";
+            if(i!=numfaces-1){
+                scadfile<<",\n";
+            }else{
+                scadfile<<"];\n";
+            }
+        }
+        scadfile<< "polyhedron( ObjectPoints, ObjectFaces );";
+        scadfile.close();
+        system("openscad -o object.stl object.scad");
+        ofstream renderfile ("render.scad");
+        if(renderfile.is_open()){
+            renderfile<< "render(){import(\"object.stl\");}";
+            renderfile.close();
+            system("openscad render.scad");
+        }else{
+            cout<< "unable to render the stl";
+        }
+    }else{
+        cout<< "unable to open file"<<endl;
+    }
+
+}

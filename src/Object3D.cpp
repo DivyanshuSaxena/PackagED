@@ -1,11 +1,16 @@
 #include "Classes.h"
 #include <Eigen/Dense>
+#include <fstream>
+#include <cstdlib>
 using namespace Eigen;
 
 PlaneProjection* Object3D::project3D(double projectionPlane[4]) {
     ///
     /// General Function to project the current 3D object onto the projection plane passed as parameter "projectionPlane"
     ///
+    // cout << "Check"<<endl; // --------Remove
+    // vector<Point> projectedVertices(len); --------Remove
+    bool checkinput=check3dobject();
     vector<bool> isHidden;
     vector<int> isHiddenEdge;
     int len = vertices.size();    
@@ -448,4 +453,62 @@ Face Object3D::getCyclicFace(Face face) {
         }
     }
     return newFace;
+}
+
+bool Object3D::check3dobject(){
+    ///
+    /// function to check the validity of input file
+    ///
+    try{
+        ofstream scadfile ("object.scad");
+        if(scadfile.is_open()){
+            // scadfile<< "cube([2,3,9]);";
+            scadfile <<"ObjectPoints = [\n";
+            int numpoints = vertices.size();
+            for(int i=0;i<numpoints;i++){
+                Point temp = vertices[i];
+                scadfile<<"    [ "<<temp.x<<", "<<temp.y<<", "<<temp.z<<" ]";
+                if(i!=numpoints-1){
+                    scadfile<<",";
+                }else{
+                    scadfile<<"];";
+                }
+                scadfile<<  "  //"<<i<<"\n";
+            }
+            scadfile <<"\n";
+            scadfile << "ObjectFaces = [\n";
+            int numfaces = faces.size();
+            for(int i=0;i<numfaces;i++){
+                scadfile<<"[";
+                for(int j=0;j<faces[i].vertices.size();j++){
+                    scadfile<<faces[i].vertices[j];
+                    if(j!=faces[i].vertices.size()-1){
+                        scadfile<<",";
+                    }
+                }
+                scadfile<< "]";
+                if(i!=numfaces-1){
+                    scadfile<<",\n";
+                }else{
+                    scadfile<<"];\n";
+                }
+            }
+            scadfile<< "polyhedron( ObjectPoints, ObjectFaces );";
+            scadfile.close();
+            system("openscad -o object.stl object.scad");
+            ofstream renderfile ("render.scad");
+            if(renderfile.is_open()){
+                renderfile<< "render(){import(\"object.stl\");}";
+                renderfile.close();
+                system("openscad render.scad");
+            }else{
+                cout<< "unable to render the stl";
+            }
+        }else{
+            cout<< "unable to open file"<<endl;
+        }
+        return true;
+    }catch(...){
+        return false;
+    }
 }

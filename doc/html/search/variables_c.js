@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['top',['top',['../class_construct_window.html#a400b924c57cd3a4f09165a5f5862f3cb',1,'ConstructWindow']]],
-  ['topview',['topview',['../class_projection2_d.html#a90079954379a766f60ba01ad393327ab',1,'Projection2D']]]
+  ['side',['side',['../class_construct_window.html#ad2ef07e4940cd866ea8ae64ae1a1b0cb',1,'ConstructWindow']]],
+  ['sideview',['sideview',['../class_projection2_d.html#a82c9e3f197b07ffe9a10f59de60edbee',1,'Projection2D']]]
 ];
